@@ -41,7 +41,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
     Auth::routes(['verify' => true]);
 
     Route::get('/cuba', function() {
-       return view('admin.cuba-index');
+       return view('admin.cuba.index');
     });
 });
 

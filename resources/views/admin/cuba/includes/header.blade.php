@@ -13,7 +13,7 @@
             </div>
         </form>
         <div class="header-logo-wrapper col-auto p-0">
-            <div class="logo-wrapper"><a href="#"><img class="img-fluid" src="{{asset('admins/assets/images/logo/logo.png')}}" alt=""></a></div>
+            <div class="logo-wrapper"><a href="#"><img class="img-fluid" src="{{asset('admins/cuba/assets/images/logo/logo.png')}}" alt=""></a></div>
             <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
         </div>
         <div class="left-header col horizontal-wrapper ps-0">
@@ -251,7 +251,7 @@
                         </li>
                         <li class="mt-0">
                             <div class="media">
-                                <img class="img-fluid rounded-circle me-3 img-60" src="{{asset('admins/assets/images/ecommerce/01.jpg')}}" alt="">
+                                <img class="img-fluid rounded-circle me-3 img-60" src="{{asset('admins/cuba/assets/images/ecommerce/01.jpg')}}" alt="">
                                 <div class="media-body">
                                     <span>V-Neck Shawl Collar Woman's Solid T-Shirt</span>
                                     <p>Yellow(#fcb102)</p>
@@ -269,7 +269,7 @@
                         </li>
                         <li class="mt-0">
                             <div class="media">
-                                <img class="img-fluid rounded-circle me-3 img-60" src="{{asset('admins/assets/images/ecommerce/03.jpg')}}" alt="">
+                                <img class="img-fluid rounded-circle me-3 img-60" src="{{asset('admins/cuba/assets/images/ecommerce/03.jpg')}}" alt="">
                                 <div class="media-body">
                                     <span>V-Neck Shawl Collar Woman's Solid T-Shirt</span>
                                     <p>Yellow(#fcb102)</p>
@@ -302,7 +302,7 @@
                         </li>
                         <li>
                             <div class="media">
-                                <img class="img-fluid rounded-circle me-3" src="{{asset('admins/assets/images/user/1.jpg')}}" alt="">
+                                <img class="img-fluid rounded-circle me-3" src="{{asset('admins/cuba/assets/images/user/1.jpg')}}" alt="">
                                 <div class="status-circle online"></div>
                                 <div class="media-body">
                                     <span>Erica Hughes</span>
@@ -313,7 +313,7 @@
                         </li>
                         <li>
                             <div class="media">
-                                <img class="img-fluid rounded-circle me-3" src="{{asset('admins/assets/images/user/2.jpg')}}" alt="">
+                                <img class="img-fluid rounded-circle me-3" src="{{asset('admins/cuba/assets/images/user/2.jpg')}}" alt="">
                                 <div class="status-circle online"></div>
                                 <div class="media-body">
                                     <span>Kori Thomas</span>
@@ -324,7 +324,7 @@
                         </li>
                         <li>
                             <div class="media">
-                                <img class="img-fluid rounded-circle me-3" src="{{asset('admins/assets/images/user/4.jpg')}}" alt="">
+                                <img class="img-fluid rounded-circle me-3" src="{{asset('admins/cuba/assets/images/user/4.jpg')}}" alt="">
                                 <div class="status-circle offline"></div>
                                 <div class="media-body">
                                     <span>Ain Chavez</span>
@@ -339,7 +339,7 @@
                 <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
                 <li class="profile-nav onhover-dropdown p-0 me-0">
                     <div class="media profile-media">
-                        <img class="b-r-10" src="{{asset('admins/assets/images/dashboard/profile.jpg')}}" alt="">
+                        <img class="b-r-10" src="{{asset('admins/cuba/assets/images/dashboard/profile.jpg')}}" alt="">
                         <div class="media-body">
                             <span>Emay Walter</span>
                             <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
