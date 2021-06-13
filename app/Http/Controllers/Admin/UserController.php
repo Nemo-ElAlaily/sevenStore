@@ -35,14 +35,14 @@ class UserController extends Controller
             });
         })->paginate(ADMIN_PAGINATION_COUNT);
 
-        return view('admin.users.index', compact('users', 'roles'));
+        return view('admin.adminlte.users.index', compact('users', 'roles'));
     } // end of index
 
     public function create()
     {
         try{
             if(Auth::user()->hasPermission('users_create')){
-                return view('admin.users.create');
+                return view('admin.adminlte.users.create');
             } else {
                 session() -> flash('error', 'Not Authorized, Please contact Administrator');
                 return redirect()-> route('admin.users.index');
@@ -116,7 +116,7 @@ class UserController extends Controller
     {
         try{
             if(Auth::user()->hasPermission('users_update')){
-                return view('admin.users.edit', compact('user'));
+                return view('admin.adminlte.users.edit', compact('user'));
             } else {
                 session() -> flash('error', 'Not Authorized, Please contact Administrator');
                 return redirect()-> route('admin.users.index');

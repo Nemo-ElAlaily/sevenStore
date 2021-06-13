@@ -32,7 +32,7 @@ class VendorController extends Controller
             });
         })->paginate(ADMIN_PAGINATION_COUNT);
 
-        return view('admin.vendors.index', compact('vendors'));
+        return view('admin.adminlte.vendors.index', compact('vendors'));
 
     } // end of index
 
@@ -40,7 +40,7 @@ class VendorController extends Controller
     {
         try{
             if(Auth::user()->hasPermission('vendors_update')){
-                return view('admin.vendors.edit', compact('vendor'));
+                return view('admin.adminlte.vendors.edit', compact('vendor'));
             } else {
                 session() -> flash('error', 'Not Authorized, Please contact Administrator');
                 return redirect() -> route('admin.vendors.index');
