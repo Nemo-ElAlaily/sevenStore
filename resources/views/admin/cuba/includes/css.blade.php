@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" type="text/css" href="{{asset('admins/cuba/assets/css/font-awesome.css')}}">
 <!-- ico-font-->
 <link rel="stylesheet" type="text/css" href="{{asset('admins/cuba/assets/css/vendors/icofont.css')}}">
@@ -17,4 +18,3 @@
 <link id="color" rel="stylesheet" href="{{asset('admins/cuba/assets/css/color-1.css')}}" media="screen">
 <!-- Responsive css-->
 <link rel="stylesheet" type="text/css" href="{{asset('admins/cuba/assets/css/responsive.css')}}">
-

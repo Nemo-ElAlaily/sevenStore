@@ -1,4 +1,3 @@
-
 <div class="sidebar-wrapper">
     <div>
         <div class="logo-wrapper">
@@ -58,30 +57,30 @@
                                         </li>
 
                                         @if (auth()->user()->hasPermission('users_read'))
-                                        <li class="sidebar-list">
-                                            <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.users.index') }}" data-bs-original-title="" title="">
-                                                <i class="nav-icon fa fa-users"></i>
-                                                <span>Users</span>
-                                            </a>
-                                        </li>
+                                            <li class="sidebar-list">
+                                                <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.users.index') }}" data-bs-original-title="" title="">
+                                                    <i class="nav-icon fa fa-users"></i>
+                                                    <span>Users</span>
+                                                </a>
+                                            </li>
                                         @endif
 
                                         @if (auth()->user()->hasPermission('vendors_read'))
-                                        <li class="sidebar-list">
-                                            <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.vendors.index') }}" data-bs-original-title="" title="">
-                                                <i class="nav-icon fa fa-user-plus"></i>
-                                                <span>Vendors</span>
-                                            </a>
-                                        </li>
+                                            <li class="sidebar-list">
+                                                <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.vendors.index') }}" data-bs-original-title="" title="">
+                                                    <i class="nav-icon fa fa-user-plus"></i>
+                                                    <span>Vendors</span>
+                                                </a>
+                                            </li>
                                         @endif
 
                                         @if (auth()->user()->hasPermission('products_read'))
-                                        <li class="sidebar-list">
-                                            <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.products.index') }}" data-bs-original-title="" title="">
-                                                <i class="nav-icon fa fa-product-hunt"></i>
-                                                <span>Products</span>
-                                            </a>
-                                        </li>
+                                            <li class="sidebar-list">
+                                                <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.products.index') }}" data-bs-original-title="" title="">
+                                                    <i class="nav-icon fa fa-product-hunt"></i>
+                                                    <span>Products</span>
+                                                </a>
+                                            </li>
                                         @endif
 
                                         @if (auth()->user()->hasPermission('main_categories_read'))

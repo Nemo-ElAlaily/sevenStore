@@ -1,4 +1,4 @@
-@extends('layouts.admin.cuba')
+@extends('layouts.admin.master')
 
 
 @section('contentFileManger')
