@@ -26,30 +26,36 @@
                 <li class="language-nav">
                     <div class="translate_wrapper">
                         <div class="current_lang">
-                            <div class="lang"><i class="flag-icon flag-icon-{{ (App::getLocale() == 'en') ? 'us' : App::getLocale() }}"></i><span class="lang-txt">{{ App::getLocale() }} </span></div>
+                            <div class="lang">
+                                @if(LaravelLocalization::getCurrentLocale() == 'en')
+                                    <i class="flag-icon flag-icon-us"></i>
+                                @elseif(LaravelLocalization::getCurrentLocale() == 'ar')
+                                    <i class="flag-icon flag-icon-ae"></i>
+                                @else
+                                    <i class="flag-icon flag-icon-{{ LaravelLocalization::getCurrentLocale() }}"></i>
+                                @endif
+                                <span class="lang-txt">{{ LaravelLocalization::getCurrentLocale() }} </span>
+                            </div>
                         </div>
                         <div class="more_lang">
-                            <a href="" class="{{ (App::getLocale()  == 'en') ? 'active' : ''}}">
-                                <div class="lang {{ (App::getLocale()  == 'en') ? 'selected' : ''}}" data-value="en"><i class="flag-icon flag-icon-us"></i> <span class="lang-txt">English</span><span> (US)</span></div>
-                            </a>
-                            <a href="#" class="{{ (App::getLocale()  == 'de') ? 'active' : ''}} ">
-                                <div class="lang {{ (App::getLocale()  == 'de') ? 'selected' : ''}}" data-value="de"><i class="flag-icon flag-icon-de"></i> <span class="lang-txt">Deutsch</span></div>
-                            </a>
-                            <a href="#" class="{{ (App::getLocale()  == 'en') ? 'active' : ''}}">
-                                <div class="lang {{ (App::getLocale()  == 'es') ? 'selected' : ''}}" data-value="es"><i class="flag-icon flag-icon-es"></i> <span class="lang-txt">Español</span></div>
-                            </a>
-                            <a href="#" class="{{ (App::getLocale()  == 'fr') ? 'active' : ''}}">
-                                <div class="lang {{ (App::getLocale()  == 'fr') ? 'selected' : ''}}" data-value="fr"><i class="flag-icon flag-icon-fr"></i> <span class="lang-txt">Français</span></div>
-                            </a>
-                            <a href="#" class="{{ (App::getLocale()  == 'pt') ? 'active' : ''}}">
-                                <div class="lang {{ (App::getLocale()  == 'pt') ? 'selected' : ''}}" data-value="pt"><i class="flag-icon flag-icon-pt"></i> <span class="lang-txt">Português</span><span> (BR)</span></div>
-                            </a>
-                            <a href="#" class="{{ (App::getLocale()  == 'cn') ? 'active' : ''}}">
-                                <div class="lang {{ (App::getLocale()  == 'cn') ? 'selected' : ''}}" data-value="cn"><i class="flag-icon flag-icon-cn"></i> <span class="lang-txt">简体中文</span></div>
-                            </a>
-                            <a href="#" class="{{ (App::getLocale()  == 'ae') ? 'active' : ''}}">
-                                <div class="lang {{ (App::getLocale()  == 'ae') ? 'selected' : ''}}" data-value="en"><i class="flag-icon flag-icon-ae"></i> <span class="lang-txt">لعربية</span> <span> (ae)</span></div>
-                            </a>
+
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+
+                                <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="{{ (App::getLocale()  == 'en') ? 'active' : ''}}">
+                                    <div class="lang {{ LaravelLocalization::getCurrentLocale()  == 'en' ? 'selected' : '' }}" data-value="{{ $localeCode }}">
+                                        @if($localeCode == 'en')
+                                            <i class="flag-icon flag-icon-us"></i>
+                                        @elseif($localeCode == 'ar')
+                                            <i class="flag-icon flag-icon-ae"></i>
+                                        @else
+                                            <i class="flag-icon flag-icon-{{ $localeCode }}"></i>
+                                        @endif
+                                        <span class="lang-txt">{{ $properties['native'] }}</span>
+                                    </div>
+                                </a>
+
+                            @endforeach
+
                         </div>
                     </div>
                 </li>
