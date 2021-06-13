@@ -40,7 +40,7 @@ class ProductController extends Controller
             })->latest()->paginate(ADMIN_PAGINATION_COUNT);
         }
 
-        return view('admin.adminlte.products.index' , compact('products' , 'categories'));
+        return view('admin.cuba.products.index' , compact('products' , 'categories'));
 
     } // end of index
 
@@ -50,7 +50,7 @@ class ProductController extends Controller
             $user = auth() -> user() -> id;
             $categories = MainCategory::all();
 
-            return view('admin.adminlte.products.create', compact( 'categories', 'user'));
+            return view('admin.cuba.products.create', compact( 'categories', 'user'));
 
         } catch (\Exception $exception) {
 
@@ -117,7 +117,7 @@ class ProductController extends Controller
                 return redirect()->route('admin.products.index');
             }
 
-            return view('admin.adminlte.products.show', compact('product'));
+            return view('admin.cuba.products.show', compact('product'));
 
         } catch (\Exception $exception) {
 
@@ -144,7 +144,7 @@ class ProductController extends Controller
 
             $categories = MainCategory::where(['id' => $product -> main_category_id ])->orWhere(['parent_id' => $product -> main_category_id]) -> get();
 
-            return view('admin.adminlte.products.edit', compact('product', 'categories'));
+            return view('admin.cuba.products.edit', compact('product', 'categories'));
 
         } catch (\Exception $exception) {
 

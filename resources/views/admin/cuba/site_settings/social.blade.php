@@ -10,8 +10,8 @@
 @section('content')
     <div class="box-body mx-5 mt-3">
 
-        @include('admin.adminlte.partials._session')
-        @include('admin.adminlte.partials._errors')
+        @include('admin.cuba.partials._session')
+        @include('admin.cuba.partials._errors')
 
         <form class="col-12"  action="{{ route('admin.social.update') }}" method="POST" enctype="multipart/form-data">
 

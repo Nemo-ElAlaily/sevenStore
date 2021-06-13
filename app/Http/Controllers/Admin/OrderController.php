@@ -18,7 +18,7 @@ class OrderController extends Controller
             return $query -> where('status', $request -> status);
         })->latest()->paginate(ADMIN_PAGINATION_COUNT);
 
-        return view('admin.adminlte.orders.index', compact('orders', 'statuses'));
+        return view('admin.cuba.orders.index', compact('orders', 'statuses'));
 
     } // end of index
 
@@ -26,7 +26,7 @@ class OrderController extends Controller
     {
         return $order = \Corcel\WooCommerce\Model\Order::find($id);
 
-        return view('admin.adminlte.orders.show', compact('order'));
+        return view('admin.cuba.orders.show', compact('order'));
 
     } // end of show
 
@@ -34,7 +34,7 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
 
-        return view('admin.adminlte.orders.edit', compact('order'));
+        return view('admin.cuba.orders.edit', compact('order'));
 
     } // end of edit
 

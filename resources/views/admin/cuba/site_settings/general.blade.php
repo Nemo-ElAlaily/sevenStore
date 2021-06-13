@@ -9,8 +9,8 @@
 
 @section('content')
 
-    @include('admin.adminlte.partials._session')
-    @include('admin.adminlte.partials._errors')
+    @include('admin.cuba.partials._session')
+    @include('admin.cuba.partials._errors')
     <!-- Default box -->
     <div class="card card-solid">
         <div class="card-body">

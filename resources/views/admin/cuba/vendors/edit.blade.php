@@ -12,8 +12,8 @@
     <!-- Default box -->
     <div class="card card-solid">
         <div class="card-body">
-            @include('admin.adminlte.partials._session')
-            @include('admin.adminlte.partials._errors')
+            @include('admin.cuba.partials._session')
+            @include('admin.cuba.partials._errors')
             <div class="row">
 
                 <form class="col-12" action="{{ route('admin.vendors.update', $vendor -> id) }}" method="post" enctype="multipart/form-data">

@@ -19,7 +19,7 @@ class MainCategoryController extends Controller
     public function index()
     {
         $main_categories = MainCategory::paginate(ADMIN_PAGINATION_COUNT);
-        return view('admin.adminlte.main_categories.index' , compact('main_categories'));
+        return view('admin.cuba.main_categories.index' , compact('main_categories'));
     } // end of index
 
 } // end of controller
