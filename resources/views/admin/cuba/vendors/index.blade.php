@@ -2,17 +2,9 @@
 
 @section('title', 'Vendor')
 
-@section('content-header')
-    <div class="col-sm-6">
-        <h1>Vendors <span class="small text-muted"> {{ $vendors->total() }}</span></h1>
-    </div>
-    <divbilling_ class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item active"><a href="{{ route('admin.index') }}">Home</a></li>
-        </ol>
-    </divbilling_>
-
-@endsection
+@section('breadcrumb-items')
+    <li class="breadcrumb-item">Vendors</li>
+@stop
 
 @section('content')
     <div class="box box-primary">

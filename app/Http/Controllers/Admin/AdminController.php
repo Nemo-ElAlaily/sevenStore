@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.adminlte.index');
+        return view('admin.cuba.index');
 
     }// end of index
 

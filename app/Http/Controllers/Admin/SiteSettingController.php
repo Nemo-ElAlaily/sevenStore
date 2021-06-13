@@ -22,7 +22,7 @@ class SiteSettingController extends Controller
     public function generalShow($id)
     {
         $site_settings = SiteSetting::findorFail($id);
-        return view('admin.adminlte.site_settings.general', compact('site_settings'));
+        return view('admin.cuba.site_settings.general', compact('site_settings'));
     } // end of general show
 
     public function generalUpdate($id, Request $request)
@@ -52,7 +52,7 @@ class SiteSettingController extends Controller
     public function socialShow()
     {
         $socials = SocialSetting::all();
-        return view('admin.adminlte.site_settings.social', compact('socials'));
+        return view('admin.cuba.site_settings.social', compact('socials'));
     } // end of general show
 
     public function socialUpdate(Request $request)
@@ -82,7 +82,7 @@ class SiteSettingController extends Controller
     public function databaseShow($id)
     {
         $database_settings = DatabaseSetting::findorFail($id);
-        return view('admin.adminlte.site_settings.database', compact('database_settings'));
+        return view('admin.cuba.site_settings.database', compact('database_settings'));
     } // end of general show
 
     public function databaseUpdate($id, Request $request)
