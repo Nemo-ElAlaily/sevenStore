@@ -7,17 +7,17 @@
     <meta name="description" content="Cuba admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Cuba admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="{{asset('admins/assets/images/favicon.png')}}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{asset('admins/assets/images/favicon.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('admins/cuba/assets/images/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('admins/cuba/assets/images/favicon.png')}}" type="image/x-icon">
     <title>Cuba - Premium Admin Template</title>
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
     @include('admin.includes.cuba.css')
     @yield('style')
-    <link rel="stylesheet" type="text/css" href="{{asset('admins/assets/css/vendors/animate.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('admins/assets/css/vendors/chartist.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('admins/assets/css/vendors/date-picker.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('admins/cuba/assets/css/vendors/animate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('admins/cuba/assets/css/vendors/chartist.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('admins/cuba/assets/css/vendors/date-picker.css')}}">
 </head>
 <body>
 
@@ -66,23 +66,23 @@
         $(".sidebar-submenu" ).css( "display", "block" );
     }
 </script>
-<script src="{{asset('admins/assets/js/chart/chartist/chartist.js')}}"></script>
-<script src="{{asset('admins/assets/js/chart/chartist/chartist-plugin-tooltip.js')}}"></script>
-<script src="{{asset('admins/assets/js/chart/knob/knob.min.js')}}"></script>
-<script src="{{asset('admins/assets/js/chart/knob/knob-chart.js')}}"></script>
-<script src="{{asset('admins/assets/js/chart/apex-chart/apex-chart.js')}}"></script>
-<script src="{{asset('admins/assets/js/chart/apex-chart/stock-prices.js')}}"></script>
-<script src="{{asset('admins/assets/js/notify/bootstrap-notify.min.js')}}"></script>
-<script src="{{asset('admins/assets/js/dashboard/default.js')}}"></script>
-<script src="{{asset('admins/assets/js/notify/index.js')}}"></script>
-<script src="{{asset('admins/assets/js/datepicker/date-picker/datepicker.js')}}"></script>
-<script src="{{asset('admins/assets/js/datepicker/date-picker/datepicker.en.js')}}"></script>
-<script src="{{asset('admins/assets/js/datepicker/date-picker/datepicker.custom.js')}}"></script>
-<script src="{{asset('admins/assets/js/typeahead/handlebars.js')}}"></script>
-<script src="{{asset('admins/assets/js/typeahead/typeahead.bundle.js')}}"></script>
-<script src="{{asset('admins/assets/js/typeahead/typeahead.custom.js')}}"></script>
-<script src="{{asset('admins/assets/js/typeahead-search/handlebars.js')}}"></script>
-<script src="{{asset('admins/assets/js/typeahead-search/typeahead-custom.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/chart/chartist/chartist.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/chart/chartist/chartist-plugin-tooltip.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/chart/knob/knob.min.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/chart/knob/knob-chart.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/chart/apex-chart/apex-chart.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/chart/apex-chart/stock-prices.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/notify/bootstrap-notify.min.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/dashboard/default.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/notify/index.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/datepicker/date-picker/datepicker.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/datepicker/date-picker/datepicker.en.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/datepicker/date-picker/datepicker.custom.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/typeahead/handlebars.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/typeahead/typeahead.bundle.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/typeahead/typeahead.custom.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/typeahead-search/handlebars.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/typeahead-search/typeahead-custom.js')}}"></script>
 <script type="text/javascript">
     var session_layout = '{{ session()->get('layout') }}';
 </script>

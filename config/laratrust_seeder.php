@@ -23,8 +23,6 @@ return [
             'payments' => 'c,r,u,d',
             'profile' => 'r,u',
             'site_settings' => 'c,r,u',
-            'social_settings' => 'c,r,u',
-            'database_settings' => 'c,r,u',
         ],
         'admin' => [
             'users' => 'c,r,u,d',
@@ -36,9 +34,7 @@ return [
             'orders' => 'c,r,u,d',
             'payments' => 'c,r,u,d',
             'profile' => 'r,u',
-            'site_settings' => 'c,r,u',
-            'social_settings' => 'c,r,u',
-            'database_settings' => 'c,r,u',
+            'site_settings' => 'r,u',
         ],
         'user' => [
             'profile' => 'c,r,u',

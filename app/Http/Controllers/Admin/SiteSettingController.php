@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Storage;
 
 class SiteSettingController extends Controller
 {
+    public function __construct()
+    {
+        $this -> middleware(['permission:site_settings_read'])->only(['generalShow', 'socialShow', 'databaseShow']);
+        $this -> middleware(['permission:site_settings_update'])->only(['generalUpdate', 'socialUpdate', 'databaseUpdate']);
+    } // end of construct
+
     public function generalShow($id)
     {
         $site_settings = SiteSetting::findorFail($id);
@@ -89,11 +95,11 @@ class SiteSettingController extends Controller
         $path = base_path('config\database.php');
         $contents = File::get($path);
 
-        $contents = str_replace("env('WP_DB_HOST')", $database_settings -> WP_DB_HOST, $contents);
-        $contents = str_replace("env('WP_DB_PORT')", $database_settings -> WP_DB_PORT, $contents);
-        $contents = str_replace("env('WP_DB_DATABASE')", $database_settings -> WP_DB_DATABASE, $contents);
-        $contents = str_replace("env('WP_DB_USERNAME')", $database_settings -> WP_DB_USERNAME, $contents);
-        $contents = str_replace("env('WP_DB_PASSWORD')", $database_settings -> WP_DB_PASSWORD, $contents);
+        $contents = str_replace("env('WP_DB_HOST')", "'" . $database_settings -> WP_DB_HOST . "'", $contents);
+        $contents = str_replace("env('WP_DB_PORT')", "'" . $database_settings -> WP_DB_PORT . "'", $contents);
+        $contents = str_replace("env('WP_DB_DATABASE')", "'" . $database_settings -> WP_DB_DATABASE . "'", $contents);
+        $contents = str_replace("env('WP_DB_USERNAME')", "'" . $database_settings -> WP_DB_USERNAME . "'", $contents);
+        $contents = str_replace("env('WP_DB_PASSWORD')", "'" . $database_settings -> WP_DB_PASSWORD . "'", $contents);
         // and so on
 
         File::put($path, $contents);

@@ -10,13 +10,14 @@
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/favicon.ico') }}">
     <!-- Ionicons -->
+    <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('admins/css/app_' .LaravelLocalization::getCurrentLocaleDirection(). '.css')}}">
-    <link rel="stylesheet" href="{{ asset('admins/css/icheck-bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('admins/css/select2.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admins/adminlte/css/app_' .LaravelLocalization::getCurrentLocaleDirection(). '.css')}}">
+    <link rel="stylesheet" href="{{ asset('admins/adminlte/css/icheck-bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('admins/adminlte/css/select2.min.css') }}" />
 
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -55,11 +56,11 @@
 <!-- ./wrapper -->
 
 <!-- admin LTE -->
-<script src="{{ asset('admins/plugins/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('admins/adminlte/plugins/ckeditor/ckeditor.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="{{ asset('admins/js/app.js') }}"></script>
-<script src="{{ asset('admins/js/select2.min.js') }}"></script>
+<script src="{{ asset('admins/adminlte/js/app.js') }}"></script>
+<script src="{{ asset('admins/adminlte/js/select2.min.js') }}"></script>
 
 <script>
     $(document).ready(function () {
