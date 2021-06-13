@@ -2,10 +2,13 @@
 
 @section('title', 'Orders')
 
+@section('breadcrumb-title')
+    <h5>Orders <span class="small text-muted">{{ $orders ->total() }}</span></h5>
+@stop
+
 @section('breadcrumb-items')
     <li class="breadcrumb-item">Orders</li>
 @stop
-
 
 @section('content')
     <div class="box box-primary">

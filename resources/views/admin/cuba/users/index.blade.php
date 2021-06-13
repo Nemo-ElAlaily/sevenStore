@@ -2,6 +2,10 @@
 
 @section('title', 'Users')
 
+@section('breadcrumb-title')
+    <h5>Users <span class="small text-muted">{{ $users ->total() }}</span></h5>
+@stop
+
 @section('breadcrumb-items')
     <li class="breadcrumb-item">Users</li>
 @stop

@@ -2,6 +2,10 @@
 
 @section('title', 'Site Settings')
 
+@section('breadcrumb-title')
+    <h5>Social Settings</h5>
+@stop
+
 @section('breadcrumb-items')
     <li class="breadcrumb-item">Settings</li>
     <li class="breadcrumb-item">Social</li>
