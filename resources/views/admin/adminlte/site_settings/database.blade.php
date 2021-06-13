@@ -17,8 +17,8 @@
 @section('content')
     <div class="box-body mx-5 mt-3">
 
-        @include('admin.partials._session')
-        @include('admin.partials._errors')
+        @include('admin.adminlte.partials._session')
+        @include('admin.adminlte.partials._errors')
 
         <form class="col-12"  action="{{ route('admin.database.update', 1) }}" method="POST" enctype="multipart/form-data">
 

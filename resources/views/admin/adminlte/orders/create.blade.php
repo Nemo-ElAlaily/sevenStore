@@ -21,7 +21,7 @@
         <div class="card-body">
             <div class="row">
 
-                @include('admin.partials._errors')
+                @include('admin.adminlte.partials._errors')
                 <form class="col-12"  action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
 
                     {{ csrf_field() }}

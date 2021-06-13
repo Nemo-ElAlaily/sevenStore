@@ -13,7 +13,7 @@
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
-    @include('admin.includes.cuba.css')
+    @include('admin.cuba.includes.css')
     @yield('style')
     <link rel="stylesheet" type="text/css" href="{{asset('admins/cuba/assets/css/vendors/animate.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admins/cuba/assets/css/vendors/chartist.css')}}">
@@ -38,13 +38,13 @@
 <!-- page-wrapper Start-->
 <div class="page-wrapper compact-wrapper" id="pageWrapper">
     <!-- Page Header Start-->
-    @include('admin.includes.cuba.header')
+    @include('admin.cuba.includes.header')
 <!-- Page Header Ends  -->
 
     <!-- Page Body Start-->
     <div class="page-body-wrapper">
 
-        @include('admin.includes.cuba.sidebar')
+        @include('admin.cuba.includes.sidebar')
         @yield('contentFileManger')
         @yield('creatProject')
         <!-- Page Sidebar Ends-->
@@ -54,10 +54,10 @@
     </div>
 </div>
 
-    @include('admin.includes.cuba.footer')
+    @include('admin.cuba.includes.footer')
 
     <!-- latest jquery-->
-    @include('admin.includes.cuba.script')
+    @include('admin.cuba.includes.script')
     <!-- Plugin used-->
 
 <script type="text/javascript">

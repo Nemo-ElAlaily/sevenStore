@@ -27,9 +27,9 @@
 <!-- Site wrapper -->
 <div class="wrapper">
 
-    @include('admin.includes.header')
+    @include('admin.adminlte.includes.header')
 
-    @include('admin.includes.sidebar')
+    @include('admin.adminlte.includes.sidebar')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -50,7 +50,7 @@
     </div>
     <!-- /.content-wrapper -->
 
-    @include('admin.includes.footer')
+    @include('admin.adminlte.includes.footer')
 
 </div>
 <!-- ./wrapper -->

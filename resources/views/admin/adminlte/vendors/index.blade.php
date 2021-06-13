@@ -1,16 +1,16 @@
 @extends('layouts.admin.app')
 
-@section('title', 'users')
+@section('title', 'Vendor')
 
 @section('content-header')
     <div class="col-sm-6">
-        <h1>users <span class="small text-muted">{{ $users->total() }}</span></h1>
+        <h1>Vendors <span class="small text-muted"> {{ $vendors->total() }}</span></h1>
     </div>
-    <div class="col-sm-6">
+    <divbilling_ class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item active"><a href="{{ route('admin.index') }}">Home</a></li>
         </ol>
-    </div>
+    </divbilling_>
 
 @endsection
 
@@ -19,7 +19,7 @@
 
         <div class="box-header with-border">
 
-            <form action="{{ route('admin.users.index') }}" method="get">
+            <form action="{{ route('admin.vendors.index') }}" method="get">
 
                 <div class="row mx-5">
 
@@ -27,20 +27,9 @@
                         <input type="text" name="search" class="form-control" placeholder="Search Here..." value="{{ request()->search }}">
                     </div>
 
-{{--                    <div class="col-md-2">--}}
-{{--                        <label class="w-100">--}}
-{{--                            <select name="role" class="form-control">--}}
-{{--                                <option value="">All Roles</option>--}}
-{{--                                @foreach($roles as $role)--}}
-{{--                                    <option value="{{ $role -> name }}" {{ request() -> roles == $role -> name ? 'selected' : '' }}>{{ $role -> display_name }}</option>--}}
-{{--                                @endforeach--}}
-{{--                            </select>--}}
-{{--                        </label>--}}
-{{--                    </div>--}}
-
                     <div class="col-md-4 p-0">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                        @if (auth()->user()->hasPermission('users_create'))
+                        @if (auth()->user()->hasPermission('vendors_create'))
                             <a href="{{ route('admin.users.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add user</a>
                              @else
                                 <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> Add user</a>
@@ -52,18 +41,18 @@
 
         </div><!-- end of box header -->
 
-        @include('admin.partials._session')
-        @include('admin.partials._errors')
+        @include('admin.adminlte.partials._session')
+        @include('admin.adminlte.partials._errors')
 
         <div class="box-body bg-white mx-5 mt-3">
 
             <table class="text-center pt-2 card-body table table-hover table-bordered">
-                @if ($users->count() > 0)
+                @if ($vendors->count() > 0)
                 <thead>
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>E-Mail</th>
+                    <th>Products</th>
                     @if (auth()->user()->hasPermission('users_update','users_delete'))
                         <th>Action</th>
                     @endif
@@ -71,19 +60,21 @@
                 </thead>
 
                 <tbody>
-                @foreach ($users as $index=>$user)
+                @foreach ($vendors as $index=>$vendor)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $user -> full_name }}</td>
-                        <td>{{ $user -> email }}</td>
+                        <td>{{ $vendor -> full_name }}</td>
+                        <td>
+                            <a href="{{ route('admin.products.index', ['vendor_id' => $vendor->id ]) }}" class="btn btn-primary btn-sm text-white"><i class="fa fa-eye"></i> View Products</a>
+                        </td>
                         <td>
                             @if (auth()->user()->hasPermission('users_update'))
-                                <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                <a href="{{ route('admin.vendors.edit', $vendor->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                 {{-- @else
                                     <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
                             @endif
                             @if (auth()->user()->hasPermission('users_delete'))
-                                <form action="{{ route('admin.users.destroy', $user->id) }}" method="post" style="display: inline-block">
+                                <form action="{{ route('admin.vendors.destroy', $vendor->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
                                     <button type="button" class="btn btn-danger show_confirm btn-sm"><i class="fa fa-trash"></i> Delete</button>
@@ -103,7 +94,7 @@
 
             </table><!-- end of table -->
 
-            {{ $users->appends(request()->query())->links() }}
+            {{ $vendors->appends(request()->query())->links() }}
 
         </div><!-- end of box body -->
 

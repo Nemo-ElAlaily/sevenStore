@@ -15,8 +15,8 @@
 
 @section('content')
 
-    @include('admin.partials._session')
-    @include('admin.partials._errors')
+    @include('admin.adminlte.partials._session')
+    @include('admin.adminlte.partials._errors')
     <!-- Default box -->
     <div class="card card-solid">
         <div class="card-body">

@@ -48,8 +48,8 @@
 
         </div><!-- end of box header -->
 
-        @include('admin.partials._session')
-        @include('admin.partials._errors')
+        @include('admin.adminlte.partials._session')
+        @include('admin.adminlte.partials._errors')
 
         <div class="box-body bg-white mx-5 mt-3">
 
