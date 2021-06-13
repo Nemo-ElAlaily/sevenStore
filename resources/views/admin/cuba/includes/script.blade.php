@@ -1,3 +1,55 @@
+<script src="{{ asset('admins/adminlte/plugins/ckeditor/ckeditor.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{{ asset('admins/adminlte/js/app.js') }}"></script>
+<script src="{{ asset('admins/adminlte/js/select2.min.js') }}"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('.show_confirm').on('click',function(e) {
+            if(!confirm('Are you sure you want to delete this?')) {
+                e.preventDefault();
+            } else {
+                this.closest('form').submit();
+            }
+        });
+
+        CKEDITOR.config.language = "{{ app() -> getLocale() }}" // end ck editor
+
+        // image preview
+        $(".image").change(function () {
+
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.image-preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(this.files[0]); // convert to base64 string
+            }
+        }); // end of image preview
+
+        // Floor plan preview
+        $(".floor_plan").change(function () {
+
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.floor_plan_preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(this.files[0]); // convert to base64 string
+            }
+        }); // end of image preview
+
+    }); // end of ready
+</script>
+
+{{-- start cuba scripts --}}
+
 <script src="{{asset('admins/cuba/assets/js/jquery-3.5.1.min.js')}}"></script>
 <!-- Bootstrap js-->
 <script src="{{asset('admins/cuba/assets/js/bootstrap/bootstrap.bundle.min.js')}}"></script>
