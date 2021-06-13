@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this -> middleware(['permission:orders_read'])->only('index');
+        $this -> middleware(['permission:orders_create'])->only(['create', 'store']);
+        $this -> middleware(['permission:orders_update'])->only(['edit', 'update']);
+        $this -> middleware(['permission:orders_delete'])->only(['destroy']);
+    } // end of construct
+
     public function index(Request $request)
     {
         $statuses = Order::select('status')->where('status', 'not like', 'completed')->groupBy('status')->get();
