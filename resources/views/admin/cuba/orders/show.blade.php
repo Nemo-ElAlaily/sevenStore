@@ -16,8 +16,14 @@
 
                 @include('admin.adminlte.partials._errors')
                 <form class="col-12">
-                    <a href="#" class="btn btn-success mb-4">
-                        <i class="fa fa-check fa-lg"></i> Mark as Completed
+                    <a href="#" class="btn btn-completed mb-4">
+                        <i class="fa fa-check fa-lg"></i> Mark as Completed shipped
+                    </a>
+                    <a href="#" class="btn btn-sending mb-4">
+                        <i class="fa fa-truck fa-lg"></i>  sending
+                    </a>
+                    <a href="#" class="btn btn-received mb-4">
+                        <i class="fa fa-truck fa-lg"></i>  Received
                     </a>
 
                     <div class="row">
