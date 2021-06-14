@@ -7,6 +7,7 @@ use App\Models\Settings\DatabaseSetting;
 use App\Models\Settings\SiteSetting;
 use App\Models\Settings\SocialSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -83,7 +84,7 @@ class SiteSettingController extends Controller
     {
         $database_settings = DatabaseSetting::findorFail($id);
         return view('admin.cuba.site_settings.database', compact('database_settings'));
-    } // end of general show
+    } // end of database show
 
     public function databaseUpdate($id, Request $request)
     {
@@ -107,6 +108,14 @@ class SiteSettingController extends Controller
         session()->flash('success', 'Database Settings Updated Successfully');
         return redirect()->route('admin.database.show', $database_settings->id);
 
-    } // end of social update
+    } // end of database update
+
+//    public function runMigration($id)
+//    {
+//        Artisan::call('migrate:fresh --seed');
+//        $database_settings = DatabaseSetting::findorFail($id);
+//        session()->flash('success', 'Database Migrated Successfully');
+//        return redirect()->route('admin.database.show', $database_settings->id);
+//    } // end of run migration command
 
 } // end of controller

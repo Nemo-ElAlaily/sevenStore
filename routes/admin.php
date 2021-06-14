@@ -24,6 +24,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 
         Route::get('database/{id}', 'SiteSettingController@databaseShow')->name('database.show');
         Route::put('database/{id}', 'SiteSettingController@databaseUpdate')->name('database.update');
+//        Route::get('database/{id}', 'SiteSettingController@runMigration')->name('database.migration');
 
         /* end site settings */
 

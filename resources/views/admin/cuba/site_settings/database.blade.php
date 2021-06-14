@@ -22,21 +22,21 @@
             {{ csrf_field() }}
             {{ method_field('PUT') }}
 
-            <div class="row">
+            <div class="row card">
                 <div class="col-sm-12 row">
                     <table class="text-center pt-2 bg-white table table-hover table-bordered">
                         <thead>
                         <tr>
-                            <th>Key</th>
-                            <th>Value</th>
-                            <th>Notes</th>
+                            <th class="text-dark">Key</th>
+                            <th class="text-dark">Value</th>
+                            <th class="text-dark">Notes</th>
                         </tr>
                         </thead>
 
                         <tbody>
 
                         <tr>
-                            <td class="align-center">WP_DATABASE_URL</td>
+                            <td class="align-center text-dark">WP_DATABASE_URL</td>
                             <td>
                                 <div class="form-group">
                                     <input class="form-control input-thick" type="text" name="WP_DATABASE_URL"
@@ -48,7 +48,7 @@
                         </tr>
 
                         <tr>
-                            <td class="align-center">WP_DB_CONNECTION</td>
+                            <td class="align-center text-dark">WP_DB_CONNECTION</td>
                             <td>
                                 <div class="form-group">
                                     <input class="form-control input-thick" type="text" name="WP_DB_CONNECTION"
@@ -60,7 +60,7 @@
                         </tr>
 
                         <tr>
-                            <td class="align-center">WP_DB_HOST</td>
+                            <td class="align-center text-dark">WP_DB_HOST</td>
                             <td>
                                 <div class="form-group">
                                     <input class="form-control input-thick" type="text" name="WP_DB_HOST"
@@ -72,19 +72,17 @@
                         </tr>
 
                         <tr>
-                            <td class="align-center">WP_DB_PORT</td>
+                            <td class="align-center text-dark">WP_DB_PORT</td>
                             <td>
                                 <div class="form-group">
                                     <input class="form-control input-thick" type="text" name="WP_DB_PORT"
                                            value="{{ $database_settings -> WP_DB_PORT }}">
                                 </div>
                             </td>
-
-                            <td></td>
                         </tr>
 
                         <tr>
-                            <td class="align-center">WP_DB_DATABASE</td>
+                            <td class="align-center text-dark">WP_DB_DATABASE</td>
                             <td>
                                 <div class="form-group">
                                     <input class="form-control input-thick" type="text" name="WP_DB_DATABASE"
@@ -96,7 +94,7 @@
                         </tr>
 
                         <tr>
-                            <td class="align-center">WP_DB_USERNAME</td>
+                            <td class="align-center text-dark">WP_DB_USERNAME</td>
                             <td>
                                 <div class="form-group">
                                     <input class="form-control input-thick" type="text" name="WP_DB_USERNAME"
@@ -108,7 +106,7 @@
                         </tr>
 
                         <tr>
-                            <td class="align-center">WP_DB_PASSWORD</td>
+                            <td class="align-center text-dark">WP_DB_PASSWORD</td>
                             <td>
                                 <div class="form-group">
                                     <input type="password" class="form-control input-thick" type="text" name="WP_DB_PASSWORD"
@@ -119,12 +117,18 @@
                             <td></td>
                         </tr>
 
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>
-                                Update Database Credentials</button>
+                        <div class="row">
+
+                            <div class="m-5 col-sm-12 col-md-6">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>
+                                    Update Database Credentials</button>
+                            </div>
+
+{{--                            <div class="form-group m-5 col-sm-12 col-md-6">--}}
+{{--                                <a href="{{ route('admin.database.migration', 1) }}" class="btn btn-success"><i class="fa fa-check-circle"></i>--}}
+{{--                                    Run Database Migrations</a>--}}
+{{--                            </div>--}}
                         </div>
-
-
 
                         </tbody>
                     </table><!-- end of table -->
