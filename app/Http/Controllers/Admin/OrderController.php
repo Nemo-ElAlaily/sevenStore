@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Orders\Order;
+use App\Models\Orders\OrderItem;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -32,9 +33,11 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        return $order = \Corcel\WooCommerce\Model\Order::find($id);
+        $order = Order::with('orderItems')->find($id);
 
-        return view('admin.cuba.orders.show', compact('order'));
+        $items = OrderItem::where('order_id', $id)->get();
+
+        return view('admin.cuba.orders.show', compact('order', 'items'));
 
     } // end of show
 

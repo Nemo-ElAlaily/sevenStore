@@ -15,6 +15,10 @@ class Order extends Model
 
     public $timestamps = true;
 
+    /* ***********************************
+    Start of Relationships
+    *********************************** */
+
     public function orderItems()
     {
         return $this -> hasMany(OrderItem::class);
@@ -24,4 +28,37 @@ class Order extends Model
     {
         return $this -> belongsTo(User::class);
     }// end of users
+
+    /* ***********************************
+   End of Relationships
+   *********************************** */
+
+    public function getShippingStatus()
+    {
+        if($this -> shipping_status == 0){
+            return 'Received';
+        } elseif($this -> shipping_status == 1){
+            return 'Shipped';
+        } elseif($this -> shipping_status == 2){
+            return 'Deliverd';
+        } else{
+            return 'Other';
+        }
+    } // end fo get shipping Status
+
+    public function getPaymentMethod()
+    {
+        if($this -> payment_method == 0){
+            return 'COD';
+        } elseif($this -> payment_method == 1){
+            return 'PayMob';
+        } elseif($this -> payment_method == 2){
+            return 'Fawry';
+        } elseif($this -> payment_method == 3){
+            return 'Credit Card';
+        } else{
+            return 'Others';
+        }
+    } // end fo get shipping Status
+
 }

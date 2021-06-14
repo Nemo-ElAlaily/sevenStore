@@ -22,11 +22,169 @@
 
                     <div class="row">
                         <div class="col-sm-12 row">
+
                             <div class="form-group col-lg-6">
-                                <label for="{{ $order -> name }}">Order # </label>
-                                <input class="form-control input-thick" type="text" name="{{ $order -> slug }}"
+                                <label for="Order_slug">Order # </label>
+                                <input class="form-control input-thick" type="text" name="Order_slug"
                                        value="{{ $order -> slug }}" disabled>
                             </div>
+
+                            <div class="form-group col-lg-6">
+                                <label for="Order_status">Order Status </label>
+                                <input class="form-control input-thick" type="text" name="Order_status"
+                                       value="{{ $order -> status }}" disabled>
+                            </div>
+
+                            {{-- start shipping data section --}}
+                            <div class="row text-center col-sm-12 col-md-12 border-right mt-3">
+                                <h3 class="m-3">Shipping Information</h3>
+                                <hr>
+
+                                <div class="row m-2 mb-3 p-0">
+                                    <div class="form-group col-lg-12">
+                                        <label for="address">Shipping Address </label>
+                                        <textarea class="form-control input-thick" type="text" name="address" disabled>
+                                            {{ $order -> address_1 .  $order -> address_2 }}, {{ $order -> city }},  {{ $order -> country }}
+                                        </textarea>
+                                    </div>
+
+                                </div>
+
+                                <div class="row m-2 mb-3 p-0">
+
+                                    <div class="form-group col-lg-6">
+                                        <label for="phone">Customer Phone</label>
+                                        <input class="form-control input-thick" type="text" name="phone"
+                                               value="{{ $order -> phone }}" disabled>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label for="email">Customer E-Mail</label>
+                                        <input class="form-control input-thick" type="text" name="email"
+                                               value="{{ $order -> email }}" disabled>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            {{-- end shipping data section--}}
+
+                            {{-- start Order Items section --}}
+                            <div class="row text-center col-sm-12 col-md-12 border-right mt-3">
+                                <h3 class="m-3">Shipping Information</h3>
+                                <hr>
+
+                                <div class="row m-2 mb-3 p-0">
+                                    <div class="form-group col-lg-12">
+                                        <label for="address">Shipping Address </label>
+                                        <textarea class="form-control input-thick" type="text" name="address" disabled>
+                                            {{ $order -> address_1 .  $order -> address_2 }}, {{ $order -> city }},  {{ $order -> country }}
+                                        </textarea>
+                                    </div>
+
+                                </div>
+
+                                <div class="row m-2 mb-3 p-0">
+
+                                    <div class="form-group col-lg-6">
+                                        <label for="phone">Customer Phone</label>
+                                        <input class="form-control input-thick" type="text" name="phone"
+                                               value="{{ $order -> phone }}" disabled>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label for="email">Customer E-Mail</label>
+                                        <input class="form-control input-thick" type="text" name="email"
+                                               value="{{ $order -> email }}" disabled>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            {{-- end Order Items section--}}
+
+
+                            {{-- start pricing section --}}
+                            <div class="row text-center col-sm-12 col-md-12 border-right mt-3">
+                                <h3 class="m-3">Pricing Information</h3>
+                                <hr>
+
+                                <div class="row m-2 mb-3 p-0">
+                                    <div class="form-group col-lg-3">
+                                        <label for="{{ $order -> subtotal }}">Subtotal </label>
+                                        <input class="form-control input-thick" type="text" name="{{ $order -> subtotal }}"
+                                               value="{{ $order -> subtotal }}" disabled>
+                                    </div>
+
+                                    <div class="form-group col-lg-3">
+                                        <label for="{{ $order -> discount }}">Order Discount </label>
+                                        <input class="form-control input-thick" type="text" name="{{ $order -> discount }}"
+                                               value="{{ $order -> discount }}" disabled>
+                                    </div>
+
+                                    <div class="form-group col-lg-3">
+                                        <label for="{{ $order -> tax }}">Order Tax </label>
+                                        <input class="form-control input-thick" type="text" name="{{ $order -> tax }}"
+                                               value="{{ $order -> tax }}" disabled>
+                                    </div>
+
+                                    <div class="form-group col-lg-3">
+                                        <label for="{{ $order -> shipping_cost }}">Order Shipping Cost </label>
+                                        <input class="form-control input-thick" type="text" name="{{ $order -> shipping_cost }}"
+                                               value="{{ $order -> shipping_cost }}" disabled>
+                                    </div>
+
+                                </div>
+
+                                <div class="row m-2 mb-3 p-0">
+
+                                    <div class="form-group col-lg-3">
+                                        <label for="{{ $order -> getPaymentMethod() }}">Order Payment Method</label>
+                                        <input class="form-control input-thick" type="text" name="{{ $order -> getPaymentMethod() }}"
+                                               value="{{ $order -> getPaymentMethod() }}" disabled>
+                                    </div>
+
+                                    <div class="form-group col-lg-3">
+                                        <label for="{{ $order -> currency }}">Payment Currency</label>
+                                        <input class="form-control input-thick" type="text" name="{{ $order -> currency }}"
+                                               value="{{ $order -> currency }}" disabled>
+                                    </div>
+
+                                    <div class="form-group col-lg-3">
+                                        <label for="{{ $order -> paid_at }}">Paid at</label>
+                                        <input class="form-control input-thick" type="text" name="{{ $order -> paid_at }}"
+                                               value="{{ $order -> paid_at != null ? $order -> paid_at : 'Not Paid Yet' }}" disabled>
+                                    </div>
+
+                                    <div class="form-group col-lg-3">
+                                        <label for="{{ $order -> transaction_id }}">Transaction ID</label>
+                                        <input class="form-control input-thick" type="text" name="{{ $order -> transaction_id }}"
+                                               value="{{ $order -> transaction_id }}" disabled>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row m-2 p-0">
+
+                                    <div class="form-group col-lg-6">
+                                        <label for="{{ $order -> total }}">Order total </label>
+                                        <input class="form-control input-thick" type="text" name="{{ $order -> total }}"
+                                               value="{{ $order -> total }}" disabled>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label for="{{ $order -> getShippingStatus() }}">Shipping Status</label>
+                                        <input class="form-control input-thick" type="text" name="{{ $order -> getShippingStatus() }}"
+                                               value="{{ $order -> getShippingStatus() }}" disabled>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            {{-- end pricing section--}}
 
                         </div>
                     </div>

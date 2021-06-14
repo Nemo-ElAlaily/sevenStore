@@ -32,7 +32,7 @@ class HomeComponent extends Component
             if ($witem -> id == $product_id) {
                 Cart::instance('wishlist') -> remove($witem -> rowId);
                 $this->emitTo('wishlist-count-component', 'refreshComponent');
-                return;
+                    return;
             } // end of if
 
         } // end of foreach
