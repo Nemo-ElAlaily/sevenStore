@@ -42,7 +42,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 
         /* Orders Routes */
         Route::resource('orders', 'OrderController')->except(['create', 'store']);
-        Route::get('completed/orders', 'OrderController@completedOrders')->name('orders.completed');
+        Route::get('orders/{id}/sent', 'OrderController@shippingOrder')->name('orders.shippingOrder');
+        Route::get('orders/{id}/delivered', 'OrderController@deliveredOrder')->name('orders.deliveredOrder');
+        Route::get('orders/{id}/completed', 'OrderController@completedOrder')->name('orders.completedOrder');
         /* end of Orders Routes */
 
     });

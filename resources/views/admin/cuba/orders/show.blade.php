@@ -14,20 +14,24 @@
         <div class="card-body">
             <div class="row">
 
-                @include('admin.adminlte.partials._errors')
-                <form class="col-12">
-                    <a href="#" class="btn btn-completed mb-4">
-                        <i class="fa fa-check fa-lg"></i> Mark as Completed shipped
+               <form class="col-12">
+                    <a href="{{ route('admin.orders.completedOrder' , $order -> id) }}" class="btn btn-completed mb-4">
+                        <i class="fa fa-check fa-lg"></i> Mark as Completed
                     </a>
-                    <a href="#" class="btn btn-sending mb-4">
-                        <i class="fa fa-truck fa-lg"></i>  sending
+
+                    <a href="{{ route('admin.orders.shippingOrder' , $order -> id) }}" class="btn btn-sending mb-4 sending_confirm">
+                        <i class="fa fa-truck fa-lg"></i>  Shipping
                     </a>
-                    <a href="#" class="btn btn-received mb-4">
-                        <i class="fa fa-truck fa-lg"></i>  Received
+
+                    <a href="{{ route('admin.orders.deliveredOrder' , $order -> id) }}" class="btn btn-received mb-4">
+                        <i class="fa fa-truck fa-lg"></i>  Delivered
                     </a>
 
                     <div class="row">
                         <div class="col-sm-12 row">
+
+                            @include('admin.adminlte.partials._session')
+                            @include('admin.adminlte.partials._errors')
 
                             <div class="form-group col-lg-6">
                                 <label for="Order_slug">Order # </label>
