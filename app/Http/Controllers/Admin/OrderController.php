@@ -19,9 +19,9 @@ class OrderController extends Controller
 
     public function index(Request $request)
     {
-        $statuses = Order::select('status')->where('status', 'not like', 'completed')->groupBy('status')->get();
+        $statuses = Order::select('status')->where('status', 'not like', 'completed')->where('status', 'not like', 'trashed')->groupBy('status')->get();
 
-        $orders = Order::where('status', 'not like', 'completed')->when($request -> search , function ($query) use ($request) {
+        $orders = Order::where('status', 'not like', 'completed')->where('status', 'not like', 'trashed')->when($request -> search , function ($query) use ($request) {
             return $query -> where('order_status', 'like', '%' . $request -> search . '%');
         })->when($request -> status , function($query) use ($request) {
             return $query -> where('status', $request -> status);
@@ -41,29 +41,29 @@ class OrderController extends Controller
 
     } // end of show
 
-    public function edit($id)
-    {
-        $order = Order::find($id);
-
-        return view('admin.cuba.orders.edit', compact('order'));
-
-    } // end of edit
-
-    public function update($id, Request $request)
-    {
-        $order = Order::find($id);
-
-        return $request -> all();
-
-    } // end of update
-
-
     public function destroy($id)
     {
         $order = Order::find($id);
 
-        return $order;
+        $order -> update([
+            'status' => 'trash',
+        ]);
 
-    } // end of update
+        session()->flash('success', 'Order status Changed');
+        return redirect()->route('admin.orders.index');
+
+    } // end of destroy
+
+    public function completedOrders()
+    {
+        return $completed_order = Order::where('status', 'completed')->paginate(ADMIN_PAGINATION_COUNT);
+
+    } // end of completed orders
+
+    public function trashedOrders()
+    {
+        return $completed_order = Order::where('status', 'trash')->paginate(ADMIN_PAGINATION_COUNT);
+
+    } // end of completed orders
 
 } // end of controller
