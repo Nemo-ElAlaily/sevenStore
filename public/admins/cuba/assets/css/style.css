@@ -27,3 +27,9 @@
     color: #fff;
     transition: all .5s ease-in-out;
  }
+ .btn-completed:hover,
+ .btn-sending:hover,
+ .btn-received:hover{
+     opacity: 0.8;
+     color: #fff;
+ }

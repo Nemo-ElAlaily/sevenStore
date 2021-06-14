@@ -68,7 +68,7 @@ class ProductController extends Controller
 
             $imagePath = "";
             if($request -> image){
-                $imagePath = uploadImage('uploads/products',  $request -> image);
+                $imagePath = uploadImage('uploads/products/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
             } else {
                 $imagePath = 'default.png';
             }
