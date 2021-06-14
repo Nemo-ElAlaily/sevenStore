@@ -25,6 +25,11 @@ class Vendor extends Model
         return $this -> belongsTo(User::class);
     } // end of user
 
+    public function products()
+    {
+        return $this -> hasMany(Product::class);
+    } // end of user
+
     /* ***********************************
     End of Relationships
     *********************************** */

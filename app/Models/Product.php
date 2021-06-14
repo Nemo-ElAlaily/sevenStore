@@ -34,6 +34,11 @@ class Product extends Model
         return $this -> belongsTo(MainCategory::class , 'main_category_id', 'id');
     } // end of main categories
 
+    public function products()
+    {
+        return $this -> hasMany(Wishlist::class);
+    } // end of products
+
     /* ***********************************
     End of Relationships
     *********************************** */

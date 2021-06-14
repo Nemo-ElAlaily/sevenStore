@@ -54,6 +54,11 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
         return $this -> hasOne(Vendor::class);
     } // end of vendors
 
+    public function wishlist()
+    {
+        return $this -> hasMany(Wishlist::class);
+    } // end of vendors
+
     /* ***********************************
     End of Relationships
     *********************************** */
