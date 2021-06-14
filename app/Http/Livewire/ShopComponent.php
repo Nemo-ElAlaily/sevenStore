@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Product;
+use App\Models\Wishlist;
 use Cart;
 use Illuminate\Http\Request;
 use Livewire\Component;
@@ -32,7 +33,14 @@ class ShopComponent extends Component
 
     public function addToWishlist($product_id, $product_name, $product_price)
     {
+        $db_wishlist = Wishlist::where(['product_id' => $product_id, 'user_id' => auth() -> user() -> id ])->first();
         $item = Cart::instance('wishlist')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Product::class);
+        if(!$db_wishlist) {
+            $wishlist_item = Wishlist::firstOrCreate([
+                'user_id' => auth() -> user() -> id,
+                'product_id' => $item -> id,
+            ]);
+        }
 
         $this->emitTo('wishlist-count-component', 'refreshComponent');
         session()->flash('success', 'Item Added to Wishlist');
@@ -41,7 +49,12 @@ class ShopComponent extends Component
 
     public function removeFromWishlist($product_id)
     {
+        $db_wishlist = Wishlist::where(['product_id' => $product_id, 'user_id' => auth() -> user() -> id ])->first();
+        if($db_wishlist){
+            $db_wishlist -> delete();
+        }
         foreach (Cart::instance('wishlist') -> content() as $witem) {
+
 
             if ($witem -> id == $product_id) {
                 Cart::instance('wishlist') -> remove($witem -> rowId);
