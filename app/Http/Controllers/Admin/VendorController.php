@@ -86,4 +86,34 @@ class VendorController extends Controller
 
     } // end of update
 
+    public function destroy(Vendor $vendor)
+    {
+        try{
+            if(Auth::user()->hasPermission('vendors_delete')){
+
+                if(!$vendor){
+                    session()->flash('error', "Vendor ID Doesn't Exist or has been deleted");
+                    return redirect()->route('admin.vendors.index');
+                }
+
+                $user = User::where('id', $vendor -> user_id)->get();
+
+                $user -> detachRole('vendor');
+                $user->attachRole('user');
+
+                $vendor -> delete();
+
+                session()->flash('success', 'Vendor Deleted Successfully');
+                return redirect()->route('admin.vendors.index');
+            } else {
+                session() -> flash('error', 'Not Authorized, Please contact Administrator');
+                return redirect() -> route('admin.vendors.index');
+            } // end of auth action
+        } catch (\Exception $exception) {
+            session() -> flash('error', 'Something went wrong Please contact Administrator');
+            return redirect()-> route('admin.vendors.index');
+        }
+
+    } // end of destroy
+
 } // end of controller
