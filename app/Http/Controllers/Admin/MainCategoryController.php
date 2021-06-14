@@ -22,4 +22,34 @@ class MainCategoryController extends Controller
         return view('admin.cuba.main_categories.index' , compact('main_categories'));
     } // end of index
 
+    public function create()
+    {
+
+    } //end of create
+
+    public function store($id, Request $request)
+    {
+
+    } //end of store
+
+    public function show($id)
+    {
+
+    } //end of show
+
+    public function edit($id)
+    {
+
+    } //end of edit
+
+    public function update($id ,Request $request)
+    {
+
+    } //end of update
+
+    public function destroy($id)
+    {
+
+    } //end of destroy
+
 } // end of controller
