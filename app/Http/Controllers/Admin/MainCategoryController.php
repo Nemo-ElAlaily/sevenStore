@@ -103,7 +103,7 @@ class MainCategoryController extends Controller
                 return redirect()->route('admin.main_categories.index');
             }
 
-            return view('admin.cuba.main_categories.edit', compact('$main_category'));
+            return view('admin.cuba.main_categories.edit', compact('main_category'));
 
         } catch (\Exception $exception) {
 
