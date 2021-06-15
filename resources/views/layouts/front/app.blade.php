@@ -44,7 +44,7 @@
 
 
 
-        @include('front.includes.footer.brands-carousel')
+{{--        @include('front.includes.footer.brands-carousel')--}}
 
         @include('front.includes.footer.footer')
 

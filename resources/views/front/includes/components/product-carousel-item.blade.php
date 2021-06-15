@@ -1,7 +1,8 @@
+@foreach($latest_products as $product)
 <div class="product">
     <div class="product-outer" style="height: 331px;">
         <div class="product-inner">
-            <span class="loop-product-categories"><a href="index.php?page=product-category" rel="tag">Smartphones</a></span>
+            <span class="loop-product-categories"><a href="index.php?page=product-category" rel="tag">{{  }}</a></span>
             <a href="index.php?page=single-product">
                 <h3>Laptop Yoga 21 80JH0035GE  W8.1 (Copy)</h3>
                 <div class="product-thumbnail">
@@ -30,3 +31,4 @@
         </div><!-- /.product-inner -->
     </div>
 </div>
+@endforeach

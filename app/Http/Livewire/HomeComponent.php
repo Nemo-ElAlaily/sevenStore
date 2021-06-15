@@ -41,11 +41,12 @@ class HomeComponent extends Component
 
     public function render()
     {
-        $products_featured = Product::inRandomOrder()->take(5)->get();
-        $products_on_sale = Product::inRandomOrder()->take(5)->get();
+        $products_featured = Product::orderBy('created_at')->take(5)->get();
+        $products_on_sale = Product::where('sale_price', '>' , 'regular_price')->inRandomOrder()->take(5)->get();
         $products_top_rated = Product::inRandomOrder()->take(5)->get();
+        $latest_products = Product::orderBy('created_at', 'DESC')->take(10)->get();
 
-        return view('livewire.home-component', compact('products_featured', 'products_on_sale', 'products_top_rated'))->layout('layouts.front.app');
+        return view('livewire.home-component', compact('products_featured', 'products_on_sale', 'products_top_rated', 'latest_products'))->layout('layouts.front.app');
     } // end of render
 
 } // end of component

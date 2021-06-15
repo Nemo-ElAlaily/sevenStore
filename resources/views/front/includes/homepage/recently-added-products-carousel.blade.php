@@ -13,13 +13,6 @@
         <div class="woocommerce columns-6">
             <div class="products owl-carousel recently-added-products products-carousel columns-6">
                 @include('front.includes.components.product-carousel-item')
-                @include('front.includes.components.product-carousel-item')
-                @include('front.includes.components.product-carousel-item')
-                @include('front.includes.components.product-carousel-item')
-                @include('front.includes.components.product-carousel-item')
-                @include('front.includes.components.product-carousel-item')
-                @include('front.includes.components.product-carousel-item')
-                @include('front.includes.components.product-carousel-item')
             </div>
         </div>
     </div>
