@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\MainCategory;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -84,7 +85,7 @@ class ProductController extends Controller
                 'main_category_id' => $request -> main_category,
                 'description' => $request -> description,
                 'features' => $request -> features,
-                'image' => $imagePath,
+                'image' =>  Carbon::now() -> year . '/' . Carbon::now() -> month . '/' .$imagePath,
             ]);
 
             DB::commit();
@@ -176,7 +177,7 @@ class ProductController extends Controller
                 if ($product -> image != 'default.png') {
                     Storage::disk('public_uploads')->delete('uploads/products/' . $product -> image);
                 } // end of inner if
-                $imagePath = uploadImage('products',  $request -> image);
+                $imagePath = uploadImage('uploads/products/' .  Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
             } else {
                 $imagePath = $product -> image_path;
             }// end of outer if
@@ -191,7 +192,7 @@ class ProductController extends Controller
                 'main_category_id' => $request -> main_category,
                 'description' => $request -> description,
                 'features' => $request -> features,
-                'image' => $imagePath,
+                'image' => Carbon::now() -> year . '/' . Carbon::now() -> month . '/'  . $imagePath,
             ]);
 
             DB::commit();
