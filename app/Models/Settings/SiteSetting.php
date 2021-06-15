@@ -23,7 +23,7 @@ class SiteSetting extends Model implements TranslatableContract
 
     public function getLogoPathAttribute()
     {
-        return asset('uploads/site/' . $this -> logo);
+        return asset('uploads/site/' . $this -> logo );
     }
 
 } // end of model
