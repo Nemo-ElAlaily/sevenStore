@@ -97,13 +97,14 @@ class MainCategoryController extends Controller
     {
         try {
             $main_category = MainCategory::find($id);
+            $all_categories = MainCategory::all();
 
             if(!$main_category){
                 session()->flash('error', "Category ID Doesn't Exist or has been deleted");
                 return redirect()->route('admin.main_categories.index');
             }
 
-            return view('admin.cuba.main_categories.edit', compact('main_category'));
+            return view('admin.cuba.main_categories.edit', compact('main_category', 'all_categories'));
 
         } catch (\Exception $exception) {
 
@@ -120,8 +121,8 @@ class MainCategoryController extends Controller
             $main_category = MainCategory::find($id);
 
             if(!$main_category){
-                session()->flash('error', "Product Doesn't Exist or has been deleted");
-                return redirect()->route('admin.products.index');
+                session()->flash('error', "Category Doesn't Exist or has been deleted");
+                return redirect()->route('admin.category.index');
             }
 
             DB::beginTransaction();
@@ -151,6 +152,7 @@ class MainCategoryController extends Controller
         } catch (\Exception $exception) {
 
             DB::rollback();
+            return $exception;
             session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
             return redirect()->route('admin.main_categories.index');
 

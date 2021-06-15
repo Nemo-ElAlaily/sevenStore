@@ -41,8 +41,6 @@
                                        value="{{ $main_category -> slug }}">
                             </div>
 
-
-
                             <div class="form-group col-sm-12 col-lg-12">
                                 <label class="bg-warning my-2 p-2">Categories Image</label>
                                 <img src="{{ $main_category -> image_path }}" width="300"
