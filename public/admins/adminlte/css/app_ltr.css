@@ -44584,3 +44584,23 @@ a.text-dark:focus {
     color: #fff;
     font-size: 1rem;
 }
+.btn-received{
+  background-color: #18468a;
+  color: #fff;
+  transition: all .5s ease-in-out;
+
+}
+.btn-completed:hover,
+.btn-sending:hover,
+.btn-received:hover{
+    opacity: 0.8;
+    color: #fff;
+}
+label.bg-warning{
+
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 10px;
+}

@@ -104,3 +104,7 @@
  {
    background-color: #ff00405c;
  }
+ select.bg-dark:focus,
+ input.bg-dark:focus{
+    color:#fff;
+ }
