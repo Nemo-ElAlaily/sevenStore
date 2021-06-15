@@ -110,12 +110,13 @@ class SiteSettingController extends Controller
 
     } // end of database update
 
-//    public function runMigration($id)
-//    {
-//        Artisan::call('migrate:fresh --seed');
-//        $database_settings = DatabaseSetting::findorFail($id);
-//        session()->flash('success', 'Database Migrated Successfully');
-//        return redirect()->route('admin.database.show', $database_settings->id);
-//    } // end of run migration command
+    public function runMigration($id)
+    {
+        session()->flash('success', 'Database is migrating please be patient');
+        Artisan::call('migrate:fresh --seed');
+        $database_settings = DatabaseSetting::findOrFail($id);
+        session()->flash('success', 'Database Migrated Successfully');
+        return redirect()->route('admin.database.show', $database_settings->id);
+    } // end of run migration command
 
 } // end of controller

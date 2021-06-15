@@ -124,10 +124,10 @@
                                     Update Database Credentials</button>
                             </div>
 
-{{--                            <div class="form-group m-5 col-sm-12 col-md-6">--}}
-{{--                                <a href="{{ route('admin.database.migration', 1) }}" class="btn btn-success"><i class="fa fa-check-circle"></i>--}}
-{{--                                    Run Database Migrations</a>--}}
-{{--                            </div>--}}
+                            <div class="form-group m-5 col-sm-12 col-md-6">
+                                <a href="{{ route('admin.database.migration', 1) }}" class="btn btn-success"><i class="fa fa-check-circle"></i>
+                                    Run Database Migrations</a>
+                            </div>
                         </div>
 
                         </tbody>
