@@ -3800,7 +3800,7 @@ div.quantity.buttons_added {
     border-right: 0;
     color: #fff; }
   .header-v1 .navbar-search + .navbar-nav.pull-right, .header-v3 .navbar-search + .navbar-nav.pull-right {
-    padding-left: 0.9375rem; }
+    padding-left: 0.5rem; }
   .header-v1 .navbar-nav .nav-link, .header-v3 .navbar-nav .nav-link {
     line-height: 2.53em;
     font-weight: bold;

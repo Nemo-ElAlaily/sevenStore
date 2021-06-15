@@ -35,7 +35,7 @@
                                     <div class="action-buttons">
 
                                         @if($witems -> contains($product -> id))
-                                            <a href="#" rel="nofollow" class="" style="color: #fed700" wire:click.prevent="removeFromWishlist('{{ $product -> id }}')">
+                                            <a href="#" rel="nofollow" class="" style="color: #ea1b25" wire:click.prevent="removeFromWishlist('{{ $product -> id }}')">
                                                 <i class="fa fa-heart"></i>
                                                 Wishlist
                                             </a>

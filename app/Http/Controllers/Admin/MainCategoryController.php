@@ -82,7 +82,7 @@ class MainCategoryController extends Controller
                 return redirect()->route('admin.main_categories.index');
             }
 
-            return view('admin.cuba.main_categories.show', compact('$main_category'));
+            return view('admin.cuba.main_categories.show', compact('main_category'));
 
         } catch (\Exception $exception) {
 
@@ -96,7 +96,7 @@ class MainCategoryController extends Controller
     public function edit($id)
     {
         try {
-            $main_category = MainCategory::find($id);
+            return $main_category = MainCategory::find($id);
 
             if(!$main_category){
                 session()->flash('error', "Category ID Doesn't Exist or has been deleted");

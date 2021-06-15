@@ -3718,7 +3718,7 @@ div.quantity.buttons_added .plus {
     border-left: 0;
     color: #fff; }
 .header-v1 .navbar-search + .navbar-nav.pull-right, .header-v3 .navbar-search + .navbar-nav.pull-right {
-    padding-right: 0.9375rem; }
+    padding-right: 0.5rem; }
 .header-v1 .navbar-nav .nav-link, .header-v3 .navbar-nav .nav-link {
     line-height: 2.53em;
     font-weight: bold;
