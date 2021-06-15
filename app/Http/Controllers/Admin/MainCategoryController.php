@@ -75,7 +75,7 @@ class MainCategoryController extends Controller
     public function show($id)
     {
         try {
-            return $main_category = MainCategory::find($id);
+            $main_category = MainCategory::find($id);
 
             if(!$main_category){
                 session()->flash('error', "Category ID Doesn't Exist or has been deleted");
