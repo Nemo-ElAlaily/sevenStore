@@ -112,7 +112,6 @@ class SiteSettingController extends Controller
 
     public function runMigration($id)
     {
-        session()->flash('success', 'Database is migrating please be patient');
         Artisan::call('migrate:fresh --seed');
         $database_settings = DatabaseSetting::findOrFail($id);
         session()->flash('success', 'Database Migrated Successfully');
