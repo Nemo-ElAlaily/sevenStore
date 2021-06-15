@@ -96,10 +96,10 @@
                                 @error('image')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
-                                <input type="file" name="image" class="form-control input-sm image">
+                                <input type="file" name="image" class="form-control input-sm image mb-4">
 
                                 <img src="{{ $main_category -> image_path }}" 
-                                     class="img-thumbnail image-preview mt-1 w-25 img-fluid d-block m-auto" alt="">
+                                     class="img-thumbnail image-preview mt-1 image-preview img-fluid d-block m-auto" alt="">
                             </div> {{-- end of form group image --}}
 
                         </div>

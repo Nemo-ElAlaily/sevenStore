@@ -46,7 +46,7 @@
                             <div class="form-group col-sm-12 col-lg-12">
                                 <label class="bg-warning my-2 p-2">Categories Image</label>
                                 <img src="{{ $main_category -> image_path }}" width="300"
-                                     class="img-thumbnail image-preview m-1 w-25 img-fluid d-block m-auto" alt="{{ $main_category -> name }}">
+                                     class="img-thumbnail image-preview m-1 img-fluid d-block m-auto" alt="{{ $main_category -> name }}">
                             </div> {{-- end of form group image --}}
 
                         </div>
