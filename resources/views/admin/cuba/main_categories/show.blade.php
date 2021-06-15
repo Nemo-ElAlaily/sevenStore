@@ -21,7 +21,7 @@
         <div class="card-body">
             <div class="row">
 
-                @include('admin.adminlte.partials._errors')
+                @include('admin.cuba.partials._errors')
                 <form class="col-12">
                     <a href="{{ route('admin.main_categories.edit', $main_category->id) }}" class="btn btn-received  mb-4">
                         <i class="fa fa-edit fa-lg"></i> Edit This Categories
