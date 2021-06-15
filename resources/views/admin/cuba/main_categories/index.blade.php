@@ -24,8 +24,8 @@
                     </div>
 
                     <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                        <a href="{{ route('admin.products.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Category</a>
+                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
+                        <a href="{{ route('admin.products.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> Add Category</a>
                     </div>
 
                 </div>
@@ -53,15 +53,15 @@
                     @foreach ($main_categories as $index=>$main_catogory)
                         <tr>
                             <td>{{ $index + 1 }}</td>
-                            <td>{{ $main_catogory -> name }}</td>
-                            <td><a href="{{ route('admin.products.index', ['category' => $main_catogory -> id ]) }}">View Products</a></td>
+                            <td class="nameCat">{{ $main_catogory -> name }}</td>
+                            <td><a href="{{ route('admin.products.index', ['category' => $main_catogory -> id ]) }}" class=" btn btn-dark">View Products</a></td>
                             <td>
-                                <a href="{{ route('admin.main_categories.show', $main_catogory->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>
-                                <a href="{{ route('admin.main_categories.edit', $main_catogory->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit fa-lg text-lg"></i></a>
+                                <a href="{{ route('admin.main_categories.show', $main_catogory->id) }}" class="btn btnShow"><i class="fa fa-eye fa-lg text-lg"></i></a>
+                                <a href="{{ route('admin.main_categories.edit', $main_catogory->id) }}" class="btn btnEdit"><i class="fa fa-edit fa-lg text-lg"></i></a>
                                 <form action="{{ route('admin.main_categories.destroy', $main_catogory->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
-                                    <button type="button" class="btn btn-danger show_confirm btn-sm"><i class="fa fa-trash fa-lg text-lg"></i></button>
+                                    <button type="button" class="btn btnDelete show_confirm btn-sm"><i class="fa fa-trash fa-lg text-lg"></i></button>
                                 </form><!-- end of form -->
                             </td>
                         </tr>
