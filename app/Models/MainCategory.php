@@ -10,10 +10,7 @@ class MainCategory extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = [
-        'name',
-        'parent_id',
-    ];
+    protected $guarded = [];
 
     public $timestamps = true;
 
