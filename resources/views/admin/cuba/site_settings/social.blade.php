@@ -24,7 +24,7 @@
 
             <div class="row">
                 <div class="col-sm-12 row">
-                    <table class="text-center pt-2 bg-white table table-hover table-bordered">
+                    <table class="text-center pt-2 table table-hover table-bordered">
                         @if ($socials->count() > 0)
                             <thead>
                             <tr>

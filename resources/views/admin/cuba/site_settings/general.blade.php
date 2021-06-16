@@ -19,7 +19,28 @@
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">LTR</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">RTL</a>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        
+                        Rtl   Sections
+                    
+                    
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
+                        LTR Sections
+
+
+                    </div>
+                  </div>
                 <form class="col-12" action="{{ route('admin.settings.site.show', $site_settings->id) }}" method="post"
                       enctype="multipart/form-data">
 
@@ -126,7 +147,7 @@
 
                             </div>
                         @endforeach
-
+                                
                         <div class="form-group col-sm-12 col-lg-12">
                             <label>Logo</label>
                             @error('logo')
