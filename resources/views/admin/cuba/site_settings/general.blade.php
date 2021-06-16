@@ -24,14 +24,14 @@
 
                     {{ csrf_field() }}
                     {{ method_field('put') }}
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <ul class="nav nav-pills mb-3" id="lang-tab" role="tablist">
                         @foreach (config('translatable.locales') as $index => $locale)
                             <li class="nav-item">
-                                <a class="nav-link {{ $index == 0 ? 'active' : '' }}" id="'pills-{{$locale}}-tab'" data-toggle="pill" href="#{{ $locale }}" role="tab" aria-controls="{{ $locale }}" aria-selected="true">{{ $locale }}</a>
+                                <a class="nav-link {{ $index == 0 ? 'active' : '' }}" id="'pills-{{$locale}}-tab'" data-toggle="pill" href="#{{ $locale }}" role="tab" aria-controls="{{ $locale }}" aria-selected="true">@lang('site.' . $locale . '.name')</a>
                             </li>
                         @endforeach
                     </ul>
-                    <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-content" id="lang-tabContent">
                       @foreach (config('translatable.locales') as $index => $locale)
                           <div class="tab-pane fade show {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}" role="tabpanel" aria-labelledby="pills-{{ $locale }}-tab">
                               <div class="col-sm-12 col-lg-6">
@@ -157,4 +157,8 @@
 
 
 
+@endsection
+
+@section('script')
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 @endsection
