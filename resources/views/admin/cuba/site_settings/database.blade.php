@@ -17,7 +17,7 @@
         @include('admin.cuba.partials._session')
         @include('admin.cuba.partials._errors')
 
-        <form class="col-12"  action="{{ route('admin.database.update', 1) }}" method="POST" enctype="multipart/form-data">
+        <form class="col-12"  action="{{ route('admin.settings.database.update', 1) }}" method="POST" enctype="multipart/form-data">
 
             {{ csrf_field() }}
             {{ method_field('PUT') }}
@@ -126,7 +126,7 @@
                                       </div>
 
                                       <div class="form-group m-5">
-                                          <a href="{{ route('admin.database.migration', 1) }}" class="btn btn-success"><i class="fa fa-check-circle"></i>
+                                          <a href="{{ route('admin.settings.database.migration', 1) }}" class="btn btn-success"><i class="fa fa-check-circle"></i>
                                               Import Data</a>
                                       </div>
                                   </div>

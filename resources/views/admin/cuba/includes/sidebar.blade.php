@@ -187,8 +187,6 @@
                                             </ul>
                                         </li>
 
-
-
                                         @if (auth()->user()->hasPermission('site_settings_read'))
                                         <li class="sidebar-list mt-1">
                                             <label class="badge badge-danger"></label>

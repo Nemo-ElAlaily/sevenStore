@@ -20,7 +20,7 @@
         <div class="card-body">
             <div class="row">
 
-                <form class="col-12" action="{{ route('admin.site.show', $site_settings->id) }}" method="post"
+                <form class="col-12" action="{{ route('admin.settings.site.show', $site_settings->id) }}" method="post"
                       enctype="multipart/form-data">
 
                     {{ csrf_field() }}

@@ -17,7 +17,7 @@
         @include('admin.cuba.partials._session')
         @include('admin.cuba.partials._errors')
 
-        <form class="col-12"  action="{{ route('admin.social.update') }}" method="POST" enctype="multipart/form-data">
+        <form class="col-12"  action="{{ route('admin.settings.social.update') }}" method="POST" enctype="multipart/form-data">
 
             {{ csrf_field() }}
             {{ method_field('POST') }}
