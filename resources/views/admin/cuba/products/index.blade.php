@@ -25,18 +25,18 @@
 
                     <div class="col-md-2">
                         <label class="w-100">
-                            <select name="category" class="form-control">
-                                <option value="">All Categories</option>
+                            <select name="category" class="form-control selectCat">
+                                <option class="bg-ligh" value="">All Categories</option>
                                 @foreach($categories as $category)
-                                    <option value="{{ $category -> id }}" {{ request() -> category == $category -> id ? 'selected' : '' }}>{{ $category -> name }}</option>
+                                    <option class="optionCat" value="{{ $category -> id }}" {{ request() -> category == $category -> id ? 'selected' : '' }}>{{ $category -> name }}</option>
                                 @endforeach
                             </select>
                         </label>
                     </div>
 
                     <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                        <a href="{{ route('admin.products.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Product</a>
+                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
+                        <a href="{{ route('admin.products.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> Add Product</a>
                     </div>
 
                 </div>
@@ -69,12 +69,12 @@
                             <td>{{ $product -> vendor -> billing_full_name }}</td>
                             <td><img src="{{ $product -> image_path }}" height="50"></td>
                             <td>
-                                <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>
-                                <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit fa-lg text-lg"></i></a>
+                                <a href="{{ route('admin.products.show', $product->id) }}" class="btn btnShow  btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>
+                                <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btnEdit btn-sm"><i class="fa fa-edit fa-lg text-lg"></i></a>
                                 <form action="{{ route('admin.products.destroy', $product->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
-                                    <button type="button" class="btn btn-danger show_confirm btn-sm"><i class="fa fa-trash fa-lg text-lg"></i></button>
+                                    <button type="button" class="btn btnDelete show_confirm btn-sm"><i class="fa fa-trash fa-lg text-lg"></i></button>
                                 </form><!-- end of form -->
                             </td>
                         </tr>
