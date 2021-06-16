@@ -9,6 +9,7 @@ use App\Models\Settings\SocialSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -91,6 +92,7 @@ class SiteSettingController extends Controller
         $database_settings = DatabaseSetting::findorFail($id);
         $request_data = $request->except(['_token', '_method']);
 
+        DB::beginTransaction();
         $database_settings -> update($request_data);
 
         $path = base_path('config\database.php');
@@ -111,6 +113,7 @@ class SiteSettingController extends Controller
 
         File::put($path, $contents);
 
+        DB::commit();
         session()->flash('success', 'Database Settings Updated Successfully');
         return redirect()->route('admin.settings.database.show', $database_settings->id);
 
@@ -118,7 +121,7 @@ class SiteSettingController extends Controller
 
     public function runMigration($id)
     {
-        Artisan::call('migrate:fresh --seed');
+        Artisan::call('db:seed');
         $database_settings = DatabaseSetting::findOrFail($id);
         session()->flash('success', 'Database Migrated Successfully');
         return redirect()->route('admin.settings.database.show', $database_settings->id);

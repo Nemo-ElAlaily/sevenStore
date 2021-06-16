@@ -30,14 +30,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // Fetch the Site Settings object
-        $site_settings = SiteSetting::find(1);
-        $social_settings = SocialSetting::all();
-        $main_categories = MainCategory::all();
-        View::share([
-            'site_settings' =>  $site_settings,
-            'social_settings' => $social_settings,
-            'main_categories' => $main_categories,
-        ]);
 
         Paginator::useBootstrap();
     }

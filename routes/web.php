@@ -9,6 +9,8 @@ use App\Http\Livewire\MainCategoryComponent;
 use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\WishlistComponent;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 define('FRONT_PAGINATION_COUNT', 20);
+
+Route::get('/welcome', '\App\Http\Controllers\HomeController@welcome')->name('app.welcome');
+Route::get('/welcome/start', '\App\Http\Controllers\HomeController@initApp')->name('app.start');
 
 Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ], 'name' => 'front.'], function() {
     Route::name('front.')->group(function () {
@@ -40,5 +45,3 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
     });
     Auth::routes(['verify' => true]);
 });
-
-
