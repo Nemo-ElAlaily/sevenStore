@@ -42,7 +42,7 @@ class HomeController extends Controller
         Artisan::call('migrate:fresh');
         Artisan::call('db:seed --class=InitSeeder');
 
-        $path = base_path('app\providers\AppServiceProvider.php');
+        $path = base_path('app/Providers/AppServiceProvider.php');
         $contents = File::get($path);
 
         $contents = str_replace("// Fetch the Site Settings object", "// Fetch the Site Settings object
