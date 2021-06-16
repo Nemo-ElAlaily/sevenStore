@@ -1,8 +1,6 @@
 <?php
 
 return [
-    'language' => 'العربية',
-
     'en' => [
         'name' => 'English',
         'description' => 'Description',
