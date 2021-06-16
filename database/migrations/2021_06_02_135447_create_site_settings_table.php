@@ -15,6 +15,7 @@ class CreateSiteSettingsTable extends Migration
     {
         Schema::create('site_settings', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('phone')->nullable();
             $table->string('logo')->default('default.png');
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
