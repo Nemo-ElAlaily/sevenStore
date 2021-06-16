@@ -28,6 +28,7 @@ class SiteSettingController extends Controller
 
     public function generalUpdate($id, Request $request)
     {
+        return $request -> all()    ;
         $site_settings = SiteSetting::findorFail($id);
 
         $request_data = $request->except(['_token', '_method']);
