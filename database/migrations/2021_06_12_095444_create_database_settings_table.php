@@ -15,6 +15,15 @@ class CreateDatabaseSettingsTable extends Migration
     {
         Schema::create('database_settings', function (Blueprint $table) {
             $table->id();
+            /* new database */
+            $table -> string('DATABASE_URL')->nullable();
+            $table -> string('DB_CONNECTION')->nullable();
+            $table -> string('DB_HOST')->nullable();
+            $table -> string('DB_PORT')->nullable();
+            $table -> string('DB_DATABASE')->nullable();
+            $table -> string('DB_USERNAME')->nullable();
+            $table -> string('DB_PASSWORD')->nullable();
+            /* wordpress database */
             $table -> string('WP_DATABASE_URL')->nullable();
             $table -> string('WP_DB_CONNECTION')->nullable();
             $table -> string('WP_DB_HOST')->nullable();

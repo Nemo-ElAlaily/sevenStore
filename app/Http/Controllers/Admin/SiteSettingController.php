@@ -96,6 +96,12 @@ class SiteSettingController extends Controller
         $path = base_path('config\database.php');
         $contents = File::get($path);
 
+        $contents = str_replace("env('DB_HOST')", "'" . $database_settings -> DB_HOST . "'", $contents);
+        $contents = str_replace("env('DB_PORT')", "'" . $database_settings -> DB_PORT . "'", $contents);
+        $contents = str_replace("env('DB_DATABASE')", "'" . $database_settings -> DB_DATABASE . "'", $contents);
+        $contents = str_replace("env('DB_USERNAME')", "'" . $database_settings -> DB_USERNAME . "'", $contents);
+        $contents = str_replace("env('DB_PASSWORD')", "'" . $database_settings -> DB_PASSWORD . "'", $contents);
+
         $contents = str_replace("env('WP_DB_HOST')", "'" . $database_settings -> WP_DB_HOST . "'", $contents);
         $contents = str_replace("env('WP_DB_PORT')", "'" . $database_settings -> WP_DB_PORT . "'", $contents);
         $contents = str_replace("env('WP_DB_DATABASE')", "'" . $database_settings -> WP_DB_DATABASE . "'", $contents);

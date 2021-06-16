@@ -28,7 +28,8 @@
                         <thead>
                             <tr>
                                 <th class="text-dark">Key</th>
-                                <th class="text-dark">Value</th>
+                                <th class="text-dark">New Database</th>
+                                <th class="text-dark">Wordpress Database</th>
                                 <th class="text-dark">Notes</th>
                             </tr>
                         </thead>
@@ -36,7 +37,14 @@
                         <tbody>
 
                             <tr>
-                                <td class="align-center text-dark">WP_DATABASE_URL</td>
+                                <td class="align-center text-dark">URL</td>
+                                <td>
+                                    <div class="form-group">
+                                        <input class="form-control input-thick" type="text" name="DATABASE_URL"
+                                               value="{{ $database_settings -> DATABASE_URL }}">
+                                    </div>
+                                </td>
+
                                 <td>
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="WP_DATABASE_URL"
@@ -48,7 +56,14 @@
                             </tr>
 
                             <tr>
-                                <td class="align-center text-dark">WP_DB_CONNECTION</td>
+                                <td class="align-center text-dark">Connection</td>
+                                <td>
+                                    <div class="form-group">
+                                        <input class="form-control input-thick" type="text" name="DB_CONNECTION"
+                                               value="{{ $database_settings -> DB_CONNECTION }}">
+                                    </div>
+                                </td>
+
                                 <td>
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="WP_DB_CONNECTION"
@@ -60,7 +75,14 @@
                             </tr>
 
                             <tr>
-                                <td class="align-center text-dark">WP_DB_HOST</td>
+                                <td class="align-center text-dark">Host</td>
+                                <td>
+                                    <div class="form-group">
+                                        <input class="form-control input-thick" type="text" name="DB_HOST"
+                                               value="{{ $database_settings -> DB_HOST }}">
+                                    </div>
+                                </td>
+
                                 <td>
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="WP_DB_HOST"
@@ -75,14 +97,29 @@
                                 <td class="align-center text-dark">WP_DB_PORT</td>
                                 <td>
                                     <div class="form-group">
+                                        <input class="form-control input-thick" type="text" name="DB_PORT"
+                                               value="{{ $database_settings -> DB_PORT }}">
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="WP_DB_PORT"
                                                value="{{ $database_settings -> WP_DB_PORT }}">
                                     </div>
                                 </td>
+                                <td></td>
                             </tr>
 
                             <tr>
-                                <td class="align-center text-dark">WP_DB_DATABASE</td>
+                                <td class="align-center text-dark">Database Name</td>
+                                <td>
+                                    <div class="form-group">
+                                        <input class="form-control input-thick" type="text" name="DB_DATABASE"
+                                               value="{{ $database_settings -> DB_DATABASE }}">
+                                    </div>
+                                </td>
+
                                 <td>
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="WP_DB_DATABASE"
@@ -94,7 +131,14 @@
                             </tr>
 
                             <tr>
-                                <td class="align-center text-dark">WP_DB_USERNAME</td>
+                                <td class="align-center text-dark">Database Username</td>
+                                <td>
+                                    <div class="form-group">
+                                        <input class="form-control input-thick" type="text" name="DB_USERNAME"
+                                               value="{{ $database_settings -> DB_USERNAME }}">
+                                    </div>
+                                </td>
+
                                 <td>
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="WP_DB_USERNAME"
@@ -106,7 +150,14 @@
                             </tr>
 
                             <tr>
-                                <td class="align-center text-dark">WP_DB_PASSWORD</td>
+                                <td class="align-center text-dark">Password</td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control input-thick" type="text" name="DB_PASSWORD"
+                                               value="" placeholder="Type Your password">
+                                    </div>
+                                </td>
+
                                 <td>
                                     <div class="form-group">
                                         <input type="password" class="form-control input-thick" type="text" name="WP_DB_PASSWORD"
@@ -138,7 +189,6 @@
                                         <br>
                                         Change max_input_time in "php.ini" file to 1200 sec.
                                         <br>
-                                        Update New Database credentials in env file
                                     </p>
                                 </div>
                             </div>
