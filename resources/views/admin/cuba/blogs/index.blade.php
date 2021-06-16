@@ -29,11 +29,9 @@
 
                     <div class="col-md-4 p-0">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                        @if (auth()->user()->hasPermission('create_blogs'))
-                            <a href="{{ route('admin.blogs.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add blog</a>
-                             @else
-                                <a href="#" class="btn btn-p`rimary disabled"><i class="fa fa-plus"></i> Add blog</a>
-                        @endif
+                        <a href="{{ route('admin.blogs.create') }}" class="btn btn-primary">
+                            <i class="fa fa-plus"></i> Add blog
+                        </a>
                     </div>
 
                 </div>
