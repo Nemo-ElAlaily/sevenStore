@@ -11468,20 +11468,20 @@ th {
     color: #fff;
 }
 .table-inverse {
-    color: #fff;
+    color: #000;
     background-color: #292b2c;
 }
 .table-inverse th,
 .table-inverse td {
     border-color: #fff;
-    color: #fff;
+    color: #000;
 }
 .table-inverse.table-bordered {
     border: 0;
 }
 .table[class*="bg-"] th,
 .table[class*="bg-"] td {
-    color: #fff;
+    color: #000;
 }
 .table-hover > tbody > tr:hover {
     --bs-table-accent-bg: #f6f6f6;
