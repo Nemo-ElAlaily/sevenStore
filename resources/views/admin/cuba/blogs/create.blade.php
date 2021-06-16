@@ -1,35 +1,40 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'Create Blog')
+@section('title', 'Site Settings')
 
-@section('content-header')
-    <div class="col-sm-6">
-        <h1>Create Blog</h1>
-    </div>
-    <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-            <li class="breadcrumb-item active"><a href="{{ route('admin.blogs.index') }}">Blogs</a></li>
-        </ol>
-    </div>
+@section('breadcrumb-title')
+    <h5>General Settings</h5>
+@stop
+
+@section('breadcrumb-items')
+    <li class="breadcrumb-item">Settings</li>
+    <li class="breadcrumb-item">General</li>
 @stop
 
 @section('content')
 
+    @include('admin.cuba.partials._session')
+    @include('admin.cuba.partials._errors')
     <!-- Default box -->
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
-
-                <form class="col-12" action="{{ route('admin.blogs.store') }}" method="post"
-                    enctype="multipart/form-data">
+                <form class="col-12" action="{{ route('admin.settings.site.show', $site_settings->id) }}" method="post"
+                      enctype="multipart/form-data">
 
                     {{ csrf_field() }}
-                    {{ method_field('post') }}
-
-                    <div class="row">
+                    {{ method_field('put') }}
+                    <ul class="nav nav-pills mb-3" id="lang-tab" role="tablist">
+                        @foreach (config('translatable.locales') as $index => $locale)
+                            <li class="nav-item">
+                                <a class="nav-link {{ $index == 0 ? 'active' : '' }}" id="'pills-{{$locale}}-tab'" data-toggle="pill" href="#{{ $locale }}" role="tab" aria-controls="{{ $locale }}" aria-selected="true">@lang('site.' . $locale . '.name')</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <div class="tab-content" id="lang-tabContent">
                         @foreach (config('translatable.locales') as $locale)
-                            <div class="col-sm-12 col-lg-6">
+                          <div class="tab-pane fade show {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}" role="tabpanel" aria-labelledby="pills-{{ $locale }}-tab">
+                              <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="{{ $locale }}[title]">Blog Title in @lang('site.' . $locale .
                                         '.name')</label>
@@ -39,8 +44,18 @@
                                     <input class="form-control input-thick" type="text" name="{{ $locale }}[title]"
                                         value="{{ old($locale . '.title') }}">
                                 </div>
-
-                                <div class="form-group">
+                                  <div class="form-group">
+                                      <label for="{{ $locale }}">Welcome Phrase in @lang('site.' . $locale .
+                                        '.name')</label>
+                                      @error($locale . '.welcome_phrase')
+                                      <br />
+                                      <span class="text-danger mx-5">{{ $message }}</span>
+                                      @enderror
+                                      <input class="form-control input-thick" type="text" name="{{ $locale }}[welcome_phrase]"
+                                             value="{{ $site_settings->translate($locale)->welcome_phrase }}">
+                                  </div>
+                            
+                                  <div class="form-group">
                                     <label for="{{ $locale }}[description]">Blog Description in @lang('site.' .
                                         $locale . '.name')</label>
                                     @error($locale . '.description')
@@ -50,7 +65,6 @@
                                         name="{{ $locale }}[description]"
                                         value="{{ old($locale . '.description') }}"></textarea>
                                 </div>
-
                                 <div class="form-group">
                                     <label for="{{ $locale }}[creator]">Creator Name in @lang('site.' . $locale .
                                         '.name')</label>
@@ -61,7 +75,6 @@
                                     <input class="form-control input-thick" type="text" name="{{ $locale }}[creator]"
                                         value="{{ old($locale . '.creator') }}">
                                 </div>
-
                                 <div class="form-group">
                                     <label for="{{ $locale }}[meta_title]">Meta Title in @lang('site.' . $locale .
                                         '.meta_title')</label>
@@ -110,50 +123,29 @@
                                     <input class="form-control input-thick" type="text"
                                         name="{{ $locale }}[meta_slug]" value="{{ old($locale . '.meta_slug') }}">
                                 </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-sm-6 col-lg-6">
-                            <label>Active ?</label>
-                            <input type="checkbox" name="is_active" class="form-control">
-                        </div>
-                        <div class="form-group col-sm-6 col-lg-6">
-                            <label>Show in Home Page ?</label>
-                            <input type="checkbox" name="show_in_homepage" class="form-control">
-                        </div>
-                    </div>
+
+                              </div>
+                          </div>
+                      @endforeach
+                  </div>
 
                     <div class="row">
-                        <div class="form-group col-sm-12 col-lg-6">
-                            <label>Tags</label>
-                            <select class="js-example-basic-multiple form-control" name="tags[]" multiple="multiple">
-                                @foreach ($tags as $tag)
-                                    <option value={{ $tag->id }}>{{ $tag->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <div class="row pt-3">
 
                         <div class="form-group col-sm-12 col-lg-12">
-                            <label>Image</label>
-                            @error('image')
-                                <span class="text-danger mx-1">{{ $message }}</span>
+                            <label>Logo</label>
+                            @error('logo')
+                            <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="file" name="image" class="form-control input-sm image">
+                            <input type="file" name="logo" class="form-control input-sm image" accept="jpg, png, jpeg, svg">
 
-                            <img src="{{ asset('uploads/blogs/default.png') }}" width="500px"
-                                class="img-thumbnail image-preview mt-1" alt="">
+                            <img src="{{ $site_settings->logo_path }}" width="100px"
+                                 class="img-thumbnail image-preview mt-1" alt="">
                         </div> {{-- end of form group image --}}
 
-                    </div>
-
+                    </div> {{-- end of translatable data --}}
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
-                            Add Blog</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>
+                            Update Site Settings</button>
                     </div>
 
                 </form><!-- end of form -->
@@ -163,16 +155,11 @@
         <!-- /.card-body -->
     </div>
     <!-- /.card -->
+
+
+
 @endsection
 
 @section('script')
-    <script>
-        $(document).ready(function() {
-
-            $('.js-example-basic-multiple').select2({
-                placeholder: 'Select Tags'
-            });
-        });
-
-    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 @endsection
