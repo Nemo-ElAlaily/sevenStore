@@ -28,6 +28,7 @@ class MainCategoryController extends Controller
     public function create()
     {
         try {
+
             return view('admin.cuba.main_categories.create');
 
         } catch (\Exception $exception) {
@@ -38,7 +39,7 @@ class MainCategoryController extends Controller
         } // end of try & catch
     } //end of create
 
-    public function store($id, Request $request)
+    public function store( Request $request)
     {
         try {
             DB::beginTransaction();

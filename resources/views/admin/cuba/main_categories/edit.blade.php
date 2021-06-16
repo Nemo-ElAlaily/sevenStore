@@ -62,10 +62,15 @@
                                 @error('image')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
-                                <input type="file" name="image" class="form-control input-sm image">
+                                <input type="file" name="image" class="form-control input-sm image mb-4">
 
+<<<<<<< HEAD
+                                <img src="{{ $main_category -> image_path }}" 
+                                     class="img-thumbnail image-preview mt-1 image-preview img-fluid d-block m-auto" alt="">
+=======
                                 <img src="{{ $main_category -> image_path }}"
                                      class="img-thumbnail image-preview mt-1 w-25 img-fluid d-block m-auto" alt="">
+>>>>>>> dc377333b5f948751fa900c68186cd3a568ec4b5
                             </div> {{-- end of form group image --}}
 
                         </div>

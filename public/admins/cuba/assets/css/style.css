@@ -108,3 +108,11 @@
  input.bg-dark:focus{
     color:#fff;
  }
+ .image-preview{
+transition: all 1s ease-in-out; 
+cursor: pointer;
+width: 200px;
+}
+.image-preview:hover{
+transform: scale(1.1);
+ }
