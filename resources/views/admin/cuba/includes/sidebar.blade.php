@@ -172,6 +172,7 @@
                                             </ul>
                                         </li>
 
+                                        @if (auth()->user()->hasPermission('blogs_read'))
                                         <li class="sidebar-list">
                                             <label class="badge badge-danger"></label>
                                             <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/blogs' ? 'active' : '' }}" href="#">
@@ -182,10 +183,12 @@
                                                 </div>
                                             </a>
                                             <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/blogs' ? 'block;' : 'none;' }}">
-                                                <li><a href="#" class="#">All</a></li>
-                                                <li><a href="#" class="#">Create</a></li>
+                                                <li><a href="{{ route('admin.blogs.index') }}" class="#">All</a></li>
+                                                <li><a href="{{ route('admin.tags.index') }}" class="#">Blogs Tags</a></li>
+                                                <li><a href="{{ route('admin.blogs.create') }}" class="#">Create</a></li>
                                             </ul>
                                         </li>
+                                        @endif
 
                                         @if (auth()->user()->hasPermission('site_settings_read'))
                                         <li class="sidebar-list mt-1">

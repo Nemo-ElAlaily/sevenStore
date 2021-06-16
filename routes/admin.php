@@ -47,6 +47,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::get('orders/{id}/completed', 'OrderController@completedOrder')->name('orders.completedOrder');
         /* end of Orders Routes */
 
+        /* blogs routes */
+        Route::resource('/blogs', 'BlogController');
+        /* tags routes */
+        Route::resource('/tags', 'TagController');
+
     });
 
 });

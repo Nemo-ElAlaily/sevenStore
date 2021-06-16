@@ -23,6 +23,8 @@ return [
             'payments' => 'c,r,u,d',
             'profile' => 'r,u',
             'site_settings' => 'c,r,u',
+            'blogs' => 'c,r,u,d',
+            'tags' => 'c,r,u,d',
         ],
         'admin' => [
             'users' => 'c,r,u,d',
@@ -35,6 +37,8 @@ return [
             'payments' => 'c,r,u,d',
             'profile' => 'r,u',
             'site_settings' => 'r,u',
+            'blogs' => 'c,r,u,d',
+            'tags' => 'c,r,u,d',
         ],
         'user' => [
             'profile' => 'c,r,u',
@@ -47,11 +51,15 @@ return [
             'main_categories' => 'c,r,u,d',
             'orders' => 'c,r,u,d',
             'site_settings' => 'r',
+            'blogs' => 'c,r,u,d',
+            'tags' => 'c,r,u,d',
         ],
         'vendor' => [
             'products' => 'c,r,u,d',
             'main_categories' => 'c,r,u',
             'orders' => 'c,r,u',
+            'blogs' => 'r',
+            'tags' => 'r',
         ],
         'moderator' => [
             'users' => 'r',
@@ -60,6 +68,8 @@ return [
             'main_categories' => 'r',
             'orders' => 'r',
             'site_settings' => 'r',
+            'blogs' => 'r',
+            'tags' => 'r',
         ]
     ],
 
