@@ -1,9 +1,9 @@
 <div class="sidebar-wrapper">
     <div>
         <div class="logo-wrapper">
-            <a href="#" data-bs-original-title="" title="">
-                <img class="img-fluid for-light" src="{{asset('admins/cuba/assets/images/logo/logo.png')}}" alt="">
-                <img class="img-fluid for-dark" src="{{asset('admins/cuba/assets/images/logo/logo_dark.png')}}" alt="">
+            <a href="{{ route('admin.index') }}" data-bs-original-title="" title="">
+                <img class="img-fluid for-light" src="{{ $site_settings -> logo_path }}" style="height: 40px;" alt="{{ $site_settings -> title }}">
+                <img class="img-fluid for-dark" src="{{ $site_settings -> logo_path }}" style="height: 40px;" alt="{{ $site_settings -> title }}">
             </a>
             <div class="back-btn"><i class="fa fa-angle-left"></i></div>
             <div class="toggle-sidebar" checked="checked">
@@ -16,8 +16,8 @@
             </div>
         </div>
         <div class="logo-icon-wrapper">
-            <a href="" data-bs-original-title="" title="">
-                <img class="img-fluid" src="{{asset('admins/cuba/assets/images/logo/logo-icon.png')}}" alt="">
+            <a href="{{ route('admin.index') }}" data-bs-original-title="" title="{{ $site_settings -> title }}">
+                <img class="img-fluid" src="{{ $site_settings -> logo_path }}" style="height: 40px;" alt="{{ $site_settings -> title }}">
             </a>
         </div>
         <nav class="sidebar-main">
@@ -39,8 +39,8 @@
                                     <div class="simplebar-content" style="padding: 0px;">
 
                                         <li class="back-btn">
-                                            <a href="#" data-bs-original-title="" title="">
-                                                <img class="img-fluid" src="{{asset('admins/cuba/assets/images/logo/logo-icon.png')}}" alt="">
+                                            <a href="{{ route('admin.index') }}" data-bs-original-title="" title="{{ $site_settings -> title }}">
+                                                <img class="img-fluid" src="{{ $site_settings -> logo_path }}" style="height: 40px;" alt="{{ $site_settings -> title }}">
                                             </a>
                                             <div class="mobile-back text-end">
                                                 <span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i>

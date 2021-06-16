@@ -50,9 +50,10 @@ class MainCategoryComponent extends Component
         }
 
         $categories = MainCategory::where('name', 'not like', 'بدون تصنيف')->where('parent_id', 0)->get();
+        $latest_products = Product::orderBy('created_at', 'DESC')->take(5)->get();
 
 
-        return view('livewire.main-category-component', compact('products', 'categories', 'main_category_name'))->layout('layouts.front.app');
+        return view('livewire.main-category-component', compact('products', 'categories', 'main_category_name', 'latest_products'))->layout('layouts.front.app');
     } // end of render
 
 } // end of component

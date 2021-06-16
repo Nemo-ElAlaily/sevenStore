@@ -30,8 +30,8 @@
                     <div class="row">
                         <div class="col-sm-12 row">
 
-                            @include('admin.adminlte.partials._session')
-                            @include('admin.adminlte.partials._errors')
+                            @include('admin.cuba.partials._session')
+                            @include('admin.cuba.partials._errors')
 
                             <div class="form-group col-lg-6">
                                 <label class="bg-warning"  for="Order_slug">Order # </label>

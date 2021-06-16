@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\MainCategory;
 use App\Models\Product;
 use Livewire\Component;
 use Cart;
@@ -41,11 +42,15 @@ class HomeComponent extends Component
 
     public function render()
     {
-        $products_featured = Product::inRandomOrder()->take(5)->get();
-        $products_on_sale = Product::inRandomOrder()->take(5)->get();
+        $products_featured = Product::orderBy('created_at')->take(5)->get();
+        $products_on_sale = Product::where('sale_price', '>' , 'regular_price')->inRandomOrder()->take(5)->get();
         $products_top_rated = Product::inRandomOrder()->take(5)->get();
+        $latest_products = Product::orderBy('created_at', 'DESC')->take(10)->get();
 
-        return view('livewire.home-component', compact('products_featured', 'products_on_sale', 'products_top_rated'))->layout('layouts.front.app');
+        $categories = MainCategory::where('name', 'not like', 'بدون تصنيف')->where('parent_id', 0)->take(20)->get();
+
+
+        return view('livewire.home-component', compact('products_featured', 'products_on_sale', 'products_top_rated', 'latest_products', 'categories'))->layout('layouts.front.app');
     } // end of render
 
 } // end of component

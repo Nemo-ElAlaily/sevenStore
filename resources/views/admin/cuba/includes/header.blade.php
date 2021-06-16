@@ -13,7 +13,7 @@
             </div>
         </form>
         <div class="header-logo-wrapper col-auto p-0">
-            <div class="logo-wrapper"><a href="#"><img class="img-fluid" src="{{asset('admins/cuba/assets/images/logo/logo.png')}}" alt=""></a></div>
+            <div class="logo-wrapper"><a href="#"><img class="img-fluid" src="{{ $site_settings -> logo_path }}" alt=""></a></div>
             <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
         </div>
         <div class="left-header col horizontal-wrapper ps-0">

@@ -4,7 +4,7 @@
     @endphp
 
     @foreach($products_featured as $index => $product)
-        <li class="product {{ $index == 0 ? 'first' : '' }}">
+        <li class="product">
             <div class="product-outer">
                 <div class="product-inner">
                         <span class="loop-product-categories">
@@ -14,7 +14,7 @@
                         <h3>{{ $product -> name }}</h3>
                         <div class="product-thumbnail">
 
-                            <img data-echo="{{ $product -> image_path }}" src="{{ $product -> image_path }}" alt="{{ $product ->slug }}">
+                            <img style="height: 190px;margin: auto" data-echo="{{ $product -> image_path }}" src="{{ $product -> image_path }}" alt="{{ $product ->slug }}">
 
                         </div>
                     </a>

@@ -40,56 +40,22 @@
                                        value="{{ $main_category -> slug }}">
                             </div>
 
-       
-
-                     
-
-
-                     
-
-{{--                            <div class="form-group col-lg-6">--}}
-{{--                                <label class="bg-warning my-2" for="{{ $main_category -> vendor -> billing_full_name }}">Vendor</label>--}}
-{{--                                <table class="form-control input-thick bg-dark text-center ">--}}
-{{--                                    <thead>--}}
-{{--                                    <tr>--}}
-{{--                                        <th><a class="text-left" href="#">{{ $main_category -> vendor -> billing_full_name }}</a></th>--}}
-{{--                                    </tr>--}}
-{{--                                    </thead>--}}
-{{--                                </table>--}}
-{{--                            </div>--}}
 
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label class="bg-warning my-2" for="main_category">Sub Category</label>
-                                    @error('main_category')
+                                    <label class="bg-warning my-2" for="parent_id">Sub Category</label>
+                                    @error('parent_id')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <select name="main_category" class="form-control bg-dark text-center ">
-                                        <option value="">All Sub Categories</option>
-                                
+                                    <select name="parent_id" class="form-control bg-dark text-center ">
+                                        <option value="0">All Sub Categories</option>
+                                        @foreach($all_categories as $item)
+                                        <option value="{{ $item -> id  }}">{{ $item -> name  }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="form-group col-lg-12">
-                                <label class="bg-warning my-2" for="description">Product Description</label>
-                                @error('description')
-                                <span class="text-danger mx-5">{{ $message }}</span>
-                                @enderror
-                                <textarea class="form-control input-thick bg-dark text-center  ckeditor" type="text" name="description">
-                                        {{ $main_category -> description  }}
-                                </textarea>
-                            </div>
-
-                            <div class="form-group col-lg-12">
-                                <label class="bg-warning my-2" for="features">Product Features</label>
-                                @error('description')
-                                <span class="text-danger mx-5">{{ $message }}</span>
-                                @enderror
-                                <textarea class="form-control input-thick bg-dark text-center  ckeditor" type="text" name="features">
-                                        {{ $main_category -> features  }}
-                                </textarea>
-                            </div>
 
                             <div class="form-group col-sm-12 col-lg-12">
                                 <label class="bg-warning my-2" label for="image">Image</label>
@@ -98,8 +64,13 @@
                                 @enderror
                                 <input type="file" name="image" class="form-control input-sm image mb-4">
 
+<<<<<<< HEAD
                                 <img src="{{ $main_category -> image_path }}" 
                                      class="img-thumbnail image-preview mt-1 image-preview img-fluid d-block m-auto" alt="">
+=======
+                                <img src="{{ $main_category -> image_path }}"
+                                     class="img-thumbnail image-preview mt-1 w-25 img-fluid d-block m-auto" alt="">
+>>>>>>> dc377333b5f948751fa900c68186cd3a568ec4b5
                             </div> {{-- end of form group image --}}
 
                         </div>
@@ -107,7 +78,7 @@
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-received"><i class="fa fa-edit"></i>
-                            Update Product</button>
+                            Update Category</button>
                     </div>
 
                 </form><!-- end of form -->

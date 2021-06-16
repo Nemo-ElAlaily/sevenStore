@@ -14,7 +14,7 @@
         <div class="card-body">
             <div class="row">
 
-                @include('admin.adminlte.partials._errors')
+                @include('admin.cuba.partials._errors')
                 <form class="col-12"  action="{{ route('admin.products.update', $product -> id) }}" method="post" enctype="multipart/form-data">
 
                     {{ csrf_field() }}
