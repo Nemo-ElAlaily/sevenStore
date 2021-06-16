@@ -46,7 +46,7 @@ class SiteSettingController extends Controller
         $site_settings->update($request_data);
 
         session()->flash('success', 'Site Settings Updated Successfully');
-        return redirect()->route('admin.site.show', $site_settings->id);
+        return redirect()->route('admin.settings.site.show', $site_settings->id);
 
     } // end of social update
 
@@ -76,7 +76,7 @@ class SiteSettingController extends Controller
         }  // end of foreach
 
         session()->flash('success', 'Settings Updated Successfully');
-        return redirect()->route('admin.social.show');
+        return redirect()->route('admin.settings.social.show');
 
     } // end of general update
 
@@ -106,7 +106,7 @@ class SiteSettingController extends Controller
         File::put($path, $contents);
 
         session()->flash('success', 'Database Settings Updated Successfully');
-        return redirect()->route('admin.database.show', $database_settings->id);
+        return redirect()->route('admin.settings.database.show', $database_settings->id);
 
     } // end of database update
 
@@ -115,7 +115,7 @@ class SiteSettingController extends Controller
         Artisan::call('migrate:fresh --seed');
         $database_settings = DatabaseSetting::findOrFail($id);
         session()->flash('success', 'Database Migrated Successfully');
-        return redirect()->route('admin.database.show', $database_settings->id);
+        return redirect()->route('admin.settings.database.show', $database_settings->id);
     } // end of run migration command
 
 } // end of controller
