@@ -57,78 +57,155 @@
                                         </li>
 
                                         @if (auth()->user()->hasPermission('users_read'))
+
                                             <li class="sidebar-list">
-                                                <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.users.index') }}" data-bs-original-title="" title="">
+                                                <label class="badge badge-danger"></label>
+                                                <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/users' ? 'active' : '' }}" href="#">
                                                     <i class="nav-icon fa fa-users"></i>
                                                     <span>Users</span>
+                                                    <div class="according-menu">
+                                                        <i class="fa fa-angle-{{request()->route()->getPrefix() == '/users' ? 'down' : 'right' }}"></i>
+                                                    </div>
                                                 </a>
+                                                <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/users' ? 'block;' : 'none;' }}">
+                                                    <li><a href="{{route('admin.users.index')}}" class="{{ Route::currentRouteName()=='admin.users.index' ? 'active' : '' }}">All</a></li>
+                                                    <li><a href="{{route('admin.users.create')}}" class="{{ Route::currentRouteName()=='admin.users.create' ? 'active' : '' }}">Create User</a></li>
+                                                </ul>
                                             </li>
+
                                         @endif
 
                                         @if (auth()->user()->hasPermission('vendors_read'))
                                             <li class="sidebar-list">
-                                                <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.vendors.index') }}" data-bs-original-title="" title="">
+                                                <label class="badge badge-danger"></label>
+                                                <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/vendors' ? 'active' : '' }}" href="#">
                                                     <i class="nav-icon fa fa-user-plus"></i>
                                                     <span>Vendors</span>
+                                                    <div class="according-menu">
+                                                        <i class="fa fa-angle-{{request()->route()->getPrefix() == '/vendors' ? 'down' : 'right' }}"></i>
+                                                    </div>
                                                 </a>
+                                                <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/vendors' ? 'block;' : 'none;' }}">
+                                                    <li><a href="{{route('admin.vendors.index')}}" class="{{ Route::currentRouteName()=='admin.vendors.index' ? 'active' : '' }}">All</a></li>
+                                                    <li><a href="{{route('admin.users.create')}}" class="{{ Route::currentRouteName()=='admin.vendors.create' ? 'active' : '' }}">Create Vendor</a></li>
+                                                </ul>
                                             </li>
                                         @endif
 
                                         @if (auth()->user()->hasPermission('products_read'))
                                             <li class="sidebar-list">
-                                                <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.products.index') }}" data-bs-original-title="" title="">
+                                                <label class="badge badge-danger"></label>
+                                                <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/products' ? 'active' : '' }}" href="#">
                                                     <i class="nav-icon fa fa-product-hunt"></i>
                                                     <span>Products</span>
+                                                    <div class="according-menu">
+                                                        <i class="fa fa-angle-{{request()->route()->getPrefix() == '/products' ? 'down' : 'right' }}"></i>
+                                                    </div>
                                                 </a>
+                                                <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/vendors' ? 'block;' : 'none;' }}">
+                                                    <li><a href="{{route('admin.products.index')}}" class="{{ Route::currentRouteName()=='admin.products.index' ? 'active' : '' }}">All</a></li>
+                                                    <li><a href="{{route('admin.products.create')}}" class="{{ Route::currentRouteName()=='admin.products.create' ? 'active' : '' }}">Create Product</a></li>
+                                                </ul>
                                             </li>
                                         @endif
 
                                         @if (auth()->user()->hasPermission('main_categories_read'))
                                             <li class="sidebar-list">
-                                                <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.main_categories.index') }}" data-bs-original-title="" title="">
+                                                <label class="badge badge-danger"></label>
+                                                <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/main_categories' ? 'active' : '' }}" href="#">
                                                     <i class="nav-icon fa fa-puzzle-piece"></i>
                                                     <span>Main Categories</span>
+                                                    <div class="according-menu">
+                                                        <i class="fa fa-angle-{{request()->route()->getPrefix() == '/main_categories' ? 'down' : 'right' }}"></i>
+                                                    </div>
                                                 </a>
+                                                <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
+                                                    <li><a href="{{route('admin.main_categories.index')}}" class="{{ Route::currentRouteName()=='admin.main_categories.index' ? 'active' : '' }}">All</a></li>
+                                                    <li><a href="{{route('admin.main_categories.create')}}" class="{{ Route::currentRouteName()=='admin.main_categories.create' ? 'active' : '' }}">Create Category</a></li>
+                                                </ul>
                                             </li>
                                         @endif
 
                                         @if (auth()->user()->hasPermission('orders_read'))
                                             <li class="sidebar-list">
-                                                <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.orders.index') }}" data-bs-original-title="" title="">
+                                                <label class="badge badge-danger"></label>
+                                                <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/orders' ? 'active' : '' }}" href="#">
                                                     <i class="nav-icon fa fa-sort"></i>
                                                     <span>Orders</span>
+                                                    <div class="according-menu">
+                                                        <i class="fa fa-angle-{{request()->route()->getPrefix() == '/orders' ? 'down' : 'right' }}"></i>
+                                                    </div>
                                                 </a>
+                                                <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/orders' ? 'block;' : 'none;' }}">
+                                                    <li><a href="{{route('admin.orders.index')}}" class="{{ Route::currentRouteName()=='admin.orders.index' ? 'active' : '' }}">All</a></li>
+                                                    <li><a href="#" class="">Completed Orders</a></li>
+                                                    <li><a href="#" class="#">Cancelled Orders</a></li>
+                                                </ul>
                                             </li>
                                         @endif
 
-                                        <li class="sidebar-main-title mt-5">
-                                            <div>
-                                                <h6 class="lan-1">Site Settings </h6>
-                                                <p class="lan-2">General,Social &amp; Database.</p>
-                                            </div>
+                                        <li class="sidebar-list">
+                                            <label class="badge badge-danger"></label>
+                                            <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/seo-tools' ? 'active' : '' }}" href="#">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
+                                                <span>SEO Tools</span>
+                                                <div class="according-menu">
+                                                    <i class="fa fa-angle-{{request()->route()->getPrefix() == '/seo-tools' ? 'down' : 'right' }}"></i>
+                                                </div>
+                                            </a>
+                                            <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/orders' ? 'block;' : 'none;' }}">
+                                                <li><a href="#" class="#">Tools</a></li>
+                                            </ul>
                                         </li>
 
                                         <li class="sidebar-list">
-                                            <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.site.show', 1) }}" data-bs-original-title="" title="">
+                                            <label class="badge badge-danger"></label>
+                                            <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/pages' ? 'active' : '' }}" href="#">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                                                <span>Pages</span>
+                                                <div class="according-menu">
+                                                    <i class="fa fa-angle-{{request()->route()->getPrefix() == '/pages' ? 'down' : 'right' }}"></i>
+                                                </div>
+                                            </a>
+                                            <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/orders' ? 'block;' : 'none;' }}">
+                                                <li><a href="#" class="#">All Pages</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="sidebar-list">
+                                            <label class="badge badge-danger"></label>
+                                            <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/blogs' ? 'active' : '' }}" href="#">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-film"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                                                <span>Blogs</span>
+                                                <div class="according-menu">
+                                                    <i class="fa fa-angle-{{request()->route()->getPrefix() == '/blogs' ? 'down' : 'right' }}"></i>
+                                                </div>
+                                            </a>
+                                            <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/blogs' ? 'block;' : 'none;' }}">
+                                                <li><a href="#" class="#">All</a></li>
+                                                <li><a href="#" class="#">Create</a></li>
+                                            </ul>
+                                        </li>
+
+
+
+                                        @if (auth()->user()->hasPermission('site_settings_read'))
+                                        <li class="sidebar-list mt-1">
+                                            <label class="badge badge-danger"></label>
+                                            <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/site_settings' ? 'active' : '' }}" href="#">
                                                 <i class="fa fa-wrench nav-icon"></i>
-                                                <span>General Settings</span>
+                                                <span>Site Settings</span>
+                                                <div class="according-menu">
+                                                    <i class="fa fa-angle-{{request()->route()->getPrefix() == '/site_settings' ? 'down' : 'right' }}"></i>
+                                                </div>
                                             </a>
+                                            <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/site_settings' ? 'block;' : 'none;' }}">
+                                                <li><a href="{{route('admin.settings.site.show', 1)}}" class="{{ Route::currentRouteName()=='admin.settings.site.show' ? 'active' : '' }}">General</a></li>
+                                                <li><a href="{{route('admin.settings.social.show')}}" class="{{ Route::currentRouteName()=='admin.settings.social.show' ? 'active' : '' }}">Social</a></li>
+                                                <li><a href="{{route('admin.settings.database.show', 1)}}" class="{{ Route::currentRouteName()=='admin.settings.database.show' ? 'active' : '' }}">Database</a></li>
+                                            </ul>
                                         </li>
-
-                                        <li class="sidebar-list">
-                                            <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.social.show') }}" data-bs-original-title="" title="">
-                                                <i class="fa fa-bullhorn nav-icon"></i>
-                                                <span>Social Settings</span>
-                                            </a>
-                                        </li>
-
-                                        <li class="sidebar-list">
-                                            <a class="sidebar-link sidebar-title link-nav " href="{{ route('admin.database.show' , 1) }}" data-bs-original-title="" title="">
-                                                <i class="fa fa-database nav-icon"></i>
-                                                <span>Database Settings</span>
-                                            </a>
-                                        </li>
-
+                                        @endif
 
                                     </div>
                                 </div>

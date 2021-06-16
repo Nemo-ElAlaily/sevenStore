@@ -127,7 +127,7 @@
 
                                       <div class="form-group m-5">
                                           <a href="{{ route('admin.database.migration', 1) }}" class="btn btn-success"><i class="fa fa-check-circle"></i>
-                                              Run Database Migrations</a>
+                                              Import Data</a>
                                       </div>
                                   </div>
 

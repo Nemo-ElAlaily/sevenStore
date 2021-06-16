@@ -16,15 +16,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::get('/', 'AdminController@index')->name('index');
 
         /* Site Settings Routes */
-        Route::get('site_settings/{id}', 'SiteSettingController@generalShow')->name('site.show');
-        Route::put('site_settings/{id}', 'SiteSettingController@generalUpdate')->name('site.update');
+        Route::get('site_settings/{id}', 'SiteSettingController@generalShow')->name('settings.site.show');
+        Route::put('site_settings/{id}', 'SiteSettingController@generalUpdate')->name('settings.site.update');
 
-        Route::get('social-settings', 'SiteSettingController@socialShow')->name('social.show');
-        Route::post('social-settings', 'SiteSettingController@socialUpdate')->name('social.update');
+        Route::get('social-settings', 'SiteSettingController@socialShow')->name('settings.social.show');
+        Route::post('social-settings', 'SiteSettingController@socialUpdate')->name('settings.social.update');
 
-        Route::get('database/{id}', 'SiteSettingController@databaseShow')->name('database.show');
-        Route::put('database/{id}', 'SiteSettingController@databaseUpdate')->name('database.update');
-        Route::get('database/{id}/migrate', 'SiteSettingController@runMigration')->name('database.migration');
+        Route::get('database/{id}', 'SiteSettingController@databaseShow')->name('settings.database.show');
+        Route::put('database/{id}', 'SiteSettingController@databaseUpdate')->name('settings.database.update');
+        Route::get('database/{id}/migrate', 'SiteSettingController@runMigration')->name('settings.database.migration');
 
         /* end site settings */
 
