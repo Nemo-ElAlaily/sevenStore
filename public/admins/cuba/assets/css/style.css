@@ -12649,6 +12649,9 @@ th {
         white-space: nowrap;
         max-width: 172px;
     }
+    .form-control.selectCat{
+        margin: 15px 0;
+    }
     .bookmark-tabcontent
         .details-bookmark.list-bookmark
         .bookmark-card
@@ -49661,4 +49664,54 @@ input.bg-dark:focus {
     color: #fff;
     margin: 25px;
     }
-    
+
+@media only screen and (max-width: 411px){
+    .btn.btn-dark{
+        padding: 3px;
+        margin: 6px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        color: #f4f4f4;
+        background-color: #212529 !important;
+    }
+    .table-bordered>:not(caption)>*>*{
+        border-width:0;
+    }
+    .table td{
+        padding: 0;
+    }
+    .table th{
+        padding: 2px;
+    }
+    .form-control {
+        margin-bottom: 10px;
+    }
+    .selectCat{
+        margin-top: 10px;
+    }
+    .box.box-primary{
+     
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 410px) and (max-width:767px){
+    .box.box-primary{
+        text-align: center;
+    }
+    .box.box-primary .col-md-4{margin-top:15px;}
+
+}
+@media only screen and (min-width: 768px) and (max-width:1200px){
+    .box.box-primary{
+        text-align: center;
+    }
+.col-md-4{
+    width: 100%;
+}
+.form-control.selectCat{
+    margin: 15px 0;
+}
+
+}

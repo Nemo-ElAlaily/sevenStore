@@ -23,7 +23,7 @@
                         <input type="text" name="search" class="form-control" placeholder="Search Here..." value="{{ request()->search }}">
                     </div>
 
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                         <label class="w-100">
                             <select name="category" class="form-control selectCat">
                                 <option class="bg-ligh" value="">All Categories</option>
@@ -34,7 +34,7 @@
                         </label>
                     </div>
 
-                    <div class="col-md-4 p-0">
+                    <div class="col-md-4 p-0 buttonsProd">
                         <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
                         <a href="{{ route('admin.products.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> Add Product</a>
                     </div>
