@@ -97,9 +97,6 @@
 
                             <div class="form-group col-lg-12">
                                 <label for="features">Product Features</label>
-                                @error('description')
-                                <span class="text-danger mx-5">{{ $message }}</span>
-                                @enderror
                                 <textarea class="form-control input-thick ckeditor" type="text" name="features">
                                         {{ old('features') }}
                                 </textarea>
