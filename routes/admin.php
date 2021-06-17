@@ -40,6 +40,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::resource('main_categories', 'MainCategoryController');
         /* end of Main Categories Routes */
 
+        /* Pages Routes */
+        Route::resource('pages', 'PageController');
+        /* end of Pages Routes */
+
         /* Orders Routes */
         Route::resource('orders', 'OrderController')->except(['create', 'store']);
         Route::get('orders/{id}/sent', 'OrderController@shippingOrder')->name('orders.shippingOrder');

@@ -7,7 +7,6 @@
     <li class="breadcrumb-item">Create</li>
 @stop
 
-
 @section('content')
     <!-- Default box -->
     <div class="card card-solid">
