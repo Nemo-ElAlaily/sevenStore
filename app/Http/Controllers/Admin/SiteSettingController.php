@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Settings\DatabaseSettingsRequest;
 use App\Models\Settings\DatabaseSetting;
 use App\Models\Settings\SiteSetting;
 use App\Models\Settings\SocialSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -86,33 +88,50 @@ class SiteSettingController extends Controller
         return view('admin.cuba.site_settings.database', compact('database_settings'));
     } // end of database show
 
-    public function databaseUpdate($id, Request $request)
+    public function databaseUpdate($id, DatabaseSettingsRequest $request)
     {
-        $database_settings = DatabaseSetting::findorFail($id);
-        $request_data = $request->except(['_token', '_method']);
+        try {
+            $database_settings = DatabaseSetting::findorFail($id);
+            $request_data = $request->except(['_token', '_method']);
 
-        $database_settings -> update($request_data);
+            DB::beginTransaction();
+            $database_settings -> update($request_data);
 
-        $path = base_path('config\database.php');
-        $contents = File::get($path);
+            $path = base_path('config\database.php');
+            $contents = File::get($path);
 
-        $contents = str_replace("env('WP_DB_HOST')", "'" . $database_settings -> WP_DB_HOST . "'", $contents);
-        $contents = str_replace("env('WP_DB_PORT')", "'" . $database_settings -> WP_DB_PORT . "'", $contents);
-        $contents = str_replace("env('WP_DB_DATABASE')", "'" . $database_settings -> WP_DB_DATABASE . "'", $contents);
-        $contents = str_replace("env('WP_DB_USERNAME')", "'" . $database_settings -> WP_DB_USERNAME . "'", $contents);
-        $contents = str_replace("env('WP_DB_PASSWORD')", "'" . $database_settings -> WP_DB_PASSWORD . "'", $contents);
-        // and so on
+            $contents = str_replace("env('DB_HOST')", "'" . $database_settings -> DB_HOST . "'", $contents);
+            $contents = str_replace("env('DB_PORT')", "'" . $database_settings -> DB_PORT . "'", $contents);
+            $contents = str_replace("env('DB_DATABASE')", "'" . $database_settings -> DB_DATABASE . "'", $contents);
+            $contents = str_replace("env('DB_USERNAME')", "'" . $database_settings -> DB_USERNAME . "'", $contents);
+            $contents = str_replace("env('DB_PASSWORD')", "'" . $database_settings -> DB_PASSWORD . "'", $contents);
 
-        File::put($path, $contents);
+            $contents = str_replace("env('WP_DB_HOST')", "'" . $database_settings -> WP_DB_HOST . "'", $contents);
+            $contents = str_replace("env('WP_DB_PORT')", "'" . $database_settings -> WP_DB_PORT . "'", $contents);
+            $contents = str_replace("env('WP_DB_DATABASE')", "'" . $database_settings -> WP_DB_DATABASE . "'", $contents);
+            $contents = str_replace("env('WP_DB_USERNAME')", "'" . $database_settings -> WP_DB_USERNAME . "'", $contents);
+            $contents = str_replace("env('WP_DB_PASSWORD')", "'" . $database_settings -> WP_DB_PASSWORD . "'", $contents);
+            // and so on
 
-        session()->flash('success', 'Database Settings Updated Successfully');
-        return redirect()->route('admin.settings.database.show', $database_settings->id);
+            File::put($path, $contents);
+
+            DB::commit();
+
+            session()->flash('success', 'Database Settings Updated Successfully');
+            return redirect()->route('admin.settings.database.show', $database_settings->id);
+        }
+        catch (\Exception $exception)
+        {
+            DB::rollBack();
+            session()->flash('error', 'Something Went Wrong Please Contact Administrator');
+            return redirect()->route('admin.settings.database.show', $database_settings->id);
+        }
 
     } // end of database update
 
     public function runMigration($id)
     {
-        Artisan::call('migrate:fresh --seed');
+        Artisan::call('db:seed');
         $database_settings = DatabaseSetting::findOrFail($id);
         session()->flash('success', 'Database Migrated Successfully');
         return redirect()->route('admin.settings.database.show', $database_settings->id);

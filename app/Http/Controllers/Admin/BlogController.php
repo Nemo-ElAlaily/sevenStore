@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Blog\BlogCreateRequest;
+use App\Http\Requests\Blog\BlogCreateRequest;
 use App\Models\Blogs\Blog;
 use App\Models\Blogs\Tag;
 use Illuminate\Http\Request;

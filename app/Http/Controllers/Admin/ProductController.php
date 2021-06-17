@@ -62,7 +62,7 @@ class ProductController extends Controller
 
     } // end of create
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         try {
             DB::beginTransaction();
@@ -94,7 +94,7 @@ class ProductController extends Controller
             return redirect()->route('admin.products.index');
 
         } catch (\Exception $exception) {
-            //return $exception;
+
             DB::rollback();
             session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
             return redirect()->route('admin.products.index');
@@ -156,7 +156,7 @@ class ProductController extends Controller
 
     } // end of edit
 
-    public function update($id, ProductRequest $request)
+    public function update($id, Request $request)
     {
         try {
             $product = Product::find($id);
@@ -170,6 +170,16 @@ class ProductController extends Controller
                 session()->flash('error', "Product Doesn't Exist or has been deleted");
                 return redirect()->route('admin.products.index');
             }
+
+            $request -> validate([
+                'name' => 'required',
+                'regular_price' => 'required',
+                'sale_price' => 'required',
+                'sku' => 'required',
+                'main_category' => 'required',
+                'description' => 'required',
+                'image' => 'mimes:jpeg,bmp,png,gif',
+            ]);
 
             DB::beginTransaction();
             $imagePath = "";
