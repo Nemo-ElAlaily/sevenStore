@@ -9951,3 +9951,14 @@ h3.faq-title {
     .section-onsale-product-carousel .onsale-product-carousel .onsale-product .onsale-product-content .button,
     .products-carousel .owl-item .product .button {
         position: relative; } }
+.toggleSide{
+
+    position: absolute;
+    right: 100px;
+    top: 15px;
+}
+.toggleSide i{
+    font-size: 30px;
+    cursor: pointer;
+
+}
