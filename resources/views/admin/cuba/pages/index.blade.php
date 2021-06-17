@@ -45,6 +45,7 @@
                 <th>#</th>
                 <th>Page Title</th>
                 <th>Page Slug</th>
+                <th>Page URL</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -55,6 +56,9 @@
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $page-> title }}</td>
                 <td>{{ $page-> slug }}</td>
+                <td>
+                    <a href="{{ route('front.page.details' , $page -> slug) }}" target="_blank">View in Browser</a>
+                </td>
                 <td>
                     <a href="{{ route('admin.pages.show', $page->id) }}" class="btn btnShow  btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>
                     <a href="{{ route('admin.pages.edit', $page->id) }}" class="btn btnEdit btn-sm"><i class="fa fa-edit fa-lg text-lg"></i></a>

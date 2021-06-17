@@ -14,6 +14,9 @@
         <div class="card-body">
             <div class="row">
 
+                @include('admin.cuba.partials._session')
+                @include('admin.cuba.partials._errors')
+
                 <form class="col-12" action="{{ route('admin.pages.store') }}" method="post" enctype="multipart/form-data">
 
                     {{ csrf_field() }}

@@ -30,10 +30,15 @@ class PageController extends Controller
     public function store(PageCreateRequest $request)
     {
         $request_data = $request->except(['_token', '_method']);
-        Page::create($request_data);
+        if($request_data['en']['title'] == 'admin' || $request_data['en']['slug'] == 'admin'){
+            session()->flash('error', 'Page Title or Slug Can\'t be "admin"');
+            return redirect()->back();
+        } else {
+            Page::create($request_data);
+            session()->flash('success', 'Page Created Successfully');
+            return redirect()->route('admin.pages.index');
+        }
 
-        session()->flash('success', 'Page Created Successfully');
-        return redirect()->route('admin.pages.index');
     } // end of store
 
     public function edit($id)
@@ -63,5 +68,5 @@ class PageController extends Controller
         return redirect()->route('admin.pages.index');
 
     } // end of destroy
-    
+
 } // end of controller
