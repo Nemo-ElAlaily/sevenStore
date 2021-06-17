@@ -59,6 +59,7 @@
     <script type="text/javascript" src="{{ asset('front/js/jquery.easing.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('front/js/jquery.waypoints.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('front/js/electro.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/js/custom-' . LaravelLocalization::getCurrentLocaleDirection() . '.js') }}"></script>
     @livewireScripts
 </body>
 </html>
