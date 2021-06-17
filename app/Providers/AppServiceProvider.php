@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
+        // Fetch the Site Settings object
         $site_settings = SiteSetting::find(1);
         $social_settings = SocialSetting::all();
         $main_categories = MainCategory::all();
