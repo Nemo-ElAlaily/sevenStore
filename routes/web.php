@@ -8,6 +8,7 @@ use App\Http\Livewire\SingleProductComponent;
 use App\Http\Livewire\MainCategoryComponent;
 use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\WishlistComponent;
+use App\Http\Livewire\PageComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -42,6 +43,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 
         Route::get('/wishlist', WishlistComponent::class)->name('product.wishlist');
 
+        Route::get('/pages/{slug}', PageComponent::class)->name('page.details');
+
     });
+
     Auth::routes(['verify' => true]);
+
 });

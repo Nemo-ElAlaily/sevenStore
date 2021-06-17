@@ -9,10 +9,6 @@ define('ADMIN_PAGINATION_COUNT', 10);
 Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function() {
     Route::prefix('admin')->name('admin.')->middleware( ['auth', 'role:super_admin|admin|vendor|shop_manager|moderator'])->group(function () {
 
-        Route::get('/cuba', function() {
-            return view('admin.cuba.index');
-        });
-
         Route::get('/', 'AdminController@index')->name('index');
 
         /* Site Settings Routes */
@@ -39,6 +35,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         /* Main Categories Routes */
         Route::resource('main_categories', 'MainCategoryController');
         /* end of Main Categories Routes */
+
+        /* Pages Routes */
+        Route::resource('pages', 'PageController');
+        /* end of Pages Routes */
 
         /* Orders Routes */
         Route::resource('orders', 'OrderController')->except(['create', 'store']);

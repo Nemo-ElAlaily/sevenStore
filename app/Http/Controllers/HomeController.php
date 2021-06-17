@@ -30,12 +30,12 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
-    }
+    } // end of index
 
     public function welcome()
     {
         return view('welcome');
-    }
+    } // end of welcome
 
     public function initApp()
     {
@@ -57,6 +57,7 @@ class HomeController extends Controller
 
         File::put($path, $contents);
 
-        return redirect()->route('admin.index');
-    }
-}
+        session()->flash('success', 'Your App Started Successfully, Fill and Import Data from Wordpress');
+        return redirect()->route('admin.site.database.show');
+    } // end of initApp
+} // end of controller

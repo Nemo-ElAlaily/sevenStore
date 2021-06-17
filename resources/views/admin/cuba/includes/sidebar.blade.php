@@ -158,6 +158,7 @@
                                             </ul>
                                         </li>
 
+                                        @if (auth()->user()->hasPermission('pages_read'))
                                         <li class="sidebar-list">
                                             <label class="badge badge-danger"></label>
                                             <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/pages' ? 'active' : '' }}" href="#">
@@ -168,9 +169,11 @@
                                                 </div>
                                             </a>
                                             <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/orders' ? 'block;' : 'none;' }}">
-                                                <li><a href="#" class="#">All Pages</a></li>
+                                                <li><a href="{{ route('admin.pages.index') }}" class="">All Pages</a></li>
+                                                <li><a href="{{ route('admin.pages.create') }}" class="">Create Page</a></li>
                                             </ul>
                                         </li>
+                                        @endif
 
                                         @if (auth()->user()->hasPermission('blogs_read'))
                                         <li class="sidebar-list">

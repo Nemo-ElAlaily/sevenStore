@@ -11,6 +11,10 @@
             </nav><!-- .woocommerce-breadcrumb -->
 
             <div class="content-area">
+
+                @include('front.partials._session')
+                @include('front.partials._errors')
+
                 <main id="main" class="site-main">
                     <article id="post-8" class="hentry">
 
