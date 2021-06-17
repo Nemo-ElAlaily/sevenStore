@@ -23,6 +23,27 @@
                     {{ method_field('post') }}
 
                     <div class="row">
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" checked>
+                                <label class="custom-control-label" for="is_active">Is Active</label>
+                            </div>
+                            @error('is_active')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_footer" checked >
+                                <label class="custom-control-label" for="show_in_footer">Show in Footer</label>
+                            </div>
+                            @error('show_in_footer')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         @foreach (config('translatable.locales') as $locale)
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">

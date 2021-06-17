@@ -29,7 +29,21 @@ class PageController extends Controller
 
     public function store(PageCreateRequest $request)
     {
+        if(!$request -> has('is_active')){
+            $request -> request -> add(['is_active' => 0]);
+        } else {
+            $request -> request -> add(['is_active' => 1]);
+        }
+
+        if(!$request -> has('show_in_footer')){
+            $request -> request -> add(['show_in_footer' => 0]);
+        } else {
+            $request -> request -> add(['show_in_footer' => 1]);
+        }
+
         $request_data = $request->except(['_token', '_method']);
+
+
         if($request_data['en']['title'] == 'admin' || $request_data['en']['slug'] == 'admin'){
             session()->flash('error', 'Page Title or Slug Can\'t be "admin"');
             return redirect()->back();
@@ -50,6 +64,19 @@ class PageController extends Controller
     public function update(PageUpdateRequest $request, $id)
     {
         $page = Page::find($id);
+
+        if(!$request -> has('is_active')){
+            $request -> request -> add(['is_active' => 0]);
+        } else {
+            $request -> request -> add(['is_active' => 1]);
+        }
+
+        if(!$request -> has('show_in_footer')){
+            $request -> request -> add(['show_in_footer' => 0]);
+        } else {
+            $request -> request -> add(['show_in_footer' => 1]);
+        }
+
         $request_data = $request->except(['_token', '_method']);
         $page -> update($request_data);
 

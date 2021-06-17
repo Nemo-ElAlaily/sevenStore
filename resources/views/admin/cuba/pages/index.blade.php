@@ -44,7 +44,7 @@
             <tr>
                 <th>#</th>
                 <th>Page Title</th>
-                <th>Page Slug</th>
+                <th>Page Status</th>
                 <th>Page URL</th>
                 <th>Actions</th>
             </tr>
@@ -55,7 +55,7 @@
             <tr>
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $page-> title }}</td>
-                <td>{{ $page-> slug }}</td>
+                <td>{{ $page-> getActive() }}</td>
                 <td>
                     <a href="{{ route('front.page.details' , $page -> slug) }}" target="_blank">View in Browser</a>
                 </td>

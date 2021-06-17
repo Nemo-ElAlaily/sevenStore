@@ -58,6 +58,7 @@ class HomeController extends Controller
         File::put($path, $contents);
 
         session()->flash('success', 'Your App Started Successfully, Fill and Import Data from Wordpress');
-        return redirect()->route('admin.site.database.show');
+        return redirect()->route('admin.settings.database.show', 1);
+
     } // end of initApp
 } // end of controller

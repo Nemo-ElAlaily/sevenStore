@@ -17,6 +17,21 @@
                 <form class="col-12">
 
                     <div class="row">
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" @if($page -> is_active == 1 )checked @endif>
+                                <label class="custom-control-label" for="is_active">Is Active</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_footer" @if($page -> is_active == 1 )checked @endif>
+                                <label class="custom-control-label" for="show_in_footer">Show in Footer</label>
+                            </div>
+                        </div>
+
                         @foreach (config('translatable.locales') as $locale)
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
@@ -41,7 +56,7 @@
                                         $locale . '.meta_title')</label>
                                     <input class="form-control   input-thick bg-dark text-center" type="text"
                                            name="{{ $locale }}[meta_title]"
-                                           value="{{ $site_settings->translate($locale)->meta_title }}">
+                                           value="{{ $page->translate($locale)->meta_title }}">
                                 </div>
 
                                 <div class="form-group">
@@ -50,7 +65,7 @@
                                         '.meta_description')</label>
                                     <input class="form-control input-thick bg-dark text-center" type="text"
                                            name="{{ $locale }}[meta_description]"
-                                           value="{{ $site_settings->translate($locale)->meta_description }}">
+                                           value="{{ $page->translate($locale)->meta_description }}">
                                 </div>
 
                                 <div class="form-group">
@@ -58,11 +73,12 @@
                                         $locale . '.meta_keyword')</label>
                                     <input class="form-control   input-thick bg-dark text-center" type="text"
                                            name="{{ $locale }}[meta_keyword]"
-                                           value="{{ $site_settings->translate($locale)->meta_keyword }}">
+                                           value="{{ $page->translate($locale)->meta_keyword }}">
                                 </div>
 
                             </div>
                         @endforeach
+
                     </div>
 
                 </form><!-- end of form -->

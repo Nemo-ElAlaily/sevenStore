@@ -15,8 +15,8 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('is_active')->default(0);
-            $table->boolean('show_in_footer')->default(0);
+            $table->boolean('is_active')->default(1);
+            $table->boolean('show_in_footer')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
