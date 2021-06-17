@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="col-sm-12 row">
                             <div class="form-group col-lg-6">
-                                <label for="name">Product Name</label>
+                                <label class="labelProd"for="name">Product Name</label>
                                 @error('name')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label for="stock">Stock </label>
+                                <label class="labelProd"for="stock">Stock </label>
                                 @error('stock')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label for="regular_price">Regular Price</label>
+                                <label class="labelProd"for="regular_price">Regular Price</label>
                                 @error('regular_price')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label for="sku">Sku</label>
+                                <label class="labelProd"for="sku">Sku</label>
                                 @error('sku')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
@@ -62,7 +62,7 @@
 
 
                             <div class="form-group col-lg-6">
-                                <label for="sale_price">Sale Price</label>
+                                <label class="labelProd"for="sale_price">Sale Price</label>
                                 @error('sale_price')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
@@ -72,11 +72,11 @@
 
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="main_category">Sub Category</label>
+                                    <label class="labelProd"for="main_category">Sub Category</label>
                                     @error('main_category')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <select name="main_category" class="form-control">
+                                    <select class="select-css" name="main_category" class="form-control">
                                         <option value="0">All Sub Categories</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category -> id }}">{{ $category -> name }}</option>
@@ -86,27 +86,27 @@
                             </div>
 
                             <div class="form-group col-lg-12">
-                                <label for="description">Product Description</label>
+                                <label class="labelProd"for="description">Product Description</label>
                                 @error('description')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <textarea class="form-control input-thick ckeditor" type="text" name="description">
+                                <textarea class="form-control input-thick textareaBlog" type="text" name="description">
                                         {{ old('description') }}
                                 </textarea>
                             </div>
 
                             <div class="form-group col-lg-12">
-                                <label for="features">Product Features</label>
+                                <label class="labelProd"for="features">Product Features</label>
                                 @error('description')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <textarea class="form-control input-thick ckeditor" type="text" name="features">
+                                <textarea class="form-control input-thick textareaBlog" type="text" name="features">
                                         {{ old('features') }}
                                 </textarea>
                             </div>
 
                             <div class="form-group col-sm-12 col-lg-12">
-                                <label label for="image">Image</label>
+                                <label class="labelProd"label for="image">Image</label>
                                 @error('image')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
@@ -120,7 +120,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
+                        <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
                             Add Product</button>
                     </div>
 

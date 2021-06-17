@@ -13,7 +13,9 @@
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
-
+                <div class="col-md-12 m-auto">
+                    <img class="user-avatar" src="{{asset('admins/cuba/assets/images/user/avatar-user.jpg')}}" alt="">
+                </div>
 {{--                        @include('partials._errors')--}}
                 <form class="col-12" action="{{ route('admin.users.store') }}" method="post" enctype="multipart/form-data">
 
@@ -21,8 +23,9 @@
                             {{ method_field('post') }}
 
                         <div class="row">
+
                             <div class="form-group col-sm-12 col-lg-6">
-                                <label>First Name</label>
+                                <label class="user-label">First Name</label>
                                 @error('first_name')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
@@ -30,7 +33,7 @@
                             </div>
 
                             <div class="form-group col-sm-12 col-lg-6">
-                                <label>Last Name</label>
+                                <label class="user-label">Last Name</label>
                                 @error('last_name')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
@@ -38,7 +41,7 @@
                             </div>
 
                             <div class="form-group col-sm-12 col-lg-12">
-                                <label>E-Mail</label>
+                                <label class="user-label">E-Mail</label>
                                 @error('email')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
@@ -46,7 +49,7 @@
                             </div>
 
                             <div class="form-group col-sm-12 col-lg-6">
-                                <label>Password</label>
+                                <label class="user-label">Password</label>
                                 @error('password')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
@@ -54,7 +57,7 @@
                             </div>
 
                             <div class="form-group forms col-sm-12 col-lg-6">
-                                <label>Password Confirmation</label>
+                                <label class="user-label">Password Confirmation</label>
                                 @error('password.confirmed')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
@@ -62,13 +65,13 @@
                             </div>
 
                             <div class="form-group col-sm-12 col-lg-12">
-                                <label>Avatar</label>
+                                <label class="user-label">Avatar</label>
                                 @error('avatar')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
                                 <input type="file" name="avatar" class="form-control input-sm avatar">
 
-                                <img src="{{ asset('public/uploads/users/default.png') }}" width="100px"
+                                <img src="{{ asset('admins/cuba/assets/images/user/user.png') }}" width="100px"
                                      class="img-thumbnail avatar-preview mt-1" alt="">
                             </div> {{-- end of form group avatar --}}
 
@@ -96,7 +99,7 @@
                                             @foreach($roles as $role)
                                                 <td>
                                                     <label for="role"></label>
-                                                    <input class="" type="radio" name="role" value="{{ $role }}">
+                                                    <input class="radio" type="radio" name="role" value="{{ $role }}">
                                                 </td>
                                             @endforeach
 
@@ -112,7 +115,7 @@
                         </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
+                                <button type="submit" class="btn btnAdduser"><i class="fa fa-plus"></i>
                                     Add user</button>
                             </div>
 

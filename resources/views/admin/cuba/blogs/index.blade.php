@@ -26,10 +26,10 @@
                     <div class="col-md-4">
                         <input type="text" name="search" class="form-control" placeholder="Search Here..." value="{{ request()->search }}">
                     </div>
-
+                   
                     <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                        <a href="{{ route('admin.blogs.create') }}" class="btn btn-primary">
+                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
+                        <a href="{{ route('admin.blogs.create') }}" class="btn btnAdd">
                             <i class="fa fa-plus"></i> Add blog
                         </a>
                     </div>

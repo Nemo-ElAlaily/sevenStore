@@ -67,7 +67,7 @@
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $product -> name }}</td>
                             <td>{{ $product -> vendor -> billing_full_name }}</td>
-                            <td><img src="{{ $product -> image_path }}" height="50"></td>
+                            <td><img src="{{ $product -> image_path }}" class="img-prod"></td>
                             <td>
                                 <a href="{{ route('admin.products.show', $product->id) }}" class="btn btnShow  btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>
                                 <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btnEdit btn-sm"><i class="fa fa-edit fa-lg text-lg"></i></a>

@@ -117,21 +117,21 @@
                                 <td></td>
                             </tr>
 
-                            <div class="row p-1 m-auto">
+                            <div class="row py-5 m-auto">
 
                                   <div class="col-4">
-                                      <div class="form-group m-5">
-                                          <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>
+                                      <div class="form-group m-6">
+                                          <button type="submit" class="btn btnEdit "><i class="fa fa-edit"></i>
                                               Update Database Credentials</button>
                                       </div>
 
                                       <div class="form-group m-5">
-                                          <a href="{{ route('admin.settings.database.migration', 1) }}" class="btn btn-success"><i class="fa fa-check-circle"></i>
+                                          <a href="{{ route('admin.settings.database.migration', 1) }}" class="btn btnImport"><i class="fa fa-check-circle"></i>
                                               Import Data</a>
                                       </div>
                                   </div>
 
-                                <div class="col-8 bg-dark rounded p-1">
+                                <div class="col-6 alert-database">
                                     <h6>Requirements:</h6>
                                     <p class="text-bold">
                                         PHP > 7.3

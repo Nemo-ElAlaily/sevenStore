@@ -57,7 +57,7 @@
                                     @error('main_category')
                                     <span class="text-danger mx-5"> </span>
                                     @enderror
-                                    <select name="main_category" class="form-control bg-dark text-center ">
+                                    <select name="main_category" class="form-control select-css ">
                                         <option value="">All Sub Categories</option>
                                 
                                     </select>
@@ -69,7 +69,7 @@
                                 @error('description')
                                 <span class="text-danger mx-5"> </span>
                                 @enderror
-                                <textarea class="form-control input-thick bg-dark text-center  ckeditor" type="text" name="description">
+                                <textarea class="form-control input-thick  textareaBlog" type="text" name="description">
                                        
                                 </textarea>
                             </div>
@@ -79,7 +79,7 @@
                                 @error('description')
                                 <span class="text-danger mx-5"> </span>
                                 @enderror
-                                <textarea class="form-control input-thick bg-dark text-center  ckeditor" type="text" name="features">
+                                <textarea class="form-control input-thick   textareaBlog" type="text" name="features">
                                      
                                 </textarea>
                             </div>

@@ -20,12 +20,12 @@
                 <div class="row mx-5">
 
                     <div class="col-md-6">
-                        <input type="text" name="search" class="form-control" placeholder="Search Here..." value="{{ request()->search }}">
+                        <input type="text" name="search" class="form-control " placeholder="Search Here..." value="{{ request()->search }}">
                     </div>
 
                     <div class="col-md-2">
                         <label class="w-100">
-                            <select name="status" class="form-control">
+                            <select class="select-css" name="status" class="form-control">
                                 <option value="">All Statuses</option>
                                 @foreach($statuses as $status)
                                     <option value="{{ $status -> status }}" {{ request() -> status == $status-> status ? 'selected' : '' }}>{{ $status -> status }}</option>
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="col-md-2 p-0">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
                     </div>
 
                 </div>
@@ -66,12 +66,12 @@
                             <td>{{ $order -> user -> full_name }}</td>
                             <td>{{ $order -> status }}</td>
                             <td>
-                                <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>
-                                <a href="{{ route('admin.orders.edit', $order->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit fa-lg text-lg"></i></a>
+                                <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btnShow btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>
+                                <a href="{{ route('admin.orders.edit', $order->id) }}" class="btn btnEdit  btn-sm"><i class="fa fa-edit fa-lg text-lg"></i></a>
                                 <form action="{{ route('admin.orders.destroy', $order->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
-                                    <button type="button" class="btn btn-danger show_confirm btn-sm"><i class="fa fa-trash fa-lg text-lg"></i></button>
+                                    <button type="button" class="btn btnDelete  show_confirm btn-sm"><i class="fa fa-trash fa-lg text-lg"></i></button>
                                 </form><!-- end of form -->
                             </td>
                         </tr>
