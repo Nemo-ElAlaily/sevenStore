@@ -61,6 +61,9 @@
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="DB_CONNECTION"
                                                value="{{ $database_settings -> DB_CONNECTION }}">
+                                        @error('DB_CONNECTION')
+                                        <span class="text-danger mx-1">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </td>
 
@@ -68,6 +71,9 @@
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="WP_DB_CONNECTION"
                                                value="{{ $database_settings -> WP_DB_CONNECTION }}">
+                                        @error('WP_DB_CONNECTION')
+                                        <span class="text-danger mx-1" >{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </td>
 
@@ -80,6 +86,9 @@
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="DB_HOST"
                                                value="{{ $database_settings -> DB_HOST }}">
+                                        @error('DB_HOST')
+                                        <span class="text-danger mx-1" >{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </td>
 
@@ -87,6 +96,9 @@
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="WP_DB_HOST"
                                                value="{{ $database_settings -> WP_DB_HOST }}">
+                                        @error('WP_DB_HOST')
+                                        <span class="text-danger mx-1" >{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </td>
 
@@ -99,6 +111,9 @@
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="DB_PORT"
                                                value="{{ $database_settings -> DB_PORT }}">
+                                        @error('DB_PORT')
+                                        <span class="text-danger mx-1" >{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </td>
 
@@ -106,6 +121,9 @@
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="WP_DB_PORT"
                                                value="{{ $database_settings -> WP_DB_PORT }}">
+                                        @error('WP_DB_PORT')
+                                        <span class="text-danger mx-1" >{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </td>
                                 <td></td>
@@ -117,6 +135,9 @@
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="DB_DATABASE"
                                                value="{{ $database_settings -> DB_DATABASE }}">
+                                        @error('DB_DATABASE')
+                                        <span class="text-danger mx-1" >{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </td>
 
@@ -124,6 +145,9 @@
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="WP_DB_DATABASE"
                                                value="{{ $database_settings -> WP_DB_DATABASE }}">
+                                        @error('WP_DB_DATABASE')
+                                        <span class="text-danger mx-1" >{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </td>
 
@@ -136,6 +160,10 @@
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="DB_USERNAME"
                                                value="{{ $database_settings -> DB_USERNAME }}">
+
+                                        @error('DB_USERNAME')
+                                        <span class="text-danger mx-1" >{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </td>
 
@@ -143,6 +171,9 @@
                                     <div class="form-group">
                                         <input class="form-control input-thick" type="text" name="WP_DB_USERNAME"
                                                value="{{ $database_settings -> WP_DB_USERNAME }}">
+                                        @error('WP_DB_USERNAME')
+                                        <span class="text-danger mx-1" >{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </td>
 
@@ -155,6 +186,9 @@
                                     <div class="form-group">
                                         <input type="password" class="form-control input-thick" type="text" name="DB_PASSWORD"
                                                value="" placeholder="Type Your password">
+                                        @error('DB_PASSWORD')
+                                        <span class="text-danger mx-1" >{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </td>
 
@@ -162,6 +196,9 @@
                                     <div class="form-group">
                                         <input type="password" class="form-control input-thick" type="text" name="WP_DB_PASSWORD"
                                                value="" placeholder="Type Your password">
+                                        @error('WP_DB_PASSWORD')
+                                        <span class="text-danger mx-1" >{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </td>
 
