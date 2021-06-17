@@ -27,12 +27,12 @@
                         <input type="text" name="search" class="form-control" placeholder="Search Here..." value="{{ request()->search }}">
                     </div>
 
-                    <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                    <div class="col-md-4 p-0">   
+                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
                         @if (auth()->user()->hasPermission('create_tags'))
                             <a href="{{ route('admin.tags.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Tag</a>
                              @else
-                                <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> Add Tag</a>
+                                <a href="#" class="btn btnAdd disabled"><i class="fa fa-plus"></i> Add Tag</a>
                         @endif
                     </div>
 

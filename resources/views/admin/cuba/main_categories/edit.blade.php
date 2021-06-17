@@ -47,7 +47,7 @@
                                     @error('parent_id')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <select name="parent_id" class="form-control bg-dark text-center ">
+                                    <select name="parent_id" class="form-control select-css ">
                                         <option value="0">All Sub Categories</option>
                                         @foreach($all_categories as $item)
                                         <option value="{{ $item -> id  }}">{{ $item -> name  }}</option>
