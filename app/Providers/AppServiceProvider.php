@@ -38,7 +38,6 @@ class AppServiceProvider extends ServiceProvider
             'social_settings' => $social_settings,
             'main_categories' => $main_categories,
         ]);
-
         Paginator::useBootstrap();
     }
 }
