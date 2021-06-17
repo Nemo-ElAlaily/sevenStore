@@ -45,7 +45,7 @@ class HomeController extends Controller
         $path = base_path('app/Providers/AppServiceProvider.php');
         $contents = File::get($path);
 
-        $contents = str_replace("// Fetch the Site Settings object", "// Fetch the Site Settings object
+        $contents = str_replace("// Fetch the Site Settings object", "
         \$site_settings = SiteSetting::find(1);
         \$social_settings = SocialSetting::all();
         \$main_categories = MainCategory::all();
