@@ -2,17 +2,9 @@
 
 @section('title', 'Tags')
 
-@section('content-header')
-    <div class="col-sm-6">
-        <h1>Tags <span class="small text-muted">{{ $tags->total() }}</span></h1>
-    </div>
-    <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item active"><a href="{{ route('admin.index') }}">Home</a></li>
-        </ol>
-    </div>
-
-@endsection
+@section('breadcrumb-items')
+    <li class="breadcrumb-item">Tags</li>
+@stop
 
 @section('content')
     <div class="box box-primary">
@@ -27,13 +19,10 @@
                         <input type="text" name="search" class="form-control" placeholder="Search Here..." value="{{ request()->search }}">
                     </div>
 
-                    <div class="col-md-4 p-0">   
+                    <div class="col-md-4 p-0">
                         <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
-                        @if (auth()->user()->hasPermission('create_tags'))
-                            <a href="{{ route('admin.tags.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Tag</a>
-                             @else
-                                <a href="#" class="btn btnAdd disabled"><i class="fa fa-plus"></i> Add Tag</a>
-                        @endif
+                        <a href="{{ route('admin.tags.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Tag</a>
+
                     </div>
 
                 </div>
@@ -52,9 +41,7 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Slug</th>
-                    @if (auth()->user()->hasPermission('update_tags','delete_tags'))
-                        <th>Action</th>
-                    @endif
+                    <th>Action</th>
                 </tr>
                 </thead>
 
@@ -65,16 +52,14 @@
                         <td>{{ $tag-> name }}</td>
                         <td>{{ $tag -> slug}}</td>
                         <td>
-                            @if (auth()->user()->hasPermission('update_tags'))
-                                <a href="{{ route('admin.tags.edit', $tag->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                                {{-- @else
-                                    <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
+                            @if (auth()->user()->hasPermission('tags_update'))
+                                <a href="{{ route('admin.tags.edit', $tag->id) }}" class="btn btnEdit btn-sm"><i class="fa fa-edit fa-lg text-lg"></i></a>
                             @endif
-                            @if (auth()->user()->hasPermission('delete_tags'))
+                            @if (auth()->user()->hasPermission('tags_delete'))
                                 <form action="{{ route('admin.tags.destroy', $tag->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
-                                    <button type="submit" class="btn btn-danger show_confirm btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                                    <button type="button" class="btn btnDelete show_confirm btn-sm"><i class="fa fa-trash fa-lg text-lg"></i></button>
                                 </form><!-- end of form -->
                                 {{-- @else
                                     <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button> --}}
@@ -98,15 +83,4 @@
 
     </div><!-- end of box -->
 
-@endsection
-
-@section('script')
-
-    <script type="text/javascript">
-        $('.show_confirm').click(function(e) {
-            if(!confirm('Are you sure you want to delete this?')) {
-                e.preventDefault();
-            }
-        });
-    </script>
 @endsection

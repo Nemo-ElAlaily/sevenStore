@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Tags\CreateTagReqeust;
+use App\Http\Requests\Tags\CreateTagReqeust;
 use App\Models\Blogs\Tag;
 use Illuminate\Http\Request;
 
@@ -32,13 +32,15 @@ class TagController extends Controller
     public function store(CreateTagReqeust $request)
     {
         try {
-
             $request->has('is_active') ? $request->request->add(['is_active' => 1]) : $request->request->add(['is_active' => 0]);
             $request->has('is_popular_tag') ? $request->request->add(['is_popular_tag' => 1]) : $request->request->add(['is_popular_tag' => 0]);
 
-            Tag::create($request->except(['_token', '_method']));
+            $request_data = $request -> except(['_token', '_method']);
+
+            Tag::create($request_data);
             session()->flash('success', 'Tag Added Successfully');
             return redirect()->route('admin.tags.index');
+
         } catch (\Exception $exception) {
 
             session()->flash('error', 'Something Went Wrong, Please Contact Administrator' . $exception->getMessage());

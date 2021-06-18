@@ -26,7 +26,7 @@ class CreateTagReqeust extends FormRequest
     {
         $rules = [];
         foreach (config('translatable.locales') as $locale) {
-            $rules += [$locale . '.name' => ['required', Rule::unique('tags_translation', 'name')]];
+            $rules += [$locale . '.name' => ['required', Rule::unique('tag_translations', 'name')]];
         } // end of for each
 
         return $rules;

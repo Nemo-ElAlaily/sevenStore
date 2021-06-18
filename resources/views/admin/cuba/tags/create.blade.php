@@ -2,16 +2,9 @@
 
 @section('title', 'Create Tag')
 
-@section('content-header')
-    <div class="col-sm-6">
-        <h1>Create Tag</h1>
-    </div>
-    <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-            <li class="breadcrumb-item active"><a href="{{ route('admin.tags.index') }}">Tags</a></li>
-        </ol>
-    </div>
+@section('breadcrumb-items')
+    <li class="breadcrumb-item">Tags</li>
+    <li class="breadcrumb-item">Create</li>
 @stop
 
 @section('content')
@@ -51,13 +44,24 @@
                         @endforeach
                     </div>
                     <div class="row">
-                        <div class="form-group col-sm-6 col-lg-6">
-                            <label>Active ?</label>
-                            <input type="checkbox" name="is_active" class="form-control">
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" checked>
+                                <label class="custom-control-label" for="is_active">Is Active</label>
+                            </div>
+                            @error('is_active')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="form-group col-sm-6 col-lg-6">
-                            <label>Is Popular Tag ?</label>
-                            <input type="checkbox" name="is_popular_tag" class="form-control">
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="is_popular_tag" name="is_popular_tag" checked >
+                                <label class="custom-control-label" for="is_popular_tag">Is Popular</label>
+                            </div>
+                            @error('is_popular_tag')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 

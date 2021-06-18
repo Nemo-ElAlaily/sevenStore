@@ -193,6 +193,23 @@
                                         </li>
                                         @endif
 
+                                        @if (auth()->user()->hasPermission('tags_read'))
+                                            <li class="sidebar-list">
+                                                <label class="badge badge-danger"></label>
+                                                <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/tags' ? 'active' : '' }}" href="#">
+                                                    <i class="nav-icon fa fa-hashtag"></i>
+                                                    <span>Tags</span>
+                                                    <div class="according-menu">
+                                                        <i class="fa fa-angle-{{request()->route()->getPrefix() == '/tags' ? 'down' : 'right' }}"></i>
+                                                    </div>
+                                                </a>
+                                                <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/blogs' ? 'block;' : 'none;' }}">
+                                                    <li><a href="{{ route('admin.tags.index') }}" class="#">All Tags</a></li>
+                                                    <li><a href="{{ route('admin.tags.create') }}" class="#">Create Tags</a></li>
+                                                </ul>
+                                            </li>
+                                        @endif
+
                                         @if (auth()->user()->hasPermission('site_settings_read'))
                                         <li class="sidebar-list mt-1">
                                             <label class="badge badge-danger"></label>
