@@ -23,6 +23,17 @@
                         <input type="text" name="search" class="form-control" placeholder="Search Here..." value="{{ request()->search }}">
                     </div>
 
+                    <div class="col-md-2">
+                        <label class="w-100">
+                            <select class="select-css" name="role" class="form-control">
+                                <option value="">All Roles</option>
+                                @foreach($roles as $role)
+                                    <option value="{{ $role -> name }}" {{ request() -> role == $role -> name ? 'selected' : '' }}>{{ $role -> display_name }}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                    </div>
+
                     <div class="col-md-4 p-0">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
                         @if (auth()->user()->hasPermission('users_create'))

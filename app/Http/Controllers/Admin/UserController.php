@@ -25,13 +25,15 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $roles = Role::where('name', 'not like', 'super_admin')->orWhere('name', 'not like', 'vendor')->get();
+        $roles = Role::where(['name' => 'admin'])->orWhere(['name' => 'shop_manager'])->orWhere(['name' => 'moderator'])->get();
 
         $users = User::whereRoleIs(['admin', 'shop_manager', 'moderator'])-> where(function($query) use ($request){
             return $query -> when($request-> search , function ($searchQuery) use ($request) {
                 return $searchQuery -> where ('first_name', 'like' , '%' . $request -> search . '%')
                     ->orWhere('last_name', 'like' , '%' . $request -> search . '%')
                     ->orWhere('email', 'like' , '%' . $request -> search . '%');
+            })->when($request -> role , function($query) use ($request) {
+                return $query -> whereRoleIs($request -> role);
             });
         })->paginate(ADMIN_PAGINATION_COUNT);
 
