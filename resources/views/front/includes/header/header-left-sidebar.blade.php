@@ -29,57 +29,19 @@
 
                             <!-- Home Section -->
                             <li class="u-has-submenu u-header-collapse__submenu">
-                                <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="javascript:;" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="headerSidebarHomeCollapse" data-target="#headerSidebarHomeCollapse">
-                                    Home &amp; Static Pages
+                                <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="javascript:;" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="{{ $category -> id }}" data-target="#{{ $category -> id }}">
+                                    {{ $category -> name }}
                                 </a>
 
-                                <div id="headerSidebarHomeCollapse" class="collapse" data-parent="#headerSidebarContent">
+
+                                <div id="{{ $category -> id }}" class="collapse" data-parent="#{{ $category -> id }}">
                                     <ul id="headerSidebarHomeMenu" class="u-header-collapse__nav-list">
+                                        @foreach($category -> sub_categories as $sub_category)
                                         <!-- Home - v1 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Home v1</a></li>
+                                        <li><a class="u-header-collapse__submenu-nav-link" href="{{ route('front.product.category', $sub_category -> slug) }}">{{ $sub_category -> name }}</a></li>
                                         <!-- End Home - v1 -->
-                                        <!-- Home - v2 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Home v2</a></li>
-                                        <!-- End Home - v2 -->
-                                        <!-- Home - v3 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Home v3</a></li>
-                                        <!-- End Home - v3 -->
-                                        <!-- Home - v3-full-color-bg -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Home v3.1</a></li>
-                                        <!-- End Home - v3-full-color-bg -->
-                                        <!-- Home - v4 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Home v4</a></li>
-                                        <!-- End Home - v4 -->
-                                        <!-- Home - v5 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Home v5</a></li>
-                                        <!-- End Home - v5 -->
-                                        <!-- Home - v6 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Home v6</a></li>
-                                        <!-- End Home - v6 -->
-                                        <!-- Home - v7 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Home v7</a></li>
-                                        <!-- End Home - v7 -->
-                                        <!-- About -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">About</a></li>
-                                        <!-- End About -->
-                                        <!-- Contact v1 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Contact v1</a></li>
-                                        <!-- End Contact v1 -->
-                                        <!-- Contact v2 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Contact v2</a></li>
-                                        <!-- End Contact v2 -->
-                                        <!-- FAQ -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">FAQ</a></li>
-                                        <!-- End FAQ -->
-                                        <!-- Store Directory -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Store Directory</a></li>
-                                        <!-- End Store Directory -->
-                                        <!-- Terms and Conditions -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Terms and Conditions</a></li>
-                                        <!-- End Terms and Conditions -->
-                                        <!-- 404 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">404</a></li>
-                                        <!-- End 404 -->
+                                        @endforeach
+
                                     </ul>
                                 </div>
                             </li>
