@@ -9,7 +9,6 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/bootstrap.min.css') }}" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/font-awesome.min.css') }}" media="all" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/animate.min.css') }}" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/font-electro.css') }}" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/owl-carousel.css') }}" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/style-' . LaravelLocalization::getCurrentLocaleDirection() . '.css') }}" media="all" />
@@ -60,7 +59,6 @@
     <script type="text/javascript" src="{{ asset('front/js/jquery.easing.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('front/js/jquery.waypoints.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('front/js/electro.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('front/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('front/js/custom-' . LaravelLocalization::getCurrentLocaleDirection() . '.js') }}"></script>
     @livewireScripts
 </body>

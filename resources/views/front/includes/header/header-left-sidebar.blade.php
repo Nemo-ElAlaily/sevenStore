@@ -1,7 +1,7 @@
 
 
 
-<aside id="sidebarHeader1" class="u-sidebar u-sidebar--left u-unfold--css-animation fadeInLeft" aria-labelledby="sidebarHeaderInvokerMenu" style="animation-duration: 500ms; left: 0px;">
+<aside id="sidebarHeader1" class="" aria-labelledby="sidebarHeaderInvokerMenu" style="animation-duration: 500ms; left: -335px;">
     <div class="u-sidebar__scroller">
         <div class="u-sidebar__container">
             <div class="u-header-sidebar__footer-offset pb-0">

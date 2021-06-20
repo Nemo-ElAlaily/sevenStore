@@ -7,7 +7,7 @@ jQuery("#btnToggle").click(function(){
 
 jQuery('.btnClose i').click(function(){
 
-    jQuery('#sidebarHeader1').animate({left: '-332px'},1000);
+    jQuery('#sidebarHeader1').animate({left: '-335px'},1000);
 });
 jQuery('.toggleSide i ').click(function(){
     jQuery('#sidebarHeader1').animate({left: '0'},1000);
