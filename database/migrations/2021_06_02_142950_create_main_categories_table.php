@@ -19,6 +19,10 @@ class CreateMainCategoriesTable extends Migration
             $table->string('slug');
             $table->unsignedBigInteger('parent_id');
             $table->text('image')->nullable();
+            $table->boolean('is_active')->default(1);
+            $table->boolean('show_in_navbar')->default(1);
+            $table->boolean('show_in_sidebar')->default(1);
+            $table->boolean('show_in_footer')->default(0);
             $table->timestamps();
             $table->SoftDeletes();
         });

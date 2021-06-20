@@ -28,6 +28,35 @@
                     </a>
 
                     <div class="row">
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" @if($main_category -> is_active == 1 )checked @endif>
+                                <label class="custom-control-label" for="is_active">Is Active</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_navbar" name="show_in_navbar"  @if($main_category -> show_in_navbar == 1 )checked @endif >
+                                <label class="custom-control-label" for="show_in_navbar">Show in Navbar</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_sidebar" name="show_in_sidebar" @if($main_category -> show_in_sidebar == 1 )checked @endif >
+                                <label class="custom-control-label" for="show_in_sidebar">Show in Sidebar</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_footer" @if($main_category -> show_in_footer == 1 )checked @endif>
+                                <label class="custom-control-label" for="show_in_footer">Show in Footer</label>
+                            </div>
+                        </div>
+
                         <div class="col-sm-12 row">
                             <div class="form-group col-lg-6">
                                 <label class="bg-warning my-2 p-2" for="{{ $main_category -> name }}">Categories Name</label>

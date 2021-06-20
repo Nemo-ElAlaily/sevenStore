@@ -4,7 +4,7 @@
 
 @section('breadcrumb-items')
     <li class="breadcrumb-item">Categories</li>
-    <li class="breadcrumb-item">ِAdd</li>
+    <li class="breadcrumb-item">Add</li>
 @stop
 
 
@@ -18,9 +18,49 @@
                 <form class="col-12"  action="{{ route('admin.main_categories.store' ) }}" method="post" enctype="multipart/form-data">
 
                     {{ csrf_field() }}
-                    
+
 
                     <div class="row">
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" checked>
+                                <label class="custom-control-label" for="is_active">Is Active</label>
+                            </div>
+                            @error('is_active')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_navbar" name="show_in_navbar" checked >
+                                <label class="custom-control-label" for="show_in_navbar">Show in Navbar</label>
+                            </div>
+                            @error('show_in_navbar')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_sidebar" name="show_in_sidebar" checked >
+                                <label class="custom-control-label" for="show_in_sidebar">Show in Sidebar</label>
+                            </div>
+                            @error('show_in_sidebar')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_footer" checked >
+                                <label class="custom-control-label" for="show_in_footer">Show in Footer</label>
+                            </div>
+                            @error('show_in_footer')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="col-sm-12 row">
                             <div class="form-group col-lg-6">
                                 <label class="bg-warning my-2" for="name">Category Name</label>
@@ -38,50 +78,21 @@
                                 @enderror
                                 <input class="form-control input-thick bg-dark text-center " type="text" name="slug"
                                        value="">
-                            </div>    
-
-{{--                            <div class="form-group col-lg-6">--}}
-{{--                                <label class="bg-warning my-2" for="{{ $main_category -> vendor -> billing_full_name }}">Vendor</label>--}}
-{{--                                <table class="form-control input-thick bg-dark text-center ">--}}
-{{--                                    <thead>--}}
-{{--                                    <tr>--}}
-{{--                                        <th><a class="text-left" href="#">{{ $main_category -> vendor -> billing_full_name }}</a></th>--}}
-{{--                                    </tr>--}}
-{{--                                    </thead>--}}
-{{--                                </table>--}}
-{{--                            </div>--}}
+                            </div>
 
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label class="bg-warning my-2" for="main_category">Sub Category</label>
-                                    @error('main_category')
+                                    <label class="bg-warning my-2" for="parent_id">Parent Category</label>
+                                    @error('parent_id')
                                     <span class="text-danger mx-5"> </span>
                                     @enderror
-                                    <select name="main_category" class="form-control select-css ">
-                                        <option value="">All Sub Categories</option>
-                                
+                                    <select name="parent_id" class="form-control select-css ">
+                                        <option value="0">All Categories</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category -> id }}">{{ $category -> name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
-                            </div>
-
-                            <div class="form-group col-lg-12">
-                                <label class="bg-warning my-2" for="description">Product Description</label>
-                                @error('description')
-                                <span class="text-danger mx-5"> </span>
-                                @enderror
-                                <textarea class="form-control input-thick  textareaBlog" type="text" name="description">
-                                       
-                                </textarea>
-                            </div>
-
-                            <div class="form-group col-lg-12">
-                                <label class="bg-warning my-2" for="features">Categories Features</label>
-                                @error('description')
-                                <span class="text-danger mx-5"> </span>
-                                @enderror
-                                <textarea class="form-control input-thick   textareaBlog" type="text" name="features">
-                                     
-                                </textarea>
                             </div>
 
                             <div class="form-group col-sm-12 col-lg-12">
@@ -91,7 +102,7 @@
                                 @enderror
                                 <input type="file" name="image" class="form-control input-sm image mb-4">
 
-                                <img src="" 
+                                <img src=""
                                      class="img-thumbnail image-preview mt-1 image-preview img-fluid d-block m-auto" alt="">
                             </div> {{-- end of form group image --}}
 

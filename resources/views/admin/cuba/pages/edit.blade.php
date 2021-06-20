@@ -32,7 +32,7 @@
 
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_navbar" checked >
+                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_navbar"  @if($page -> show_in_navbar == 1 )checked @endif >
                                 <label class="custom-control-label" for="show_in_navbar">Show in Navbar</label>
                             </div>
                             @error('show_in_navbar')
@@ -42,7 +42,7 @@
 
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_sidebar" checked >
+                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_sidebar"  @if($page -> show_in_sidebar == 1 )checked @endif >
                                 <label class="custom-control-label" for="show_in_sidebar">Show in Sidebar</label>
                             </div>
                             @error('show_in_sidebar')
@@ -52,7 +52,7 @@
 
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_footer" @if($page -> is_active == 1 )checked @endif>
+                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_footer" @if($page -> show_in_footer == 1 )checked @endif>
                                 <label class="custom-control-label" for="show_in_footer">Show in Footer</label>
                             </div>
                             @error('show_in_footer')

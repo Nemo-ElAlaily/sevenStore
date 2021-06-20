@@ -28,8 +28,8 @@ class MainCategoryController extends Controller
     public function create()
     {
         try {
-
-            return view('admin.cuba.main_categories.create');
+            $categories = MainCategory::all();
+            return view('admin.cuba.main_categories.create',compact('categories'));
 
         } catch (\Exception $exception) {
 
@@ -42,6 +42,30 @@ class MainCategoryController extends Controller
     public function store( Request $request)
     {
         try {
+            if(!$request -> has('is_active')){
+                $request -> request -> add(['is_active' => 0]);
+            } else {
+                $request -> request -> add(['is_active' => 1]);
+            }
+
+            if(!$request -> has('show_in_navbar')){
+                $request -> request -> add(['show_in_navbar' => 0]);
+            } else {
+                $request -> request -> add(['show_in_navbar' => 1]);
+            }
+
+            if(!$request -> has('show_in_sidebar')){
+                $request -> request -> add(['show_in_sidebar' => 0]);
+            } else {
+                $request -> request -> add(['show_in_sidebar' => 1]);
+            }
+
+            if(!$request -> has('show_in_footer')){
+                $request -> request -> add(['show_in_footer' => 0]);
+            } else {
+                $request -> request -> add(['show_in_footer' => 1]);
+            }
+
             DB::beginTransaction();
 
             $imagePath = "";
@@ -56,6 +80,10 @@ class MainCategoryController extends Controller
                 'slug' => str_replace( [' ', '/'], '_', $request -> name),
                 'parent_id' => $request -> parent_id,
                 'image' => $imagePath,
+                'is_active' => $request -> is_active,
+                'show_in_navbar' => $request -> show_in_navbar,
+                'show_in_sidebar' => $request -> show_in_sidebar,
+                'show_in_footer' => $request -> show_in_footer,
             ]);
 
             DB::commit();
@@ -121,6 +149,30 @@ class MainCategoryController extends Controller
         try {
             $main_category = MainCategory::find($id);
 
+            if(!$request -> has('is_active')){
+                $request -> request -> add(['is_active' => 0]);
+            } else {
+                $request -> request -> add(['is_active' => 1]);
+            }
+
+            if(!$request -> has('show_in_navbar')){
+                $request -> request -> add(['show_in_navbar' => 0]);
+            } else {
+                $request -> request -> add(['show_in_navbar' => 1]);
+            }
+
+            if(!$request -> has('show_in_sidebar')){
+                $request -> request -> add(['show_in_sidebar' => 0]);
+            } else {
+                $request -> request -> add(['show_in_sidebar' => 1]);
+            }
+
+            if(!$request -> has('show_in_footer')){
+                $request -> request -> add(['show_in_footer' => 0]);
+            } else {
+                $request -> request -> add(['show_in_footer' => 1]);
+            }
+
             if(!$main_category){
                 session()->flash('error', "Category Doesn't Exist or has been deleted");
                 return redirect()->route('admin.category.index');
@@ -143,6 +195,10 @@ class MainCategoryController extends Controller
                 'slug' => str_replace( [' ', '/'], '_', $request -> name),
                 'parent_id' => $request -> parent_id,
                 'image' => $imagePath,
+                'is_active' => $request -> is_active,
+                'show_in_navbar' => $request -> show_in_navbar,
+                'show_in_sidebar' => $request -> show_in_sidebar,
+                'show_in_footer' => $request -> show_in_footer,
             ]);
 
             DB::commit();
@@ -153,7 +209,6 @@ class MainCategoryController extends Controller
         } catch (\Exception $exception) {
 
             DB::rollback();
-            return $exception;
             session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
             return redirect()->route('admin.main_categories.index');
 

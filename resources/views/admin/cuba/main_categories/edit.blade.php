@@ -21,6 +21,46 @@
                     {{ method_field('put') }}
 
                     <div class="row">
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" @if($main_category -> is_active == 1 )checked @endif>
+                                <label class="custom-control-label" for="is_active">Is Active</label>
+                            </div>
+                            @error('is_active')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_navbar" name="show_in_navbar" @if($main_category -> show_in_navbar == 1 )checked @endif >
+                                <label class="custom-control-label" for="show_in_navbar">Show in Navbar</label>
+                            </div>
+                            @error('show_in_navbar')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_sidebar" name="show_in_sidebar" @if($main_category -> show_in_sidebar == 1 )checked @endif >
+                                <label class="custom-control-label" for="show_in_sidebar">Show in Sidebar</label>
+                            </div>
+                            @error('show_in_sidebar')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_footer" @if($main_category -> show_in_footer == 1 )checked @endif>
+                                <label class="custom-control-label" for="show_in_footer">Show in Footer</label>
+                            </div>
+                            @error('show_in_footer')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="col-sm-12 row">
                             <div class="form-group col-lg-6">
                                 <label class="bg-warning my-2" for="name">Category Name</label>
@@ -43,14 +83,14 @@
 
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label class="bg-warning my-2" for="parent_id">Sub Category</label>
+                                    <label class="bg-warning my-2" for="parent_id">Parent Category</label>
                                     @error('parent_id')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
                                     <select name="parent_id" class="form-control select-css ">
-                                        <option value="0">All Sub Categories</option>
+                                        <option value="0">Is Parent</option>
                                         @foreach($all_categories as $item)
-                                        <option value="{{ $item -> id  }}">{{ $item -> name  }}</option>
+                                        <option value="{{ $item -> id  }}" @if($main_category -> parent_id == $item -> id )selected @endif >{{ $item -> name  }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -64,13 +104,8 @@
                                 @enderror
                                 <input type="file" name="image" class="form-control input-sm image mb-4">
 
-<<<<<<< HEAD
-                                <img src="{{ $main_category -> image_path }}" 
-                                     class="img-thumbnail image-preview mt-1 image-preview img-fluid d-block m-auto" alt="">
-=======
-                                <img src="{{ $main_category -> image_path }}"
-                                     class="img-thumbnail image-preview mt-1 w-25 img-fluid d-block m-auto" alt="">
->>>>>>> dc377333b5f948751fa900c68186cd3a568ec4b5
+                               <img src="{{ $main_category -> image_path }}"
+                                     class="img-thumbnail image-preview mt-1 image-preview img-fluid d-block m-auto" alt="{{ $main_category -> slug }}">
                             </div> {{-- end of form group image --}}
 
                         </div>
