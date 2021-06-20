@@ -27,6 +27,20 @@
 
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
                             <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_navbar" checked >
+                                <label class="custom-control-label" for="show_in_navbar">Show in Navbar</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_sidebar" checked >
+                                <label class="custom-control-label" for="show_in_sidebar">Show in Sidebar</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                            <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_footer" @if($page -> is_active == 1 )checked @endif>
                                 <label class="custom-control-label" for="show_in_footer">Show in Footer</label>
                             </div>
