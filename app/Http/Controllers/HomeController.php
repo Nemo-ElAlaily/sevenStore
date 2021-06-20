@@ -2,13 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MainCategory;
-use App\Models\Settings\SiteSetting;
-use App\Models\Settings\SocialSetting;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {

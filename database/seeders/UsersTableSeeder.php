@@ -41,10 +41,19 @@ class UsersTableSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ];
-            \App\Models\User::create($values);
+            $new_user = \App\Models\User::create($values);
 
-//            $user = \App\Models\User::where('id', $user -> ID)->first();
-//            $user -> attachRole('user');
+            $role = $user -> meta -> wp_capabilities;
+
+            if($role == 'a:1:{s:13:"administrator";b:1;}'){
+                $new_user -> attachRole('admin');
+            } elseif($role == 'a:1:{s:6:"seller";b:1;}') {
+                $new_user -> attachRole('vendor');
+            } elseif ($role == 'a:1:{s:12:"shop_manager";b:1;}'){
+                $new_user -> attachRole('shop_manager');
+            } else {
+                $new_user -> attachRole('user');
+            }
 
         } // end of for each
 

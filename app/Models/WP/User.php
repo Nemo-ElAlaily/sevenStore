@@ -10,21 +10,17 @@ class User extends Corcel
 {
     protected $connection = 'wordpress';
 
-//    public function getPassword()
-//    {
-//        $meta = $this -> meta -> where('meta_key', 'wp_yoast_notifications');
-//
-//        $targetData = '';
-//        foreach ($meta as $val){
-//            $data = $val -> value;
-//            foreach ($data as $val){
-//                $data = $val['options'];
-//                return $data = response()->json($data['user']);
-//            }
-//        } // end of foreach
-//
-//        return $meta;
-//
-//    } // end of getPassword
+    public function getRole()
+    {
+        $meta = $this -> meta -> where('meta_key', 'wp_capabilities');
+
+        $value = '';
+        foreach ($meta as $val){
+            return $value = array_keys($val -> value);
+        } // end of foreach
+
+        return $value;
+
+    } // end of Get Role
 
 } // end of model
