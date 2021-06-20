@@ -58,20 +58,19 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        try {
+        $request -> validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|unique:users',
+            'avatar' => 'mimes:jpg,jpeg,png,svg',
+            'password' => 'required|confirmed',
+            'role' => 'required',
+        ]);
 
-            $request -> validate([
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'email' => 'required|unique:users',
-                'avatar' => 'mimes:jpg,jpeg,png,svg',
-                'password' => 'required|confirmed',
-                'role' => 'required',
-            ]);
+        try {
+            $request_data = $request -> except(['password', 'password_confirmation', 'role', 'avatar']);
 
             DB::beginTransaction();
-
-                $request_data = $request -> except(['password', 'password_confirmation', 'role', 'avatar']);
 
                 $request_data['password'] = bcrypt($request->password);
 
@@ -137,7 +136,7 @@ class UserController extends Controller
             $request -> validate([
                 'first_name' => 'required',
                 'last_name' => 'required',
-                'email' => ['required', Rule::unique('users')->ignore($user -> id), ],
+                'email' => ['required', Rule::unique('users')->ignore($user -> id) ],
                 'avatar' => 'image',
                 'role' => 'required'
             ]);
