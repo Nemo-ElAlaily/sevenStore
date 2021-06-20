@@ -57,7 +57,7 @@
                             @endforeach
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>
+                                <button type="submit" class="btn btnAdd"><i class="fa fa-edit"></i>
                                     Update Social Links</button>
                             </div>
 

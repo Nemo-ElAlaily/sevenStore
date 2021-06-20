@@ -10060,3 +10060,76 @@ h3.faq-title {
   .section-onsale-product-carousel .onsale-product-carousel .onsale-product .onsale-product-content .button,
   .products-carousel .owl-item .product .button {
     position: relative; } }
+   
+.toggleSide{
+
+    position: absolute;
+    left: 100px;
+    top: 15px;
+}
+.toggleSide i{
+    font-size: 30px;
+    cursor: pointer;
+
+}
+#sidebarHeader1{
+    width: 330px;
+    position: fixed;
+    top: 0;
+    right: -332px;
+    height: 100%;
+    z-index: 1002;
+    background-color: #fff;
+    padding: 40px 60px;
+    box-shadow: 1px 12px 20px 0px black;
+    overflow: auto;
+    
+}
+.mCustomScrollBox{
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    max-width: 100%;
+    outline: none;
+    direction: ltr;
+
+}
+.navbar-brand{
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+}
+.navbar-brand .logoBrand{
+    width: 150px;
+}
+#sidebarHeader1 ul li{
+
+    list-style: none;
+    margin-bottom: 15px;
+}
+#sidebarHeader1 ul li a{
+    color: #414242;
+    font-weight: 600;
+    font-size: 14px;
+}
+.u-header-collapse__nav-link, .u-header-collapse__submenu-nav-link, .u-header-collapse__submenu-list-link {
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+}
+.u-header-collapse__nav{
+    padding-top: 130px;
+}
+.btnClose{
+    position: absolute;
+    left: 15px;
+    background-color: #333;
+    color: #fff;
+    padding: 4px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.btnClose i{
+    cursor: pointer;
+}

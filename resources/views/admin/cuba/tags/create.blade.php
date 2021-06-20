@@ -13,7 +13,9 @@
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
-
+                <div class="col-md-12 m-auto text-center m-b-3">
+                    <img class="imgsTags animate__pulse animate__animated " src="{{asset('admins/cuba/assets/images/tag.png')}}" alt="">
+                </div>
                 <form class="col-12" action="{{ route('admin.tags.store') }}" method="POST">
 
                     @csrf
