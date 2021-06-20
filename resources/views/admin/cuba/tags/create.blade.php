@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
+                        <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
                             Add Tag</button>
                     </div>
 

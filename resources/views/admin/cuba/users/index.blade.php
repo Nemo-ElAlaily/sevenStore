@@ -35,9 +35,9 @@
                     </div>
 
                     <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
                         @if (auth()->user()->hasPermission('users_create'))
-                            <a href="{{ route('admin.users.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add user</a>
+                            <a href="{{ route('admin.users.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> Add user</a>
                              @else
                                 <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> Add user</a>
                         @endif

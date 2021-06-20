@@ -95,16 +95,8 @@
                             </div>
 
                             <div class="form-group col-lg-12">
-<<<<<<< HEAD
-                                <label class="labelProd"for="features">Product Features</label>
-                                @error('description')
-                                <span class="text-danger mx-5">{{ $message }}</span>
-                                @enderror
-                                <textarea class="form-control input-thick textareaBlog" type="text" name="features">
-=======
                                 <label for="features">Product Features</label>
-                                <textarea class="form-control input-thick ckeditor" type="text" name="features">
->>>>>>> f23477f20af378a74bc975f52de51f56fee0c41f
+                                <textarea class="form-control input-thick " type="text" name="features">
                                         {{ old('features') }}
                                 </textarea>
                             </div>
