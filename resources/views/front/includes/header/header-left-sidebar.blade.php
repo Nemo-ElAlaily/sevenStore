@@ -1,5 +1,7 @@
 
-
+<?php
+ $categories = App\Models\MainCategory::where('name', 'not like', 'بدون تصنيف')->where('parent_id', 0)->get();
+?>
 
 <aside id="sidebarHeader1" class="u-sidebar u-sidebar--left u-unfold--css-animation fadeInLeft" aria-labelledby="sidebarHeaderInvokerMenu" style="animation-duration: 500ms; left: 0px;">
     <div class="u-sidebar__scroller">
@@ -22,6 +24,9 @@
 
                         <!-- List -->
                         <ul id="headerSidebarList" class="u-header-collapse__nav">
+
+                        @foreach($categories as $category)
+
                             <!-- Home Section -->
                             <li class="u-has-submenu u-header-collapse__submenu">
                                 <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="javascript:;" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="headerSidebarHomeCollapse" data-target="#headerSidebarHomeCollapse">
@@ -79,202 +84,8 @@
                                 </div>
                             </li>
                             <!-- End Home Section -->
+                        @endforeach
 
-                            <!-- Shop Pages -->
-                            <li class="u-has-submenu u-header-collapse__submenu">
-                                <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="javascript:;" data-target="#headerSidebarPagesCollapse" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                    Shop Pages
-                                </a>
-
-                                <div id="headerSidebarPagesCollapse" class="collapse" data-parent="#headerSidebarContent">
-                                    <ul id="headerSidebarPagesMenu" class="u-header-collapse__nav-list">
-                                        <!-- Shop Grid -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Shop Grid</a></li>
-                                        <!-- End Shop Grid -->
-
-                                        <!-- Shop Grid Extended -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Shop Grid Extended</a></li>
-                                        <!-- End Shop Grid Extended -->
-
-                                        <!-- Shop List View -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Shop List View</a></li>
-                                        <!-- End Shop List View -->
-
-                                        <!-- Shop List View Small -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Shop List View Small</a></li>
-                                        <!-- End Shop List View Small -->
-
-                                        <!-- Shop Left Sidebar -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Shop Left Sidebar</a></li>
-                                        <!-- End Shop Left Sidebar -->
-
-                                        <!-- Shop Full width -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Shop Full width</a></li>
-                                        <!-- End Shop Full width -->
-
-                                        <!-- Shop Right Sidebar -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Shop Right Sidebar</a></li>
-                                        <!-- End Shop Right Sidebar -->
-                                    </ul>
-                                </div>
-                            </li>
-                            <!-- End Shop Pages -->
-
-                            <!-- Product Categories -->
-                            <li class="u-has-submenu u-header-collapse__submenu">
-                                <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="javascript:;" data-target="#headerSidebarBlogCollapse" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="headerSidebarBlogCollapse">
-                                    Product Categories
-                                </a>
-
-                                <div id="headerSidebarBlogCollapse" class="collapse" data-parent="#headerSidebarContent">
-                                    <ul id="headerSidebarBlogMenu" class="u-header-collapse__nav-list">
-                                        <!-- 4 Column Sidebar -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">4 Column Sidebar</a></li>
-                                        <!-- End 4 Column Sidebar -->
-
-                                        <!-- 5 Column Sidebar -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">5 Column Sidebar</a></li>
-                                        <!-- End 5 Column Sidebar -->
-
-                                        <!-- 6 Column Full width -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">6 Column Full width</a></li>
-                                        <!-- End 6 Column Full width -->
-
-                                        <!-- 7 Column Full width -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">7 Column Full width</a></li>
-                                        <!-- End 7 Column Full width -->
-                                    </ul>
-                                </div>
-                            </li>
-                            <!-- End Product Categories -->
-
-                            <!-- Single Product Pages -->
-                            <li class="u-has-submenu u-header-collapse__submenu">
-                                <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="javascript:;" data-target="#headerSidebarShopCollapse" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="headerSidebarShopCollapse">
-                                    Single Product Pages
-                                </a>
-
-                                <div id="headerSidebarShopCollapse" class="collapse" data-parent="#headerSidebarContent">
-                                    <ul id="headerSidebarShopMenu" class="u-header-collapse__nav-list">
-                                        <!-- Single Product Extended -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Single Product Extended</a></li>
-                                        <!-- End Single Product Extended -->
-
-                                        <!-- Single Product Fullwidth -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Single Product Fullwidth</a></li>
-                                        <!-- End Single Product Fullwidth -->
-
-                                        <!-- Single Product Sidebar -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Single Product Sidebar</a></li>
-                                        <!-- End Single Product Sidebar -->
-                                    </ul>
-                                </div>
-                            </li>
-                            <!-- End Single Product Pages -->
-
-                            <!-- Ecommerce Pages -->
-                            <li class="u-has-submenu u-header-collapse__submenu">
-                                <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="javascript:;" data-target="#headerSidebarDemosCollapse" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="headerSidebarDemosCollapse">
-                                    Ecommerce Pages
-                                </a>
-
-                                <div id="headerSidebarDemosCollapse" class="collapse" data-parent="#headerSidebarContent">
-                                    <ul id="headerSidebarDemosMenu" class="u-header-collapse__nav-list">
-                                        <!-- Shop -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Shop</a></li>
-                                        <!-- End Shop -->
-
-                                        <!-- Cart -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Cart</a></li>
-                                        <!-- End Cart -->
-
-                                        <!-- Checkout -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Checkout</a></li>
-                                        <!-- End Checkout -->
-
-                                        <!-- My Account -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">My Account</a></li>
-                                        <!-- End My Account -->
-
-                                        <!-- Track your Order -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Track your Order</a></li>
-                                        <!-- End Track your Order -->
-
-                                        <!-- Compare -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Compare</a></li>
-                                        <!-- End Compare -->
-
-                                        <!-- wishlist -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">wishlist</a></li>
-                                        <!-- End wishlist -->
-                                    </ul>
-                                </div>
-                            </li>
-                            <!-- End Ecommerce Pages -->
-
-                            <!-- Shop Columns -->
-                            <li class="u-has-submenu u-header-collapse__submenu">
-                                <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="javascript:;" data-target="#headerSidebardocsCollapse" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="headerSidebardocsCollapse">
-                                    Shop Columns
-                                </a>
-
-                                <div id="headerSidebardocsCollapse" class="collapse" data-parent="#headerSidebarContent">
-                                    <ul id="headerSidebardocsMenu" class="u-header-collapse__nav-list">
-                                        <!-- 7 Column Full width -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">7 Column Full width</a></li>
-                                        <!-- End 7 Column Full width -->
-
-                                        <!-- 6 Column Full width -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">6 Column Full width</a></li>
-                                        <!-- End 6 Column Full width -->
-
-                                        <!-- 5 Column Sidebar -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">5 Column Sidebar</a></li>
-                                        <!-- End 5 Column Sidebar -->
-
-                                        <!-- 4 Column Sidebar -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">4 Column Sidebar</a></li>
-                                        <!-- End 4 Column Sidebar -->
-
-                                        <!-- 3 Column Sidebar -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">3 Column Sidebar</a></li>
-                                        <!-- End 3 Column Sidebar -->
-                                    </ul>
-                                </div>
-                            </li>
-                            <!-- End Shop Columns -->
-
-                            <!-- Blog Pages -->
-                            <li class="u-has-submenu u-header-collapse__submenu">
-                                <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="javascript:;" data-target="#headerSidebarblogsCollapse" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="headerSidebarblogsCollapse">
-                                    Blog Pages
-                                </a>
-
-                                <div id="headerSidebarblogsCollapse" class="collapse" data-parent="#headerSidebarContent">
-                                    <ul id="headerSidebarblogsMenu" class="u-header-collapse__nav-list">
-                                        <!-- Blog v1 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Blog v1</a></li>
-                                        <!-- End Blog v1 -->
-
-                                        <!-- Blog v2 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Blog v2</a></li>
-                                        <!-- End Blog v2 -->
-
-                                        <!-- Blog v3 -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Blog v3</a></li>
-                                        <!-- End Blog v3 -->
-
-                                        <!-- Blog Full Width -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Blog Full Width</a></li>
-                                        <!-- End Blog Full Width -->
-
-                                        <!-- Single Blog Post -->
-                                        <li><a class="u-header-collapse__submenu-nav-link" href="#">Single Blog Post</a></li>
-                                        <!-- End Single Blog Post -->
-                                    </ul>
-                                </div>
-                            </li>
-                            <!-- End Blog Pages -->
                         </ul>
                         <!-- End List -->
                     </div>
