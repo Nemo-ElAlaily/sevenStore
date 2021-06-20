@@ -43,17 +43,7 @@ class VendorsTableSeeder extends Seeder
 
            \App\Models\Vendor::create($values);
 
-           $vendor = \App\Models\Vendor::where('user_id', $product -> post_author)->with('user')->first();
-
-           $vendor -> user -> attachRole('vendor');
-
         } // end of foreach
-
-//        $vendors = \App\Models\User::vendor() -> get();
-//
-//        foreach ($vendors as $vendor){
-//            $vendor -> attachRole('vendor');
-//        } // end of Role for each
 
     } // end of run
 
