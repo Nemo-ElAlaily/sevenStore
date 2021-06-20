@@ -36,10 +36,10 @@
 
         @include('front.includes.header.header')
 
-        @if(Route::is('login') || Route::is('verification.notice'))
-            @yield('content')
-        @else
+        @if(Route::is('front.*'))
             {{ $slot }}
+        @else
+            @yield('content')
         @endif
 
 
