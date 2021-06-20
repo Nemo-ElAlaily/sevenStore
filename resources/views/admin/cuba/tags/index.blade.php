@@ -21,7 +21,7 @@
 
                     <div class="col-md-4 p-0">
                         <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
-                        <a href="{{ route('admin.tags.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Tag</a>
+                        <a href="{{ route('admin.tags.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> Add Tag</a>
 
                     </div>
 

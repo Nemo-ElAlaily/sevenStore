@@ -115,7 +115,7 @@
                         </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btnAdduser"><i class="fa fa-plus"></i>
+                                <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
                                     Add user</button>
                             </div>
 
