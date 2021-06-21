@@ -49621,27 +49621,29 @@ input.bg-dark:focus {
     transform: scale(1.2);
     cursor: pointer;
   }
+  .radio[type="checkbox"]:after, 
   .radio[type="radio"]:after{ 
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     border-radius: 6px;
     top: -2px;
-    left: -1px;
+    left: -10px;
     position: relative;
-    background-color: #d1d3d1;
+    background-color: #f73164;
     content: '';
     display: inline-block;
     visibility: visible;
     border: 2px solid white;
 } 
+    .radio[type='checkbox']:checked:after ,
     .radio[type='radio']:checked:after {
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         border-radius: 6px;
         top: -2px;
-        left: -1px;
+        left: -10px;
         position: relative;
-        background-color: #f73164;
+        background-color: #212529;
         content: '';
         display: inline-block;
         visibility: visible;

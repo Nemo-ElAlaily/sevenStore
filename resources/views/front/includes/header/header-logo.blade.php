@@ -10,6 +10,8 @@
 
 </div>
 <!-- ============================================================= Header Logo : End============================================================= -->
-
+<div class="btnUp">
+    <i class="fa fa-arrow-up"></i>
+</div>
 
 @include('front/includes/header/header-left-sidebar')

@@ -12,14 +12,17 @@
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
-
+                <div class="col-md-12">
+                    <img class="user-avatar" src="{{asset('admins/cuba/assets/images/prodedit.png')}}" alt="">
+                </div>
                 @include('admin.cuba.partials._errors')
                 <form class="col-12">
-                    <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-success mb-4">
+                    <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btnEdit mb-4">
                         <i class="fa fa-edit fa-lg"></i> Edit This Product
                     </a>
 
                     <div class="row">
+
                         <div class="col-sm-12 row">
                             <div class="form-group col-lg-6">
                                 <label for="{{ $product -> name }}">Product Name</label>
@@ -77,7 +80,7 @@
                                 @error('description')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <textarea class="form-control input-thick ckeditor" type="text" name="description">
+                                <textarea class="form-control input-thick ckeditor textareaBlog" type="text" name="description">
                                         {{ $product -> description  }}
                                 </textarea>
                             </div>
@@ -87,7 +90,7 @@
                                 @error('description')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <textarea class="form-control input-thick ckeditor" type="text" name="features">
+                                <textarea class="form-control input-thick ckeditor textareaBlog" type="text" name="features">
                                         {{ $product -> features  }}
                                 </textarea>
                             </div>

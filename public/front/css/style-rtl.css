@@ -10133,3 +10133,19 @@ h3.faq-title {
 .btnClose i{
     cursor: pointer;
 }
+
+.btnUp{
+    color: #fff;
+    position: fixed;
+    left: 50px;
+    bottom: 100px;
+    padding: 10px;
+    background-color: #ce2121;
+    border-radius: 2px;
+    z-index: 1002;
+    display: none;
+}
+.btnUp i{
+  font-size: 20px;
+  cursor: pointer;
+}

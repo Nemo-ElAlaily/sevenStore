@@ -18,7 +18,7 @@
                     <div id="headerSidebarContent" class="u-sidebar__content u-header-sidebar__content">
                         <!-- Logo -->
                         <a class="d-flex ml-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-vertical" href="#" aria-label="Electro">
-                            <img src="{{ $site_settings -> logo_path }}" class="logoBrand" alt="">
+                            <img src="{{ $site_settings -> logo_path }}" class="logoBrand animate__backInDown" alt="">
                         </a>
                         <!-- End Logo -->
 

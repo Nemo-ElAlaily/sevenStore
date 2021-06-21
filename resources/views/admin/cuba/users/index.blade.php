@@ -12,7 +12,9 @@
 
 @section('content')
     <div class="box box-primary">
-
+        <div class="col-md-12">
+            <img class="user-avatar" src="{{asset('admins/cuba/assets/images/usersavatar.png')}}" alt="">
+        </div>
         <div class="box-header with-border">
 
             <form action="{{ route('admin.users.index') }}" method="get">
@@ -74,7 +76,7 @@
                         <td>{{ $user -> email }}</td>
                         <td>
                             @if (auth()->user()->hasPermission('users_update'))
-                                <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btnEdit btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                 {{-- @else
                                     <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
                             @endif
@@ -82,7 +84,7 @@
                                 <form action="{{ route('admin.users.destroy', $user->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
-                                    <button type="button" class="btn btn-danger show_confirm btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                                    <button type="button" class="btn btnDelete show_confirm btn-sm"><i class="fa fa-trash"></i> Delete</button>
                                 </form><!-- end of form -->
                                 {{-- @else
                                     <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button> --}}

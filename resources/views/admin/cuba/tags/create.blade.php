@@ -48,7 +48,7 @@
                     <div class="row">
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" checked>
+                                <input class="radio"  type="checkbox" class="custom-control-input" id="is_active" name="is_active" checked>
                                 <label class="custom-control-label" for="is_active">Is Active</label>
                             </div>
                             @error('is_active')
@@ -58,7 +58,7 @@
 
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="is_popular_tag" name="is_popular_tag" checked >
+                                <input class="radio"  type="checkbox" class="custom-control-input" id="is_popular_tag" name="is_popular_tag" checked >
                                 <label class="custom-control-label" for="is_popular_tag">Is Popular</label>
                             </div>
                             @error('is_popular_tag')
