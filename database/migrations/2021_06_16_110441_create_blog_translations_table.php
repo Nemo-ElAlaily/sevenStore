@@ -14,13 +14,12 @@ class CreateBlogTranslationsTable extends Migration
     public function up()
     {
         Schema::create('blog_translations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('blog_id')->unsigned();
+            $table->id();
+            $table->bigInteger('blog_id')->unsigned();
             $table->string('locale')->index();
-            $table->string('title');
-            $table->string('creator')->nullable();
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
             $table->longText('description')->nullable();
-            $table->timestamps();
             $table->softDeletes();
 
             $table->unique(['blog_id', 'locale']);

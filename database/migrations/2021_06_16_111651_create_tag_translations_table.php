@@ -14,8 +14,8 @@ class CreateTagTranslationsTable extends Migration
     public function up()
     {
         Schema::create('tag_translations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('tag_id')->unsigned();
+            $table->id();
+            $table->bigInteger('tag_id')->unsigned();
             $table->string('locale')->index();
             $table->string('name');
             $table->string('slug')->nullable();

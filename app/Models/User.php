@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Blogs\Blog;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -58,6 +59,11 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
     {
         return $this -> hasMany(Wishlist::class);
     } // end of vendors
+
+    public function blogs()
+    {
+        return $this -> hasMany(Blog::class);
+    } // end of blogs
 
     /* ***********************************
     End of Relationships

@@ -73,14 +73,13 @@ class BlogController extends Controller
         try {
             $tags = Tag::all();
             $blog = Blog::find($id);
-            $categories = Category::all();
             $blog_tags = $blog->tags->pluck('id')->toArray();
             if (!$blog) {
                 session()->flash('error', "Blog Doesn't Exist or has been deleted");
                 return redirect()->route('admin.blogs.index');
             }
 
-            return view('admin.cuba.blogs.edit', compact('blog', 'tags', 'blog_tags', 'categories'));
+            return view('admin.cuba.blogs.edit', compact('blog', 'tags', 'blog_tags'));
         } catch (\Exception $exception) {
 
             session()->flash('error', 'Something Went Wrong, Please Contact Administrator, ' . $exception->getMessage());

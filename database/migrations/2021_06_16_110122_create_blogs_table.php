@@ -14,12 +14,20 @@ class CreateBlogsTable extends Migration
     public function up()
     {
         Schema::create('blogs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
+            $table->bigInteger('user_id')->unsigned()->index();
             $table->string('image')->default('default.png');
             $table->boolean('is_active')->default(0);
             $table->boolean('show_in_homepage')->default(0);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
         });
     }
 
