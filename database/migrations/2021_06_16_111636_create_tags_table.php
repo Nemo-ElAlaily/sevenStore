@@ -14,7 +14,7 @@ class CreateTagsTable extends Migration
     public function up()
     {
         Schema::create('tags', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->boolean('is_active')->nullable();
             $table->boolean('is_popular_tag')->nullable();
             $table->softDeletes();

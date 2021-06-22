@@ -2,8 +2,9 @@
 
 namespace App\Models\Blogs;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Blog extends Model
@@ -11,14 +12,13 @@ class Blog extends Model
     use Translatable;
     use SoftDeletes;
 
-    public $translatedAttributes = ['title', 'description', 'creator', 'meta_title', 'meta_keywords', 'meta_description', 'meta_slug'];
+    public $translatedAttributes = ['title', 'description', 'slug'];
+
     protected $guarded = [];
 
     protected $appends = [
         'image_path',
     ];
-
-    protected $fillable = ['image', 'is_active', 'show_in_homepage', 'category_id'];
 
     public function getTitleAttribute($value)
     {
@@ -27,15 +27,38 @@ class Blog extends Model
 
     public function getImagePathAttribute()
     {
-        return asset('public/uploads/blogs/' . $this->image);
+        if(substr( $this -> image, 0, 4 ) === "http"){
+            return $this -> image;
+        } else {
+            return asset('uploads/blogs/' . $this -> image );
+        } // end of if
     }
 
-    /**
-     * Get all of the tags that are assigned this tag.
-     */
+    public function scopeActive($query)
+    {
+        return $query -> where('is_active' , 1);
+    } // end of active
+
+    public function getActive()
+    {
+        return $this -> is_active == 1 ? 'Active' : '';
+    } // end fo get Active
+
+    /* ***********************************
+    Start of Relationships
+    *********************************** */
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'tags_blogs');
-    }
+    } // end of tags
+
+    public function user()
+    {
+        return $this -> belongsTo(User::class);
+    } // end of creator
+
+    /* ***********************************
+    End of Relationships
+    *********************************** */
 
 }// end of model
