@@ -10042,11 +10042,7 @@ h3.faq-title {
 }
 
 /* Start Dashboard User */
-::selection
-{
-background-color: #ca153cb7;
-color: #fff;
-}
+
 body
 {
         font-family: Cairo !important;
