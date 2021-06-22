@@ -10272,3 +10272,15 @@ float: left;
 }
 
 /* End Dashboard User */
+.text-center{
+  text-align: center !important;
+}
+
+
+.nav-tabs .nav-item{
+  float: none;
+}
+
+#setting,#withdraw{
+  display: none;
+}

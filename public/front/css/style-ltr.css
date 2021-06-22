@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
+
 /*
 Template: 		Electro
 Description: 	Responsive eCommerce Bootstrap 4 Template
@@ -3803,7 +3806,7 @@ div.quantity.buttons_added .plus {
     float: left; }
 .navbar-primary .navbar-nav > .menu-item > a {
     display: block;
-    font-size: 1.143em;
+    font-size: 1em;
     font-weight: bold;
     line-height: 1.125em;
     color: #fff;
@@ -10042,7 +10045,11 @@ h3.faq-title {
 }
 
 /* Start Dashboard User */
-
+::selection
+{
+background-color: #ca153cb7;
+color: #fff;
+}
 body
 {
         font-family: Cairo !important;
@@ -10161,3 +10168,14 @@ float: left;
 }
 
 /* End Dashboard User */
+.text-center{
+    text-align: center !important;
+}
+
+.nav-tabs .nav-item{
+    float: none;
+}
+
+#setting,#withdraw{
+    display: none;
+}

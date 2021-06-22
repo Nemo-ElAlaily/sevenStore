@@ -28,4 +28,9 @@ jQuery('.btnUp i').click(function(){
     jQuery('html , body').animate({scrollTop: 0} , 800);
 });
 
+
+
 });
+
+
+

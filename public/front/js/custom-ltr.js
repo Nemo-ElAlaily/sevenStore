@@ -1,5 +1,5 @@
 jQuery(document).ready(function(){
-    
+
 jQuery("#btnToggle").click(function(){
 
     jQuery('.u-sidebar--left').fadeIn(100);
@@ -29,4 +29,34 @@ jQuery('.btnUp i').click(function(){
 });
 
 
+jQuery('#btnsetting').click(function(){
+
+    jQuery('#orders').hide(100);
+    jQuery('#withdraw').hide(100);
+
+    jQuery('#setting').show(100);
+
 });
+
+
+jQuery('#btwithdraw').click(function(){
+
+    jQuery('#orders').hide(100);
+    jQuery('#setting').hide(100);
+
+    jQuery('#withdraw').show(100);
+
+});
+
+jQuery('#btnorders').click(function(){
+
+    jQuery('#withdraw').hide(100);
+    jQuery('#setting').hide(100);
+
+    jQuery('#orders').show(100);
+
+});
+
+
+});
+

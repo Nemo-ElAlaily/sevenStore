@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\WP\Post;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
@@ -29,6 +30,7 @@ class HomeController extends Controller
 
     public function welcome()
     {
+        return Post::find(24862);
         return view('welcome');
     } // end of welcome
 
