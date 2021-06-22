@@ -33,6 +33,7 @@ class PagesTableSeeder extends Seeder
                         'import',
                         'site-map',
                         'accept-payments',
+                        'track-your-order',
                     ])->paginate(ADMIN_PAGINATION_COUNT);
 
         foreach ($wp_db_pages as $page)
