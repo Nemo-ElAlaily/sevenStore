@@ -30,7 +30,6 @@ class HomeController extends Controller
 
     public function welcome()
     {
-        return Post::find(197);
         return view('welcome');
     } // end of welcome
 
@@ -58,4 +57,5 @@ class HomeController extends Controller
         return redirect()->route('admin.settings.database.show', 1);
 
     } // end of initApp
+
 } // end of controller
