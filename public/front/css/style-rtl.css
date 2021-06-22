@@ -10149,3 +10149,130 @@ h3.faq-title {
   font-size: 20px;
   cursor: pointer;
 }
+
+
+
+/* Start Dashboard User */
+::selection
+{
+background-color: #ca153cb7;
+color: #fff;
+}
+body
+{
+        font-family: Cairo !important;
+}
+
+.dokan-dash-sidebar{
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        width: 200px;
+}
+.dokan-dashboard-menu  li{
+        list-style: none;
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+}
+.dokan-dashboard-menu {
+        padding: 0;
+}
+.dokan-dashboard-menu  li a{
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        font-family: monospace;
+        position: relative;
+}
+.dokan-dashboard-menu  li a i{
+        position: relative;
+        right: -122px;
+    }
+.dokan-dashboard-menu  li a:hover{
+        text-decoration: none;
+
+}
+.dokan-dashboard-menu  li.active{
+        background-color: #ea1b25;
+
+}
+
+.dokan-dashboard-menu  li:hover{
+        background-color: #ea1b25;
+        cursor: pointer;
+
+}
+
+.linksUsers{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0;
+        margin:0;
+}
+.linksUsers li{
+        display: inline-block;
+        margin: 5px;
+        padding: 10px;
+}
+.linksUsers li:not(:first-child)
+{
+ border-left: 1px solid #eee;
+}
+.linksUsers li a{
+        color: #fff;
+        font-size: 25px;
+}
+.linksUsers li:nth-of-type(3) i
+{
+        
+        color: #dc3545;
+}
+.linksUsers li:nth-of-type(2) i
+{
+        
+        color: #ffc107;
+}
+.linksUsers li:nth-of-type(1) i
+{
+        
+        color: #0c5460;
+}
+.linksUsers li a i
+{
+        
+        transition: all 1s ease-in-out;
+}
+.linksUsers li:hover a i{
+        transform: scale(1.2);
+}
+.list-inline li{
+        padding: 10px;
+        border: 1px solid #d8d8d8;
+        color:#77797b;
+}
+.dashboard-widget {
+        padding: 5px;
+        border: 1px solid #d8d8d8;
+}
+.dashboard-widget .widget-title{
+        padding: 5px;
+        border: 1px solid #d8d8d8;
+        text-align: right;
+}
+
+.content-half-part .title,.dashboard-widget ul li .title{
+float: right;
+}
+
+.content-half-part .count,.dashboard-widget ul li .count{
+float: left;
+}
+.content-half-part li{
+
+        margin-bottom: 5px;
+}
+
+/* End Dashboard User */
