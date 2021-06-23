@@ -5,8 +5,8 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <div class="card" style="margin: auto">
+            <div class="col-md-9 m-auto">
+                <div class="card cardwizard" style="margin: auto">
                     <div class="card-header">
                         <p class="alert alertTabs text-center">Please Make sure fill all the filed before click on next button</p>
                     </div>
