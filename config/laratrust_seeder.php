@@ -27,6 +27,7 @@ return [
             'blogs' => 'c,r,u,d',
             'tags' => 'c,r,u,d',
             'currencies' => 'c,r,u,d',
+            'countries' => 'c,r,u,d',
         ],
         'admin' => [
             'users' => 'c,r,u,d',
@@ -43,6 +44,7 @@ return [
             'blogs' => 'c,r,u,d',
             'tags' => 'c,r,u,d',
             'currencies' => 'c,r,u,d',
+            'countries' => 'c,r,u,d',
         ],
         'user' => [
             'profile' => 'c,r,u',
@@ -61,6 +63,7 @@ return [
             'blogs' => 'c,r,u,d',
             'tags' => 'c,r,u,d',
             'currencies' => 'c,r,u,d',
+            'countries' => 'c,r,u,d',
         ],
         'vendor' => [
             'products' => 'c,r,u,d',
@@ -70,6 +73,7 @@ return [
             'blogs' => 'r',
             'tags' => 'r',
             'currencies' => 'r',
+            'countries' => 'r',
         ],
         'moderator' => [
             'users' => 'r',
@@ -82,6 +86,7 @@ return [
             'blogs' => 'r',
             'tags' => 'r',
             'currencies' => 'r',
+            'countries' => 'r',
         ]
     ],
 

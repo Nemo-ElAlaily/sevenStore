@@ -227,6 +227,23 @@
                                             </li>
                                         @endif
 
+                                        @if (auth()->user()->hasPermission('countries_read'))
+                                            <li class="sidebar-list">
+                                                <label class="badge badge-danger"></label>
+                                                <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == 'admin/countries' ? 'active' : '' }}" href="#">
+                                                    <i class="nav-icon fa fa-globe"></i>
+                                                    <span>Countries</span>
+                                                    <div class="according-menu">
+                                                        <i class="fa fa-angle-{{request()->route()->getPrefix() == 'admin/countries' ? 'down' : 'right' }}"></i>
+                                                    </div>
+                                                </a>
+                                                <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
+                                                    <li><a href="{{route('admin.countries.index')}}" class="{{ Route::currentRouteName()=='admin.countries.index' ? 'active' : '' }}">All</a></li>
+                                                    <li><a href="{{route('admin.countries.create')}}" class="{{ Route::currentRouteName()=='admin.countries.create' ? 'active' : '' }}">Add Country</a></li>
+                                                </ul>
+                                            </li>
+                                        @endif
+
 
                                         @if (auth()->user()->hasPermission('site_settings_read'))
                                         <li class="sidebar-list mt-1">
