@@ -49721,3 +49721,86 @@ input.bg-dark:focus {
 width: 200px;
 }
 
+/* Start Forms Database Setting  */
+
+    .admin-database .contact-form{
+        background: rgb(196, 196, 196);
+        margin-top: 25px;
+        margin-bottom: 25px;
+        width: 40%;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px 5px #9f9f9f;
+
+    }
+    .admin-database .contact-form .form-control{
+        height: 33px;
+        font-size: 12px;
+    }
+    .admin-database .contact-image{
+        text-align: center;
+    }
+    .admin-database .contact-image img{
+        border-radius: 6rem;
+        width: 15%;
+        margin-top: -3%;
+        transform: rotate(29deg);
+    }
+    .admin-database .contact-form form{
+        padding: 0 0 30px;
+    }
+    .admin-database .contact-form form .row{
+        margin-bottom: -7%;
+    }
+    .admin-database .contact-form h3{
+        margin-bottom: 0;
+        text-align: center;
+    }
+    .admin-database .contact-form .btnContact {
+        width: 50%;
+        border: none;
+        border-radius: 1rem;
+        padding: 1.5%;
+        background-color: #cf5f67;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+    }
+    .admin-database .btnContact,.admin-database .btnContactpress
+    {
+        width: 50%;
+        border-radius: 1rem;
+        padding: 1.5%;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition:  all .5s ease-in-out;
+    }
+    .admin-database .contact-form .btnContact:hover{
+            
+        background-color: #dd747b;
+    }
+    
+    .admin-database .btnContactpress
+    {
+            
+        background-color: #082f55;
+    }
+    .admin-database .btnContactpress:hover{
+            opacity: .8;
+    }
+    .headTitel{
+        font-size: 30px;
+        color: crimson;
+    }
+.headTitelPress{
+        font-size: 25px;
+        color: #082f55;
+}
+    .titel-db{
+        font-size: 15px;
+        left: 10px;
+        position: relative;
+        color: #515151;
+        margin: 4px;
+    }
+/* End Forms Database Setting  */

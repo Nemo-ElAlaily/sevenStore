@@ -8,7 +8,7 @@ jQuery("#btnToggle").click(function(){
 
 jQuery('.btnClose i').click(function(){
 
-    jQuery('#sidebarHeader1').animate({right: '-335px'},1000);
+    jQuery('#sidebarHeader1').animate({right: '-340px'},1000);
 });
 jQuery('.toggleSide i ').click(function(){
     jQuery('#sidebarHeader1').animate({right: '0'},1000);
@@ -28,6 +28,35 @@ jQuery('.btnUp i').click(function(){
     jQuery('html , body').animate({scrollTop: 0} , 800);
 });
 
+
+
+jQuery('#btnsetting').click(function(){
+
+    jQuery('#orders').hide(100);
+    jQuery('#withdraw').hide(100);
+
+    jQuery('#setting').show(100);
+
+});
+
+
+jQuery('#btwithdraw').click(function(){
+
+    jQuery('#orders').hide(100);
+    jQuery('#setting').hide(100);
+
+    jQuery('#withdraw').show(100);
+
+});
+
+jQuery('#btnorders').click(function(){
+
+    jQuery('#withdraw').hide(100);
+    jQuery('#setting').hide(100);
+
+    jQuery('#orders').show(100);
+
+});
 
 
 });

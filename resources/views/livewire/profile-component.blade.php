@@ -17,7 +17,10 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-8 text-center">
+
+
                             <div id="orders">
+                            
                                 <div class="row">
                                     <div class="col-md-12">
                                         @include('front.partials._session')
@@ -183,12 +186,17 @@
                                 </div>
                             </div>
                             <div class="col-md-8" id="withdraw">
+
                                        withdraw withdraw withdraw withdraw withdraw
 
                             </div>
                             <div class="col-md-8" id="setting">
+
                             SettingSettingSettingSettingSettingSetting
+
                             </div>
+
+
                             </div>
                             <div class="col-md-4">
                                 <div class="dokan-dash-sidebar">

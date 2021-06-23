@@ -10076,7 +10076,7 @@ h3.faq-title {
     width: 330px;
     position: fixed;
     top: 0;
-    right: -332px;
+    right: -340px;
     height: 100%;
     z-index: 1002;
     background-color: #fff;
@@ -10154,10 +10154,7 @@ h3.faq-title {
 
 /* Start Dashboard User */
 
-body
-{
-        font-family: Cairo !important;
-}
+
 
 .dokan-dash-sidebar{
         background-color: #333;
