@@ -49789,7 +49789,7 @@ width: 200px;
             opacity: .8;
     }
     .headTitel{
-        font-size: 30px;
+        font-size: 25px;
         color: crimson;
     }
 .headTitelPress{
@@ -49804,3 +49804,36 @@ width: 200px;
         margin: 4px;
     }
 /* End Forms Database Setting  */
+
+.btnPrev{
+    background-color: #ec0944 !important;
+    border-color: #ec0944 !important;
+    color: #fff;
+    }
+  .btnNext{
+          background-color: #4433ff !important;
+          color: #fff;
+    border-color: #4433ff !important;
+  }  
+.btnPrev:hover, .btnNext:hover{
+    color:#fff;
+}
+.alertTabs{
+    padding: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+width: 50%;
+margin: auto;
+    margin-bottom: auto;
+    background-color: #ac1b1b73;
+color: #fff;
+}
+.imgTabs{
+    margin: auto;
+    text-align: center;
+}
+.imgTabs img{
+    width: 100px;
+}

@@ -8,43 +8,76 @@
             <div class="col-md-12">
                 <div class="card" style="margin: auto">
                     <div class="card-header">
-                        <h5>Two Simple Steps to Start your E-Commerce</h5>
-                        <span>Please Make sure fill all the filed before click on next button</span>
+                        <p class="alert alertTabs text-center">Please Make sure fill all the filed before click on next button</p>
                     </div>
                     <div class="card-body">
                         <form class="form-wizard" id="regForm" action="#" method="POST">
+                            
                             <div class="tab">
+
+                                    <div class="imgTabs">
+                                        
+                                        <img src="{{asset('admins/cuba/assets/images/db.jpg')}}" />
+                                            <h5>New Database</h5>
+                                    </div>
+
                                 <div class="mb-3">
-                                    <label for="name">First Name</label>
-                                    <input class="form-control" id="name" type="text" placeholder="Johan" required="required">
+                                    <label for="name">DB.Name</label>
+                                    <input class="form-control" id="name" type="text" placeholder="db.name" required="required">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="lname">Last Name</label>
-                                    <input class="form-control" id="lname" type="text" placeholder="Deo">
+                                    <label for="lname">Host</label>
+                                    <input class="form-control" id="lname" type="text" placeholder="host">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="contact">Contact No.</label>
-                                    <input class="form-control digits" id="contact" type="number" placeholder="123456789">
+                                    <label for="contact">URL</label>
+                                    <input class="form-control" id="contact" type="url" placeholder="Url">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contact">User Name</label>
+                                    <input class="form-control" id="contact" type="url" placeholder="User Name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contact">Password</label>
+                                    <input class="form-control" id="contact" type="password" placeholder="User Name">
                                 </div>
                             </div>
-                            <div class="tab">
+                            
+                             <div class="tab">
+
+                                    <div class="imgTabs">
+                                        
+                                        <img src="{{asset('admins/cuba/assets/images/wordpress.png')}}" />
+                                        <h5>Wordpress Database</h5>
+                                    </div>
+
                                 <div class="mb-3">
-                                    <label class="control-label">Country</label>
-                                    <input class="form-control mt-1" type="text" placeholder="Country" required="required">
+                                    <label for="name">DB.Name</label>
+                                    <input class="form-control" id="name" type="text" placeholder="db.name" required="required">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="control-label">State</label>
-                                    <input class="form-control mt-1" type="text" placeholder="State" required="required">
+                                    <label for="lname">Host</label>
+                                    <input class="form-control" id="lname" type="text" placeholder="host">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="control-label">City</label>
-                                    <input class="form-control mt-1" type="text" placeholder="City" required="required">
+                                    <label for="contact">URL</label>
+                                    <input class="form-control" id="contact" type="url" placeholder="Url">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contact">User Name</label>
+                                    <input class="form-control" id="contact" type="url" placeholder="User Name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contact">Password</label>
+                                    <input class="form-control" id="contact" type="password" placeholder="User Name">
                                 </div>
                             </div>
+
+
                             <div>
                                 <div class="text-end btn-mb">
-                                    <button class="btn btn-secondary" id="prevBtn" type="button" onclick="nextPrev(-1)">Previous</button>
-                                    <button class="btn btn-primary" id="nextBtn" type="button" onclick="nextPrev(1)">Next</button>
+                                    <button class="btn btnPrev" id="prevBtn" type="button" onclick="nextPrev(-1)">Previous</button>
+                                    <button class="btn btnNext" id="nextBtn" type="button" onclick="nextPrev(1)">Next</button>
                                 </div>
                             </div>
                             <!-- Circles which indicates the steps of the form:-->
