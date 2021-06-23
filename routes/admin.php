@@ -23,6 +23,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::get('database/{id}/migrate', 'SiteSettingController@runMigration')->name('settings.database.migration');
 
         /* end site settings */
+        Route::resource('currencies', 'CurrencyController');
+
 
         /* users routes */
         Route::resource('/users', 'UserController')->except('show');

@@ -210,6 +210,24 @@
                                             </li>
                                         @endif
 
+                                        @if (auth()->user()->hasPermission('currencies_read'))
+                                            <li class="sidebar-list">
+                                                <label class="badge badge-danger"></label>
+                                                <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == 'admin/currencies' ? 'active' : '' }}" href="#">
+                                                    <i class="nav-icon fa fa-money"></i>
+                                                    <span>Currencies</span>
+                                                    <div class="according-menu">
+                                                        <i class="fa fa-angle-{{request()->route()->getPrefix() == 'admin/currencies' ? 'down' : 'right' }}"></i>
+                                                    </div>
+                                                </a>
+                                                <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
+                                                    <li><a href="{{route('admin.currencies.index')}}" class="{{ Route::currentRouteName()=='admin.currencies.index' ? 'active' : '' }}">All</a></li>
+                                                    <li><a href="{{route('admin.currencies.create')}}" class="{{ Route::currentRouteName()=='admin.currencies.create' ? 'active' : '' }}">Add Currency</a></li>
+                                                </ul>
+                                            </li>
+                                        @endif
+
+
                                         @if (auth()->user()->hasPermission('site_settings_read'))
                                         <li class="sidebar-list mt-1">
                                             <label class="badge badge-danger"></label>
