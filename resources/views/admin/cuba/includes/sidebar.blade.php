@@ -256,7 +256,24 @@
                                                 </a>
                                                 <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
                                                     <li><a href="{{route('admin.cities.index')}}" class="{{ Route::currentRouteName()=='admin.cities.index' ? 'active' : '' }}">All</a></li>
-                                                    <li><a href="{{route('admin.cities.create')}}" class="{{ Route::currentRouteName()=='admin.cities.create' ? 'active' : '' }}">Add Country</a></li>
+                                                    <li><a href="{{route('admin.cities.create')}}" class="{{ Route::currentRouteName()=='admin.cities.create' ? 'active' : '' }}">Add City</a></li>
+                                                </ul>
+                                            </li>
+                                        @endif
+
+                                        @if (auth()->user()->hasPermission('regions_read'))
+                                            <li class="sidebar-list">
+                                                <label class="badge badge-danger"></label>
+                                                <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == 'admin/regions' ? 'active' : '' }}" href="#">
+                                                    <i class="nav-icon fa fa-globe"></i>
+                                                    <span>Regions</span>
+                                                    <div class="according-menu">
+                                                        <i class="fa fa-angle-{{request()->route()->getPrefix() == 'admin/regions' ? 'down' : 'right' }}"></i>
+                                                    </div>
+                                                </a>
+                                                <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
+                                                    <li><a href="{{route('admin.regions.index')}}" class="{{ Route::currentRouteName()=='admin.regions.index' ? 'active' : '' }}">All</a></li>
+                                                    <li><a href="{{route('admin.regions.create')}}" class="{{ Route::currentRouteName()=='admin.regions.create' ? 'active' : '' }}">Add City</a></li>
                                                 </ul>
                                             </li>
                                         @endif

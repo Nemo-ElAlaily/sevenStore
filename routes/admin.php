@@ -57,6 +57,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::resource('countries', 'Shipping\CountryController');
         /* cities routes */
         Route::resource('cities', 'Shipping\CityController');
+        /* regions routes */
+        Route::resource('regions', 'Shipping\RegionController');
 
     });
 

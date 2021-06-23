@@ -29,6 +29,7 @@ return [
             'currencies' => 'c,r,u,d',
             'countries' => 'c,r,u,d',
             'cities' => 'c,r,u,d',
+            'regions' => 'c,r,u,d',
         ],
         'admin' => [
             'users' => 'c,r,u,d',
@@ -47,6 +48,7 @@ return [
             'currencies' => 'c,r,u,d',
             'countries' => 'c,r,u,d',
             'cities' => 'c,r,u,d',
+            'regions' => 'c,r,u,d',
         ],
         'user' => [
             'profile' => 'c,r,u',
@@ -67,6 +69,7 @@ return [
             'currencies' => 'c,r,u,d',
             'countries' => 'c,r,u,d',
             'cities' => 'c,r,u,d',
+            'regions' => 'c,r,u,d',
         ],
         'vendor' => [
             'products' => 'c,r,u,d',
@@ -78,6 +81,7 @@ return [
             'currencies' => 'r',
             'countries' => 'r',
             'cities' => 'r',
+            'regions' => 'r',
         ],
         'moderator' => [
             'users' => 'r',
@@ -92,6 +96,7 @@ return [
             'currencies' => 'r',
             'countries' => 'r',
             'cities' => 'r',
+            'regions' => 'r',
         ]
     ],
 
