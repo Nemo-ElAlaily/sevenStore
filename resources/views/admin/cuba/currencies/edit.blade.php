@@ -1,18 +1,12 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'Create currency')
+@section('title', 'Currency | ' . $currency -> name)
 
-@section('content-header')
-    <div class="col-sm-6">
-        <h1>Edit currency</h1>
-    </div>
-    <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-            <li class="breadcrumb-item active"><a href="{{ route('admin.currencies.index') }}">currencies</a></li>
-        </ol>
-    </div>
+@section('breadcrumb-items')
+    <li class="breadcrumb-item">Currencies</li>
+    <li class="breadcrumb-item">Edit</li>
 @stop
+
 
 @section('content')
 
@@ -21,7 +15,8 @@
         <div class="card-body">
             <div class="row">
 
-                {{--                        @include('partials._errors')--}}
+                @include('admin.cuba.partials._errors')
+
                 <form class="col-12" action="{{ route('admin.currencies.update', $currency -> id) }}" method="post">
 
                     {{ csrf_field() }}

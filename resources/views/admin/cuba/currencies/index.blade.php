@@ -1,18 +1,14 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'currencies')
+@section('title', 'Currencies')
 
-@section('content-header')
-    <div class="col-sm-6">
-        <h1>currencies <span class="small text-muted">{{ $currencies->total() }}</span></h1>
-    </div>
-    <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item active"><a href="{{ route('admin.index') }}">Home</a></li>
-        </ol>
-    </div>
+@section('breadcrumb-title')
+    <h5>Currencies <span class="small text-muted">{{ $currencies ->total() }}</span></h5>
+@stop
 
-@endsection
+@section('breadcrumb-items')
+    <li class="breadcrumb-item">Blogs</li>
+@stop
 
 @section('content')
     <div class="box box-primary">
@@ -29,7 +25,7 @@
 
                     <div class="col-md-4 p-0">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                        @if (auth()->user()->hasPermission('create_currencies'))
+                        @if (auth()->user()->hasPermission('currencies_create'))
                             <a href="{{ route('admin.currencies.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add currency</a>
                              @else
                                 <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> Add currency</a>
@@ -41,8 +37,8 @@
 
         </div><!-- end of box header -->
 
-        @include('admin.partials._session')
-        @include('admin.partials._errors')
+        @include('admin.cuba.partials._session')
+        @include('admin.cuba.partials._errors')
 
         <div class="box-body bg-white mx-5 mt-3">
 
@@ -53,7 +49,7 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Symbol</th>
-                    @if (auth()->user()->hasPermission('update_currencies','delete_currencies'))
+                    @if (auth()->user()->hasPermission('currencies_update','currencies_delete'))
                         <th>Action</th>
                     @endif
                 </tr>
@@ -64,14 +60,14 @@
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $currency -> name }}</td>
-                        <td>&{{ $currency -> symbol }}</td>
+                        <td>{{ $currency -> symbol }}</td>
                         <td>
-                            @if (auth()->user()->hasPermission('update_currencies'))
+                            @if (auth()->user()->hasPermission('currencies_update'))
                                 <a href="{{ route('admin.currencies.edit', $currency->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                 {{-- @else
                                     <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
                             @endif
-                            @if (auth()->user()->hasPermission('delete_currencies'))
+                            @if (auth()->user()->hasPermission('currencies_delete'))
                                 <form action="{{ route('admin.currencies.destroy', $currency->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}

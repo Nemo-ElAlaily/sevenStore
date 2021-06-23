@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Currency\CurrencyCreateRequest;
+use App\Http\Requests\Currency\CurrencyUpdateRequest;
 use App\Models\Currencies\Currency;
 use Illuminate\Http\Request;
 
@@ -69,7 +71,7 @@ class CurrencyController extends Controller
 
     }// end of edit
 
-    public function update(CurrencyUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
         try {
             $currency = Currency::find($id);
