@@ -7,7 +7,7 @@
 @stop
 
 @section('breadcrumb-items')
-    <li class="breadcrumb-item">Products</li>
+    <li class="breadcrumb-item">Countries</li>
 @stop
 
 

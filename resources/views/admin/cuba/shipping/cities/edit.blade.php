@@ -1,17 +1,10 @@
-@extends('layouts.admin.app')
+@extends('layouts.admin.cuba')
 
-@section('title', 'Create city')
+@section('title', 'City | ' . $city -> name)
 
-@section('content-header')
-    <div class="col-sm-6">
-        <h1>Create city</h1>
-    </div>
-    <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-            <li class="breadcrumb-item active"><a href="{{ route('admin.cities.index') }}">cities</a></li>
-        </ol>
-    </div>
+@section('breadcrumb-items')
+    <li class="breadcrumb-item">Cities</li>
+    <li class="breadcrumb-item">Edit</li>
 @stop
 
 @section('content')
@@ -21,7 +14,7 @@
         <div class="card-body">
             <div class="row">
 
-                {{--                        @include('partials._errors')--}}
+                @include('admin.cuba.partials._errors')
                 <form class="col-12" action="{{ route('admin.cities.update', $city -> id) }}" method="post" enctype="multipart/form-data">
 
                     {{ csrf_field() }}

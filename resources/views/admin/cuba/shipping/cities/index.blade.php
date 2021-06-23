@@ -1,18 +1,14 @@
-@extends('layouts.admin.app')
+@extends('layouts.admin.cuba')
 
-@section('title', 'cities')
+@section('title', 'Cities')
 
-@section('content-header')
-    <div class="col-sm-6">
-        <h1>cities <span class="small text-muted">{{--{{ $cities->total() }}--}}</span></h1>
-    </div>
-    <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item active"><a href="{{ route('admin.index') }}">Home</a></li>
-        </ol>
-    </div>
+@section('breadcrumb-title')
+    <h5>Cities <span class="small text-muted">{{ $cities ->total() }}</span></h5>
+@stop
 
-@endsection
+@section('breadcrumb-items')
+    <li class="breadcrumb-item">Cities</li>
+@stop
 
 @section('content')
     <div class="box box-primary">
@@ -41,8 +37,8 @@
 
         </div><!-- end of box header -->
 
-        @include('admin.partials._session')
-        @include('admin.partials._errors')
+        @include('admin.cuba.partials._session')
+        @include('admin.cuba.partials._errors')
 
         <div class="box-body bg-white mx-5 mt-3">
 
