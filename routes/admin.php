@@ -23,8 +23,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::get('database/{id}/migrate', 'SiteSettingController@runMigration')->name('settings.database.migration');
 
         /* end site settings */
-        Route::resource('currencies', 'CurrencyController');
-
 
         /* users routes */
         Route::resource('/users', 'UserController')->except('show');
@@ -53,6 +51,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::resource('/blogs', 'BlogController');
         /* tags routes */
         Route::resource('/tags', 'TagController');
+        /* currencies routes */
+        Route::resource('currencies', 'CurrencyController');
+        /* countries routes */
+        Route::resource('countries', 'Shipping\CountryController');
 
     });
 
