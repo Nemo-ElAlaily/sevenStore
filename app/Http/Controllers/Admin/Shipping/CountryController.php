@@ -10,10 +10,10 @@ class CountryController extends Controller
 {
     public function __construct()
     {
-//        $this -> middleware(['permission:countries_read'])->only('index');
-//        $this -> middleware(['permission:countries_create'])->only(['create', 'store']);
-//        $this -> middleware(['permission:countries_update'])->only(['edit', 'update']);
-//        $this -> middleware(['permission:countries_delete'])->only(['destroy']);
+        $this -> middleware(['permission:countries_read'])->only('index');
+        $this -> middleware(['permission:countries_create'])->only(['create', 'store']);
+        $this -> middleware(['permission:countries_update'])->only(['edit', 'update']);
+        $this -> middleware(['permission:countries_delete'])->only(['destroy']);
     } // end of construct
 
     public function index(Request $request)
