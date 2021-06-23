@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function welcome()
     {
-        return view('welcome');
+        return view('admin.cuba.forms.db-new');
     } // end of welcome
 
     public function initApp()
