@@ -39,11 +39,11 @@
                     <div class="row">
 
                             <div class="form-group col-sm-12 col-lg-12">
-                                <label for="image">Flag</label>
-                                @error('image')
+                                <label for="flag">Flag</label>
+                                @error('flag')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
-                                <input type="file" name="image" class="form-control input-sm image">
+                                <input type="file" name="flag" class="form-control input-sm image">
 
                                 <img src="{{ asset('uploads/countries/default.png') }}" width="100px"
                                      class="img-thumbnail image-preview mt-1" alt="Image Preview">

@@ -26,7 +26,7 @@ class Country extends Model
 
     public function getFlagPathAttribute()
     {
-        return asset('uploads/flags/' . $this->flag);
+        return asset('uploads/countries/' . $this->flag);
     } // end of image path
 
     public function cities()

@@ -25,7 +25,7 @@
 
                     <div class="col-md-4 p-0">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                        @if (auth()->user()->hasPermission('create_cities'))
+                        @if (auth()->user()->hasPermission('cities_create'))
                             <a href="{{ route('admin.cities.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add city</a>
                              @else
                                 <a href="#" class="btn btn-p`rimary disabled"><i class="fa fa-plus"></i> Add city</a>
@@ -48,8 +48,8 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>counrty</th>
-                    @if (auth()->user()->hasPermission('update_cities','delete_cities'))
+                    <th>Country</th>
+                    @if (auth()->user()->hasPermission('cities_update','cities_delete'))
                         <th>Action</th>
                     @endif
                 </tr>
@@ -62,12 +62,12 @@
                         <td>{{ $city -> name }}</td>
                         <td>{{ $city -> country -> name }}</td>
                         <td>
-                            @if (auth()->user()->hasPermission('update_cities'))
+                            @if (auth()->user()->hasPermission('cities_update'))
                                 <a href="{{ route('admin.cities.edit', $city->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                 {{-- @else
                                     <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
                             @endif
-                            @if (auth()->user()->hasPermission('delete_cities'))
+                            @if (auth()->user()->hasPermission('cities_delete'))
                                 <form action="{{ route('admin.cities.destroy', $city->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}

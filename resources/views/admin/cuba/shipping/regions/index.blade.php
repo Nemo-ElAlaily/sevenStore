@@ -25,10 +25,10 @@
 
                     <div class="col-md-4 p-0">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                        @if (auth()->user()->hasPermission('create_regions'))
-                            <a href="{{ route('admin.regions.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add city</a>
+                        @if (auth()->user()->hasPermission('regions_create'))
+                            <a href="{{ route('admin.regions.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Region</a>
                              @else
-                                <a href="#" class="btn btn-p`rimary disabled"><i class="fa fa-plus"></i> Add city</a>
+                                <a href="#" class="btn btn-p`rimary disabled"><i class="fa fa-plus"></i> Add Region</a>
                         @endif
                     </div>
 
@@ -49,7 +49,7 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>City</th>
-                    @if (auth()->user()->hasPermission('update_regions','delete_regions'))
+                    @if (auth()->user()->hasPermission('regions_update','regions_delete'))
                         <th>Action</th>
                     @endif
                 </tr>
@@ -60,14 +60,14 @@
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $region -> name }}</td>
-                        <td>{{ $region -> country -> name }}</td>
+                        <td>{{ $region -> city -> name }}</td>
                         <td>
-                            @if (auth()->user()->hasPermission('update_regions'))
+                            @if (auth()->user()->hasPermission('regions_update'))
                                 <a href="{{ route('admin.regions.edit', $region->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                 {{-- @else
                                     <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
                             @endif
-                            @if (auth()->user()->hasPermission('delete_regions'))
+                            @if (auth()->user()->hasPermission('regions_delete'))
                                 <form action="{{ route('admin.regions.destroy', $region->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}

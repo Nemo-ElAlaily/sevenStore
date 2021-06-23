@@ -12,17 +12,17 @@ class CityController extends Controller
 {
     public function __construct()
     {
-        $this -> middleware(['permission:read_cities'])->only('index');
-        $this -> middleware(['permission:create_cities'])->only(['create', 'store']);
-        $this -> middleware(['permission:update_cities'])->only(['edit', 'update']);
-        $this -> middleware(['permission:delete_cities'])->only(['destroy']);
+        $this -> middleware(['permission:cities_read'])->only('index');
+        $this -> middleware(['permission:cities_create'])->only(['create', 'store']);
+        $this -> middleware(['permission:cities_update'])->only(['edit', 'update']);
+        $this -> middleware(['permission:cities_delete'])->only(['destroy']);
     } // end of construct
 
     public function index(Request $request)
     {
         $cities  = City::when($request -> search , function ($query) use ($request) {
             return $query -> where('name', 'like', '%' . $request -> search . '%');
-        })->latest()->paginate(PAGINATION_COUNT);
+        })->latest()->paginate(ADMIN_PAGINATION_COUNT);
 
         return view('admin.cuba.shipping.cities.index', compact('cities'));
 

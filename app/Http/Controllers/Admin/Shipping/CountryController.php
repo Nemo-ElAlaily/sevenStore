@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin\Shipping;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Country\CountryCreateRequest;
 use App\Models\Shipping\Countries\Country;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CountryController extends Controller
 {
@@ -38,12 +40,10 @@ class CountryController extends Controller
         try {
             $request_data = $request -> all();
 
-            if ($request -> image) {
-                Image::make($request->image)->resize(100, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save(public_path('/uploads/countries/'. $request ->image->hashName()));
-
-                $request_data['image'] = $request->image->hashName();
+            if($request -> flag){
+                $request_data['flag'] = uploadImage('uploads/Countries/',  $request -> flag);
+            } else {
+                $request_data['flag'] = 'default.png';
             }
 
             Country::create($request_data);
@@ -91,20 +91,14 @@ class CountryController extends Controller
 
             $request_data = $request -> all();
 
-            if($request->image){
-
-                if ($country -> image != 'default.png') {
-
-                    Storage::disk('public_uploads')->delete('/countries/' . $country ->image);
-
+            if($request->flag){
+                if ($country -> flag != 'default.png') {
+                    Storage::disk('public_uploads')->delete('uploads/countries/' . $country -> image);
                 } // end of inner if
-
-                Image::make($request->image)->resize(100, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save(public_path('/uploads/countries/'. $request ->image->hashName()));
-
-                $request_data['image'] = $request->image->hashName();
-            } // end of outer if
+                $request_data['flag'] = uploadImage('uploads/countries/',  $request -> flag);
+            } else {
+                $request_data['flag'] = $country -> flag;
+            }// end of outer if
 
             $country->update($request_data);
 
@@ -129,8 +123,8 @@ class CountryController extends Controller
                 return redirect()->route('admin.countries.index');
             }
 
-            if($country -> image != 'default.png'){
-                Storage::disk('public_uploads')->delete('/countries/' . $country ->image);
+            if($country -> flag != 'default.png'){
+                Storage::disk('public_uploads')->delete('/countries/' . $country ->flag);
             }
 
             $country -> deleteTranslations();

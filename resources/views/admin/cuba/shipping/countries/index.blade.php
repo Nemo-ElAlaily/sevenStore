@@ -27,9 +27,9 @@
                     <div class="col-md-4 p-0">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
                         @if (auth()->user()->hasPermission('countries_create'))
-                            <a href="{{ route('admin.countries.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add country</a>
+                            <a href="{{ route('admin.countries.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Country</a>
                              @else
-                                <a href="#" class="btn btn-p`rimary disabled"><i class="fa fa-plus"></i> Add country</a>
+                                <a href="#" class="btn btn-p`rimary disabled"><i class="fa fa-plus"></i> Add Country</a>
                         @endif
                     </div>
 

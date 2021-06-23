@@ -16,7 +16,7 @@ class CountryCreateRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'image' => 'required|mimes:jpg,jpeg,png,svg',
+            'flag' => 'required|mimes:jpg,jpeg,png,svg',
         ] ;
 
         foreach (config('translatable.locales') as $locale) {

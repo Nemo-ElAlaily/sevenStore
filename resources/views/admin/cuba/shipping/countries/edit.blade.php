@@ -37,13 +37,13 @@
                     </div>
 
                         <div class="form-group col-sm-12 col-lg-12">
-                            <label for="image">Flag</label>
-                            @error('image')
+                            <label for="flag">Flag</label>
+                            @error('flag')
                             <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="file" name="image" class="form-control input-sm image">
+                            <input type="file" name="flag" class="form-control input-sm image">
 
-                            <img src="{{ $country -> image_path }}" width="100px"
+                            <img src="{{ $country -> flag_path }}" width="100px"
                                  class="img-thumbnail image-preview mt-1" alt="">
                         </div> {{-- end of form group image --}}
 
