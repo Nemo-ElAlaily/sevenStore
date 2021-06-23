@@ -2,6 +2,7 @@
 
 namespace App\Models\Shipping\Countries;
 
+use App\Models\Shipping\Cities\City;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -27,5 +28,11 @@ class Country extends Model
     {
         return asset('uploads/flags/' . $this->flag);
     } // end of image path
+
+    public function cities()
+    {
+        return $this->hasMany(City::class);
+
+    } // end of cities
 
 }
