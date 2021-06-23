@@ -17,7 +17,7 @@ class PageComponent extends Component
 
     public function render()
     {
-        $page = Page::whereTranslation('slug', $this -> slug)->first();
+        $page = Page::whereTranslation('slug', $this -> slug)->active()->first();
         return view('livewire.page-component', compact('page'))->layout('layouts.front.app');
     }
 }

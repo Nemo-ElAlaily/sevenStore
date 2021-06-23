@@ -27,7 +27,7 @@ class Page extends Model
 
     public function getActive()
     {
-        return $this -> is_active == 1 ? 'Active' : '';
+        return $this -> is_active == 1 ? 'Active' : 'Not Active';
     } // end fo get Active
 
 } // end of model

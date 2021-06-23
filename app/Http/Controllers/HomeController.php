@@ -30,7 +30,6 @@ class HomeController extends Controller
 
     public function welcome()
     {
-        return Post::find(197);
         return view('welcome');
     } // end of welcome
 
@@ -42,7 +41,7 @@ class HomeController extends Controller
         $path = base_path('app/Providers/AppServiceProvider.php');
         $contents = File::get($path);
 
-        $contents = str_replace("// Fetch the Site Settings object", "
+        $contents = str_replace("// Fetch the Site Settings object", "// Fetch the Site Settings object
         \$site_settings = SiteSetting::find(1);
         \$social_settings = SocialSetting::all();
         \$main_categories = MainCategory::all();
@@ -58,4 +57,5 @@ class HomeController extends Controller
         return redirect()->route('admin.settings.database.show', 1);
 
     } // end of initApp
+
 } // end of controller

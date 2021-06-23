@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\Pages\Page;
 use App\Models\Pages\PageTranslation;
+use Corcel\Model\Post;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PagesTableSeeder extends Seeder
 {
@@ -15,30 +17,61 @@ class PagesTableSeeder extends Seeder
      */
     public function run()
     {
-        $page = new Page();
-        $page -> save();
+        $wp_db_pages = Post::where('post_type', 'page')
+                        ->whereNotIn('post_name', [
+                        'shop',
+                        'cart',
+                        'checkout',
+                        'blog',
+                        'my-account',
+                        'store-directory',
+                        'store-listing',
+                        'compare',
+                        'wishlist',
+                        'home-mobile',
+                        'dashboard',
+                        'my-orders',
+                        'homepage',
+                        'import',
+                        'site-map',
+                        'accept-payments',
+                        'track-your-order',
+                    ])->paginate(ADMIN_PAGINATION_COUNT);
 
-        $page_translation = new PageTranslation();
-        $page_translation -> page_id = $page -> id;
-        $page_translation -> locale ='en';
-        $page_translation -> title = 'about us';
-        $page_translation -> slug = 'about_us';
-        $page_translation -> content = null;
-        $page_translation -> meta_title = null;
-        $page_translation -> meta_description = null;
-        $page_translation -> meta_keyword = null;
-        $page_translation -> save();
+        foreach ($wp_db_pages as $page)
+        {
+            DB::beginTransaction();
 
-        $page_translation = new PageTranslation();
-        $page_translation -> page_id = $page -> id;
-        $page_translation -> locale ='ar';
-        $page_translation -> title = 'معلومات عنا';
-        $page_translation -> slug = 'من-نحن';
-        $page_translation -> content = null;
-        $page_translation -> meta_title = null;
-        $page_translation -> meta_description = null;
-        $page_translation -> meta_keyword = null;
-        $page_translation -> save();
+                $new_page = new Page();
+                $new_page -> is_active = $page -> status == 'publish' ? 1 : 0;
+                $new_page -> save();
+
+                $new_page_translation = new PageTranslation();
+                $new_page_translation -> page_id = $new_page -> id;
+                $new_page_translation -> locale ='en';
+                $new_page_translation -> title = $page -> title;
+                $new_page_translation -> slug = $page -> post_name;
+                $new_page_translation -> content = $page -> post_content;
+                $new_page_translation -> meta_title = null;
+                $new_page_translation -> meta_description = null;
+                $new_page_translation -> meta_keyword = null;
+                $new_page_translation -> save();
+
+                $new_page_translation = new PageTranslation();
+                $new_page_translation -> page_id = $new_page -> id;
+                $new_page_translation -> locale ='ar';
+                $new_page_translation -> title = $page -> title;
+                $new_page_translation -> slug = $page -> post_name;
+                $new_page_translation -> content = $page -> post_content;
+                $new_page_translation -> meta_title = null;
+                $new_page_translation -> meta_description = null;
+                $new_page_translation -> meta_keyword = null;
+                $new_page_translation -> save();
+
+            DB::commit();
+
+        } // end of for each
+
 
     } // end of run
 }
