@@ -6523,6 +6523,14 @@ table.dataTable.display tbody tr.odd > .sorting_1 {
     border-top-left-radius: 1.3rem;
     border-bottom-left-radius: 1.3rem;
 }
+
+.tabsShadow{
+
+    box-shadow: 0 0 4px 2px #fff;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
 .form-wizard .tab {
     display: none;
 }
@@ -49544,9 +49552,9 @@ input.bg-dark:focus {
     -webkit-appearance: none;
     appearance: none;
     background-color: #fff;
-    /* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient. 
+    /* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient.
       for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url. You can also swap in a different svg icon or an external image reference
-      
+
     */
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
       linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
@@ -49570,32 +49578,32 @@ input.bg-dark:focus {
     /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
     box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
     box-shadow: 0 0 0 3px -moz-mac-focusring;
-    color: #222; 
+    color: #222;
     outline: none;
   }
-  
+
   /* Set options to normal weight */
   .select-css option {
     font-weight:normal;
   }
-  
+
   /* Support for rtl text, explicit support for Arabic and Hebrew */
   *[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
     background-position: left .7em top 50%, 0 0;
     padding: .6em .8em .5em 1.4em;
   }
-  
+
   /* Disabled styles */
   .select-css:disabled, .select-css[aria-disabled=true] {
     color: graytext;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
       linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
   }
-  
+
   .select-css:disabled:hover, .select-css[aria-disabled=true] {
     border-color: #aaa;
   }
-  
+
   .alert-database{
 
     background-color: #ff006a;
@@ -49621,8 +49629,8 @@ input.bg-dark:focus {
     transform: scale(1.2);
     cursor: pointer;
   }
-  .radio[type="checkbox"]:after, 
-  .radio[type="radio"]:after{ 
+  .radio[type="checkbox"]:after,
+  .radio[type="radio"]:after{
     width: 25px;
     height: 25px;
     border-radius: 6px;
@@ -49634,7 +49642,7 @@ input.bg-dark:focus {
     display: inline-block;
     visibility: visible;
     border: 2px solid white;
-} 
+}
     .radio[type='checkbox']:checked:after ,
     .radio[type='radio']:checked:after {
         width: 25px;
@@ -49653,7 +49661,7 @@ input.bg-dark:focus {
         display: block;
         margin: 0 auto 25px ;
         width: 150px;
-        
+
     }
 
     .user-label{
@@ -49693,7 +49701,7 @@ input.bg-dark:focus {
         margin-top: 10px;
     }
     .box.box-primary{
-     
+
         text-align: center;
     }
 }
@@ -49776,13 +49784,13 @@ width: 200px;
         transition:  all .5s ease-in-out;
     }
     .admin-database .contact-form .btnContact:hover{
-            
+
         background-color: #dd747b;
     }
-    
+
     .admin-database .btnContactpress
     {
-            
+
         background-color: #082f55;
     }
     .admin-database .btnContactpress:hover{
@@ -49797,10 +49805,10 @@ width: 200px;
         color: #082f55;
 }
     .titel-db{
-        font-size: 15px;
+        font-size: 18px;
         left: 10px;
         position: relative;
-        color: #515151;
+        color: #fff;
         margin: 4px;
     }
 /* End Forms Database Setting  */
@@ -49814,41 +49822,158 @@ width: 200px;
           background-color: #4433ff !important;
           color: #fff;
     border-color: #4433ff !important;
-  }  
+  }
 .btnPrev:hover, .btnNext:hover{
     color:#fff;
 }
 .alertTabs{
     padding: 10px;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-width: 50%;
-margin: auto;
+    margin-top: 20px !important;
+    width: 60%;
+    margin: auto;
+    border-radius: 15px;
     margin-bottom: auto;
     background-color: #ac1b1b73;
-color: #fff;
+    color: #fff;
 }
 .imgTabs{
-    margin: auto;
-    text-align: center;
+    position: absolute;
+    top: -60px;
+    right: 47%;
+    background-color: #fff;
+    transform: translate(35%, 5%);
+    border: 10px solid #fff;
+    border-radius: 50%;
 }
 .imgTabs img{
     width: 100px;
 }
+
 .card .card-body{
-    padding: 0 40px;
+    padding: 40px;
+    position: relative;
+}
+.overlay{
+
+    background-color: rgba(170, 167, 167, 0.75);
+    border-radius: 20px;
+    
 }
 .cardwizard
 {
-    box-shadow: 0px 0px 2px 2px #b9b4b4;
-}
-.cardwizard:hover
-{
-    box-shadow: 0px 0px 2px 2px #b9b4b4;
+    background: linear-gradient(#4433ff6b, #ff23cad6);
+    background-size: cover;
+    border-radius: 20px;
 }
 
+
 .cardwizard .form-control{
-    box-shadow: 0px 0px 1px 1px #333;
+    box-shadow: 0px 0px 1px 1px #333;box-shadow: 0px 0px 1px 1px #333;
+    background: transparent;
+    color: #333;
+    padding-left: 60px;
 }
+.input-container{
+    position: relative;
+}
+.input-container .fa
+{
+    position: absolute;
+    left: 10px;
+    top: 0;
+    border-right: 2px solid #e6e6e6;
+    padding: 9px;
+    color: #8a8787;
+    font-size: 20px;
+}
+.dashboard .widget{
+
+    background-color: darkcyan;
+    padding: 15px;
+    border-radius: 5px;
+}
+.dashboard .widget .details{
+
+    float:left
+}
+.dashboard .widget .details span {
+    display: block;
+    text-align: center;
+}
+.dashboard .widget .details .number{
+    color: #fff;
+    font-size: 30px;
+}
+.dashboard .widget .details .title{
+    font-size: 25px;
+    color: #eee;
+}
+.dashboard .widget .icons{
+    float:right
+}
+.dashboard .widget .icons i{
+    font-size: 50px;
+}
+
+
+.card-counter{
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 5px;
+    padding: 20px 10px;
+    background-color: #fff;
+    height: 100px;
+    border-radius: 5px;
+    transition: .3s linear all;
+  }
+
+  .card-counter:hover{
+    box-shadow: 4px 4px 20px #DADADA;
+    transition: .3s linear all;
+  }
+
+  .card-counter.primary{
+    background-color: #05213e;
+    color: #FFF;
+  }
+
+  .card-counter.danger{
+    background-color: #ef5350;
+    color: #FFF;
+  }  
+
+  .card-counter.success{
+    background-color: #666ebb;
+    color: #FFF;
+  }  
+
+  .card-counter.info{
+    background-color: #26c6da;
+    color: #FFF;
+  }  
+
+  .card-counter i{
+    font-size: 5em;
+    opacity: 0.2;
+  }
+
+  .card-counter .count-numbers{
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    font-size: 32px;
+    display: block;
+  }
+
+  .card-counter .count-name{
+    position: absolute;
+    right: 35px;
+    top: 65px;
+    font-style: italic;
+    text-transform: capitalize;
+    opacity: 0.5;
+    display: block;
+    font-size: 18px;
+  }
+
+
+  
