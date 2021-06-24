@@ -47,7 +47,7 @@ return [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => 'localhost',
-            'port' => '',
+            'port' => env('DB_PORT'),
             'database' => 'laravel8ecommerce',
             'username' => 'root',
             'password' => '',
@@ -66,7 +66,7 @@ return [
         'wordpress' => [ // for WordPress database (used by Corcel)
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'port'      => '',
+            'port'      => env('WP_DB_PORT'),
             'database'  => 'store',
             'username'  => 'root',
             'password'  => '',

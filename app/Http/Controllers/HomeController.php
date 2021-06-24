@@ -42,6 +42,24 @@ class HomeController extends Controller
 
         DB::beginTransaction();
 
+            $path = base_path('config/database.php');
+            $contents = File::get($path);
+
+            $contents = str_replace("env('DB_HOST')", "'" . $request_data['DB_HOST'] . "'", $contents);
+            $contents = str_replace("env('DB_DATABASE')", "'" . $request_data['DB_DATABASE'] . "'", $contents);
+            $contents = str_replace("env('DB_USERNAME')", "'" . $request_data['DB_USERNAME'] . "'", $contents);
+            $contents = str_replace("env('DB_PASSWORD')", "'" . $request_data['DB_PASSWORD'] . "'", $contents);
+
+            $contents = str_replace("env('WP_DB_HOST')", "'" . $request_data['WP_DB_HOST'] . "'", $contents);
+            $contents = str_replace("env('WP_DB_DATABASE')", "'" . $request_data['WP_DB_DATABASE'] . "'", $contents);
+            $contents = str_replace("env('WP_DB_USERNAME')", "'" . $request_data['WP_DB_USERNAME'] . "'", $contents);
+            $contents = str_replace("env('WP_DB_PASSWORD')", "'" . $request_data['WP_DB_PASSWORD'] . "'", $contents);
+
+            File::put($path, $contents);
+
+            Artisan::call('migrate:fresh');
+
+
             $database_settings = DatabaseSetting::create([
                 'DB_HOST' => $request_data['DB_HOST'],
                 'DB_DATABASE' => $request_data['DB_DATABASE'],
@@ -53,26 +71,8 @@ class HomeController extends Controller
                 'WP_DB_PASSWORD' => $request_data['WP_DB_PASSWORD'],
             ]);
 
-            $path = base_path('config\database.php');
-            $contents = File::get($path);
-
-            $contents = str_replace("env('DB_HOST')", "'" . $database_settings -> DB_HOST . "'", $contents);
-            $contents = str_replace("env('DB_PORT')", "'" . $database_settings -> DB_PORT . "'", $contents);
-            $contents = str_replace("env('DB_DATABASE')", "'" . $database_settings -> DB_DATABASE . "'", $contents);
-            $contents = str_replace("env('DB_USERNAME')", "'" . $database_settings -> DB_USERNAME . "'", $contents);
-            $contents = str_replace("env('DB_PASSWORD')", "'" . $database_settings -> DB_PASSWORD . "'", $contents);
-
-            $contents = str_replace("env('WP_DB_HOST')", "'" . $database_settings -> WP_DB_HOST . "'", $contents);
-            $contents = str_replace("env('WP_DB_PORT')", "'" . $database_settings -> WP_DB_PORT . "'", $contents);
-            $contents = str_replace("env('WP_DB_DATABASE')", "'" . $database_settings -> WP_DB_DATABASE . "'", $contents);
-            $contents = str_replace("env('WP_DB_USERNAME')", "'" . $database_settings -> WP_DB_USERNAME . "'", $contents);
-            $contents = str_replace("env('WP_DB_PASSWORD')", "'" . $database_settings -> WP_DB_PASSWORD . "'", $contents);
-
-            File::put($path, $contents);
-
         DB::commit();
 
-        Artisan::call('migrate:fresh');
         Artisan::call('db:seed');
 
         $app_path = base_path('app/Providers/AppServiceProvider.php');
