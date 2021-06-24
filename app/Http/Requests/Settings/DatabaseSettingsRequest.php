@@ -24,19 +24,15 @@ class DatabaseSettingsRequest extends FormRequest
     public function rules()
     {
         return [
-            "DB_CONNECTION" => 'required',
             "DB_HOST" => 'required',
-            "DB_PORT" => 'required',
             "DB_DATABASE" => 'required',
             "DB_USERNAME" => 'required',
-            "DB_PASSWORD" => 'required',
+            "DB_PASSWORD" => '',
 
-            "WP_DB_CONNECTION" => 'required',
             "WP_DB_HOST" => 'required',
-            "WP_DB_PORT" => 'required',
             "WP_DB_DATABASE" => 'required',
             "WP_DB_USERNAME" => 'required',
-            "WP_DB_PASSWORD" => 'required',
+            "WP_DB_PASSWORD" => '',
         ];
     } // end of rules
 

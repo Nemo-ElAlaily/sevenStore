@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Settings\DatabaseSettingsRequest;
 use App\Models\Settings\DatabaseSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class HomeController extends Controller
@@ -34,19 +36,47 @@ class HomeController extends Controller
         return view('admin.cuba.forms.db-new');
     } // end of welcome
 
-    public function initApp(Request $request)
+    public function initApp(DatabaseSettingsRequest $request)
     {
         $request_data = $request->except(['_token', '_method']);
 
-        $database_settings = DatabaseSetting::create([
-            
-        ]);
+        DB::beginTransaction();
+
+            $database_settings = DatabaseSetting::create([
+                'DB_HOST' => $request_data['DB_HOST'],
+                'DB_DATABASE' => $request_data['DB_DATABASE'],
+                'DB_USERNAME' => $request_data['DB_USERNAME'],
+                'DB_PASSWORD' => $request_data['DB_PASSWORD'],
+                'WP_DB_HOST' => $request_data['WP_DB_HOST'],
+                'WP_DB_DATABASE' => $request_data['WP_DB_DATABASE'],
+                'WP_DB_USERNAME' => $request_data['WP_DB_USERNAME'],
+                'WP_DB_PASSWORD' => $request_data['WP_DB_PASSWORD'],
+            ]);
+
+            $path = base_path('config\database.php');
+            $contents = File::get($path);
+
+            $contents = str_replace("env('DB_HOST')", "'" . $database_settings -> DB_HOST . "'", $contents);
+            $contents = str_replace("env('DB_PORT')", "'" . $database_settings -> DB_PORT . "'", $contents);
+            $contents = str_replace("env('DB_DATABASE')", "'" . $database_settings -> DB_DATABASE . "'", $contents);
+            $contents = str_replace("env('DB_USERNAME')", "'" . $database_settings -> DB_USERNAME . "'", $contents);
+            $contents = str_replace("env('DB_PASSWORD')", "'" . $database_settings -> DB_PASSWORD . "'", $contents);
+
+            $contents = str_replace("env('WP_DB_HOST')", "'" . $database_settings -> WP_DB_HOST . "'", $contents);
+            $contents = str_replace("env('WP_DB_PORT')", "'" . $database_settings -> WP_DB_PORT . "'", $contents);
+            $contents = str_replace("env('WP_DB_DATABASE')", "'" . $database_settings -> WP_DB_DATABASE . "'", $contents);
+            $contents = str_replace("env('WP_DB_USERNAME')", "'" . $database_settings -> WP_DB_USERNAME . "'", $contents);
+            $contents = str_replace("env('WP_DB_PASSWORD')", "'" . $database_settings -> WP_DB_PASSWORD . "'", $contents);
+
+            File::put($path, $contents);
+
+        DB::commit();
 
         Artisan::call('migrate:fresh');
-        Artisan::call('db:seed --class=InitSeeder');
+        Artisan::call('db:seed');
 
-        $path = base_path('app/Providers/AppServiceProvider.php');
-        $contents = File::get($path);
+        $app_path = base_path('app/Providers/AppServiceProvider.php');
+        $contents = File::get($app_path);
 
         $contents = str_replace("// Fetch the Site Settings object", "// Fetch the Site Settings object
         \$site_settings = SiteSetting::find(1);
@@ -58,10 +88,10 @@ class HomeController extends Controller
             'main_categories' => \$main_categories,
         ]);", $contents);
 
-        File::put($path, $contents);
+        File::put($app_path, $contents);
 
-        session()->flash('success', 'Your App Started Successfully, Fill and Import Data from Wordpress');
-        return redirect()->route('admin.settings.database.show', 1);
+        session()->flash('success', 'Your App Started Successfully :)');
+        return redirect()->route('admin.index');
 
     } // end of initApp
 

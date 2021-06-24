@@ -18,9 +18,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::get('social-settings', 'SiteSettingController@socialShow')->name('settings.social.show');
         Route::post('social-settings', 'SiteSettingController@socialUpdate')->name('settings.social.update');
 
-//        Route::get('database/{id}', 'SiteSettingController@databaseShow')->name('settings.database.show');
-        Route::post('database', 'SiteSettingController@databaseStore')->name('settings.database.show');
-//        Route::get('database/{id}/migrate', 'SiteSettingController@runMigration')->name('settings.database.migration');
+        Route::get('database/{id}', 'SiteSettingController@databaseShow')->name('settings.database.show');
+        Route::post('database/{id}', 'SiteSettingController@databaseUpdate')->name('settings.database.update');
+        Route::get('database/{id}/migrate', 'SiteSettingController@runMigration')->name('settings.database.migration');
 
         /* end site settings */
 
