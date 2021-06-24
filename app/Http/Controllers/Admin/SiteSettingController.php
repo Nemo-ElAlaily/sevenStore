@@ -3,15 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Settings\DatabaseSettingsRequest;
 use App\Models\Settings\DatabaseSetting;
 use App\Models\Settings\SiteSetting;
 use App\Models\Settings\SocialSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class SiteSettingController extends Controller

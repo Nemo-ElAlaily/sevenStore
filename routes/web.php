@@ -11,7 +11,6 @@ use App\Http\Livewire\WishlistComponent;
 use App\Http\Livewire\PageComponent;
 use App\Http\Livewire\ProfileComponent;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 
 
 /*
@@ -27,8 +26,7 @@ use App\Http\Controllers\HomeController;
 define('FRONT_PAGINATION_COUNT', 20);
 
 Route::get('/welcome', '\App\Http\Controllers\HomeController@welcome')->name('app.welcome');
-Route::post('/welcome', '\App\Http\Controllers\Admin\SiteSettingController@databaseStore')->name('admin.settings.database.store');
-Route::get('/welcome/start', '\App\Http\Controllers\HomeController@initApp')->name('app.start');
+Route::post('/welcome/start', '\App\Http\Controllers\HomeController@initApp')->name('app.start');
 
 Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ], 'name' => 'front.'], function() {
     Route::name('front.')->group(function () {

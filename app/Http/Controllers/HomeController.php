@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Corcel\Model\Post;
+use App\Models\Settings\DatabaseSetting;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
@@ -33,8 +34,14 @@ class HomeController extends Controller
         return view('admin.cuba.forms.db-new');
     } // end of welcome
 
-    public function initApp()
+    public function initApp(Request $request)
     {
+        $request_data = $request->except(['_token', '_method']);
+
+        $database_settings = DatabaseSetting::create([
+            
+        ]);
+
         Artisan::call('migrate:fresh');
         Artisan::call('db:seed --class=InitSeeder');
 
