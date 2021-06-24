@@ -22,8 +22,8 @@ function nextPrev(n) {
   x[currentTab].style.display = "none";
   currentTab = currentTab + n;
   if (currentTab >= x.length) {
-    document.getElementById("regForm").closest('form').submit();
-    // return false;
+    document.getElementById("regForm").submit();
+    return false;
   }
   showTab(currentTab);
 }
