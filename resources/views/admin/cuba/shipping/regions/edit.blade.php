@@ -15,7 +15,7 @@
             <div class="row">
 
                 @include('admin.cuba.partials._errors')
-                <form class="col-12" action="{{ route('admin.cities.update', $region -> id) }}" method="post" enctype="multipart/form-data">
+                <form class="col-12" action="{{ route('admin.regions.update', $region -> id) }}" method="post" enctype="multipart/form-data">
 
                     {{ csrf_field() }}
                     {{ method_field('put') }}
@@ -35,18 +35,29 @@
                             </div>
                         @endforeach
 
-                            <div class="col-sm-12 col-lg-12">
+                            <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="country_id">City</label>
-                                    @error('country_id')
+                                    <label for="city_id">City</label>
+                                    @error('city_id')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <select name="country_id" class="form-control">
+                                    <select name="city_id" class="form-control">
                                         <option value="">All Cities</option>
                                         @foreach ($cities as $city)
                                             <option value="{{ $city -> id }}" {{ $region -> city_id  == $city->id ? 'selected' : '' }}>{{ $city -> name }}</option>
                                         @endforeach
                                     </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="shipping_cost">Shipping Cost</label>
+                                    @error('shipping_cost')
+                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                    @enderror
+                                    <input class="form-control input-thick" type="number" name="shipping_cost"
+                                           value="{{ $region -> shipping_cost }}">
                                 </div>
                             </div>
 

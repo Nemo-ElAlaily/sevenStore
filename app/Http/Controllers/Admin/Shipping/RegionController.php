@@ -20,7 +20,7 @@ class RegionController extends Controller
     public function index(Request $request)
     {
         $regions  = Region::when($request -> search , function ($query) use ($request) {
-            return $query -> where('name', 'like', '%' . $request -> search . '%');
+            return $query -> whereTranslationLike('name', '%' . $request -> search . '%');
         })->latest()->paginate(ADMIN_PAGINATION_COUNT);
 
         return view('admin.cuba.shipping.regions.index', compact('regions'));
@@ -37,7 +37,7 @@ class RegionController extends Controller
     public function store(Request $request)
     {
         try {
-            $request_data = $request -> all();
+            $request_data = $request -> except(['_token', '_method']);
 
             Region::create($request_data);
 
@@ -58,11 +58,11 @@ class RegionController extends Controller
         try {
             $region = Region::find($id);
             if(!$region) {
-                session()->flash('error', "City Doesn't Exist or has been deleted");
+                session()->flash('error', "Region Doesn't Exist or has been deleted");
                 return redirect()->route('admin.regions.index');
             }
-            $countries = Country::all();
-            return view('admin.cuba.shipping.regions.edit', compact( 'countries','Region'));
+            $cities = City::all();
+            return view('admin.cuba.shipping.regions.edit', compact( 'cities','region'));
 
         } catch (\Exception $exception) {
 
@@ -83,7 +83,7 @@ class RegionController extends Controller
                 return redirect()->route('admin.regions.index');
             }
 
-            $request_data = $request -> all();
+            $request_data = $request -> except(['_token', '_method']);
 
             $region->update($request_data);
 
@@ -105,7 +105,7 @@ class RegionController extends Controller
             $region = Region::find($id);
 
             if(!$region) {
-                session()->flash('error', "City Doesn't Exist or has been deleted");
+                session()->flash('error', "Region Doesn't Exist or has been deleted");
                 return redirect()->route('admin.regions.index');
             }
 

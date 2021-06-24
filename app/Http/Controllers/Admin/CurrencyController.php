@@ -21,7 +21,7 @@ class CurrencyController extends Controller
     public function index(Request $request)
     {
         $currencies = Currency::when($request -> search , function ($query) use ($request) {
-            return $query -> where('name', 'like', '%' . $request -> search . '%');
+            return $query -> whereTranslationLike('name', '%' . $request -> search . '%');
         })->latest()->paginate(ADMIN_PAGINATION_COUNT);
 
         return view('admin.cuba.currencies.index', compact('currencies'));

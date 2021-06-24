@@ -35,20 +35,32 @@
                         </div>
                         @endforeach
 
-                        <div class="col-sm-12 col-lg-12">
+                        <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                            <label for="country">Country</label>
-                            @error('country_id')
-                            <span class="text-danger mx-5">{{ $message }}</span>
-                            @enderror
-                            <select name="country_id" class="form-control">
-                                <option value="">All Cities</option>
-                                @foreach ($cities as $city)
-                                    <option value="{{ $city -> id }}">{{ $city -> name }}</option>
-                                @endforeach
-                            </select>
+                                <label for=city>City</label>
+                                @error('city_id')
+                                <span class="text-danger mx-5">{{ $message }}</span>
+                                @enderror
+                                <select name="city_id" class="form-control">
+                                    <option value="">All Cities</option>
+                                    @foreach ($cities as $city)
+                                        <option value="{{ $city -> id }}">{{ $city -> name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
+
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="shipping_cost">Shipping Cost</label>
+                                @error('shipping_cost')
+                                <span class="text-danger mx-5">{{ $message }}</span>
+                                @enderror
+                                <input class="form-control input-thick" type="number" name="shipping_cost"
+                                       value="{{ old('shipping_cost') }}">
+                            </div>
                         </div>
+
                     </div>
 
                     <div class="form-group">

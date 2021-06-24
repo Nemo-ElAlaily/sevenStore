@@ -22,7 +22,7 @@ class CountryController extends Controller
     public function index(Request $request)
     {
         $countries  = Country::when($request -> search , function ($query) use ($request) {
-            return $query -> where('name', 'like', '%' . $request -> search . '%');
+            return $query -> whereTranslationLike('name', '%' . $request -> search . '%');
         })->latest()->paginate(ADMIN_PAGINATION_COUNT);
 
         return view('admin.cuba.shipping.countries.index', compact('countries'));

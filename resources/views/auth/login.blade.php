@@ -61,7 +61,7 @@
                                                     </label>
                                                 </p>
 
-                                                <p class="lost_password"><a href="#">Forgot your password?</a></p>
+                                                <p class="lost_password"><a href="{{ route('password.request') }}">Forgot your password?</a></p>
 
                                             </form>
 
