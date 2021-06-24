@@ -88,8 +88,9 @@ class SiteSettingController extends Controller
         return view('admin.cuba.site_settings.database', compact('database_settings'));
     } // end of database show
 
-    public function databaseUpdate($id, DatabaseSettingsRequest $request)
+    public function databaseStore(Request $request)
     {
+        return $request -> all();
         try {
             $database_settings = DatabaseSetting::findorFail($id);
             $request_data = $request->except(['_token', '_method']);
