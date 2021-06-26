@@ -109,9 +109,9 @@ class BlogController extends Controller
                 if ($blog -> image != 'default.png') {
                     Storage::disk('public_uploads')->delete('uploads/blogs/' . $blog -> image);
                 } // end of inner if
-                $request_data['flag'] = uploadImage('uploads/blogs/',  $request -> image);
+                $request_data['image'] = uploadImage('uploads/blogs/',  $request -> image);
             } else {
-                $request_data['flag'] = $blog -> image;
+                $request_data['image'] = $blog -> image;
             }// end of outer if
 
             if (count($blog->tags) > 0) {
