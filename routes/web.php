@@ -10,6 +10,7 @@ use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\WishlistComponent;
 use App\Http\Livewire\PageComponent;
 use App\Http\Livewire\ProfileComponent;
+use App\Http\Livewire\BlogComponent;
 use Illuminate\Support\Facades\Route;
 
 
@@ -37,6 +38,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::get('/checkout', CheckoutComponent::class)->name('checkout')->middleware('auth', 'verified');
         Route::get('/thank-you', ThankyouComponent::class)->name('thank_you')->middleware('auth', 'verified');
         Route::get('/profile', ProfileComponent::class)->name('profile')->middleware('auth', 'verified');
+        Route::get('/blog', BlogComponent::class)->name('blog')->middleware('auth', 'verified');
 
         Route::get('/product/{slug}', SingleProductComponent::class)->name('product.details');
 

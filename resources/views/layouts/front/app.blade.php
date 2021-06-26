@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/font-electro.css') }}" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/owl-carousel.css') }}" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/style-' . LaravelLocalization::getCurrentLocaleDirection() . '.css') }}" media="all" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/colors/yellow.css') }}" media="all" />    
+    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/colors/yellow.css') }}" media="all" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,700italic,800,800italic,600italic,400italic,300italic' rel='stylesheet' type='text/css'>
 
     <link rel="shortcut icon" href="{{ asset('front/images/fav-icon.png') }}">
@@ -23,9 +23,10 @@
 
 </head>
 
-@if(Route::is('front.shop') || Route::is('front.product.details') || Route::is('front.product.category'))
+@if(Route::is('front.shop') || Route::is('front.product.details') || Route::is('front.product.category')))
 <body class="left-sidebar single-product">
-
+@elseif(Route::is('front.blog'))
+    <body class="blog blog-list right-sidebar">
 @else
 <body class="page home page-template-default">
 @endif
@@ -47,7 +48,7 @@
 {{--        @include('front.includes.footer.brands-carousel')--}}
 
         @include('front.includes.footer.footer')
-     
+
     </div><!-- #page -->
 
     <script type="text/javascript" src="{{ asset('front/js/tether.min.js') }}"></script>
