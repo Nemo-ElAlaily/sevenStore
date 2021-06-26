@@ -45,12 +45,12 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('DATABASE_URL'),
-            'host' => 'localhost',
+            'url' => env('DB_URL'),
+            'host' => env('DB_HOST'),
             'port' => env('DB_PORT'),
-            'database' => 'laravel8ecommerce',
-            'username' => 'root',
-            'password' => '',
+            'database' => env('DB_DATABASE'),
+            'username' => env('DB_USERNAME'),
+            'password' =>  env('DB_PASSWORD'),
             'unix_socket' => env('DB_SOCKET'),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -65,11 +65,11 @@ return [
 
         'wordpress' => [ // for WordPress database (used by Corcel)
             'driver'    => 'mysql',
-            'host'      => 'localhost',
+            'host'      =>env('WP_DB_HOST'),
             'port'      => env('WP_DB_PORT'),
-            'database'  => 'store',
-            'username'  => 'root',
-            'password'  => '',
+            'database'  => env('WP_DB_DATABASE'),
+            'username'  => env('WP_DB_USERNAME'),
+            'password'  => env('WP_DB_PASSWORD'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => 'wp_',
