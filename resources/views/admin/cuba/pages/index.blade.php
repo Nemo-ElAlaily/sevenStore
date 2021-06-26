@@ -57,7 +57,9 @@
                 <td>{{ $page-> title }}</td>
                 <td>{{ $page-> getActive() }}</td>
                 <td>
-                    <a href="{{ route('front.page.details' , $page -> slug) }}" target="_blank">View in Browser</a>
+                    @if($page -> is_active == 1)
+                        <a href="{{ route('front.page.details' , $page -> slug) }}" target="_blank">View in Browser</a>
+                    @endif
                 </td>
                 <td>
                     <a href="{{ route('admin.pages.show', $page->id) }}" class="btn btnShow  btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>
