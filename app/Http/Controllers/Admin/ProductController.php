@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\MainCategory;
 use App\Models\Product;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -33,7 +35,7 @@ class ProductController extends Controller
                 return $query -> where('main_category_id', $request -> category);
             })->when($request -> vendor_id , function($query) use ($request) {
                 return $query -> where('vendor_id', $request -> vendor_id);
-            })->paginate(ADMIN_PAGINATION_COUNT);
+            })->latest()->paginate(ADMIN_PAGINATION_COUNT);
 
         } else {
             $products = Product::where('vendor_id' , auth() -> user()->id)->when($request -> search , function ($query) use ($request) {
@@ -49,6 +51,7 @@ class ProductController extends Controller
     {
         try {
             $categories = MainCategory::all();
+            $user = User::find(Auth::user() -> id);
 
             return view('admin.cuba.products.create', compact( 'categories', 'user'));
 
@@ -172,10 +175,10 @@ class ProductController extends Controller
             if($request->image){
                 if ($product -> image != 'default.png') {
                     Storage::disk('public_uploads')->delete('uploads/products/' . $product -> image);
+                    $imagePath = uploadImage('uploads/products/' ,  $request -> image);
                 } // end of inner if
-                $imagePath = uploadImage('uploads/products/' .  Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
             } else {
-                $imagePath = $product -> image_path;
+                $imagePath = $product -> image;
             }// end of outer if
 
             $product -> update([
@@ -188,7 +191,7 @@ class ProductController extends Controller
                 'main_category_id' => $request -> main_category,
                 'description' => $request -> description,
                 'features' => $request -> features,
-                'image' => Carbon::now() -> year . '/' . Carbon::now() -> month . '/'  . $imagePath,
+                'image' => $imagePath,
             ]);
 
             DB::commit();

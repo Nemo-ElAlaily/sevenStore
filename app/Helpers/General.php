@@ -1,11 +1,12 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 function uploadImage($folder, $image)
 {
-    $file_name = $image -> hashName();
+    $file_name = Carbon::now() -> year . '/' . Carbon::now() -> month . '/' . $image -> hashName();
     $image->move(public_path($folder) , $file_name );
     return $file_name;
 }
