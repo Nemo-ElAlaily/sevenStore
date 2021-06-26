@@ -69,7 +69,6 @@
                             <td>{{ $order -> status }}</td>
                             <td>
                                 <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btnShow btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>
-                                <a href="{{ route('admin.orders.edit', $order->id) }}" class="btn btnEdit  btn-sm"><i class="fa fa-edit fa-lg text-lg"></i></a>
                                 <form action="{{ route('admin.orders.destroy', $order->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}

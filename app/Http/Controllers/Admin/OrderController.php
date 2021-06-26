@@ -71,7 +71,7 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
 
-        if($order -> shipping_status !== 1){
+        if($order -> shipping_status != 1){
             session()->flash('error', 'order Status should be Shipped');
             return redirect()->route('admin.orders.show', $id);
         }
@@ -89,10 +89,10 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
 
-        if($order -> shippig_status === 0){
+        if($order -> shipping_status == 0){
             session()->flash('error', 'order Status should be Delivered');
             return redirect()->route('admin.orders.show', $id);
-        } elseif($order -> shippig_status === 1){
+        } elseif($order -> shipping_status == 1){
             session()->flash('error', 'order Status should be Delivered');
             return redirect()->route('admin.orders.show', $id);
         } else {
