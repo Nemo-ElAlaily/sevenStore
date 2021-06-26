@@ -70,9 +70,9 @@ class MainCategoryController extends Controller
 
             $imagePath = "";
             if($request -> image){
-                $imagePath = uploadImage('uploads/main_categories/' . Carbon::now()-> year . '/' . Carbon::now() -> month . '/',  $request -> image);
+                $imagePath = uploadImage('uploads/main_categories/' ,  $request -> image);
             } else {
-                $imagePath = Carbon::now()-> year . '/' . Carbon::now() -> month . '/' . 'default.png';
+                $imagePath = 'default.png';
             }
 
             $category =  MainCategory::create([

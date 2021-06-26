@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Blog\BlogCreateRequest;
 use App\Models\Blogs\Blog;
+use App\Models\Blogs\BlogTag;
 use App\Models\Blogs\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -103,17 +105,14 @@ class BlogController extends Controller
 
             $request_data = $request->except(['image']);
 
-            if ($request->image) {
-                if ($blog->image != 'default.png') {
-
-                    Storage::disk('public_uploads')->delete('/blogs/' . $blog->image);
+            if($request->image){
+                if ($blog -> image != 'default.png') {
+                    Storage::disk('public_uploads')->delete('uploads/blogs/' . $blog -> image);
                 } // end of inner if
-
-                Image::make($request->image)->resize(1000, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save(public_path('uploads/blogs/' . $request->image->hashName()));
-                $request_data['image'] = $request->image->hashName();
-            }
+                $request_data['flag'] = uploadImage('uploads/blogs/',  $request -> image);
+            } else {
+                $request_data['flag'] = $blog -> image;
+            }// end of outer if
 
             if (count($blog->tags) > 0) {
                 BlogTag::where('blog_id', $blog->id)->delete();
@@ -126,7 +125,6 @@ class BlogController extends Controller
                     ]);
                 }
             }
-
 
             $blog->update($request_data);
             session()->flash('success', 'Blog Added Successfully');
