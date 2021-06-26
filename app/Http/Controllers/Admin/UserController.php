@@ -107,7 +107,6 @@ class UserController extends Controller
         } catch (\Exception $exception) {
 
             DB::rollback();
-            return $exception;
             session() -> flash('error', 'Something went wrong Please contact Administrator');
             return redirect()-> route('admin.users.index');
         }
