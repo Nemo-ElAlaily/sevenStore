@@ -36,7 +36,7 @@ class CreateProductsTable extends Migration
 
             $table->foreign('vendor_id')
                 ->references('id')
-                ->on('vendors')
+                ->on('users')
                 ->onDelete('cascade')
                 ->onupdate('cascade');
 

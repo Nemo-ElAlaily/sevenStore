@@ -18,7 +18,7 @@ class ProductsTableSeeder extends Seeder
         $characters = array(' ', '/', '!', '\\');
         foreach ($wp_db_products as $product)
         {
-            $user = \App\Models\User::with('vendor') -> find($product -> post_author);
+            $user = \App\Models\User::find($product -> post_author);
             $main_category = $product->taxonomies()->where('taxonomy', 'product_cat')->first();
 
             if ($main_category) {
@@ -39,7 +39,7 @@ class ProductsTableSeeder extends Seeder
             }
             $values += [
                 'id' => $product -> ID,
-                'vendor_id' => $user -> vendor -> id,
+                'vendor_id' => $user -> id,
                 'main_category_id' => $db_categories -> id,
 
                 'name' => $product -> title,

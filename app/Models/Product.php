@@ -26,7 +26,7 @@ class Product extends Model
 
     public function vendor()
     {
-        return $this -> belongsTo(Vendor::class);
+        return $this -> belongsTo(User::class, 'vendor_id', 'id');
     } // end of vendors
 
     public function mainCategory()

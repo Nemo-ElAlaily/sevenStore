@@ -48,7 +48,6 @@ class ProductController extends Controller
     public function create()
     {
         try {
-            $user = auth() -> user() -> id;
             $categories = MainCategory::all();
 
             return view('admin.cuba.products.create', compact( 'categories', 'user'));
@@ -65,6 +64,7 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         try {
+            $user = auth() -> user();
             DB::beginTransaction();
 
             $imagePath = "";
@@ -75,7 +75,7 @@ class ProductController extends Controller
             }
 
             $product =  Product::create([
-                'vendor_id' => 8,
+                'vendor_id' => $user -> id,
                 'name' => $request -> name,
                 'slug' => str_replace(characters(), '-' , $request -> name),
                 'stock' => $request -> stock,
@@ -96,6 +96,7 @@ class ProductController extends Controller
         } catch (\Exception $exception) {
 
             DB::rollback();
+            return $exception;
             session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
             return redirect()->route('admin.products.index');
 
@@ -109,11 +110,6 @@ class ProductController extends Controller
             $product = Product::find($id);
 
             if(!$product){
-                session()->flash('error', "Product Doesn't Exist or has been deleted");
-                return redirect()->route('admin.products.index');
-            }
-
-            if($product -> vendor_id != auth() -> user() -> id){
                 session()->flash('error', "Product Doesn't Exist or has been deleted");
                 return redirect()->route('admin.products.index');
             }
@@ -138,11 +134,6 @@ class ProductController extends Controller
                 return redirect()->route('admin.products.index');
             }
 
-            if($product -> vendor_id != auth() -> user() -> id){
-                session()->flash('error', "Product Doesn't Exist or has been deleted");
-                return redirect()->route('admin.products.index');
-            }
-
             $categories = MainCategory::where(['id' => $product -> main_category_id ])->orWhere(['parent_id' => $product -> main_category_id]) -> get();
 
             return view('admin.cuba.products.edit', compact('product', 'categories'));
@@ -162,11 +153,6 @@ class ProductController extends Controller
             $product = Product::find($id);
 
             if(!$product){
-                session()->flash('error', "Product Doesn't Exist or has been deleted");
-                return redirect()->route('admin.products.index');
-            }
-
-            if($product -> vendor_id != auth() -> user() -> id){
                 session()->flash('error', "Product Doesn't Exist or has been deleted");
                 return redirect()->route('admin.products.index');
             }
@@ -225,11 +211,6 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         if(!$product){
-            session()->flash('error', "Product Doesn't Exist or has been deleted");
-            return redirect()->route('admin.products.index');
-        }
-
-        if($product -> vendor_id != auth() -> user() -> id){
             session()->flash('error', "Product Doesn't Exist or has been deleted");
             return redirect()->route('admin.products.index');
         }
