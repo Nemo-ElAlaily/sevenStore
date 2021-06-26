@@ -73,7 +73,7 @@ class PageController extends Controller
         return view('admin.cuba.pages.edit', compact('page'));
     } // end of edit
 
-    public function update(PageUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $page = Page::find($id);
 
