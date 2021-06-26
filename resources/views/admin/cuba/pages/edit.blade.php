@@ -100,7 +100,7 @@
                                     @enderror
                                     <input class="form-control   input-thick bg-dark text-center" type="text"
                                            name="{{ $locale }}[meta_title]"
-                                           value="{{ $site_settings->translate($locale)->meta_title }}">
+                                           value="{{ $page->meta_title }}">
                                 </div>
 
                                 <div class="form-group">
@@ -113,7 +113,7 @@
                                     @enderror
                                     <input class="form-control   input-thick bg-dark text-center" type="text"
                                            name="{{ $locale }}[meta_description]"
-                                           value="{{ $site_settings->translate($locale)->meta_description }}">
+                                           value="{{ $page->meta_description }}">
                                 </div>
 
                                 <div class="form-group">
@@ -125,7 +125,7 @@
                                     @enderror
                                     <input class="form-control   input-thick bg-dark text-center" type="text"
                                            name="{{ $locale }}[meta_keyword]"
-                                           value="{{ $site_settings->translate($locale)->meta_keyword }}">
+                                           value="{{ $page -> meta_keyword }}">
                                 </div>
 
                             </div>
