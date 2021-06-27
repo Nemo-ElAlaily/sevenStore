@@ -27,12 +27,12 @@ class DatabaseSettingsRequest extends FormRequest
             "DB_HOST" => 'required',
             "DB_DATABASE" => 'required',
             "DB_USERNAME" => 'required',
-            "DB_PASSWORD" => '',
+           // "DB_PASSWORD" => 'required',
 
             "WP_DB_HOST" => 'required',
             "WP_DB_DATABASE" => 'required',
             "WP_DB_USERNAME" => 'required',
-            "WP_DB_PASSWORD" => '',
+            // "WP_DB_PASSWORD" => 'required',
         ];
     } // end of rules
 
