@@ -1,6 +1,7 @@
 <ul class="products columns-5">
     @php
         $witems = Cart::instance('wishlist')->content()->pluck('id');
+        $compareItems = Cart::instance('compare')->content()->pluck('id');
     @endphp
 
     @foreach($products_on_sale as $index => $product)
@@ -44,7 +45,15 @@
                                 </a>
                             @endif
 
-                            <a href="#" class="add-to-compare-link">Compare</a>
+                            @if($compareItems -> contains($product -> id))
+                                <a class="add-to-compare-link" href="#" rel="nofollow" style="color: #ea1b25" wire:click.prevent="removeFromCompare('{{ $product -> id }}')">
+                                    Compare
+                                </a>
+                            @else
+                                <a class="add-to-compare-link" href="#" rel="nofollow" class="btn-add-to-wishlist" wire:click.prevent="addToCompare('{{$product -> id}}', '{{$product -> name}}', '{{$product -> sale_price}}')">
+                                    Compare
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div><!-- /.product-inner -->

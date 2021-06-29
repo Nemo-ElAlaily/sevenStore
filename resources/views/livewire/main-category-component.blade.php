@@ -1,8 +1,6 @@
 <div id="content" class="site-content" tabindex="-1">
     <div class="container">
 
-
-
         <nav class="woocommerce-breadcrumb" >
             <a href="{{ route('front.index') }}">Home</a>
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>

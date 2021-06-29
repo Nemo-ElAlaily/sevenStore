@@ -8,6 +8,7 @@ use App\Http\Livewire\SingleProductComponent;
 use App\Http\Livewire\MainCategoryComponent;
 use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\WishlistComponent;
+use App\Http\Livewire\CompareComponent;
 use App\Http\Livewire\PageComponent;
 use App\Http\Livewire\ProfileComponent;
 use App\Http\Livewire\BlogComponent;
@@ -45,6 +46,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::get('/product-category/{slug}', MainCategoryComponent::class)->name('product.category');
 
         Route::get('/wishlist', WishlistComponent::class)->name('product.wishlist');
+        Route::get('/compare', CompareComponent::class)->name('product.compare');
 
         Route::get('/pages/{slug}', PageComponent::class)->name('page.details');
 
