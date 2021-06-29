@@ -66,6 +66,28 @@ class ShopComponent extends Component
 
     } // end of remove from wishlist
 
+    public function addToCompare($product_id, $product_name, $product_price)
+    {
+        Cart::instance('compare')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Product::class);
+        $this->emitTo('compare-count-component', 'refreshComponent');
+        session()->flash('success', 'Item Added in Compare list');
+    } // end of add to Compare list
+
+    public function removeFromCompare($product_id)
+    {
+        foreach (Cart::instance('compare') -> content() as $compareItem) {
+
+            if ($compareItem -> id == $product_id) {
+                Cart::instance('compare') -> remove($compareItem -> rowId);
+                $this->emitTo('compare-count-component', 'refreshComponent');
+                session()->flash('error', 'Item Removed From Compare list');
+            } // end of if
+
+        } // end of foreach
+    } // end of remove from Compare list
+
+
+
     use WithPagination;
 
     public function render(Request $request)

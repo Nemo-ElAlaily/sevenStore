@@ -4,6 +4,11 @@
 		<a href="#" rel="tag">Headphones</a>
 	</span><!-- /.loop-product-categories -->
 
+    @php
+        $witems = Cart::instance('wishlist')->content()->pluck('id');
+        $compareItems = Cart::instance('compare')->content()->pluck('id');
+    @endphp
+
     <h1 itemprop="name" class="product_title entry-title">{{ $product -> name }}</h1>
 
     <div class="woocommerce-product-rating">
@@ -42,12 +47,28 @@
 
     <div class="action-buttons">
 
-        <a href="#" class="add_to_wishlist" >
-            Wishlist
-        </a>
+        @if($witems -> contains($product -> id))
+            <a href="#" rel="nofollow" style="color: #ea1b25" wire:click.prevent="removeFromWishlist('{{ $product -> id }}')">
+                <i class="fa fa-heart"></i>
+                Wishlist
+            </a>
+        @else
+            <a href="#" rel="nofollow" class="btn-add-to-wishlist" wire:click.prevent="addToWishlist('{{$product -> id}}', '{{$product -> name}}', '{{$product -> sale_price}}')">
+                <i class="fa fa-heart-o"></i>
+                Wishlist
+            </a>
+        @endif
 
+        @if($compareItems -> contains($product -> id))
+            <a class="add-to-compare-link" href="#" rel="nofollow" style="color: #ea1b25" wire:click.prevent="removeFromCompare('{{ $product -> id }}')">
+                Compare
+            </a>
+        @else
+            <a class="add-to-compare-link" href="#" rel="nofollow" class="btn-add-to-wishlist" wire:click.prevent="addToCompare('{{$product -> id}}', '{{$product -> name}}', '{{$product -> sale_price}}')">
+                Compare
+            </a>
+        @endif
 
-        <a href="#" class="add-to-compare-link" data-product_id="2452">Compare</a>
     </div><!-- .action-buttons -->
 
 

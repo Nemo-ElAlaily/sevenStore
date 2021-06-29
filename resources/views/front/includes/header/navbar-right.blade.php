@@ -8,8 +8,6 @@
 </ul>
 
 <ul class="navbar-compare nav navbar-nav pull-right flip">
-    <li class="nav-item">
-        <a href="#" class="nav-link"><i class="ec ec-compare"></i></a>
-    </li>
+    @livewire('compare-count-component')
 </ul>
 

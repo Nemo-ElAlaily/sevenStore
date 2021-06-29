@@ -17,6 +17,7 @@ class BlogsTableSeeder extends Seeder
      */
     public function run()
     {
+        $characters = array(' ', '/', '!', '\\');
         $wp_db_blogs = Post::where('post_type', 'post')->get();
 
         foreach($wp_db_blogs as $blog)
@@ -36,7 +37,7 @@ class BlogsTableSeeder extends Seeder
                 $new_blog_translation -> blog_id = $new_blog -> id;
                 $new_blog_translation -> locale = 'ar';
                 $new_blog_translation -> title = $blog -> post_title;
-                $new_blog_translation -> slug = $blog -> slug;
+                $new_blog_translation -> slug = $blog -> slug == null ? str_replace($characters, '-' , $blog -> title) : $blog -> slug;
                 $new_blog_translation -> description = $blog -> content;
                 $new_blog_translation -> save();
 
@@ -44,7 +45,7 @@ class BlogsTableSeeder extends Seeder
                 $new_blog_translation -> blog_id = $new_blog -> id;
                 $new_blog_translation -> locale = 'en';
                 $new_blog_translation -> title = $blog -> post_title;
-                $new_blog_translation -> slug = $blog -> slug;
+                $new_blog_translation -> slug = $blog -> slug == null ? str_replace($characters, '-' , $blog -> title) : $blog -> slug;
                 $new_blog_translation -> description = $blog -> content;
                 $new_blog_translation -> save();
 
