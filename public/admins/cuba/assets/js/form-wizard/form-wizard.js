@@ -49,3 +49,11 @@ function fixStepIndicator(n) {
   }
   x[n].className += " active";
 }
+
+$('.input-container .form-control').focus(function(){
+    $(this).data('placeholder',$(this).attr('placeholder'))
+    .attr('placeholder','');
+}).blur(function(){
+$(this).attr('placeholder',$(this).data('placeholder'));
+});
+

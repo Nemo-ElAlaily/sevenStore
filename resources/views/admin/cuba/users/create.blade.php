@@ -13,9 +13,7 @@
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-12 m-auto">
-                    <img class="user-avatar" src="{{asset('admins/cuba/assets/images/user/avatar-user.jpg')}}" alt="">
-                </div>
+
 {{--                        @include('partials._errors')--}}
                 <form class="col-12" action="{{ route('admin.users.store') }}" method="post" enctype="multipart/form-data">
 
@@ -99,7 +97,7 @@
                                             @foreach($roles as $role)
                                                 <td>
                                                     <label for="role"></label>
-                                                    <input class="radio" type="radio" name="role" value="{{ $role }}">
+                                                    <input class="" type="radio" name="role" value="{{ $role }}">
                                                 </td>
                                             @endforeach
 

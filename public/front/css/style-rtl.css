@@ -10064,7 +10064,7 @@ h3.faq-title {
 .toggleSide{
 
     position: absolute;
-    left: 100px;
+    left: 30px;
     top: 15px;
 }
 .toggleSide i{
@@ -10097,12 +10097,14 @@ h3.faq-title {
 .navbar-brand{
     padding-top: 2.25rem;
     padding-bottom: 2.25rem;
+    padding-right: 41px;
     position: fixed;
     background-color: #fff;
     top: 0;
 }
 .navbar-brand .logoBrand{
     width: 150px;
+    border-radius: 5px;
 }
 #sidebarHeader1 ul li{
 
@@ -10122,13 +10124,15 @@ h3.faq-title {
     padding-top: 130px;
 }
 .btnClose{
-    position: absolute;
-    left: 15px;
+    position: fixed;
+    right: 270px;
     background-color: #333;
     color: #fff;
     padding: 4px;
     font-size: 20px;
     border-radius: 5px;
+    top: 45px;
+    display: none;
 }
 .btnClose i{
     cursor: pointer;
@@ -10275,9 +10279,15 @@ float: left;
 
 
 .nav-tabs .nav-item{
-  float: none;
+  /*float: none;*/
 }
 
 #setting,#withdraw{
   display: none;
+}
+.logo-header{
+    height: 150px;
+}
+.header-front-side{
+    position : fixed;
 }

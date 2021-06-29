@@ -7,21 +7,24 @@
     <div class="u-sidebar__scroller">
         <div class="u-sidebar__container">
             <div class="u-header-sidebar__footer-offset pb-0">
-                <!-- Toggle Button -->
-                <div class="btnClose">
-                    <i class="ec ec-close-remove text-gray-90 font-size-20"></i>
-                </div>
-                <!-- End Toggle Button -->
-
+  
                 <!-- Content -->
                 <div class="js-scrollbar u-sidebar__body mCustomScrollbar _mCS_1 mCS-autoHide" style="position: relative; overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
                     <div id="headerSidebarContent" class="u-sidebar__content u-header-sidebar__content">
-                        <!-- Logo -->
-                        <a class="d-flex ml-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-vertical" href="#" aria-label="Electro">
-                            <img src="{{ $site_settings -> logo_path }}" class="logoBrand animate__backInDown" alt="">
-                        </a>
-                        <!-- End Logo -->
+                                                          <!-- Toggle Button -->
+                                <div class="btnClose">
+                                <i class="ec ec-close-remove text-gray-90 font-size-20"></i>
+                                </div>
+                                <!-- End Toggle Button -->
 
+                            <div class="header-front-side">
+                        <!-- Logo -->
+                                <a class="ml-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-vertical" href="#" aria-label="Electro">
+                                <img src="{{ $site_settings -> logo_path }}" class="logoBrand animate__backInDown" alt="">
+                                </a>
+                                <!-- End Logo -->
+
+                            </div>
                         <!-- List -->
                         <ul id="headerSidebarList" class="u-header-collapse__nav">
 

@@ -14,7 +14,9 @@
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
-
+        <div class="col-md-12">
+            <img class="user-avatar" src="{{asset('admins/cuba/assets/images/country.png')}}" alt="">
+        </div>
                 @include('admin.cuba.partials._errors')
                 <form class="col-12" action="{{ route('admin.countries.store') }}" method="post" enctype="multipart/form-data">
 
@@ -25,7 +27,7 @@
                         @foreach (config('translatable.locales') as $locale)
                         <div class="col-sm-12 col-lg-12">
                                 <div class="form-group">
-                                    <label for="{{ $locale }}[name]">Country Name in @lang('site.' . $locale . '.name')</label>
+                                    <label class="countriesLable" for="{{ $locale }}[name]">Country Name in @lang('site.' . $locale . '.name')</label>
                                     @error($locale . '.name')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
@@ -39,7 +41,7 @@
                     <div class="row">
 
                             <div class="form-group col-sm-12 col-lg-12">
-                                <label for="flag">Flag</label>
+                                <label class="countriesLable" for="flag">Flag</label>
                                 @error('flag')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
@@ -52,7 +54,7 @@
                         </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
+                                <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
                                     Add country</button>
                             </div>
 

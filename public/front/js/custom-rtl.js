@@ -3,12 +3,17 @@ jQuery(document).ready(function(){
 jQuery("#btnToggle").click(function(){
 
     jQuery('.u-sidebar--left').fadeIn(100);
+    setTimeout(function(){jQuery('.btnClose').fadeIn('show')}, 500);
+    jQuery('body , html').animate({marginRight: "70px"},1000);
+  
 });
 
 
 jQuery('.btnClose i').click(function(){
 
     jQuery('#sidebarHeader1').animate({right: '-340px'},1000);
+    setTimeout(function(){jQuery('.btnClose').fadeOut('hide')}, 100);
+    jQuery('body , html').animate({marginRight: "0"},1000);
 });
 jQuery('.toggleSide i ').click(function(){
     jQuery('#sidebarHeader1').animate({right: '0'},1000);
