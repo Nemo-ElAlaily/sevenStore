@@ -65,7 +65,7 @@
                                             </td>
 
                                             <td class="product-thumbnail">
-                                                <a href="index.php?page=single-product">
+                                                <a href="{{ route('front.product.details', $witem -> model -> slug) }}">
                                                     <img width="180" height="180" alt="{{ $witem -> model -> slug }}" class="wp-post-image" src="{{ $witem -> model -> image_path }}"></a>
                                             </td>
 
