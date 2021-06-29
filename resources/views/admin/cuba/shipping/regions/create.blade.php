@@ -14,7 +14,9 @@
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
-
+        <div class="col-md-12">
+            <img class="user-avatar" src="{{asset('admins/cuba/assets/images/region.png')}}" alt="">
+        </div>
 {{--                        @include('partials._errors')--}}
                 <form class="col-12" action="{{ route('admin.regions.store') }}" method="post" enctype="multipart/form-data">
 
@@ -25,7 +27,7 @@
                         @foreach (config('translatable.locales') as $locale)
                         <div class="col-sm-12 col-lg-12">
                                 <div class="form-group">
-                                    <label for="{{ $locale }}[name]">Region Name in @lang('site.' . $locale . '.name')</label>
+                                    <label class="regionLabel" for="{{ $locale }}[name]">Region Name in @lang('site.' . $locale . '.name')</label>
                                     @error($locale . '.name')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
@@ -37,11 +39,11 @@
 
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <label for=city>City</label>
+                                <label class="regionLabel" for=city>City</label>
                                 @error('city_id')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <select name="city_id" class="form-control">
+                                <select class="select-css" name="city_id" class="form-control">
                                     <option value="">All Cities</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city -> id }}">{{ $city -> name }}</option>
@@ -52,7 +54,7 @@
 
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <label for="shipping_cost">Shipping Cost</label>
+                                <label class="regionLabel" for="shipping_cost">Shipping Cost</label>
                                 @error('shipping_cost')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
@@ -63,8 +65,8 @@
 
                     </div>
 
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
+                    <div class="form-group m-t-5 pt-5">
+                        <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
                             Add Region</button>
                     </div>
 

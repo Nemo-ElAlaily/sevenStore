@@ -18,15 +18,17 @@
             <form action="{{ route('admin.cities.index') }}" method="get">
 
                 <div class="row">
-
+        <div class="col-md-12">
+            <img class="user-avatar" src="{{asset('admins/cuba/assets/images/building.png')}}" alt="">
+        </div>
                     <div class="col-md-4">
                         <input type="text" name="search" class="form-control" placeholder="Search Here..." value="{{ request()->search }}">
                     </div>
 
                     <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
                         @if (auth()->user()->hasPermission('cities_create'))
-                            <a href="{{ route('admin.cities.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add city</a>
+                            <a href="{{ route('admin.cities.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> Add city</a>
                              @else
                                 <a href="#" class="btn btn-p`rimary disabled"><i class="fa fa-plus"></i> Add city</a>
                         @endif
@@ -63,7 +65,7 @@
                         <td>{{ $city -> country -> name }}</td>
                         <td>
                             @if (auth()->user()->hasPermission('cities_update'))
-                                <a href="{{ route('admin.cities.edit', $city->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                <a href="{{ route('admin.cities.edit', $city->id) }}" class="btn btnEdit "><i class="fa fa-edit"></i> Edit</a>
                                 {{-- @else
                                     <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
                             @endif
@@ -71,7 +73,7 @@
                                 <form action="{{ route('admin.cities.destroy', $city->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
-                                    <button type="button" class="btn btn-danger show_confirm btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                                    <button type="button" class="btn btnDelete show_confirm "><i class="fa fa-trash"></i> Delete</button>
                                 </form><!-- end of form -->
                                 {{-- @else
                                     <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button> --}}

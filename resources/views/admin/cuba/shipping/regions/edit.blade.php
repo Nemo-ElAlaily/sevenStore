@@ -13,7 +13,9 @@
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
-
+        <div class="col-md-12">
+            <img class="user-avatar" src="{{asset('admins/cuba/assets/images/region.png')}}" alt="">
+        </div>
                 @include('admin.cuba.partials._errors')
                 <form class="col-12" action="{{ route('admin.regions.update', $region -> id) }}" method="post" enctype="multipart/form-data">
 
@@ -24,7 +26,7 @@
                         @foreach (config('translatable.locales') as $locale)
                             <div class="col-sm-12 col-lg-12">
                                 <div class="form-group">
-                                    <label for="{{ $locale }}[name]">Region Name in @lang('site.' . $locale . '.name')</label>
+                                    <label class="regionLabel" for="{{ $locale }}[name]">Region Name in @lang('site.' . $locale . '.name')</label>
                                     @error($locale . '.name')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
@@ -37,7 +39,7 @@
 
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="city_id">City</label>
+                                    <label class="regionLabel" for="city_id">City</label>
                                     @error('city_id')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
@@ -52,7 +54,7 @@
 
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="shipping_cost">Shipping Cost</label>
+                                    <label class="regionLabel" for="shipping_cost">Shipping Cost</label>
                                     @error('shipping_cost')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
@@ -64,7 +66,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
+                        <button type="submit" class="btn btnEdit"><i class="fa fa-plus"></i>
                             Update Region</button>
                     </div>
 

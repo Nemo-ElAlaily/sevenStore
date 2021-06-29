@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
                             <div class="custom-control custom-switch">
-                                <input class="radio" type="checkbox" class="custom-control-input" id="is_active" name="is_active" checked>
+                                <input class="" type="checkbox" class="custom-control-input" id="is_active" name="is_active" checked>
                                 <label class="custom-control-label" for="is_active">Is Active</label>
                             </div>
                             @error('is_active')
@@ -35,7 +35,7 @@
 
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
                             <div class="custom-control custom-switch">
-                                <input class="radio" type="checkbox" class="custom-control-input" id="show_in_navbar" name="show_in_navbar" checked >
+                                <input class="" type="checkbox" class="custom-control-input" id="show_in_navbar" name="show_in_navbar" checked >
                                 <label class="custom-control-label" for="show_in_navbar">Show in Navbar</label>
                             </div>
                             @error('show_in_navbar')
@@ -45,7 +45,7 @@
 
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
                             <div class="custom-control custom-switch">
-                                <input class="radio" type="checkbox" class="custom-control-input" id="show_in_sidebar" name="show_in_sidebar" checked >
+                                <input class="" type="checkbox" class="custom-control-input" id="show_in_sidebar" name="show_in_sidebar" checked >
                                 <label class="custom-control-label" for="show_in_sidebar">Show in Sidebar</label>
                             </div>
                             @error('show_in_sidebar')
@@ -55,7 +55,7 @@
 
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
                             <div class="custom-control custom-switch">
-                                <input  class="radio" type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_footer" checked >
+                                <input  class="" type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_footer" checked >
                                 <label class="custom-control-label" for="show_in_footer">Show in Footer</label>
                             </div>
                             @error('show_in_footer')

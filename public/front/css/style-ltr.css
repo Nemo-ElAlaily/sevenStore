@@ -9958,7 +9958,7 @@ h3.faq-title {
 .toggleSide{
 
     position: absolute;
-    right: 100px;
+    right: 30px;
     top: 15px;
 }
 .toggleSide i{
@@ -9991,12 +9991,14 @@ h3.faq-title {
 .navbar-brand{
     padding-top: 2.25rem;
     padding-bottom: 2.25rem;
+    padding-right: 41px;
     position: fixed;
     background-color: #fff;
     top: 0;
 }
 .navbar-brand .logoBrand{
     width: 150px;
+    border-radius: 5px;
 }
 #sidebarHeader1 ul li{
 
@@ -10016,13 +10018,15 @@ h3.faq-title {
     padding-top: 130px;
 }
 .btnClose{
-    position: absolute;
-    right: 15px;
+    position: fixed;
+    left: 270px;
     background-color: #333;
     color: #fff;
     padding: 4px;
     font-size: 20px;
     border-radius: 5px;
+    top: 45px;
+    display: none;
 }
 .btnClose i{
     cursor: pointer;
@@ -10043,7 +10047,9 @@ h3.faq-title {
     cursor: pointer;
 
 }
+.header-front-side{
 
+}
 /* Start Dashboard User */
 ::selection
 {
@@ -10172,6 +10178,22 @@ float: left;
     text-align: center !important;
 }
 
+<<<<<<< HEAD
+.nav-tabs .nav-item{
+    /* float: none; */
+}
+
 #setting,#withdraw{
     display: none;
 }
+.logo-header{
+    height: 150px;
+}
+.header-front-side{
+    position : fixed;
+}
+=======
+#setting,#withdraw{
+    display: none;
+}
+>>>>>>> cc3780eb8059399a75f4d1baee915d06f4cb7246
