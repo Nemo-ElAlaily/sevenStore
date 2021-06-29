@@ -33,7 +33,7 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        $order = Order::with('orderItems')->find($id);
+        return $order = Order::with('orderItems')->find($id);
 
         $items = OrderItem::where('order_id', $id)->get();
 

@@ -25,8 +25,8 @@
 
                         @if($orders -> count() > 0)
                             <!-- TITLE -->
-                                <div class="wishlist-title ">
-                                    <h2>My Orders</h2>
+                                <div class="wishlist-title">
+                                    <h2>My Orders <span class="text-muted" style="font-size: 14px;">{{ $orders -> total() }}</span></h2>
                                 </div>
 
                                 <!-- WISHLIST TABLE -->
@@ -35,18 +35,18 @@
                                     <thead>
                                     <tr>
 
-                                        <th class="product-name">
+                                        <th class="product-name text-center">
                                             <span class="nobr">Order Number</span>
                                         </th>
 
-                                        <th class="product-price">
+                                        <th class="product-price text-center">
                                             <span class="nobr">Order Total</span>
                                         </th>
-                                        <th class="product-stock-stauts">
+                                        <th class="product-stock-stauts text-center">
                                             <span class="nobr">Order Status</span>
                                         </th>
 
-                                        <th class="product-add-to-cart">
+                                        <th class="product-add-to-cart text-center">
                                             <span class="nobr">Order Details</span>
                                         </th>
 
@@ -66,14 +66,14 @@
                                             </td>
 
                                             <td class="product-name">
-                                                <a href="#">{{ $order -> status }}</a>
+                                                <a href="#">{{ $order -> getShippingStatus() }}</a>
                                             </td>
 
                                             <td class="product-add-to-cart">
                                                 <!-- Date added -->
 
                                                 <!-- Add to cart button -->
-                                                <a href="#" class="button">Order Details</a>
+                                                <a href="{{ route('front.order.details', $order -> slug) }}" class="button">Order Details</a>
                                                 <!-- Change wishlist -->
 
                                                 <!-- Remove from wishlist -->
@@ -103,7 +103,7 @@
 
                                 </table>
 
-                                <input type="hidden" value="85fe311a9d" name="yith_wcwl_edit_wishlist" id="yith_wcwl_edit_wishlist"><input type="hidden" value="/electro/wishlist/" name="_wp_http_referer">
+                                {{ $orders ->links('front.pagination.default') }}
 
                         </form>
 

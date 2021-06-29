@@ -8,6 +8,12 @@
 
         <nav>
             <ul id="menu-top-bar-right" class="nav nav-inline pull-right animate-dropdown flip">
+                <li class="menu-item animate-dropdown">
+                    <a title="Track Your Order" href="{{ route('front.orders') }}">
+                        <i class="ec ec-transport"></i>Track Your Order
+                    </a>
+                </li>
+
                 <li class="menu-item menu-item-has-children animate-dropdown dropdown">
                     <a title="Language" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">
                         @lang('site.' . LaravelLocalization::getCurrentLocale() . '.name')

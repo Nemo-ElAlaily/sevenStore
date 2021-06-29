@@ -49,7 +49,7 @@ class Order extends Model
     public function getPaymentMethod()
     {
         if($this -> payment_method == 0){
-            return 'COD';
+            return 'COD (Cash On Delivery)';
         } elseif($this -> payment_method == 1){
             return 'PayMob';
         } elseif($this -> payment_method == 2){

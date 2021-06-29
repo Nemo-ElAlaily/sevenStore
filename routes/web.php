@@ -12,6 +12,7 @@ use App\Http\Livewire\CompareComponent;
 use App\Http\Livewire\PageComponent;
 use App\Http\Livewire\ProfileComponent;
 use App\Http\Livewire\TrackYourOrderComponent;
+use App\Http\Livewire\OrderDetailsComponent;
 use App\Http\Livewire\BlogComponent;
 use App\Http\Livewire\SingleBlogComponent;
 use Illuminate\Support\Facades\Route;
@@ -42,7 +43,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::get('/thank-you', ThankyouComponent::class)->name('thank_you')->middleware('auth', 'verified');
         Route::get('/profile', ProfileComponent::class)->name('profile')->middleware('auth', 'verified');
 
-        Route::get('/track-your-orders', TrackYourOrderComponent::class)->name('order')->middleware('auth', 'verified');
+        Route::get('/track-your-orders', TrackYourOrderComponent::class)->name('orders')->middleware('auth', 'verified');
+        Route::get('/order/{slug}', OrderDetailsComponent::class)->name('order.details')->middleware('auth', 'verified');
 
         Route::get('/blog', BlogComponent::class)->name('blog')->middleware('auth', 'verified');
         Route::get('/blog/{slug}', SingleBlogComponent::class)->name('blog.details')->middleware('auth', 'verified');
