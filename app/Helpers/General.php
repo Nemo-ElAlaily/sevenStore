@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Storage;
 
 function uploadImage($folder, $image)
 {
-    $file_name = Carbon::now() -> year . '/' . Carbon::now() -> month . '/' . $image -> hashName();
+    $file_name = $image -> hashName();
     $image->move(public_path($folder) , $file_name );
     return $file_name;
 }

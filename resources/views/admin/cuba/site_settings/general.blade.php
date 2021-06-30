@@ -130,16 +130,27 @@
 
                     <div class="row">
 
-                        <div class="form-group col-sm-12 col-lg-12">
+                        <div class="form-group col-sm-12 col-lg-6">
                             <label>Logo</label>
                             @error('logo')
                             <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
                             <input type="file" name="logo" class="form-control input-sm image" accept="jpg, png, jpeg, svg">
 
-                            <img src="{{ $site_settings->logo_path }}" width="100px"
+                            <img src="{{ $site_settings -> logo_path }}" width="100px"
                                  class="img-thumbnail image-preview mt-1" alt="">
                         </div> {{-- end of form group image --}}
+
+                        <div class="form-group col-sm-6 col-lg-6">
+                            <label>Favicon</label>
+                            @error('favicon')
+                            <span class="text-danger mx-1">{{ $message }}</span>
+                            @enderror
+                            <input type="file" name="favicon" class="form-control input-sm favicon" accept="jpg, png, jpeg, svg">
+
+                            <img src="{{ $site_settings -> favicon_path }}" width="100px"
+                                 class="img-thumbnail favicon-preview mt-1" alt="">
+                        </div> {{-- end of form group favicon --}}
 
                     </div> {{-- end of translatable data --}}
                     <div class="form-group">

@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/colors/yellow.css') }}" media="all" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,700italic,800,800italic,600italic,400italic,300italic' rel='stylesheet' type='text/css'>
 
-    <link rel="shortcut icon" href="{{ asset('front/images/fav-icon.png') }}">
+    <link rel="shortcut icon" href="{{ $site_settings -> favicon_path }}">
 
     @livewireStyles
 

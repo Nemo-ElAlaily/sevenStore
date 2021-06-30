@@ -17,13 +17,19 @@ class SiteSetting extends Model implements TranslatableContract
 
     protected $appends = [
         'logo_path',
+        'favicon_path',
     ];
 
-    protected $fillable = ['logo'];
+    protected $fillable = ['logo', 'favicon'];
 
     public function getLogoPathAttribute()
     {
         return asset('uploads/site/' . $this -> logo );
+    }
+
+    public function getFaviconPathAttribute()
+    {
+        return asset('uploads/site/' . $this -> favicon );
     }
 
 } // end of model

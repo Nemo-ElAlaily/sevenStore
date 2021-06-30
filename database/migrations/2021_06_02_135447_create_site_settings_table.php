@@ -17,6 +17,7 @@ class CreateSiteSettingsTable extends Migration
             $table->increments('id');
             $table->string('phone')->nullable();
             $table->string('logo')->default('default.png');
+            $table->string('favicon')->default('favicon.png');
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
             $table->timestamps();

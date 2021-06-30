@@ -17,6 +17,7 @@ class SiteSettingsTableSeeder extends Seeder
     {
         $site_settings = new SiteSetting();
         $site_settings -> logo = 'default.png';
+        $site_settings -> favicon = 'favicon.png';
         $site_settings -> phone = '01XXXXXXXXX';
         $site_settings -> save();
 

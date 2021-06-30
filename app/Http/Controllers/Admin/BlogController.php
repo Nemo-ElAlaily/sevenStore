@@ -7,6 +7,7 @@ use App\Http\Requests\Blog\BlogCreateRequest;
 use App\Models\Blogs\Blog;
 use App\Models\Blogs\BlogTag;
 use App\Models\Blogs\Tag;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -107,9 +108,9 @@ class BlogController extends Controller
 
             if($request->image){
                 if ($blog -> image != 'default.png') {
-                    Storage::disk('public_uploads')->delete('uploads/blogs/' . $blog -> image);
+                    Storage::disk('public_uploads')->delete('/blogs/' . $blog -> image);
                 } // end of inner if
-                $request_data['image'] = uploadImage('uploads/blogs/',  $request -> image);
+                $request_data['image'] = uploadImage('uploads/blogs/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
             } else {
                 $request_data['image'] = $blog -> image;
             }// end of outer if

@@ -34,17 +34,28 @@ class SiteSettingController extends Controller
 
         $request_data = $request->except(['_token', '_method']);
 
-        $imagePath = "";
+        $logoPath = "";
         if($request->logo){
             if ($site_settings -> logo != 'default.png') {
-                Storage::disk('public_uploads')->delete('uploads/site/' . $site_settings -> logo);
+                Storage::disk('public_uploads')->delete('/site/' . $site_settings -> logo);
             } // end of inner if
-            $imagePath = uploadImage('uploads/site/',  $request -> logo);
+            $logoPath = uploadImage('uploads/site/',  $request -> logo);
         } else {
-            $imagePath = $site_settings -> logo_path;
+            $logoPath = $site_settings -> logo_path;
         }// end of outer if
 
-        $request_data['logo'] = $imagePath;
+        $faviconPath = "";
+        if($request->favicon){
+            if ($site_settings -> favicon != 'favicon.png') {
+                Storage::disk('public_uploads')->delete('/site/' . $site_settings -> favicon);
+            } // end of inner if
+            $faviconPath = uploadImage('uploads/site/',  $request -> favicon);
+        } else {
+            $faviconPath = $site_settings -> favicon_path;
+        }// end of outer if
+
+        $request_data['logo'] = $logoPath;
+        $request_data['favicon'] = $faviconPath;
         $site_settings->update($request_data);
 
         session()->flash('success', 'Site Settings Updated Successfully');

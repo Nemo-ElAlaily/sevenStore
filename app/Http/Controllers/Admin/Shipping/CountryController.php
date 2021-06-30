@@ -93,7 +93,7 @@ class CountryController extends Controller
 
             if($request->flag){
                 if ($country -> flag != 'default.png') {
-                    Storage::disk('public_uploads')->delete('uploads/countries/' . $country -> image);
+                    Storage::disk('public_uploads')->delete('/countries/' . $country -> image);
                 } // end of inner if
                 $request_data['flag'] = uploadImage('uploads/countries/',  $request -> flag);
             } else {

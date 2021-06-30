@@ -73,7 +73,7 @@ class MainCategoryController extends Controller
 
             $imagePath = "";
             if($request -> image){
-                $imagePath = uploadImage('uploads/main_categories/' ,  $request -> image);
+                $imagePath = uploadImage('uploads/main_categories/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
             } else {
                 $imagePath = 'default.png';
             }
@@ -186,9 +186,9 @@ class MainCategoryController extends Controller
             $imagePath = "";
             if($request->image){
                 if ($main_category -> image != 'default.png') {
-                    Storage::disk('public_uploads')->delete('uploads/main_categories/' . $main_category -> image);
+                    Storage::disk('public_uploads')->delete('/main_categories/' . $main_category -> image);
                 } // end of inner if
-                $imagePath = uploadImage('uploads/main_categories',  $request -> image);
+                $imagePath = uploadImage('uploads/main_categories' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
             } else {
                 $imagePath = $main_category -> image_path;
             }// end of outer if
@@ -230,7 +230,7 @@ class MainCategoryController extends Controller
 
         try {
             if ($main_category -> image != 'default.png') {
-                Storage::disk('public_uploads')->delete('uploads/main_categories/' . $main_category -> image);
+                Storage::disk('public_uploads')->delete('/main_categories/' . $main_category -> image);
             } // end of inner if
 
             $main_category -> delete();

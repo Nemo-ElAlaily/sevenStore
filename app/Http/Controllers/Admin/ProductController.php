@@ -174,9 +174,9 @@ class ProductController extends Controller
             $imagePath = "";
             if($request->image){
                 if ($product -> image != 'default.png') {
-                    Storage::disk('public_uploads')->delete('uploads/products/' . $product -> image);
+                    Storage::disk('public_uploads')->delete('/products/' . $product -> image);
                 } // end of inner if
-                $imagePath = uploadImage('uploads/products/' ,  $request -> image);
+                $imagePath = uploadImage('uploads/products/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
             } else {
                 $imagePath = $product -> image;
             }// end of outer if
