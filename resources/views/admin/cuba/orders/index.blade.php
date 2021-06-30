@@ -50,39 +50,51 @@
 
             <table class="text-center pt-2 card-body table table-hover table-bordered">
                 @if ($orders->count() > 0)
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Customer Name</th>
-                        <th>Order Status</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
+        <div class="container-fluid">
+   <div class="row">
+      <div class="col-sm-12">
+         <div class="card">
+            <div class="card-body">
+               <div class="row">
                     @foreach ($orders as $index=>$order)
-                        <tr>
-                            <td>{{ $index + 1 }}</td>
-                            <td>{{ $order -> user -> full_name }}</td>
-                            <td>{{ $order -> status }}</td>
-                            <td>
-                                <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btnShow btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>
-                                <form action="{{ route('admin.orders.destroy', $order->id) }}" method="post" style="display: inline-block">
+                <div class="col-xxl-4 col-md-6">
+                     <div class="prooduct-details-box">
+                        <div class="media">
+                           <div class="media-body ms-3">
+                              <div class="product-name">
+                                 <h6>Name: <a href="#">{{ $order -> user -> full_name }}</a></h6>
+                              </div>
+                              {{-- <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div> --}}
+                             
+                              <div class="avaiabilty">
+                                 <div class="text-success">#{{ $index + 1 }}</div>
+                              </div>
+                            <a class="btn btn-primary btn-xs" href="#">{{ $order -> status }}</a>
+                           </div>
+                        </div>
+                         <div class="order-list-buttons">
+                             <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btnShow btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>    
+                                                                      <form action="{{ route('admin.orders.destroy', $order->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
                                     <button type="button" class="btn btnDelete  show_confirm btn-sm"><i class="fa fa-trash fa-lg text-lg"></i></button>
                                 </form><!-- end of form -->
-                            </td>
-                        </tr>
+                        </div>
+                    </div>
+                        
+                  </div>          
 
                     @endforeach
-                    </tbody>
-
+</div>
+</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>       
                 @else
                     <h2 class="mt-5 text-center pt-2">No Data Found</h2>
                 @endif
 
-            </table><!-- end of table -->
 
             {{ $orders->appends(request()->query())->links() }}
 

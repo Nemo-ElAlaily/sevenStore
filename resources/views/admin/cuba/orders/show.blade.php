@@ -10,10 +10,8 @@
 
 @section('content')
     <!-- Default box -->
-    <div class="card card-solid">
-        <div class="card-body">
+    <div class="container">
             <div class="row">
-
                <form class="col-12">
                     <a href="{{ route('admin.orders.completedOrder' , $order -> id) }}" class="btn btn-completed mb-4">
                         <i class="fa fa-check fa-lg"></i> Mark as Completed
@@ -28,170 +26,177 @@
                     </a>
 
                     <div class="row">
-                        <div class="col-sm-12 row">
-
+                    
                             @include('admin.cuba.partials._session')
                             @include('admin.cuba.partials._errors')
 
-                            <div class="form-group col-lg-6">
-                                <label class="bg-warning"  for="Order_slug">Order # </label>
-                                <input class="form-control input-thick bg-dark text-center " type="text" name="Order_slug"
+                        <div class="col-sm-14 col-xl-6">
+                            <div class="ribbon-wrapper card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-bookmark ribbon-secondary" for="Order_slug">Order #</div>
+
+                                <input class="form-control  text-center " type="text" name="Order_slug"
                                        value="{{ $order -> slug }}" disabled>
+                                </div>
                             </div>
+                        </div>
+                        <div class="col-sm-14 col-xl-6">
+                            <div class="ribbon-wrapper card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-bookmark ribbon-primary" for="Order_status">Order Status</div>
 
-                            <div class="form-group col-lg-6">
-                                <label class="bg-warning"  for="Order_status">Order Status </label>
-                                <input class="form-control input-thick bg-dark text-center " type="text" name="Order_status"
+                                <input class="form-control  text-center " type="text" name="Order_status"
                                        value="{{ $order -> status }}" disabled>
+                                </div>
                             </div>
-
+                        </div>
+                    </div>
+                    <div class="row">        
                             {{-- start shipping data section --}}
-                            <div class="row text-center col-sm-12 col-md-12 border-right mt-3">
+                            <div class="col-md-12 text-center mt-3">
                                 <h3 class="m-3">Shipping Information</h3>
-                                <hr>
-
-                                <div class="row m-2 mb-3 p-0">
-                                    <div class="form-group col-lg-12">
-                                        <label class="bg-warning"  for="address">Shipping Address </label>
-                                        <textarea class="form-control input-thick bg-dark text-center " type="text" name="address" disabled>
-                                            {{ $order -> address_1 .  $order -> address_2 }}, {{ $order -> city }},  {{ $order -> country }}
-                                        </textarea>
-                                    </div>
-
-                                </div>
-
-                                <div class="row m-2 mb-3 p-0">
-
-                                    <div class="form-group col-lg-6">
-                                        <label class="bg-warning"  for="phone">Customer Phone</label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="phone"
-                                               value="{{ $order -> phone }}" disabled>
-                                    </div>
-
-                                    <div class="form-group col-lg-6">
-                                        <label class="bg-warning"  for="email">Customer E-Mail</label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="email"
-                                               value="{{ $order -> email }}" disabled>
-                                    </div>
-
-                                </div>
-
-
                             </div>
-                            {{-- end shipping data section--}}
 
-                            {{-- start Order Items section --}}
-                            <div class="row text-center col-sm-12 col-md-12 border-right mt-3">
-                                <h3 class="m-3">Shipping Information</h3>
-                                <hr>
+                        <div class="col-sm-14 col-xl-6">
+                            <div class="ribbon-wrapper card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-bookmark ribbon-primary" for="address">Shipping Address</div>
 
-                                <div class="row m-2 mb-3 p-0">
-                                    <div class="form-group col-lg-12">
-                                        <label class="bg-warning"  for="address">Shipping Address </label>
-                                        <textarea class="form-control input-thick bg-dark text-center " type="text" name="address" disabled>
-                                            {{ $order -> address_1 .  $order -> address_2 }}, {{ $order -> city }},  {{ $order -> country }}
-                                        </textarea>
-                                    </div>
-
+                                 <input class="form-control text-center " type="text" name="address" disabled value="{{ $order -> address_1 .  $order -> address_2 }}, {{ $order -> city }},  {{ $order -> country }}" />
                                 </div>
-
-                                <div class="row m-2 mb-3 p-0">
-
-                                    <div class="form-group col-lg-6">
-                                        <label class="bg-warning"  for="phone">Customer Phone</label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="phone"
-                                               value="{{ $order -> phone }}" disabled>
-                                    </div>
-
-                                    <div class="form-group col-lg-6">
-                                        <label class="bg-warning"  for="email">Customer E-Mail</label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="email"
-                                               value="{{ $order -> email }}" disabled>
-                                    </div>
-
-                                </div>
-
-
                             </div>
-                            {{-- end Order Items section--}}
+                        </div>
 
+                        <div class="col-sm-14 col-xl-3">
+                            <div class="ribbon-wrapper card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-bookmark ribbon-secondary" for="phone">Customer Phone</div>
+                                <input class="form-control text-center " type="text" name="phone"
+                                               value="{{ $order -> phone }}" disabled>
+                                </div>
+                            </div>
+                        </div>
 
-                            {{-- start pricing section --}}
-                            <div class="row text-center col-sm-12 col-md-12 border-right mt-3">
+                        <div class="col-sm-14 col-xl-3">
+                            <div class="ribbon-wrapper card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-bookmark ribbon-success" for="email">Customer E-Mail</div>
+                            <input class="form-control text-center " type="text" name="email"
+                                               value="{{ $order -> email }}" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">        
+                            {{-- start shipping data section --}}
+                            <div class="col-md-12 text-center mt-3">
                                 <h3 class="m-3">Pricing Information</h3>
-                                <hr>
+                            </div>
 
-                                <div class="row m-2 mb-3 p-0">
-                                    <div class="form-group col-lg-3">
-                                        <label class="bg-warning"  for="{{ $order -> subtotal }}">Subtotal </label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="{{ $order -> subtotal }}"
-                                               value="{{ $order -> subtotal }}" disabled>
-                                    </div>
+                        <div class="col-sm-14 col-xl-3">
+                            <div class="ribbon-wrapper-right card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-clip-right ribbon-right ribbon-secondary" for="{{ $order -> subtotal }}">Subtotal</div>
 
-                                    <div class="form-group col-lg-3">
-                                        <label class="bg-warning"  for="{{ $order -> discount }}">Order Discount </label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="{{ $order -> discount }}"
+                                 <input class="form-control text-center " type="text" name="{{ $order -> subtotal }}" disabled value="{{ $order -> subtotal }}" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-14 col-xl-3">
+                            <div class="ribbon-wrapper-right card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-clip-right ribbon-right ribbon-primary" for="{{ $order -> discount }}">Order Discount</div>
+                                <input class="form-control text-center " type="text" name="phone"
                                                value="{{ $order -> discount }}" disabled>
-                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <div class="form-group col-lg-3">
-                                        <label class="bg-warning"  for="{{ $order -> tax }}">Order Tax </label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="{{ $order -> tax }}"
+                        <div class="col-sm-14 col-xl-3">
+                            <div class="ribbon-wrapper-right card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-clip-right ribbon-right ribbon-success" for="{{ $order -> tax }}">Order Tax</div>
+                            <input class="form-control text-center " type="text" name="{{ $order -> tax }}"
                                                value="{{ $order -> tax }}" disabled>
-                                    </div>
-
-                                    <div class="form-group col-lg-3">
-                                        <label class="bg-warning"  for="{{ $order -> shipping_cost }}">Order Shipping Cost </label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="{{ $order -> shipping_cost }}"
-                                               value="{{ $order -> shipping_cost }}" disabled>
-                                    </div>
-
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-14 col-xl-3">
+                            <div class="ribbon-wrapper-right card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-clip-right ribbon-right ribbon-warning" for="{{ $order -> shipping_cost }}">Order Shipping Cost</div>
 
-                                <div class="row m-2 mb-3 p-0">
+                                 <input class="form-control text-center " type="text" name="{{ $order -> shipping_cost }}" disabled value="{{ $order -> shipping_cost }}" />
+                                </div>
+                            </div>
+                        </div>
 
-                                    <div class="form-group col-lg-3">
-                                        <label class="bg-warning"  for="{{ $order -> getPaymentMethod() }}">Order Payment Method</label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="{{ $order -> getPaymentMethod() }}"
-                                               value="{{ $order -> getPaymentMethod() }}" disabled>
-                                    </div>
+                    </div>
 
-                                    <div class="form-group col-lg-3">
-                                        <label class="bg-warning"  for="{{ $order -> currency }}">Payment Currency</label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="{{ $order -> currency }}"
+                    <div class="row">        
+                        <div class="col-sm-14 col-xl-3">
+                            <div class="ribbon-wrapper-right card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-clip-right ribbon-right ribbon-info" for="{{ $order -> getPaymentMethod() }}">Order Payment Method</div>
+
+                                 <input class="form-control text-center " type="text" name="{{ $order -> getPaymentMethod() }}" disabled value="{{ $order -> getPaymentMethod() }}" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-14 col-xl-3">
+                            <div class="ribbon-wrapper-right card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-clip-right ribbon-right ribbon-danger" for="{{ $order -> currency }}">Payment Currency</div>
+                                <input class="form-control text-center " type="text" name="{{ $order -> currency }}"
                                                value="{{ $order -> currency }}" disabled>
-                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <div class="form-group col-lg-3">
-                                        <label class="bg-warning"  for="{{ $order -> paid_at }}">Paid at</label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="{{ $order -> paid_at }}"
+                        <div class="col-sm-14 col-xl-3">
+                            <div class="ribbon-wrapper-right card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-clip-right ribbon-right ribbon-warning" for="{{ $order -> paid_at }}">Order Tax</div>
+                            <input class="form-control text-center " type="text" name="{{ $order -> paid_at }}"
                                                value="{{ $order -> paid_at != null ? $order -> paid_at : 'Not Paid Yet' }}" disabled>
-                                    </div>
-
-                                    <div class="form-group col-lg-3">
-                                        <label class="bg-warning"  for="{{ $order -> transaction_id }}">Transaction ID</label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="{{ $order -> transaction_id }}"
-                                               value="{{ $order -> transaction_id }}" disabled>
-                                    </div>
-
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-14 col-xl-3">
+                            <div class="ribbon-wrapper-right card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-clip-right ribbon-right ribbon-primary" for="{{ $order -> transaction_id }}">Transaction ID</div>
 
+                                 <input class="form-control text-center " type="text" name="{{ $order -> transaction_id }}" disabled value="{{ $order -> transaction_id }}" />
+                                </div>
+                            </div>
+                        </div>
 
-                                <div class="row m-2 p-0">
-
-                                    <div class="form-group col-lg-6">
-                                        <label class="bg-warning"  for="{{ $order -> total }}">Order total </label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="{{ $order -> total }}"
+                    </div>
+                    <div class="row">
+                          <div class="col-sm-14 col-xl-6">
+                            <div class="ribbon-wrapper-right card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-clip-right ribbon-right ribbon-info" for="{{ $order -> total }}">Order total</div>
+                            <input class="form-control text-center " type="text" name="{{ $order -> total }}"
                                                value="{{ $order -> total }}" disabled>
-                                    </div>
-
-                                    <div class="form-group col-lg-6">
-                                        <label class="bg-warning"  for="{{ $order -> getShippingStatus() }}">Shipping Status</label>
-                                        <input class="form-control input-thick bg-dark text-center " type="text" name="{{ $order -> getShippingStatus() }}"
-                                               value="{{ $order -> getShippingStatus() }}" disabled>
-                                    </div>
-
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-14 col-xl-6">
+                            <div class="ribbon-wrapper-right card">
+                                <div class="card-body">
+                            <div class="ribbon ribbon-clip-right ribbon-right ribbon-secondary" for="{{ $order -> getShippingStatus() }}">Shipping Status</div>
+
+                                 <input class="form-control text-center " type="text" name="{{ $order -> getShippingStatus() }}" value="{{ $order -> getShippingStatus() }}"disabled />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                                  
 
                             </div>
                             {{-- end pricing section--}}

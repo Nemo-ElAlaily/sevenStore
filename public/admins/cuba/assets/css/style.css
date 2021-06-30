@@ -8,7 +8,7 @@
 
 -----------------------------------------------------------------------------------
  */
-:root {
+ :root {
     --theme-deafult: #7366ff;
     --theme-secondary: #f73164;
 }
@@ -40718,7 +40718,7 @@ body[class*="dark-"] .for-light {
 }
 .page-wrapper .sidebar-main-title > div {
     background-color: rgba(115, 102, 255, 0.06);
-    padding: 15px 17px;
+    padding: 10px 17px;
     border-radius: 10px;
     white-space: nowrap;
     overflow: hidden;
@@ -40775,7 +40775,7 @@ body[class*="dark-"] .for-light {
     .page-body-wrapper
     div.sidebar-wrapper
     .logo-icon-wrapper {
-    padding: 27px 30px;
+    padding: 15px;
     -webkit-box-shadow: -9px 0 20px rgba(89, 102, 122, 0.1);
     box-shadow: -9px 0 20px rgba(89, 102, 122, 0.1);
 }
@@ -41169,8 +41169,8 @@ body[class*="dark-"] .for-light {
     .simplebar-content-wrapper
     .simplebar-content
     > li.sidebar-main-title {
-    padding-top: 15px;
-    padding-bottom: 13px;
+    padding-top: 3px;
+    /* padding-bottom: 13px; */
 }
 .page-wrapper.compact-wrapper
     .page-body-wrapper
@@ -49452,13 +49452,13 @@ label.bg-warning {
 }
 
 .btnAdd {
-    background-color: #f73164;
+    background:linear-gradient(0.25turn, #3f87a6, #f73164, #f69d3c);
     color: #fff;
     padding: 5px 10px;
 }
 
 .btnSearch {
-    background-color: var(--bs-gray);
+    background:linear-gradient(0.25turn, #8bc34a, #cddc39, #4caf50);
     color: #fff;
 }
 
@@ -49531,7 +49531,6 @@ input.bg-dark:focus {
     font-size: 14px;
     font-family: inherit;
     font-weight: 500;
-    color: #dc3545;
 }
 .textareaBlog{
     margin-top: 0px;
@@ -50060,10 +50059,89 @@ width: 200px;
     border-radius: 2px;
 }
 .logo-wrapper img{
-height: 75px;
+height: 65px;
 }
 .img-all-products{
 
 height: 250px;
 width: 298px;
 }
+
+/*Start Dashboard Admin*/
+.card-counter{
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 5px;
+    padding: 20px 10px;
+    background-color: #fff;
+    height: 100px;
+    border-radius: 5px;
+    transition: .3s linear all;
+  }
+
+  .card-counter:hover{
+    box-shadow: 4px 4px 20px #DADADA;
+    transition: .3s linear all;
+  }
+
+  .card-counter.primary{
+    background-color: #007bff;
+    color: #FFF;
+  }
+
+  .card-counter.danger{
+    background-color: #ef5350;
+    color: #FFF;
+  }
+
+  .card-counter.success{
+    background-color: #66bb6a;
+    color: #FFF;
+  }
+
+  .card-counter.info{
+    background-color: #26c6da;
+    color: #FFF;
+  }
+
+  .card-counter i{
+    font-size: 5em;
+    opacity: 0.2;
+  }
+
+  .card-counter .count-numbers{
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    font-size: 32px;
+    display: block;
+  }
+
+  .card-counter .count-name{
+    position: absolute;
+    right: 35px;
+    top: 65px;
+    font-style: italic;
+    text-transform: capitalize;
+    opacity: 0.5;
+    display: block;
+    font-size: 18px;
+  }
+  .order-list-buttons{
+    position: relative;
+    right: 0;
+    bottom: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .order-list-buttons .btn{
+      position: relative;
+      bottom: 0 ;
+      right: 0;
+      padding: 5px;
+      padding: 5px 10px;
+      margin-left: 5px;
+  }
+  [class*="ribbon-wrapper"]{
+    height: 175px !important;
+  }

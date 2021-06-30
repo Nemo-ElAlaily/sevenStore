@@ -25,7 +25,7 @@
 
                     <div class="row">
                         <div class="col-sm-12 row">
-                            <div class="form-group col-lg-6">
+                            <div class="form-group col-md-5">
                                 <label class="labelProd"for="name">Product Name</label>
                                 @error('name')
                                 <span class="text-danger mx-5">{{ $message }}</span>
@@ -34,7 +34,7 @@
                                        value="{{ old('name') }}">
                             </div>
 
-                            <div class="form-group col-lg-6">
+                            <div class="form-group col-md-3">
                                 <label class="labelProd"for="stock">Stock </label>
                                 @error('stock')
                                 <span class="text-danger mx-5">{{ $message }}</span>
@@ -43,7 +43,7 @@
                                        value="{{ old('stock') }}">
                             </div>
 
-                            <div class="form-group col-lg-6">
+                            <div class="form-group col-md-3">
                                 <label class="labelProd"for="regular_price">Regular Price</label>
                                 @error('regular_price')
                                 <span class="text-danger mx-5">{{ $message }}</span>
@@ -52,7 +52,7 @@
                                        value="{{ old('regular_price') }}">
                             </div>
 
-                            <div class="form-group col-lg-6">
+                            <div class="form-group col-md-3">
                                 <label class="labelProd"for="sku">Sku</label>
                                 @error('sku')
                                 <span class="text-danger mx-5">{{ $message }}</span>
@@ -62,7 +62,7 @@
                             </div>
 
 
-                            <div class="form-group col-lg-6">
+                            <div class="form-group col-md-3">
                                 <label class="labelProd"for="sale_price">Sale Price</label>
                                 @error('sale_price')
                                 <span class="text-danger mx-5">{{ $message }}</span>
@@ -71,7 +71,7 @@
                                        value="{{ old('sale_price') }}">
                             </div>
 
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label class="labelProd"for="main_category">Sub Category</label>
                                     @error('main_category')
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-lg-12">
+                            <div class="form-group col-md-6">
                                 <label class="labelProd"for="description">Product Description</label>
                                 @error('description')
                                 <span class="text-danger mx-5">{{ $message }}</span>
@@ -96,14 +96,14 @@
                                 </textarea>
                             </div>
 
-                            <div class="form-group col-lg-12">
-                                <label for="features">Product Features</label>
-                                <textarea class="form-control input-thick " type="text" name="features">
+                            <div class="form-group col-md-6">
+                                <label class="labelProd" for="features">Product Features</label>
+                                <textarea class="form-control input-thick textareaBlog" type="text" name="features">
                                         {{ old('features') }}
                                 </textarea>
                             </div>
 
-                            <div class="form-group col-sm-12 col-lg-12">
+                            <div class="form-group col-sm-12 col-md-12 mb-5">
                                 <label class="labelProd"label for="image">Image</label>
                                 @error('image')
                                 <span class="text-danger mx-1">{{ $message }}</span>
