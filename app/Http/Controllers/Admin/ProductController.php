@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\MainCategories\MainCategory;
 use App\Models\Products\Product;
+use App\Models\Products\ProductGallery;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -51,7 +52,7 @@ class ProductController extends Controller
     {
         try {
             $categories = MainCategory::all();
-            $user = User::find(Auth::user() -> id);
+            $user = User::find(Auth::user() -> id) -> id;
 
             return view('admin.cuba.products.create', compact( 'categories', 'user'));
 
@@ -66,30 +67,42 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
+        $characters = array(' ', '/', '!', '\\');
+
         try {
-            $user = auth() -> user();
+            $user = $request -> vendor_id;
+
+            $request_data = $request -> except(['_token', '_method', 'image' , 'gallery']);
+
+            $request_data['ar']['slug'] = str_replace($characters, '-' , $request['ar']['name']);
+            $request_data['en']['slug'] = str_replace($characters, '-' , $request['en']['name']);
+
             DB::beginTransaction();
 
-            $imagePath = "";
+            $image_path = "";
             if($request -> image){
-                $imagePath = uploadImage('uploads/products/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
+                $image_path = uploadImage('uploads/products/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
+                $request_data['image'] = Carbon::now() -> year . '/' . Carbon::now() -> month . '/' . $image_path;
             } else {
-                $imagePath = 'default.png';
+                $request_data['image'] = 'default.png';
             }
 
-            $product =  Product::create([
-                'vendor_id' => $user -> id,
-                'name' => $request -> name,
-                'slug' => str_replace(characters(), '-' , $request -> name),
-                'stock' => $request -> stock,
-                'regular_price' => $request -> regular_price,
-                'sku' => $request -> sku,
-                'sale_price' => $request -> sale_price,
-                'main_category_id' => $request -> main_category,
-                'description' => $request -> description,
-                'features' => $request -> features,
-                'image' =>  Carbon::now() -> year . '/' . Carbon::now() -> month . '/' .$imagePath,
-            ]);
+            $product =  Product::create($request_data);
+
+            if($request -> gallery){
+                foreach ( $request -> gallery as $index => $item){
+                    $gallery_item_path = uploadImage('uploads/products/product-gallery/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $item);
+
+                    $gallery_arr = [
+                        'product_id' => $product -> id,
+                    ];
+                    $gallery_arr += [
+                        'image_path' => Carbon::now() -> year . '/' . Carbon::now() -> month . '/'  . $gallery_item_path,
+                    ];
+
+                    ProductGallery::create($gallery_arr);
+                }
+            }
 
             DB::commit();
 

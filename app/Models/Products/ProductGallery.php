@@ -13,6 +13,8 @@ class ProductGallery extends Model
 
     protected $table = 'product_gallery';
 
+    protected $guarded = [];
+
     protected $appends = [
         'image'
     ];

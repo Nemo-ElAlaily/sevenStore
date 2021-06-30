@@ -23,16 +23,66 @@
 
                     <input class="form-control input-thick" hidden name="vendor_id" value="{{ $user }}">
 
+                    <div class="col-sm-12 col-md-3 mb-5">
+                        <div class="form-group">
+                            <label class="labelProd" for="main_category_id">Sub Category</label>
+                            @error('main_category_id')
+                            <span class="text-danger mx-5">{{ $message }}</span>
+                            @enderror
+                            <select class="select-css" name="main_category_id" class="form-control">
+                                <option value="0">All Sub Categories</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category -> id }}">{{ $category -> name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="row">
-                        <div class="col-sm-12 row">
-                            <div class="form-group col-md-5">
-                                <label class="labelProd"for="name">Product Name</label>
-                                @error('name')
-                                <span class="text-danger mx-5">{{ $message }}</span>
-                                @enderror
-                                <input class="form-control input-thick" type="text" name="name"
-                                       value="{{ old('name') }}">
+                        @foreach (config('translatable.locales') as $locale)
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="{{ $locale }}[name]">Product Name in @lang('site.' . $locale . '.name')</label>
+                                    @error($locale . '.name')
+                                    <br />
+                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                    @enderror
+                                    <input class="form-control input-thick" type="text" name="{{ $locale }}[name]"
+                                           value="{{ old($locale.'.name') }}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="{{ $locale }}[description]">Product Description in @lang('site.' . $locale . '.name')</label>
+                                    @error($locale . '.description')
+                                    <br />
+                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                    @enderror
+                                    <textarea class="form-control input-thick ckeditor" type="text" name="{{ $locale }}[description]">
+                                    {{ old($locale.'.description') }}
+                                </textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="{{ $locale }}[features]">Product Features in @lang('site.' . $locale . '.name')</label>
+                                    @error($locale . '.features')
+                                    <br />
+                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                    @enderror
+                                    <textarea class="form-control input-thick" type="text" name="{{ $locale }}[features]">{{ old($locale.'.features') }}</textarea>
+                                </div>
+
                             </div>
+                        @endforeach
+                    </div> {{-- end of translatable data --}}
+
+                    <div class="row">
+
+                        <div class="text-center mt-5">
+                            <h3 class="m-3">Inventory Information</h3>
+                            <hr>
+                        </div>
+
+                        <div class="col-sm-12 row">
 
                             <div class="form-group col-md-3">
                                 <label class="labelProd"for="stock">Stock </label>
@@ -71,38 +121,6 @@
                                        value="{{ old('sale_price') }}">
                             </div>
 
-                            <div class="col-sm-12 col-md-3">
-                                <div class="form-group">
-                                    <label class="labelProd"for="main_category">Sub Category</label>
-                                    @error('main_category')
-                                    <span class="text-danger mx-5">{{ $message }}</span>
-                                    @enderror
-                                    <select class="select-css" name="main_category" class="form-control">
-                                        <option value="0">All Sub Categories</option>
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category -> id }}">{{ $category -> name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label class="labelProd"for="description">Product Description</label>
-                                @error('description')
-                                <span class="text-danger mx-5">{{ $message }}</span>
-                                @enderror
-                                <textarea class="form-control input-thick textareaBlog" type="text" name="description">
-                                        {{ old('description') }}
-                                </textarea>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label class="labelProd" for="features">Product Features</label>
-                                <textarea class="form-control input-thick textareaBlog" type="text" name="features">
-                                        {{ old('features') }}
-                                </textarea>
-                            </div>
-
                             <div class="form-group col-sm-12 col-md-12 mb-5">
                                 <label class="labelProd"label for="image">Image</label>
                                 @error('image')
@@ -110,12 +128,29 @@
                                 @enderror
                                 <input type="file" name="image" class="form-control input-sm image">
 
-                                <img src="{{ asset('public/uploads/products/default.png') }}" width="400px"
+                                <img src="{{ asset('uploads/products/default.png') }}" width="400px"
                                      class="img-thumbnail image-preview mt-1" alt="Upload Image">
                             </div> {{-- end of form group image --}}
 
                         </div>
                     </div>
+
+                    <div class="form-group col-sm-12 card card-primary card-outline">
+                        <div class="text-center col-sm-12">
+                            <h3 class="m-3">Gallery</h3>
+                            <hr>
+                        </div>
+
+                        <div class="input-field">
+                            <div class="gallery p-2">
+                                @error('gallery')
+                                <br />
+                                <span class="text-danger mx-1">{{ $message }}</span>
+                                @enderror
+
+                            </div>
+                        </div>
+                    </div> {{-- end of property Media --}}
 
                     <div class="form-group">
                         <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
@@ -129,4 +164,13 @@
         <!-- /.card-body -->
     </div>
     <!-- /.card -->
+@stop
+
+@section('script')
+    <!-- ARCHIVES JS -->
+    <script src="{{ asset('admins/cuba/assets/js/image-uploader.min.js') }}"></script>
+
+    <script>
+        $('.gallery').imageUploader();
+    </script>
 @stop
