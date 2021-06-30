@@ -32,8 +32,6 @@ class ProductsTableSeeder extends Seeder
             }
 
             $values = [];
-            $values_translation_ar = [];
-            $values_translation_en = [];
 
             if($product -> getStock() > 0 ){
                 $values += [
@@ -64,6 +62,7 @@ class ProductsTableSeeder extends Seeder
 
             $new_product = \App\Models\Products\Product::create($values);
 
+            $values_translation_ar = [];
             $values_translation_ar += [
                 'product_id' => $new_product -> id,
                 'locale' => 'ar',
@@ -73,6 +72,7 @@ class ProductsTableSeeder extends Seeder
                 'features' => $product -> excerpt,
             ];
 
+            $values_translation_en = [];
             $values_translation_en += [
                 'product_id' =>  $new_product -> id,
                 'locale' => 'en',
