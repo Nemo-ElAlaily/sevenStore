@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Product;
+use App\Models\Products\Product;
 use Cart;
 use Illuminate\Http\Request;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\MainCategory;
+use App\Models\MainCategories\MainCategory;
 
 class MainCategoryComponent extends Component
 {
@@ -35,7 +35,7 @@ class MainCategoryComponent extends Component
 
     public function render()
     {
-        $main_category = MainCategory::where('slug', $this -> category_slug)->first();
+        $main_category = MainCategory::whereTranslation('slug', $this -> category_slug)->first();
         $main_category_id = $main_category -> id;
         $main_category_name = $main_category -> name;
 
@@ -49,7 +49,11 @@ class MainCategoryComponent extends Component
             $products = Product::where('stock' , '>' , 0)->where('main_category_id', $main_category_id)->paginate($this -> pagesize);
         }
 
-        $categories = MainCategory::where('name', 'not like', 'بدون تصنيف')->where('parent_id', 0)->get();
+        $categories = MainCategory::whereHas('translations', function ($query) {
+            $query
+                ->where('locale', MainCategory::locale())
+                ->where('name', 'NOT LIKE', 'بدون تصنيف');
+        })->where('parent_id', 0)->get();
         $latest_products = Product::orderBy('created_at', 'DESC')->take(5)->get();
 
 

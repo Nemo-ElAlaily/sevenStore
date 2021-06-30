@@ -18,10 +18,6 @@ class CreateProductsTable extends Migration
             $table->bigInteger('vendor_id')->unsigned()->index();
             $table->bigInteger('main_category_id')->unsigned()->index(); // main categories table
 
-            $table->string('name');
-            $table->string('slug');
-            $table->longText('description')->nullable();
-            $table->longText('features')->nullable();
             $table->text('image')->nullable();
 
             $table->string('sku')->nullable();

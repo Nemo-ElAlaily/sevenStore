@@ -1,13 +1,13 @@
 
 <?php
- $categories = App\Models\MainCategory::where('name', 'not like', 'بدون تصنيف')->where('parent_id', 0)->get();
+ $categories = App\Models\MainCategories\MainCategory::whereTranslation('name', 'not like', 'بدون تصنيف')->where('parent_id', 0)->get();
 ?>
 
 <aside id="sidebarHeader1" class="" aria-labelledby="sidebarHeaderInvokerMenu" style="animation-duration: 500ms; left: -335px;">
     <div class="u-sidebar__scroller">
         <div class="u-sidebar__container">
             <div class="u-header-sidebar__footer-offset pb-0">
-  
+
                 <!-- Content -->
                 <div class="js-scrollbar u-sidebar__body mCustomScrollbar _mCS_1 mCS-autoHide" style="position: relative; overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
                     <div id="headerSidebarContent" class="u-sidebar__content u-header-sidebar__content">

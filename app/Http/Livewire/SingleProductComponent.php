@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Product;
+use App\Models\Products\Product;
 use App\Models\Wishlist;
 use Livewire\Component;
 use Cart;

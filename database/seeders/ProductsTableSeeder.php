@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\MainCategories\MainCategory;
 use App\Models\WP\Post;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProductsTableSeeder extends Seeder
 {
@@ -18,16 +20,21 @@ class ProductsTableSeeder extends Seeder
         $characters = array(' ', '/', '!', '\\');
         foreach ($wp_db_products as $product)
         {
+            DB::beginTransaction();
+
             $user = \App\Models\User::find($product -> post_author);
             $main_category = $product->taxonomies()->where('taxonomy', 'product_cat')->first();
 
             if ($main_category) {
-                $db_categories = \App\Models\MainCategory::where('name', $main_category -> name) -> first();
+                $db_categories = MainCategory::whereTranslation('name', $main_category -> name) -> first();
             } else {
-                $db_categories = \App\Models\MainCategory::where('name', 'بدون تصنيف') -> first();
+                $db_categories = MainCategory::whereTranslation('name', 'بدون تصنيف') -> first();
             }
 
             $values = [];
+            $values_translation_ar = [];
+            $values_translation_en = [];
+
             if($product -> getStock() > 0 ){
                 $values += [
                     'stock' => $product -> getStock()
@@ -37,19 +44,15 @@ class ProductsTableSeeder extends Seeder
                     'stock' => '0'
                 ];
             }
+
             $values += [
                 'id' => $product -> ID,
                 'vendor_id' => $user -> id,
                 'main_category_id' => $db_categories -> id,
 
-                'name' => $product -> title,
-                'slug' => str_replace($characters, '-' , $product -> title),
-                'description' => $product -> content,
-                'features' => $product -> excerpt,
                 'image' => $product -> image,
 
                 'sku' => $product -> getSku() != null ? $product -> getSku() : null,
-//                'stock' => $product -> getStock() != null ? $product -> getStock() : 0,
                 'sale_price' => $product -> getSalePrice() != null ? $product -> getSalePrice() : ($product -> getRegularPrice() == null ? 0 : $product -> getRegularPrice()),
                 'regular_price' => $product -> getRegularPrice() != null ? $product -> getRegularPrice() : 0,
 
@@ -59,7 +62,30 @@ class ProductsTableSeeder extends Seeder
                 'updated_at' => $product -> modified,
             ];
 
-            \App\Models\Product::create($values);
+            $new_product = \App\Models\Products\Product::create($values);
+
+            $values_translation_ar += [
+                'product_id' => $new_product -> id,
+                'locale' => 'ar',
+                'name' => $product -> title,
+                'slug' => str_replace($characters, '-' , $product -> title),
+                'description' => $product -> content,
+                'features' => $product -> excerpt,
+            ];
+
+            $values_translation_en += [
+                'product_id' =>  $new_product -> id,
+                'locale' => 'en',
+                'name' => $product -> title,
+                'slug' => str_replace($characters, '-' , $product -> title),
+                'description' => $product -> content,
+                'features' => $product -> excerpt,
+            ];
+
+            \App\Models\Products\ProductTranslation::create($values_translation_ar);
+            \App\Models\Products\ProductTranslation::create($values_translation_en);
+
+            DB::commit();
 
         } // end of for each
 

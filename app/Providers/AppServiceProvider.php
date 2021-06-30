@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\MainCategory;
+use App\Models\MainCategories\MainCategory;
 use App\Models\Settings\SiteSetting;
 use App\Models\Settings\SocialSetting;
 use Illuminate\Pagination\Paginator;

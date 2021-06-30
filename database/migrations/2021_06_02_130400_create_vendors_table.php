@@ -28,6 +28,9 @@ class CreateVendorsTable extends Migration
             $table->string('billing_phone')->nullable();
             $table->string('billing_email')->nullable();
 
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
+
             $table->boolean('can_sell_products')->default(true)->comment('true = can sell products = 1');
             $table->boolean('can_add_products')->default(true)->comment('true = can add products = 1');
             $table->tinyInteger('admin_percentage')->nullable();

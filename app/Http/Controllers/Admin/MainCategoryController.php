@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\MainCategory;
+use App\Models\MainCategories\MainCategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,9 +19,12 @@ class MainCategoryController extends Controller
         $this -> middleware(['permission:main_categories_delete'])->only(['destroy']);
     } // end of construct
 
-    public function index()
+    public function index(Request $request)
     {
-        $main_categories = MainCategory::paginate(ADMIN_PAGINATION_COUNT);
+        $main_categories = MainCategory::when($request -> search , function ($query) use ($request) {
+            return $query -> whereTranslationLike('name', '%' . $request -> search . '%');
+        })->latest()->paginate(ADMIN_PAGINATION_COUNT);
+
         return view('admin.cuba.main_categories.index' , compact('main_categories'));
     } // end of index
 

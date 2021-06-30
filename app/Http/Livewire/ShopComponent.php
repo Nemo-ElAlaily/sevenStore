@@ -2,13 +2,13 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Product;
+use App\Models\Products\Product;
 use App\Models\Wishlist;
 use Cart;
 use Illuminate\Http\Request;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\MainCategory;
+use App\Models\MainCategories\MainCategory;
 
 
 class ShopComponent extends Component
@@ -97,7 +97,7 @@ class ShopComponent extends Component
             $products = Product::where('stock' , '>' , 0)
                 ->orderBy('created_at', 'DESC')
                 ->when($request -> search , function ($query) use ($request) {
-                    return $query -> where('name', 'like', '%' . $request -> search . '%');
+                    return $query -> whereTranslationLike('name', '%' . $request -> search . '%');
                 })->when($request -> product_cat , function($query) use ($request) {
                     return $query->where('main_category_id', $request -> product_cat);
                 })->paginate($this -> pagesize);
@@ -107,7 +107,7 @@ class ShopComponent extends Component
             $products = Product::where('stock' , '>' , 0)
                 ->orderBy('regular_price', 'ASC')
                 ->when($request -> search , function ($query) use ($request) {
-                    return $query -> where('name', 'like', '%' . $request -> search . '%');
+                    return $query -> whereTranslationLike('name', '%' . $request -> search . '%');
                 })->when($request -> product_cat , function($query) use ($request) {
                     return $query->where('main_category_id', $request -> product_cat);
                 })->paginate($this -> pagesize);
@@ -117,7 +117,7 @@ class ShopComponent extends Component
             $products = Product::where('stock' , '>' , 0)
                 ->orderBy('regular_price', 'DESC')
                 ->when($request -> search , function ($query) use ($request) {
-                    return $query -> where('name', 'like', '%' . $request -> search . '%');
+                    return $query -> whereTranslationLike('name', '%' . $request -> search . '%');
                 })->when($request -> product_cat , function($query) use ($request) {
                     return $query->where('main_category_id', $request -> product_cat);
                 })->paginate($this -> pagesize);
@@ -126,13 +126,17 @@ class ShopComponent extends Component
         {
             $products = Product::where('stock' , '>' , 0)
                 ->when($request -> search , function ($query) use ($request) {
-                    return $query -> where('name', 'like', '%' . $request -> search . '%');
+                    return $query -> whereTranslationLike('name', '%' . $request -> search . '%');
                 })->when($request -> product_cat , function($query) use ($request) {
                     return $query->where('main_category_id', $request -> product_cat);
                 })->paginate($this -> pagesize);
         }
 
-        $categories = MainCategory::where('name', 'not like', 'بدون تصنيف')->where('parent_id', 0)->get();
+        $categories = MainCategory::whereHas('translations', function ($query) {
+            $query
+                ->where('locale', MainCategory::locale())
+                ->where('name', 'NOT LIKE', 'بدون تصنيف');
+        })->where('parent_id', 0)->get();
         $latest_products = Product::orderBy('created_at', 'DESC')->take(5)->get();
 
 

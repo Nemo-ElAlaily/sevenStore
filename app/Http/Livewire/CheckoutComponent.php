@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Orders\Order;
 use App\Models\Orders\OrderItem;
-use App\Models\Product;
+use App\Models\Products\Product;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;

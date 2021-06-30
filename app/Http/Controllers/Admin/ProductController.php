@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
-use App\Models\MainCategory;
-use App\Models\Product;
+use App\Models\MainCategories\MainCategory;
+use App\Models\Products\Product;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -26,11 +26,11 @@ class ProductController extends Controller
     public function index(Request $request)
     {
 
-        $categories = MainCategory::select('id', 'name')->get();
+        $categories = MainCategory::all();
 
         if(auth() -> user() -> hasRole(['super_admin', 'admin', 'shop_manager', 'moderator'])) {
             $products = Product::when($request -> search , function ($query) use ($request) {
-                return $query -> where('name', 'like', '%' . $request -> search . '%');
+                return $query -> whereTranslationLike('name', '%' . $request -> search . '%');
             })->when($request -> category , function($query) use ($request) {
                 return $query -> where('main_category_id', $request -> category);
             })->when($request -> vendor_id , function($query) use ($request) {
@@ -39,7 +39,7 @@ class ProductController extends Controller
 
         } else {
             $products = Product::where('vendor_id' , auth() -> user()->id)->when($request -> search , function ($query) use ($request) {
-                return $query -> where('name', 'like', '%' . $request -> search . '%');
+                return $query -> whereTranslationLike('name', '%' . $request -> search . '%');
             })->latest()->paginate(ADMIN_PAGINATION_COUNT);
         }
 
