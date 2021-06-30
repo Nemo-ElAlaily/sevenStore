@@ -41,6 +41,12 @@ class Product extends Model
         return $this -> hasMany(Wishlist::class);
     } // end of products
 
+    public function gallery()
+    {
+        return $this -> hasMany(ProductGallery::class, 'product_id', 'id');
+
+    } // end of gallery
+
     /* ***********************************
     End of Relationships
     *********************************** */

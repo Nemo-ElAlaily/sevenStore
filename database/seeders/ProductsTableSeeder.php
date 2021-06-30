@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\MainCategories\MainCategory;
+use App\Models\Products\ProductGallery;
 use App\Models\WP\Post;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -84,6 +85,19 @@ class ProductsTableSeeder extends Seeder
 
             \App\Models\Products\ProductTranslation::create($values_translation_ar);
             \App\Models\Products\ProductTranslation::create($values_translation_en);
+
+            foreach ($product -> attachment as $gallery_item)
+            {
+                $product_gallery = [];
+
+                $product_gallery += [
+                    'product_id' => $new_product -> id,
+                    'image_path' => $gallery_item -> guid
+                ];
+
+                ProductGallery::create($product_gallery);
+
+            } // end of gallery foreach
 
             DB::commit();
 
