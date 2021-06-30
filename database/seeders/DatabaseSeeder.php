@@ -20,17 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SocialSettingTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         \App\Models\User::factory(1)->create();
-        $this->call(VendorsTableSeeder::class);
-        $this->call(MainCategoriesTableSeeder::class);
-        $this->call(ProductsTableSeeder::class);
-        $this->call(OrdersTableSeeder::class);
-        $this->call(PagesTableSeeder::class);
-        $this->call(BlogsTableSeeder::class);
-        $this->call(CurrenciesTableSeeder::class);
-        $this->call(CountriesTableSeeder::class);
-        $this->call(CitiesTableSeeder::class);
-        $this->call(RegionsTableSeeder::class);
-
         \App\Models\User::create([
             'first_name' => 'super',
             'last_name' => 'admin',
@@ -45,5 +34,15 @@ class DatabaseSeeder extends Seeder
         $user = \App\Models\User::where('email', 'super_admin@app.com')->first();
 
         $user -> attachRole('super_admin');
+        $this->call(VendorsTableSeeder::class);
+        $this->call(MainCategoriesTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
+        $this->call(OrdersTableSeeder::class);
+        $this->call(PagesTableSeeder::class);
+        $this->call(BlogsTableSeeder::class);
+        $this->call(CurrenciesTableSeeder::class);
+        $this->call(CountriesTableSeeder::class);
+        $this->call(CitiesTableSeeder::class);
+        $this->call(RegionsTableSeeder::class);
     }
 }

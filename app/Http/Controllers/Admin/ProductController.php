@@ -110,7 +110,7 @@ class ProductController extends Controller
     public function show($id)
     {
         try {
-            $product = Product::find($id);
+            $product = Product::with('gallery')->find($id);
 
             if(!$product){
                 session()->flash('error', "Product Doesn't Exist or has been deleted");

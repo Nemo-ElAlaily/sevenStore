@@ -88,14 +88,16 @@ class ProductsTableSeeder extends Seeder
 
             foreach ($product -> attachment as $gallery_item)
             {
-                $product_gallery = [];
+                if($gallery_item -> guid != $new_product -> image) {
 
-                $product_gallery += [
-                    'product_id' => $new_product -> id,
-                    'image_path' => $gallery_item -> guid
-                ];
+                    $product_gallery = [];
+                    $product_gallery += [
+                        'product_id' => $new_product -> id,
+                        'image_path' => $gallery_item -> guid
+                    ];
 
-                ProductGallery::create($product_gallery);
+                    ProductGallery::create($product_gallery);
+                } // end of if
 
             } // end of gallery foreach
 
