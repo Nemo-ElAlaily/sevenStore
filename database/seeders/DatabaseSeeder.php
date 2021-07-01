@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
         $user -> attachRole('super_admin');
         $this->call(VendorsTableSeeder::class);
         $this->call(MainCategoriesTableSeeder::class);
+        $this->call(TagsTableSeeder::class);
         $this->call(ProductsTableSeeder::class);
         $this->call(OrdersTableSeeder::class);
         $this->call(PagesTableSeeder::class);

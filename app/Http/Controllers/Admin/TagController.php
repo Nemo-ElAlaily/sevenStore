@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Tags\CreateTagReqeust;
-use App\Models\Blogs\Tag;
+use App\Models\Tags\Tag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller

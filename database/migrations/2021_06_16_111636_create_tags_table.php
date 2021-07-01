@@ -15,8 +15,8 @@ class CreateTagsTable extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_active')->nullable();
-            $table->boolean('is_popular_tag')->nullable();
+            $table->boolean('is_active')->default(1);
+            $table->boolean('is_popular_tag')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });

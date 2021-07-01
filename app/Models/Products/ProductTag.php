@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Blogs;
+namespace App\Models\Products;
 
 use App\Models\Tags\Tag;
 use Illuminate\Database\Eloquent\Model;
 
-class BlogTag extends Model
+class ProductTag extends Model
 {
     protected $table = 'blog_tag';
 
@@ -15,8 +15,8 @@ class BlogTag extends Model
     Start of Relationships
     *********************************** */
 
-    public function Blog(){
-        return $this->belongsTo(Blog::class, 'blog_id');
+    public function Product(){
+        return $this->belongsTo(Product::class, 'product_id');
     }
 
     public function Tag(){

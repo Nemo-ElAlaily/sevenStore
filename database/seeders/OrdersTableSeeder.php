@@ -83,7 +83,7 @@ class OrdersTableSeeder extends Seeder
                     'product_id' => $item -> product_id,
                     'qty' => $item -> quantity,
                     'item_total' => $item -> line_total,
-                    'product_sale_price' => \App\Models\Product::find($item -> product_id)->sale_price,
+                    'product_sale_price' => \App\Models\Products\Product::find($item -> product_id)->sale_price,
                 ];
 
                 \App\Models\Orders\OrderItem::create($items_arr);
