@@ -61,6 +61,20 @@ class Product extends Model
 
     } // end of image path
 
+    public function getGalleryPathAttribute()
+    {
+        foreach ($this -> gallery as $index => $gallery_item)
+        {
+            if(substr( $gallery_item -> image_path, 0, 4 ) === "http"){
+                echo '{id: ' . ($index+1) . ', src: "' .  $gallery_item -> image . '"},';
+            } else {
+                echo '{id: ' . ($index+1) . ', src: "' .  $gallery_item -> image . '"},';
+            } // end of if
+
+        } // end of foreach
+
+    } // end of image path
+
     public function getOnSale()
     {
         if($this -> sale_price < $this -> regular_price)

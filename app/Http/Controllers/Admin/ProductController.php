@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\Products\ProductCreateRequest;
 use App\Models\MainCategories\MainCategory;
 use App\Models\Products\Product;
 use App\Models\Products\ProductGallery;
@@ -65,7 +66,7 @@ class ProductController extends Controller
 
     } // end of create
 
-    public function store(ProductRequest $request)
+    public function store(ProductCreateRequest $request)
     {
         $characters = array(' ', '/', '!', '\\');
 
@@ -129,8 +130,9 @@ class ProductController extends Controller
                 session()->flash('error', "Product Doesn't Exist or has been deleted");
                 return redirect()->route('admin.products.index');
             }
+            $categories = MainCategory::where(['id' => $product -> main_category_id ])->orWhere(['parent_id' => $product -> main_category_id]) -> get();
 
-            return view('admin.cuba.products.show', compact('product'));
+            return view('admin.cuba.products.show', compact('product', 'categories'));
 
         } catch (\Exception $exception) {
 
@@ -143,7 +145,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         try {
-            $product = Product::find($id);
+            $product = Product::with('gallery')->find($id);
 
             if(!$product){
                 session()->flash('error', "Product Doesn't Exist or has been deleted");
@@ -165,6 +167,8 @@ class ProductController extends Controller
 
     public function update($id, Request $request)
     {
+        $characters = array(' ', '/', '!', '\\');
+
         try {
             $product = Product::find($id);
 
@@ -173,39 +177,26 @@ class ProductController extends Controller
                 return redirect()->route('admin.products.index');
             }
 
-            $request -> validate([
-                'name' => 'required',
-                'regular_price' => 'required',
-                'sale_price' => 'required',
-                'sku' => 'required',
-                'main_category' => 'required',
-                'description' => 'required',
-                'image' => 'mimes:jpeg,bmp,png,gif',
-            ]);
+            $request_data = $request -> except(['_token', '_method', 'image' , 'gallery']);
+
+            $request_data['ar']['slug'] = str_replace($characters, '-' , $request['ar']['name']);
+            $request_data['en']['slug'] = str_replace($characters, '-' , $request['en']['name']);
 
             DB::beginTransaction();
+
             $imagePath = "";
-            if($request->image){
+            if($request -> image){
                 if ($product -> image != 'default.png') {
                     Storage::disk('public_uploads')->delete('/products/' . $product -> image);
+                    $image_path = uploadImage('uploads/products/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
+                    $request_data['image'] = Carbon::now() -> year . '/' . Carbon::now() -> month . '/' . $image_path;
                 } // end of inner if
-                $imagePath = uploadImage('uploads/products/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
+
             } else {
-                $imagePath = $product -> image;
+                $request_data['image'] = $product -> image;
             }// end of outer if
 
-            $product -> update([
-                'name' => $request -> name,
-                'slug' => str_replace(characters(), '-' , $request -> name),
-                'stock' => $request -> stock,
-                'regular_price' => $request -> regular_price,
-                'sku' => $request -> sku,
-                'sale_price' => $request -> sale_price,
-                'main_category_id' => $request -> main_category,
-                'description' => $request -> description,
-                'features' => $request -> features,
-                'image' => $imagePath,
-            ]);
+            $product -> update($request_data);
 
             DB::commit();
 
@@ -215,6 +206,7 @@ class ProductController extends Controller
         } catch (\Exception $exception) {
 
             DB::rollback();
+            return $exception;
             session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
             return redirect()->route('admin.products.index');
 

@@ -27,81 +27,105 @@
                         <i class="fa fa-edit fa-lg"></i> Edit This Product
                     </a>
 
+                    <div class="col-sm-12 col-md-3 mb-5">
+                        <div class="form-group">
+                            <label class="labelProd" for="main_category_id">Sub Category</label>
+                            @error('main_category_id')
+                            <span class="text-danger mx-5">{{ $message }}</span>
+                            @enderror
+                            <select class="select-css" name="main_category_id" class="form-control">
+                                <option value="0">All Sub Categories</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category -> id }}" {{ $product -> main_category_id == $category -> id ? 'selected' : '' }}>{{ $category -> name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @foreach (config('translatable.locales') as $locale)
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="{{ $locale }}[name]">Product Name in @lang('site.' . $locale . '.name')</label>
+                                    @error($locale . '.name')
+                                    <br />
+                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                    @enderror
+                                    <input class="form-control input-thick" type="text" name="{{ $locale }}[name]"
+                                           value="{{ $product -> translate($locale) -> name}}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="{{ $locale }}[description]">Product Description in @lang('site.' . $locale . '.name')</label>
+                                    @error($locale . '.description')
+                                    <br />
+                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                    @enderror
+                                    <textarea class="form-control input-thick ckeditor" type="text" name="{{ $locale }}[description]">
+                                        {{ $product -> translate($locale) -> description}}
+                                    </textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="{{ $locale }}[features]">Product Features in @lang('site.' . $locale . '.name')</label>
+                                    @error($locale . '.features')
+                                    <br />
+                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                    @enderror
+                                    <textarea class="form-control input-thick" type="text" name="{{ $locale }}[features]">{{ $product -> translate($locale) -> features}}</textarea>
+                                </div>
+
+                            </div>
+                        @endforeach
+                    </div> {{-- end of translatable data --}}
+
                     <div class="row">
 
-                        <div class="col-sm-12 row">
-                            <div class="form-group col-lg-6">
-                                <label for="{{ $product -> name }}">Product Name</label>
-                                <input disabled class="form-control input-thick" type="text" name="{{ $product -> name }}"
-                                       value="{{ $product -> name }}">
-                            </div>
+                        <div class="text-center mt-5">
+                            <h3 class="m-3">Inventory Information</h3>
+                            <hr>
+                        </div>
 
-                            <div class="form-group col-lg-6">
-                                <label for="product_stock">Stock
-                                    @if ($product -> stock == 0)
-                                        <span class="right badge badge-danger">Out Of Stock</span>
-                                    @elseif ($product -> stock > 0 && $product -> stock < 5)
-                                        <span class="right badge badge-primary">Low Stock</span>
-                                    @else
-                                        <span class="right badge badge-success">Available</span>
-                                    @endif
-                                </label>
-                                <input disabled class="form-control input-thick" type="text" name="product_stock"
+                        <div class="col-sm-12 row">
+
+                            <div class="form-group col-md-3">
+                                <label class="labelProd" for="stock">Stock </label>
+                                @error('stock')
+                                <span class="text-danger mx-5">{{ $message }}</span>
+                                @enderror
+                                <input class="form-control input-thick" type="number" name="stock"
                                        value="{{ $product -> stock }}">
                             </div>
 
-                            <div class="form-group col-lg-6">
-                                <label for="{{ $product -> slug  }}">Slug</label>
-                                <input disabled class="form-control input-thick" type="text" name="{{ $product -> slug  }}"
-                                       value="{{ $product -> slug }}">
-                            </div>
-
-                            <div class="form-group col-lg-6">
-                                <label for="{{ $product -> regular_price  }}">Regular Price</label>
-                                <input disabled class="form-control input-thick" type="text" name="{{ $product -> regular_price  }}"
-                                       value="{{ $product -> regular_price }}">
-                            </div>
-
-                            <div class="form-group col-lg-6">
-                                <label for="{{ $product -> sku  }}">Sku</label>
-                                <input disabled class="form-control input-thick" type="text" name="{{ $product -> sku  }}"
-                                       value="{{ $product -> sku }}">
-                            </div>
-
-
-                            <div class="form-group col-lg-6">
-                                <label for="{{ $product -> sale_price  }}">Sale Price</label>
-                                <input disabled class="form-control input-thick" type="text" name="{{ $product -> sale_price  }}"
-                                       value="{{ $product -> sale_price }}">
-                            </div>
-
-                            <div class="form-group col-lg-6">
-                                <label for="{{ $product -> mainCategory -> name  }}">Category Name</label>
-                                <input disabled class="form-control input-thick" type="text" name="{{ $product -> mainCategory -> name  }}"
-                                       value="{{ $product -> mainCategory -> name }}">
-                            </div>
-
-                            <div class="form-group col-lg-12">
-                                <label for="{{ $product -> description  }}">Product Description</label>
-                                @error('description')
+                            <div class="form-group col-md-3">
+                                <label class="labelProd" for="regular_price">Regular Price</label>
+                                @error('regular_price')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <textarea class="form-control input-thick ckeditor textareaBlog" type="text" name="description">
-                                        {{ $product -> description  }}
-                                </textarea>
+                                <input class="form-control input-thick" type="text" name="regular_price"
+                                       value="{{  $product -> regular_price }}">
                             </div>
 
-                            <div class="form-group col-lg-12">
-                                <label for="{{ $product -> features  }}">Product Features</label>
-                                @error('description')
+                            <div class="form-group col-md-3">
+                                <label class="labelProd"for="sku">Sku</label>
+                                @error('sku')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <textarea class="form-control input-thick ckeditor textareaBlog" type="text" name="features">
-                                        {{ $product -> features  }}
-                                </textarea>
+                                <input class="form-control input-thick" type="text" name="sku"
+                                       value="{{  $product -> sku }}">
                             </div>
 
-                            <div class="form-group col-sm-12 col-lg-12">
+                            <div class="form-group col-md-3">
+                                <label class="labelProd"for="sale_price">Sale Price</label>
+                                @error('sale_price')
+                                <span class="text-danger mx-5">{{ $message }}</span>
+                                @enderror
+                                <input class="form-control input-thick" type="text" name="sale_price"
+                                       value="{{  $product -> sale_price }}">
+                            </div>
+
+
+                            <div class="form-group col-sm-12 col-lg-12 mt-5">
                                 <label>Product Image</label>
                                 <img src="{{ $product -> image_path }}" width="300"
                                      class="img-thumbnail image-preview m-1" alt="{{ $product -> name }}">

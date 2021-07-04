@@ -150,7 +150,7 @@
 
                             </div>
                         </div>
-                    </div> {{-- end of property Media --}}
+                    </div> {{-- end of product gallery --}}
 
                     <div class="form-group">
                         <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
