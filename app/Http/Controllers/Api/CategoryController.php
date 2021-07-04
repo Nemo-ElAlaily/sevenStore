@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\MainCategories\MainCategory;
 use Illuminate\Http\Request;
-use App\Models\MainCategory;
 use App\Http\Resources\CategoryResource;
 
 
