@@ -19,5 +19,6 @@ class SingleBlogComponent extends Component
 
         return  view('livewire.single-blog-component',
             compact('blog'))
-            ->layout('layouts.front.app');    }
+            ->layout('layouts.front.app');
+    }
 }

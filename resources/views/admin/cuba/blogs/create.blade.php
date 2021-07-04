@@ -1,14 +1,14 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'Site Settings')
+@section('title', 'Create | Blogs')
 
 @section('breadcrumb-title')
-    <h5>General Settings</h5>
+    <h5>Blogs</h5>
 @stop
 
 @section('breadcrumb-items')
-    <li class="breadcrumb-item">Settings</li>
-    <li class="breadcrumb-item">General</li>
+    <li class="breadcrumb-item">Blogs</li>
+    <li class="breadcrumb-item">Create</li>
 @stop
 
 @section('content')
@@ -19,13 +19,13 @@
     <div class="card card-solid ">
         <div class="card-body">
             <div class="row  add-create-blog">
-                <form class="col-md-12 m-auto" action="{{ route('admin.settings.site.show', $site_settings->id) }}" method="post"
+                <form class="col-md-12 m-auto" action="{{ route('admin.blogs.store') }}" method="post"
                       enctype="multipart/form-data">
 
                     {{ csrf_field() }}
-                    {{ method_field('put') }}
+                    {{ method_field('POST') }}
 
-                    <input class="form-control input-thick" hidden name="vendor_id" value="{{ $user }}">
+                    <input class="form-control input-thick" hidden name="user_id" value="{{ $user }}">
 
                     <ul class="nav nav-pills mb-3" id="lang-tab" role="tablist">
                         @foreach (config('translatable.locales') as $index => $locale)
@@ -35,123 +35,93 @@
                         @endforeach
                     </ul>
                     <div class="tab-content" id="lang-tabContent">
+
                         @foreach (config('translatable.locales') as $locale)
-                          <div class="tab-pane fade show {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}" role="tabpanel" aria-labelledby="pills-{{ $locale }}-tab">
-                              <div class="col-sm-12 col-md-12">
-
-                             <div class="row">
-                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="labelBlog" class="labelBlog" for="{{ $locale }}[title]">Blog Title in @lang('site.' . $locale .
+                            <div class="tab-pane fade  show {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}" role="tabpanel" aria-labelledby="pills-{{ $locale }}-tab">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="labelBlog" class="labelBlog" for="{{ $locale }}[title]">Blog Title in @lang('site.' . $locale .
                                             '.name')</label>
-                                        @error($locale . '.title')
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control  input-thick input-blog-create text-center" type="text" name="{{ $locale }}[title]"
-                                            value="{{ old($locale . '.title') }}">
-                                    </div>
-                                 </div>
-                                 <div class="col-md-6">
+                                                @error($locale . '.title')
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                                @enderror
+                                                <input class="form-control  input-thick input-blog-create text-center" type="text" name="{{ $locale }}[title]"
+                                                       value="{{ old($locale . '.title') }}">
+                                            </div>
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label class="labelBlog" class="labelBlog" for="{{ $locale }}">Welcome Phrase in @lang('site.' . $locale .
-                                          '.name')</label>
-                                        @error($locale . '.welcome_phrase')
-                                        <br />
-                                        <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control  input-thick input-blog-create text-center" type="text" name="{{ $locale }}[welcome_phrase]"
-                                               value="{{ $site_settings->translate($locale)->welcome_phrase }}">
-                                    </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="labelBlog" for="{{ $locale }}[slug]">Slug in @lang('site.' . $locale .
+                                            '.slug')</label>
+                                                @error($locale . '.slug')
+                                                <br />
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                                @enderror
+                                                <input class="form-control input-thick input-blog-create" type="text"
+                                                       name="{{ $locale }}[slug]" value="{{ old($locale . '.slug') }}">
+                                            </div>
+                                        </div>
 
-                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="labelBlog" for="{{ $locale }}[description]">Blog Description in @lang('site.' .
+                                        <div class="col-md-12">
+                                            <div class="form-group w-100">
+                                                <label class="labelBlog" for="{{ $locale }}[description]">Blog Description in @lang('site.' .
                                             $locale . '.name')</label>
-                                        @error($locale . '.description')
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <textarea class="form-control input-thick textareaBlog" type="text"
-                                            name="{{ $locale }}[description]"
-                                            value="{{ old($locale . '.description') }}"></textarea>
-                                    </div>
+                                                @error($locale . '.description')
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                                @enderror
+                                                <textarea class="form-control input-thick textareaBlog" type="text"
+                                                          name="{{ $locale }}[description]"
+                                                          value="{{ old($locale . '.description') }}"></textarea>
+                                            </div>
+                                        </div>
 
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="labelBlog" for="{{ $locale }}[creator]">Creator Name in @lang('site.' . $locale .
-                                            '.name')</label>
-                                        @error($locale . '.creator')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control input-thick input-blog-create" type="text" name="{{ $locale }}[creator]"
-                                            value="{{ old($locale . '.creator') }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="labelBlog" for="{{ $locale }}[meta_title]">Meta Title in @lang('site.' . $locale .
-                                            '.meta_title')</label>
-                                        @error($locale . '.meta_title')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control input-thick" type="text"
-                                            name="{{ $locale }}[meta_title]"
-                                            value="{{ old($locale . '.meta_title') }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="labelBlog" for="{{ $locale }}[meta_keywords]">Meta Keywords in @lang('site.' .
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="labelBlog" for="{{ $locale }}[meta_title]">Meta Title in @lang('site.' . $locale . '.meta_title')</label>
+                                                @error($locale . '.meta_title')
+                                                <br />
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                                @enderror
+                                                <input class="form-control input-thick" type="text"
+                                                       name="{{ $locale }}[meta_title]"
+                                                       value="{{ old($locale . '.meta_title') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="labelBlog" for="{{ $locale }}[meta_keywords]">Meta Keywords in @lang('site.' .
                                             $locale .
                                             '.meta_keywords')</label>
-                                        @error($locale . '.meta_keywords')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control input-thick input-blog-create" type="text"
-                                            name="{{ $locale }}[meta_keywords]"
-                                            value="{{ old($locale . '.meta_keywords') }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="labelBlog" for="{{ $locale }}[meta_description]">Meta Description in @lang('site.' .
+                                                @error($locale . '.meta_keywords')
+                                                <br />
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                                @enderror
+                                                <input class="form-control input-thick input-blog-create" type="text"
+                                                       name="{{ $locale }}[meta_keywords]"
+                                                       value="{{ old($locale . '.meta_keywords') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="labelBlog" for="{{ $locale }}[meta_description]">Meta Description in @lang('site.' .
                                             $locale .
                                             '.meta_description')</label>
-                                        @error($locale . '.meta_description')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control input-thick input-blog-create" type="text"
-                                            name="{{ $locale }}[meta_description]"
-                                            value="{{ old($locale . '.meta_description') }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="labelBlog" for="{{ $locale }}[meta_slug]">Slug in @lang('site.' . $locale .
-                                            '.meta_slug')</label>
-                                        @error($locale . '.meta_slug')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control input-thick input-blog-create" type="text"
-                                            name="{{ $locale }}[meta_slug]" value="{{ old($locale . '.meta_slug') }}">
-                                    </div>
-                                </div>
-                           
-                             </div>
+                                                @error($locale . '.meta_description')
+                                                <br />
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                                @enderror
+                                                <input class="form-control input-thick input-blog-create" type="text"
+                                                       name="{{ $locale }}[meta_description]"
+                                                       value="{{ old($locale . '.meta_description') }}">
+                                            </div>
+                                        </div>
 
-                            
-                          
-                                
-                              
-                                  
-                                  
+
+                                    </div>
+
                                 </div>
                             </div>
                         @endforeach
@@ -160,18 +130,18 @@
                     <div class="row">
 
                         <div class="form-group col-sm-12 col-md-6 m">
-                            <label>Logo</label>
-                            @error('logo')
+                            <label>Image</label>
+                            @error('image')
                             <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="file" name="logo" class="form-control input-sm image" accept="jpg, png, jpeg, svg">
+                            <input type="file" name="image" class="form-control input-sm image" accept="jpg, png, jpeg, svg">
 
-                            <img src="{{ $site_settings->logo_path }}" width="100px"
+                            <img src="{{ asset('uploads/blogs/default.png') }}" width="100px"
                                  class="img-thumbnail image-preview mt-1" alt="">
                         </div> {{-- end of form group image --}}
                         <div class="form-group col-md-6 mt-5">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>
-                                Update Site Settings</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
+                                Create Blog</button>
                         </div>
                     </div> {{-- end of translatable data --}}
 

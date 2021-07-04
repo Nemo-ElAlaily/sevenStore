@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Blog\BlogCreateRequest;
 use App\Models\Blogs\Blog;
-use App\Models\Blogs\BlogTag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,34 +32,36 @@ class BlogController extends Controller
     {
         $user = Auth::user()->id;
 
-        return view('admin.cuba.blogs.create');
+        return view('admin.cuba.blogs.create', compact('user'));
 
     } // end of create
 
     public function store(BlogCreateRequest $request)
     {
+        $characters = array(' ', '/', '!', '\\');
+
         try {
-            $tags = $request->get('tags');
+
             $request->has('is_active') ? $request->request->add(['is_active' => 1]) : $request->request->add(['is_active' => 0]);
             $request->has('show_in_homepage') ? $request->request->add(['show_in_homepage' => 1]) : $request->request->add(['show_in_homepage' => 0]);
-            $request_data = $request->all();
+
+            $request_data = $request -> except(['_token', '_method', 'image']);
+
+            $request_data['ar']['slug'] = str_replace($characters, '-' , $request['ar']['title']);
+            $request_data['en']['slug'] = str_replace($characters, '-' , $request['en']['title']);
 
             if ($request->image) {
-                Image::make($request->image)->resize(1000, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save(public_path('/uploads/blogs/' . $request->image->hashName()));
+                $image_path = uploadImage('uploads/blogs/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
+                $request_data['image'] = Carbon::now() -> year . '/' . Carbon::now() -> month . '/' . $image_path;
+            } else {
+                $request_data['image'] = 'default.png';
+            }
 
-                $request_data['image'] = $request->image->hashName();
-            }
             $blog = Blog::create($request_data);
-            foreach ($tags as $tag_id) {
-                BlogTag::create([
-                    'tag_id' => $tag_id,
-                    'blog_id' => $blog->id
-                ]);
-            }
+
             session()->flash('success', 'Blog Added Successfully');
             return redirect()->route('admin.blogs.index');
+
         } catch (\Exception $exception) {
 
             session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
@@ -78,15 +79,16 @@ class BlogController extends Controller
     public function edit($id)
     {
         try {
-            $tags = Tag::all();
             $blog = Blog::find($id);
-            $blog_tags = $blog->tags->pluck('id')->toArray();
+
+            $blog_tags = $blog -> tags ->pluck('id')->toArray();
+
             if (!$blog) {
                 session()->flash('error', "Blog Doesn't Exist or has been deleted");
                 return redirect()->route('admin.blogs.index');
             }
 
-            return view('admin.cuba.blogs.edit', compact('blog', 'tags', 'blog_tags'));
+            return view('admin.cuba.blogs.edit', compact('blog', 'blog_tags'));
         } catch (\Exception $exception) {
 
             session()->flash('error', 'Something Went Wrong, Please Contact Administrator, ' . $exception->getMessage());
