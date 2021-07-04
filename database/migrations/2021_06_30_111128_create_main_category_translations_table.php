@@ -19,6 +19,11 @@ class CreateMainCategoryTranslationsTable extends Migration
             $table->string('locale')->index();
             $table->string('name'); // translatable
             $table->string('slug'); // translatable
+
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keyword')->nullable();
+
             $table->softDeletes();
 
             $table->unique(['main_category_id', 'locale']);

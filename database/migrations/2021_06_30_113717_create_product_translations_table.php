@@ -23,6 +23,11 @@ class CreateProductTranslationsTable extends Migration
             $table->longText('description')->nullable(); // translatable
             $table->longText('features')->nullable(); // translatable
 
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keyword')->nullable();
+
+            $table->timestamps();
             $table->softDeletes();
 
             $table->unique(['product_id', 'locale']);

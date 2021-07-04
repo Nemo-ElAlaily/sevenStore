@@ -24,6 +24,9 @@
 
                     {{ csrf_field() }}
                     {{ method_field('put') }}
+
+                    <input class="form-control input-thick" hidden name="vendor_id" value="{{ $user }}">
+
                     <ul class="nav nav-pills mb-3" id="lang-tab" role="tablist">
                         @foreach (config('translatable.locales') as $index => $locale)
                             <li class="nav-item">

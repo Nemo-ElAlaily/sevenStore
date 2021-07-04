@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Blog\BlogCreateRequest;
 use App\Models\Blogs\Blog;
 use App\Models\Blogs\BlogTag;
-use App\Models\Blogs\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
@@ -21,16 +21,20 @@ class BlogController extends Controller
         $this->middleware(['permission:blogs_delete'])->only(['destroy']);
     } // end of construct
 
-    public function index()
+    public function index(Request $request)
     {
-        $blogs = Blog::paginate(ADMIN_PAGINATION_COUNT);
+        $blogs = Blog::when($request -> search , function ($query) use ($request) {
+            return $query -> whereTranslationLike('title', '%' . $request -> search . '%');
+        })->latest()->paginate(ADMIN_PAGINATION_COUNT);
         return view('admin.cuba.blogs.index', compact('blogs'));
     } // end of index
 
     public function create()
     {
-        $tags = Tag::all();
-        return view('admin.cuba.blogs.create', compact('tags'));
+        $user = Auth::user()->id;
+
+        return view('admin.cuba.blogs.create');
+
     } // end of create
 
     public function store(BlogCreateRequest $request)

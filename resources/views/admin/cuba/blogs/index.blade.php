@@ -25,7 +25,7 @@
 
                     <div class="col-md-4 p-0">
                         <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
-                        <a href="{{ route('admin.blogs.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> Add Page</a>
+                        <a href="{{ route('admin.blogs.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> Create Blog</a>
                     </div>
 
                 </div>

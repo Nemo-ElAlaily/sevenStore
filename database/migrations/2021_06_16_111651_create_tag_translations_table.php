@@ -19,6 +19,11 @@ class CreateTagTranslationsTable extends Migration
             $table->string('locale')->index();
             $table->string('name');
             $table->string('slug')->nullable();
+
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keyword')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
 

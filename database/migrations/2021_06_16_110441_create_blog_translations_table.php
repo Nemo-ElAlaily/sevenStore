@@ -20,6 +20,12 @@ class CreateBlogTranslationsTable extends Migration
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->longText('description')->nullable();
+
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keyword')->nullable();
+
+            $table->timestamps();
             $table->softDeletes();
 
             $table->unique(['blog_id', 'locale']);

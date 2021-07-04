@@ -20,9 +20,11 @@ class CreatePageTranslationsTable extends Migration
             $table->string('title');
             $table->string('slug')->nullable();
             $table->longText('content')->nullable();
+
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_keyword')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
 
