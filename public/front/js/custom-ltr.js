@@ -5,6 +5,7 @@ jQuery("#btnToggle").click(function(){
     jQuery('.u-sidebar--left').fadeIn(100);
     setTimeout(function(){jQuery('.btnClose').fadeIn('show')}, 500);
     jQuery('body , html').animate({marginLeft: "70px"},1000);
+     jQuery('.sidebar-header-parent').fadeIn(100);
   
 });
 
@@ -14,6 +15,7 @@ jQuery('.btnClose i').click(function(){
     jQuery('#sidebarHeader1').animate({left: '-340px'},1000);
     setTimeout(function(){jQuery('.btnClose').fadeOut('hide')}, 100);
     jQuery('body , html').animate({marginLeft: "0"},1000);
+    jQuery('.sidebar-header-parent').fadeOut(300);
 });
 jQuery('.toggleSide i ').click(function(){
     jQuery('#sidebarHeader1').animate({left: '0'},1000);

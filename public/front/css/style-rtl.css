@@ -10072,6 +10072,17 @@ h3.faq-title {
     cursor: pointer;
 
 }
+.sidebar-header-parent{
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 10000;
+  display: none;
+  
+}
 #sidebarHeader1{
     width: 330px;
     position: fixed;
@@ -10083,7 +10094,7 @@ h3.faq-title {
     padding: 40px 60px;
     box-shadow: 1px 12px 20px 0px black;
     overflow: auto;
-
+    z-index: 12222222;
 }
 .mCustomScrollBox{
     position: relative;
