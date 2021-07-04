@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Blogs\Blog;
 use App\Models\Orders\Order;
+use App\Models\Products\Product;
 use App\Models\User;
 
 class AdminController extends Controller
