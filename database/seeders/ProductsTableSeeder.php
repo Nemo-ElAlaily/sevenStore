@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\MainCategories\MainCategory;
 use App\Models\Products\ProductGallery;
+use App\Models\Products\ProductTag;
 use App\Models\WP\Post;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -98,6 +99,14 @@ class ProductsTableSeeder extends Seeder
                 } // end of if
 
             } // end of gallery foreach
+
+            $product_tags = $product -> taxonomies -> where('taxonomy', 'product_tag');
+            foreach ($product_tags as $tag) {
+                ProductTag::create([
+                   'tag_id' => $tag -> term_id,
+                    'product_id' => $tag -> pivot -> object_id,
+                ]);
+            } // end of tag foreach
 
             DB::commit();
 
