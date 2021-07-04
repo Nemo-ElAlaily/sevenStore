@@ -51,7 +51,7 @@ class ProductsTableSeeder extends Seeder
 
                 'image' => $product -> image,
 
-                'sku' => $product -> getSku() != null ? $product -> getSku() : null,
+                'sku' => $product -> getSku(),
                 'sale_price' => $product -> getSalePrice() != null ? $product -> getSalePrice() : ($product -> getRegularPrice() == null ? 0 : $product -> getRegularPrice()),
                 'regular_price' => $product -> getRegularPrice() != null ? $product -> getRegularPrice() : 0,
 
@@ -90,13 +90,11 @@ class ProductsTableSeeder extends Seeder
             {
                 if($gallery_item -> guid != $new_product -> image) {
 
-                    $product_gallery = [];
-                    $product_gallery += [
+                    $product_gallery = ProductGallery::where('image_path', $gallery_item -> guid)->firstOrCreate([
                         'product_id' => $new_product -> id,
-                        'image_path' => $gallery_item -> guid
-                    ];
+                        'image_path' => $gallery_item -> guid,
+                    ]);
 
-                    ProductGallery::create($product_gallery);
                 } // end of if
 
             } // end of gallery foreach

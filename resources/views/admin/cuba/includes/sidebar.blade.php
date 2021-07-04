@@ -160,7 +160,7 @@
                                           </ul>
                                        </li>
 
-                                       <li class="sidebar-list">
+                                       <li>
                                           <a class="submenu-title" href="#" data-bs-original-title="" title="">
                                              <i class="nav-icon fa fa-ship"></i>
      

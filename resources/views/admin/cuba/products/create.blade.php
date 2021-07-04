@@ -148,7 +148,26 @@
                         </div>
                     </div>
 
+<<<<<<< HEAD
    
+=======
+                    <div class="form-group col-sm-12 card card-primary card-outline">
+                        <div class="text-center col-sm-12">
+                            <h3 class="m-3">Gallery</h3>
+                            <hr>
+                        </div>
+
+                        <div class="input-field">
+                            <div class="gallery p-2">
+                                @error('gallery')
+                                <br />
+                                <span class="text-danger mx-1">{{ $message }}</span>
+                                @enderror
+
+                            </div>
+                        </div>
+                    </div> {{-- end of product gallery --}}
+>>>>>>> e2f93f38afbb69024cf2a62d70880d8a75d2a66c
 
                     <div class="form-group">
                         <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>

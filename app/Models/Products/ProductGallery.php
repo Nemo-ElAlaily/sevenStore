@@ -3,12 +3,9 @@
 namespace App\Models\Products;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ProductGallery extends Model
 {
-    use SoftDeletes;
-
     public $timestamps = true;
 
     protected $table = 'product_gallery';

@@ -12,7 +12,7 @@
     <!-- Default box -->
     <div class="card card-solid">
         <div class="card-body">
-            <div class="row">
+            <div class="row add-create-blog">
 
                 <form class="col-12" action="{{ route('admin.users.update', $user -> id) }}" method="post" enctype="multipart/form-data">
 
@@ -20,32 +20,32 @@
                     {{ method_field('put') }}
 
                     <div class="row">
-                        <div class="form-group col-sm-12 col-lg-6">
-                            <label>First Name</label>
+                        <div class="form-group col-sm-12 col-md-4">
+                            <label class="labelProd" >First Name</label>
                             @error('first_name')
                             <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="text" name="first_name" class="form-control form-control-sm input-sm" value="{{ $user -> first_name }}">
+                            <input type="text" name="first_name" class="form-control input-blog-create form-control-sm input-sm" value="{{ $user -> first_name }}">
                         </div>
 
-                        <div class="form-group col-sm-12 col-lg-6">
-                            <label>Last Name</label>
+                        <div class="form-group col-sm-12 col-md-4">
+                            <label class="labelProd" >Last Name</label>
                             @error('last_name')
                             <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="text" name="last_name" class="form-control form-control-sm input-sm" value="{{ $user -> last_name }}">
+                            <input type="text" name="last_name" class="form-control input-blog-create form-control-sm input-sm" value="{{ $user -> last_name }}">
                         </div>
 
-                        <div class="form-group col-sm-12 col-lg-12">
-                            <label>E-Mail</label>
+                        <div class="form-group col-sm-12 col-md-4">
+                            <label class="labelProd" >E-Mail</label>
                             @error('email')
                             <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="email" name="email" class="form-control form-control-sm input-sm" value="{{ $user -> email }}">
+                            <input type="email" name="email" class="input-blog-create form-control form-control-sm input-sm" value="{{ $user -> email }}">
                         </div>
 
-                        <div class="form-group col-sm-12 col-lg-12">
-                            <label>Avatar</label>
+                        <div class="form-group col-sm-12 col-md-6 my-5  text-center m-auto">
+                            <label class="labelProd" >Avatar</label>
                             @error('avatar')
                             <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -53,7 +53,7 @@
                             <img src="{{ $user -> avatar_path }}" width="100px" class="img-thumbnail avatar-preview mt-1" alt="">
                         </div>
 
-                        <div class="form-group col-sm-12 col-lg-12">
+                        <div class="form-group col-sm-12 col-lg-12 mb-5">
 
                             <div class="text-center m-b">
                                 <h3 class="m-b-0">User Role</h3>
@@ -76,7 +76,7 @@
 
                                     @foreach($roles as $role)
                                         <td>
-                                            <label for="role"></label>
+                                            <label class="labelProd" for="role"></label>
                                             <input {{ $user -> hasRole($role) ? 'checked' : '' }} class="" type="radio" name="role" value="{{ $role }}">
                                         </td>
                                     @endforeach
