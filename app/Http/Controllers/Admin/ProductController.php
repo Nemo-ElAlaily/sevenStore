@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Http\Requests\Products\ProductCreateRequest;
+use App\Http\Requests\Products\ProductUpdateRequest;
 use App\Models\MainCategories\MainCategory;
 use App\Models\Products\Product;
 use App\Models\Products\ProductGallery;
@@ -165,7 +166,7 @@ class ProductController extends Controller
 
     } // end of edit
 
-    public function update($id, Request $request)
+    public function update($id, ProductUpdateRequest $request)
     {
         $characters = array(' ', '/', '!', '\\');
 
