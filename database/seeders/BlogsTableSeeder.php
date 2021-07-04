@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Blogs\Blog;
+use App\Models\Blogs\BlogTag;
 use App\Models\Blogs\BlogTranslation;
+use App\Models\Products\ProductTag;
 use Corcel\Model\Post;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -48,6 +50,15 @@ class BlogsTableSeeder extends Seeder
                 $new_blog_translation -> slug = $blog -> slug == null ? str_replace($characters, '-' , $blog -> title) : $blog -> slug;
                 $new_blog_translation -> description = $blog -> content;
                 $new_blog_translation -> save();
+
+            $blog_tags = $blog -> taxonomies -> where('taxonomy', 'post_tag');
+
+            foreach ($blog_tags as $tag) {
+                BlogTag::create([
+                    'tag_id' => $tag -> term_id,
+                    'blog_id' => $tag -> pivot -> object_id,
+                ]);
+            } // end of tag foreach
 
             DB::commit();
 

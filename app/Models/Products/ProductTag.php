@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductTag extends Model
 {
-    protected $table = 'blog_tag';
+    protected $table = 'product_tag';
 
-    protected $fillable = ['blog_id', 'tag_id'];
+    protected $fillable = ['product_id', 'tag_id'];
 
     /* ***********************************
     Start of Relationships
