@@ -2733,6 +2733,7 @@
         flex: 0 0 13%;
         max-width: 13%;
     }
+ 
     .page-wrapper.compact-wrapper .page-header .header-wrapper .nav-right {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 73%;
@@ -2771,6 +2772,9 @@
     }
     .btn {
         padding: 6px 20px;
+    }
+    .btnstatus{
+        padding: 0 !important;
     }
     .alert-theme {
         min-width: 380px;

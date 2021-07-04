@@ -14,9 +14,6 @@
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
-        <div class="col-md-12">
-            <img class="user-avatar" src="{{asset('admins/cuba/assets/images/exchange2.png')}}" alt="">
-        </div>
                 <form class="col-12" action="{{ route('admin.currencies.store') }}" method="post">
 
                     {{ csrf_field() }}

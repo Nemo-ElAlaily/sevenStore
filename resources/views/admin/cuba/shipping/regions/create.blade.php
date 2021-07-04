@@ -14,9 +14,6 @@
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
-        <div class="col-md-12">
-            <img class="user-avatar" src="{{asset('admins/cuba/assets/images/region.png')}}" alt="">
-        </div>
 {{--                        @include('partials._errors')--}}
                 <form class="col-12" action="{{ route('admin.regions.store') }}" method="post" enctype="multipart/form-data">
 

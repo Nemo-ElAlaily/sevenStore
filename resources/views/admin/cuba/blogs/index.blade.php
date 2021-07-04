@@ -38,43 +38,48 @@
 
         <div class="box-body bg-white mx-5 mt-3">
 
-            <table class="text-center pt-2 card-body table table-hover table-bordered">
-                @if ($blogs->count() > 0)
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Blog Title</th>
-                        <th>Blog Author</th>
-                        <th>Blog Image</th>
-                        <th>Blog Status</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
+ <!-- Start Blog -->
+          
+          @if ($blogs->count() > 0)
+          <section class="blog section" id="blog">
+            <div class="container">
+             
+          <div class="row">  
                     @foreach ($blogs as $index => $blog)
-                        <tr>
-                            <td>{{ $index + 1 }}</td>
-                            <td>{{ $blog -> title }}</td>
-                            <td>{{ $blog -> user -> full_name }}</td>
-                            <td><img src="{{ $blog -> image_path }}" class="img-prod"></td>
+                    <div class="col-xs-12 col-md-6 col-lg-4">
+                    <div class="blog-item padd-15">
+                        <div class="blog-item-inner shadow-dark">
+                          <div class="blog-img">
+                            <img src="{{ $blog -> image_path }}" alt="Blog">
+                            <div class="blog-date">
+                                {{ $index + 1 }}
+                            </div>
+                          </div>
+                          <div class="blog-info">
+                            <h4 class="blog-title">{{ $blog -> user -> full_name }}</h4>
+                            <p class="blog-description">{{ $blog -> title }}</p>
+                            <p class="blog-tags">Blog Status : <a href="#"> {{ $blog -> getActive() }}</a></p>
 
-                            <td>{{ $blog -> getActive() }}</td>
-
-                            <td>
+                            <div class="blog-btns-actions">
                                 <a href="{{ route('admin.blogs.show', $blog->id) }}" class="btn btnShow  btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>
                                 <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn btnEdit btn-sm"><i class="fa fa-edit fa-lg text-lg"></i></a>
                                 <form action="{{ route('admin.blogs.destroy', $blog->id) }}" method="post" style="display: inline-block">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
                                     <button type="button" class="btn btnDelete show_confirm btn-sm"><i class="fa fa-trash fa-lg text-lg"></i></button>
-                                </form><!-- end of form -->
-                            </td>
-                        </tr>
+                                </form><!-- end of form -->  
+                            </div>
+                        </div>
+                        </div>
+                      </div>
 
-                    @endforeach
-                    </tbody>
-
+                                
+                   
+                    </div>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
                 @else
                     <h2 class="mt-5 text-center pt-2">No Data Found</h2>
                 @endif

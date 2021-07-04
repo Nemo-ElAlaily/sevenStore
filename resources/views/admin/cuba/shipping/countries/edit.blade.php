@@ -13,9 +13,7 @@
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
-        <div class="col-md-12">
-            <img class="user-avatar" src="{{asset('admins/cuba/assets/images/country.png')}}" alt="">
-        </div>
+
                 @include('admin.cuba.partials._errors')
                 <form class="col-12" action="{{ route('admin.countries.update', $country -> id) }}" method="post" enctype="multipart/form-data">
 

@@ -12,9 +12,12 @@
     <div class="card card-solid">
         <div class="card-body">
             <div class="row">
+<<<<<<< HEAD
+=======
                 <div class="col-md-12">
                     <img class="user-avatar" src="{{asset('admins/cuba/assets/images/create.png')}}" alt="">
                 </div>
+>>>>>>> e2f93f38afbb69024cf2a62d70880d8a75d2a66c
                 @include('admin.cuba.partials._errors')
                 <form class="col-12"  action="{{ route('admin.products.update', $product -> id) }}" method="POST" enctype="multipart/form-data">
 

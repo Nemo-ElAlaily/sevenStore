@@ -11,17 +11,17 @@
 @section('content')
     <!-- Default box -->
     <div class="card card-solid">
-        <div class="card-body">
+        <div class="card-body parent-category-edit">
             <div class="row">
-
+            <div class="edit-category-form">
                 @include('admin.cuba.partials._errors')
-                <form class="col-12"  action="{{ route('admin.main_categories.update', $main_category -> id) }}" method="post" enctype="multipart/form-data">
+                <form class="col-md-7 m-auto"  action="{{ route('admin.main_categories.update', $main_category -> id) }}" method="post" enctype="multipart/form-data">
 
                     {{ csrf_field() }}
                     {{ method_field('put') }}
 
                     <div class="row">
-                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                        <div class="form-group col-sm-12 col-md-6 text-md">
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" @if($main_category -> is_active == 1 )checked @endif>
                                 <label class="custom-control-label" for="is_active">Is Active</label>
@@ -31,7 +31,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                        <div class="form-group col-sm-12 col-md-6 text-md">
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="show_in_navbar" name="show_in_navbar" @if($main_category -> show_in_navbar == 1 )checked @endif >
                                 <label class="custom-control-label" for="show_in_navbar">Show in Navbar</label>
@@ -41,7 +41,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                        <div class="form-group col-sm-12 col-md-6  text-md">
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="show_in_sidebar" name="show_in_sidebar" @if($main_category -> show_in_sidebar == 1 )checked @endif >
                                 <label class="custom-control-label" for="show_in_sidebar">Show in Sidebar</label>
@@ -51,7 +51,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
+                        <div class="form-group col-sm-12 col-md-6 text-md">
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="show_in_footer" name="show_in_footer" @if($main_category -> show_in_footer == 1 )checked @endif>
                                 <label class="custom-control-label" for="show_in_footer">Show in Footer</label>
@@ -62,28 +62,28 @@
                         </div>
 
                         <div class="col-sm-12 row">
-                            <div class="form-group col-lg-6">
-                                <label class="bg-warning my-2" for="name">Category Name</label>
+                            <div class="form-group col-md-6">
+                                <label class="  my-2" for="name"></label>
                                 @error('name')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <input class="form-control input-thick bg-dark text-center " type="text" name="name"
-                                       value="{{ $main_category -> name }}">
+                                <input class="form-control input-thick  text-center " type="text" name="name"
+                                     placeholder="Category Name"  value="{{ $main_category -> name }}">
                             </div>
 
-                            <div class="form-group col-lg-6">
-                                <label class="bg-warning my-2" for="slug">Slug</label>
+                            <div class="form-group col-md-6">
+                                <label class="  my-2" for="slug"></label>
                                 @error('slug')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <input class="form-control input-thick bg-dark text-center " type="text" name="slug"
-                                       value="{{ $main_category -> slug }}">
+                                <input class="form-control input-thick  text-center " type="text" name="slug"
+                                      placeholder="Slug" value="{{ $main_category -> slug }}">
                             </div>
 
 
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
-                                    <label class="bg-warning my-2" for="parent_id">Parent Category</label>
+                                    <label class="  my-2" for="parent_id">Parent Category</label>
                                     @error('parent_id')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
@@ -97,8 +97,8 @@
                             </div>
 
 
-                            <div class="form-group col-sm-12 col-lg-12">
-                                <label class="bg-warning my-2" label for="image">Image</label>
+                            <div class="form-group col-sm-12 col-md-6">
+                                <label class="  my-2" label for="image">Image</label>
                                 @error('image')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
@@ -117,7 +117,7 @@
                     </div>
 
                 </form><!-- end of form -->
-
+            </div>
             </div>
         </div>
         <!-- /.card-body -->

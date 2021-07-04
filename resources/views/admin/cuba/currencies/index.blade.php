@@ -12,9 +12,6 @@
 
 @section('content')
     <div class="box box-primary">
-        <div class="col-md-12">
-            <img class="user-avatar" src="{{asset('admins/cuba/assets/images/exchange.png')}}" alt="">
-        </div>
         <div class="box-header with-border">
 
             <form action="{{ route('admin.currencies.index') }}" method="get">

@@ -60,7 +60,7 @@
                 <div class="col-xxl-4 col-md-6">
                      <div class="prooduct-details-box">
                         <div class="media">
-                           <div class="media-body ms-3">
+                           <div class="media-body media-body-orders ms-3">
                               <div class="product-name">
                                  <h6>Name: <a href="#">{{ $order -> user -> full_name }}</a></h6>
                               </div>
@@ -69,7 +69,7 @@
                               <div class="avaiabilty">
                                  <div class="text-success">#{{ $index + 1 }}</div>
                               </div>
-                            <a class="btn btn-primary btn-xs" href="#">{{ $order -> status }}</a>
+                            <a class="btnstatus btn btn-primary btn-xs" href="#">{{ $order -> status }}</a>
                            </div>
                         </div>
                          <div class="order-list-buttons">

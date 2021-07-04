@@ -2,7 +2,7 @@
 <?php
  $categories = App\Models\MainCategories\MainCategory::whereTranslation('name', 'not like', 'بدون تصنيف')->where('parent_id', 0)->get();
 ?>
-
+<section class="sidebar-header-parent">
 <aside id="sidebarHeader1" class="" aria-labelledby="sidebarHeaderInvokerMenu" style="animation-duration: 500ms; left: -335px;">
     <div class="u-sidebar__scroller">
         <div class="u-sidebar__container">
@@ -60,3 +60,4 @@
         </div>
     </div>
 </aside>
+</section>

@@ -19,9 +19,6 @@
             <form action="{{ route('admin.countries.index') }}" method="get">
 
                 <div class="row">
-        <div class="col-md-12">
-            <img class="user-avatar" src="{{asset('admins/cuba/assets/images/country.png')}}" alt="">
-        </div>
                     <div class="col-md-4">
                         <input type="text" name="search" class="form-control" placeholder="Search Here..." value="{{ request()->search }}">
                     </div>

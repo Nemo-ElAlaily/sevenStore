@@ -113,39 +113,123 @@
                               </li>
                               
                             @endif
+                            
 
+                              
                               @if (auth()->user()->hasPermission('products_read'))
                               <li class="sidebar-list">
-                                 <label class="badge badge-danger"></label>
-                                 <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/products' ? 'active' : '' }}" href="#">
-                                    <i class="nav-icon fa fa-product-hunt"></i>
-                                    <span>Products</span>
-                                    <div class="according-menu">
-                                       <i class="fa fa-angle-{{request()->route()->getPrefix() == '/products' ? 'down' : 'right' }}"></i>
-                                    </div>
-                                 </a>
-                                 <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/vendors' ? 'block;' : 'none;' }}">
-                                    <li><a href="{{route('admin.products.index')}}" class="{{ Route::currentRouteName()=='admin.products.index' ? 'active' : '' }}">All</a></li>
-                                    <li><a href="{{route('admin.products.create')}}" class="{{ Route::currentRouteName()=='admin.products.create' ? 'active' : '' }}">Create Product</a></li>
+                                <label class="badge badge-danger"></label>
+                                <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/users' ? 'active' : '' }}" href="#">
+                                   <i class="nav-icon fa fa-shopping-cart"></i>
+                                   <span>Store</span>
+                                   <div class="according-menu">
+                                      <i class="fa fa-angle-{{request()->route()->getPrefix() == '/users' ? 'down' : 'right' }}"></i>
+                                   </div>
+                                </a>
+                                <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/users' ? 'block;' : 'none;' }}">
+                                       
+                                       {{-- Products --}}
+                                       <li>
+                                    
+                                          <a class="submenu-title" href="#" data-bs-original-title="" title="">
+                                           <i class="nav-icon fa-product-hunt"></i>
+   
+                                             Products
+                                             <div class="according-menu"><i class="fa fa-angle-right"></i></div>
+                                          </a>
+                                          <ul class="nav-sub-childmenu submenu-content" style="display: {{ request()->route()->getPrefix() == '/vendors' ? 'block;' : 'none;' }}">
+                                             <li><a href="{{route('admin.products.index')}}" class="{{ Route::currentRouteName()=='admin.products.index' ? 'active' : '' }}">All</a></li>
+                                             <li><a href="{{route('admin.products.create')}}" class="{{ Route::currentRouteName()=='admin.products.create' ? 'active' : '' }}">Create User</a></li>
+                                          </ul>
+                                       </li>
+
+
+                                       {{-- Main Category --}}
+                                       <li>
+                                    
+                                          <a class="submenu-title" href="#" data-bs-original-title="" title="">
+                                           <i class="nav-icon fa fa-puzzle-piece"></i>
+   
+                                           Main Categories
+                                           <div class="according-menu">
+                                             <i class="fa fa-angle-{{request()->route()->getPrefix() == '/main_categories' ? 'down' : 'right' }}"></i>
+                                          </div>                                          </a>
+                                          <ul class="nav-sub-childmenu submenu-content" style="display: {{ request()->route()->getPrefix() == '/vendors' ? 'block;' : 'none;' }}">
+                                             <li><a href="{{route('admin.main_categories.index')}}" class="{{ Route::currentRouteName()=='admin.main_categories.index' ? 'active' : '' }}">All</a></li>
+                                             <li><a href="{{route('admin.main_categories.create')}}" class="{{ Route::currentRouteName()=='admin.main_categories.create' ? 'active' : '' }}">Create Category</a></li>
+                                          </ul>
+                                       </li>
+
+                                       <li>
+                                          <a class="submenu-title" href="#" data-bs-original-title="" title="">
+                                             <i class="nav-icon fa fa-ship"></i>
+     
+                                             Shipping
+                                             <div class="according-menu">
+                                               <i class="fa fa-angle-{{request()->route()->getPrefix() == 'admin/currencies' ? 'down' : 'right' }}"></i>
+                                            </div>                                          </a>
+                                          <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == 'admin/currencies' ? 'block;' : 'none;' }}">
+                                            {{-- Currencies --}}
+                                            <li>
+                                             <a class="submenu-title" href="#" data-bs-original-title="" title="">
+                                                 <i class="nav-icon fa fa-money"></i>
+                                                   Currencies
+                                                   <div class="according-menu"><i class="fa fa-angle-right"></i></div>
+                                                </a>
+                                                <ul class="nav-sub-childmenu submenu-content" style="display: {{ request()->route()->getPrefix() == 'admin/currencies' ? 'block;' : 'none;' }}">
+                                                 <li><a href="{{route('admin.currencies.index')}}" class="{{ Route::currentRouteName()=='admin.currencies.index' ? 'active' : '' }}">All</a></li>
+                                                 <li><a href="{{route('admin.currencies.create')}}" class="{{ Route::currentRouteName()=='admin.currencies.create' ? 'active' : '' }}">Add Currency</a></li>
+                                                </ul>
+                                             </li>
+                                            {{-- Countries --}}
+                                            <li>
+                                             <a class="submenu-title" href="#" data-bs-original-title="" title="">
+                                                 <i class="nav-icon fa fa-globe"></i>
+                                                   Countries
+                                             <div class="according-menu">
+                                                <i class="fa fa-angle-{{request()->route()->getPrefix() == 'admin/countries' ? 'down' : 'right' }}"></i>
+                                             </div>                                       </a>
+                                                <ul class="nav-sub-childmenu submenu-content" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
+                                             <li><a href="{{route('admin.countries.index')}}" class="{{ Route::currentRouteName()=='admin.countries.index' ? 'active' : '' }}">All</a></li>
+                                             <li><a href="{{route('admin.countries.create')}}" class="{{ Route::currentRouteName()=='admin.countries.create' ? 'active' : '' }}">Add Country</a></li>
+                                                </ul>
+                                             </li>
+                                            {{-- Cities --}}
+                                            <li>
+                                             <a class="submenu-title" href="#" data-bs-original-title="" title="">
+                                                 <i class="nav-icon fa fa-globe"></i>
+                                                   Cities
+                                             <div class="according-menu">
+                                                <i class="fa fa-angle-{{request()->route()->getPrefix() == 'admin/cities' ? 'down' : 'right' }}"></i>
+                                             </div>                                       </a>
+                                                <ul class="nav-sub-childmenu submenu-content" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
+                                             <li><a href="{{route('admin.cities.index')}}" class="{{ Route::currentRouteName()=='admin.cities.index' ? 'active' : '' }}">All</a></li>
+                                             <li><a href="{{route('admin.cities.create')}}" class="{{ Route::currentRouteName()=='admin.cities.create' ? 'active' : '' }}">Add City</a></li>
+                                                </ul>
+                                             </li>
+                                            {{-- Regions --}}
+                                            <li>
+                                             <a class="submenu-title" href="#" data-bs-original-title="" title="">
+                                                 <i class="nav-icon fa fa-globe"></i>
+                                                   Regions
+                                             <div class="according-menu">
+                                                <i class="fa fa-angle-{{request()->route()->getPrefix() == 'admin/regions' ? 'down' : 'right' }}"></i>
+                                             </div>                                     </a>
+                                                <ul class="nav-sub-childmenu submenu-content" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
+                                             <li><a href="{{route('admin.regions.index')}}" class="{{ Route::currentRouteName()=='admin.regions.index' ? 'active' : '' }}">All</a></li>
+                                             <li><a href="{{route('admin.regions.create')}}" class="{{ Route::currentRouteName()=='admin.regions.create' ? 'active' : '' }}">Add City</a></li>
+                                                </ul>
+                                             </li>                                   
+                                          </ul>
+                                       </li>
                                  </ul>
+  
+  
                               </li>
+  
+  
                               @endif
-                              @if (auth()->user()->hasPermission('main_categories_read'))
-                              <li class="sidebar-list">
-                                 <label class="badge badge-danger"></label>
-                                 <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/main_categories' ? 'active' : '' }}" href="#">
-                                    <i class="nav-icon fa fa-puzzle-piece"></i>
-                                    <span>Main Categories</span>
-                                    <div class="according-menu">
-                                       <i class="fa fa-angle-{{request()->route()->getPrefix() == '/main_categories' ? 'down' : 'right' }}"></i>
-                                    </div>
-                                 </a>
-                                 <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
-                                    <li><a href="{{route('admin.main_categories.index')}}" class="{{ Route::currentRouteName()=='admin.main_categories.index' ? 'active' : '' }}">All</a></li>
-                                    <li><a href="{{route('admin.main_categories.create')}}" class="{{ Route::currentRouteName()=='admin.main_categories.create' ? 'active' : '' }}">Create Category</a></li>
-                                 </ul>
-                              </li>
-                              @endif
+
                               @if (auth()->user()->hasPermission('orders_read'))
                               <li class="sidebar-list">
                                  <label class="badge badge-danger"></label>
@@ -241,71 +325,7 @@
                                  </ul>
                               </li>
                               @endif
-                              @if (auth()->user()->hasPermission('currencies_read'))
-                              <li class="sidebar-list">
-                                 <label class="badge badge-danger"></label>
-                                 <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == 'admin/currencies' ? 'active' : '' }}" href="#">
-                                    <i class="nav-icon fa fa-ship"></i>
-                                    <span>Shipping</span>
-                                    <div class="according-menu">
-                                       <i class="fa fa-angle-{{request()->route()->getPrefix() == 'admin/currencies' ? 'down' : 'right' }}"></i>
-                                    </div>
-                                 </a>
-                                 <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
-                                   {{-- Currencies --}}
-                                   <li>
-                                    <a class="submenu-title" href="#" data-bs-original-title="" title="">
-                                        <i class="nav-icon fa fa-money"></i>
-                                          Currencies
-                                          <div class="according-menu"><i class="fa fa-angle-right"></i></div>
-                                       </a>
-                                       <ul class="nav-sub-childmenu submenu-content" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
-                                        <li><a href="{{route('admin.currencies.index')}}" class="{{ Route::currentRouteName()=='admin.currencies.index' ? 'active' : '' }}">All</a></li>
-                                        <li><a href="{{route('admin.currencies.create')}}" class="{{ Route::currentRouteName()=='admin.currencies.create' ? 'active' : '' }}">Add Currency</a></li>
-                                       </ul>
-                                    </li>
-                                   {{-- Countries --}}
-                                   <li>
-                                    <a class="submenu-title" href="#" data-bs-original-title="" title="">
-                                        <i class="nav-icon fa fa-globe"></i>
-                                          Countries
-                                    <div class="according-menu">
-                                       <i class="fa fa-angle-{{request()->route()->getPrefix() == 'admin/countries' ? 'down' : 'right' }}"></i>
-                                    </div>                                       </a>
-                                       <ul class="nav-sub-childmenu submenu-content" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
-                                    <li><a href="{{route('admin.countries.index')}}" class="{{ Route::currentRouteName()=='admin.countries.index' ? 'active' : '' }}">All</a></li>
-                                    <li><a href="{{route('admin.countries.create')}}" class="{{ Route::currentRouteName()=='admin.countries.create' ? 'active' : '' }}">Add Country</a></li>
-                                       </ul>
-                                    </li>
-                                   {{-- Cities --}}
-                                   <li>
-                                    <a class="submenu-title" href="#" data-bs-original-title="" title="">
-                                        <i class="nav-icon fa fa-globe"></i>
-                                          Cities
-                                    <div class="according-menu">
-                                       <i class="fa fa-angle-{{request()->route()->getPrefix() == 'admin/cities' ? 'down' : 'right' }}"></i>
-                                    </div>                                       </a>
-                                       <ul class="nav-sub-childmenu submenu-content" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
-                                    <li><a href="{{route('admin.cities.index')}}" class="{{ Route::currentRouteName()=='admin.cities.index' ? 'active' : '' }}">All</a></li>
-                                    <li><a href="{{route('admin.cities.create')}}" class="{{ Route::currentRouteName()=='admin.cities.create' ? 'active' : '' }}">Add City</a></li>
-                                       </ul>
-                                    </li>
-                                   {{-- Regions --}}
-                                   <li>
-                                    <a class="submenu-title" href="#" data-bs-original-title="" title="">
-                                        <i class="nav-icon fa fa-globe"></i>
-                                          Regions
-                                    <div class="according-menu">
-                                       <i class="fa fa-angle-{{request()->route()->getPrefix() == 'admin/regions' ? 'down' : 'right' }}"></i>
-                                    </div>                                     </a>
-                                       <ul class="nav-sub-childmenu submenu-content" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
-                                    <li><a href="{{route('admin.regions.index')}}" class="{{ Route::currentRouteName()=='admin.regions.index' ? 'active' : '' }}">All</a></li>
-                                    <li><a href="{{route('admin.regions.create')}}" class="{{ Route::currentRouteName()=='admin.regions.create' ? 'active' : '' }}">Add City</a></li>
-                                       </ul>
-                                    </li>                                   
-                                 </ul>
-                              </li>
-                              @endif
+       
 
                               @if (auth()->user()->hasPermission('site_settings_read'))
                               <li class="sidebar-list mt-1">

@@ -12,7 +12,7 @@
     <!-- Default box -->
     <div class="card card-solid">
         <div class="card-body">
-            <div class="row">
+            <div class="row add-create-blog">
 
 {{--                        @include('partials._errors')--}}
                 <form class="col-12" action="{{ route('admin.users.store') }}" method="post" enctype="multipart/form-data">
@@ -22,7 +22,7 @@
 
                         <div class="row">
 
-                            <div class="form-group col-sm-12 col-lg-6">
+                            <div class="form-group col-sm-12 col-md-4">
                                 <label class="user-label">First Name</label>
                                 @error('first_name')
                                 <span class="text-danger mx-1">{{ $message }}</span>
@@ -30,7 +30,7 @@
                                 <input type="text" name="first_name" class="form-control form-control-sm input-sm" value="{{ old('first_name') }}">
                             </div>
 
-                            <div class="form-group col-sm-12 col-lg-6">
+                            <div class="form-group col-sm-12 col-md-4">
                                 <label class="user-label">Last Name</label>
                                 @error('last_name')
                                 <span class="text-danger mx-1">{{ $message }}</span>
@@ -38,7 +38,7 @@
                                 <input type="text" name="last_name" class="form-control form-control-sm input-sm" value="{{ old('last_name') }}">
                             </div>
 
-                            <div class="form-group col-sm-12 col-lg-12">
+                            <div class="form-group col-sm-12 col-md-4">
                                 <label class="user-label">E-Mail</label>
                                 @error('email')
                                 <span class="text-danger mx-1">{{ $message }}</span>
@@ -46,7 +46,7 @@
                                 <input type="email" name="email" class="form-control form-control-sm input-sm" value="{{ old('email') }}">
                             </div>
 
-                            <div class="form-group col-sm-12 col-lg-6">
+                            <div class="form-group col-sm-12 col-md-4 my-5">
                                 <label class="user-label">Password</label>
                                 @error('password')
                                 <span class="text-danger mx-1">{{ $message }}</span>
@@ -54,7 +54,7 @@
                                 <input type="password" name="password" class="form-control form-control-sm input-sm">
                             </div>
 
-                            <div class="form-group forms col-sm-12 col-lg-6">
+                            <div class="form-group forms col-sm-12 col-md-4 my-5">
                                 <label class="user-label">Password Confirmation</label>
                                 @error('password.confirmed')
                                 <span class="text-danger mx-1">{{ $message }}</span>
@@ -62,7 +62,7 @@
                                 <input type="password" name="password_confirmation" class="form-control form-control-sm input-sm">
                             </div>
 
-                            <div class="form-group col-sm-12 col-lg-12">
+                            <div class="form-group col-sm-12 col-md-4 my-5">
                                 <label class="user-label">Avatar</label>
                                 @error('avatar')
                                 <span class="text-danger mx-1">{{ $message }}</span>
@@ -112,10 +112,14 @@
 
                         </div>
 
-                            <div class="form-group">
-                                <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
-                                    Add user</button>
-                            </div>
+                         <div class="row">
+                             <div class="col-md-12 my-5 text-center">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
+                                        Add user</button>
+                                </div>
+                             </div>
+                         </div>
 
                         </form><!-- end of form -->
 

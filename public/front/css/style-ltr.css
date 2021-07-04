@@ -3668,7 +3668,7 @@ div.quantity.buttons_added .plus {
     padding-right: 0.9375rem; }
 @media (min-width: 768px) {
     .header-logo {
-        width: 25%; } }
+        width: 20%; } }
 .header-logo .header-logo-link {
     display: block; }
 
@@ -9966,6 +9966,17 @@ h3.faq-title {
     cursor: pointer;
 
 }
+.sidebar-header-parent{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10000;
+    display: none;
+    
+}
 #sidebarHeader1{
     width: 330px;
     position: fixed;
@@ -9977,7 +9988,7 @@ h3.faq-title {
     padding: 40px 60px;
     box-shadow: 1px 12px 20px 0px black;
     overflow: auto;
-
+    z-index: 12222222;
 }
 .mCustomScrollBox{
     position: relative;
@@ -10178,7 +10189,6 @@ float: left;
     text-align: center !important;
 }
 
-<<<<<<< HEAD
 .nav-tabs .nav-item{
     /* float: none; */
 }
@@ -10187,13 +10197,11 @@ float: left;
     display: none;
 }
 .logo-header{
-    height: 150px;
+    height: 100px;
 }
 .header-front-side{
     position : fixed;
 }
-=======
 #setting,#withdraw{
     display: none;
 }
->>>>>>> cc3780eb8059399a75f4d1baee915d06f4cb7246
