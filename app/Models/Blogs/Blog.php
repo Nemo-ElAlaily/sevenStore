@@ -2,6 +2,7 @@
 
 namespace App\Models\Blogs;
 
+use App\Models\Tags\Tag;
 use App\Models\User;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
@@ -49,7 +50,7 @@ class Blog extends Model
     *********************************** */
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'tags_blogs');
+        return $this->belongsToMany(Tag::class, 'blog_tag');
     } // end of tags
 
     public function user()

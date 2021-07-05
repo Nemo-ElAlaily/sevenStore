@@ -11,7 +11,7 @@ class BlogTranslation extends Model
 
     protected $table = 'blog_translations';
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = ['title', 'description', 'slug'];
 
