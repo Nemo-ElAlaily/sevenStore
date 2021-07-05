@@ -65,7 +65,7 @@
                   </div>
                </div>
               <div class="product-wrapper-grid">
-                    <div class="row"> 
+                    <div class="row">
                     @foreach ($products as $index=>$product)
                     <div class="col-xl-3 col-sm-6 xl-3">
                         <div class="card">
@@ -74,7 +74,7 @@
                         <img class="img-fluid img-all-products" src="{{ $product -> image_path }}" alt="">
                         <div class="product-hover">
                            <ul>
-                       
+
                               <li>
                               <a href="{{ route('admin.products.edit', $product->id) }}">
                                  <button class="btn" type="button"><i class="icon-pencil"></i></button>
@@ -93,7 +93,7 @@
                         {{ csrf_field() }}
                         {{ method_field('delete') }}
                         <button type="button" class="btn show_confirm btn-sm"><i class="fa fa-trash fa-lg text-lg"></i></button>
-                        </form>  
+                        </form>
                               </li>
 
                            </ul>
@@ -124,13 +124,13 @@
     </div><!-- end of box -->
 @stop
 @section('script')
-<script src="{{asset('admins/cuba/assets/js/range-slider/ion.rangeSlider.min.js')}}"></script>
-<script src="{{asset('admins/cuba/assets/js/range-slider/rangeslider-script.js')}}"></script>
-<script src="{{asset('admins/cuba/assets/js/touchspin/vendors.min.js')}}"></script>
-<script src="{{asset('admins/cuba/assets/js/touchspin/touchspin.js')}}"></script>
-<script src="{{asset('admins/cuba/assets/js/touchspin/input-groups.min.js')}}"></script>
-<script src="{{asset('admins/cuba/assets/js/owlcarousel/owl.carousel.js')}}"></script>
-<script src="{{asset('admins/cuba/assets/js/select2/select2.full.min.js')}}"></script>
-<script src="{{asset('admins/cuba/assets/js/select2/select2-custom.js')}}"></script>
-<script src="{{asset('admins/cuba/assets/js/product-tab.js')}}"></script>
+    <script src="{{asset('admins/cuba/assets/js/range-slider/ion.rangeSlider.min.js')}}"></script>
+    <script src="{{asset('admins/cuba/assets/js/range-slider/rangeslider-script.js')}}"></script>
+    <script src="{{asset('admins/cuba/assets/js/touchspin/vendors.min.js')}}"></script>
+    <script src="{{asset('admins/cuba/assets/js/touchspin/touchspin.js')}}"></script>
+    <script src="{{asset('admins/cuba/assets/js/touchspin/input-groups.min.js')}}"></script>
+    <script src="{{asset('admins/cuba/assets/js/owlcarousel/owl.carousel.js')}}"></script>
+    <script src="{{asset('admins/cuba/assets/js/select2/select2.full.min.js')}}"></script>
+    <script src="{{asset('admins/cuba/assets/js/select2/select2-custom.js')}}"></script>
+    <script src="{{asset('admins/cuba/assets/js/product-tab.js')}}"></script>
 @endsection

@@ -106,16 +106,19 @@
                                                     @enderror
                                                 </p>
 
-                                                <p class="form-row"><input type="submit" class="button" name="register" value="Register" /></p>
+                                                <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                                                    <div class="col-md-6 offset-md-4">
+                                                        {!! NoCaptcha::renderJs(LaravelLocalization::getCurrentLocale()) !!}
+                                                        {!! NoCaptcha::display() !!}
+                                                        @if ($errors->has('g-recaptcha-response'))
+                                                            <span class="invalid-feedback text-sm text-danger">
+                                                                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                                            </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
 
-{{--                                                <div class="register-benefits">--}}
-{{--                                                    <h3>Sign up today and you will be able to :</h3>--}}
-{{--                                                    <ul>--}}
-{{--                                                        <li>Speed your way through checkout</li>--}}
-{{--                                                        <li>Track your orders easily</li>--}}
-{{--                                                        <li>Keep a record of all your purchases</li>--}}
-{{--                                                    </ul>--}}
-{{--                                                </div>--}}
+                                                <p class="form-row"><input type="submit" class="button" name="register" value="Register" /></p>
 
                                             </form>
 
