@@ -49503,7 +49503,10 @@ input.bg-dark:focus {
 .image-preview {
     transition: all 1s ease-in-out;
     cursor: pointer;
+    top: 14px;
     width: 200px;
+    border-radius: 50px;
+    position: relative;
 }
 .image-preview:hover {
     transform: scale(1.1);
@@ -50468,6 +50471,8 @@ background:linear-gradient(302deg, #f7316438, #0d6efd21);
     padding: 100px;
     margin:auto;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-bottom-left-radius: 60px;
+    border-top-right-radius: 60px;
 }
 textarea.textareaBlog{
     height: 150px;
@@ -50477,4 +50482,70 @@ textarea.textareaBlog{
 .logo-wrapper{
     margin: auto;
     width: 50%;
+}
+.user-home{
+    padding: 20px 8px;
+    margin: 10px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    box-shadow: rgb(0 0 0 / 24%) 1px 3px 10px;
+}
+.user-home .number-user{
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 40px;
+    background-color: #F38BA0;
+    color: #fff;
+    border-radius: 6px;
+}
+.user-home .name-user{
+    display: block;
+    text-align: center;
+    padding: 2px;
+    background-color: #2696ad;
+    color: #fff;
+    border-top-left-radius: 52px;
+    border-top-right-radius: 52px;
+    margin: 10px 0 0;
+    padding: 5px;
+    font-size: 15px;
+    font-family: 'Roboto';
+    position: relative;
+}
+.user-home .email-user{
+    display: block;
+    text-align: center;
+    background: #E8E46E;
+    margin-bottom: 15px;
+    padding: 5px;
+    border-bottom-left-radius: 52px;
+    border-bottom-right-radius: 52px;
+    font-family: 'Roboto';
+    font-size: 15px;
+    position: relative;
+}
+.user-home .email-user:before,
+.user-home .name-user:before{
+font-family: 'FontAwesome';
+font-size: 14px;
+color: #bbb;
+}
+
+.user-home-input{
+    margin: auto;
+    text-align: center;
+}
+.user-home .user-home-input .btnDelete{
+    background: #37d8b0;
+    padding: 5px;
+}
+.user-home .user-home-input .btnEdit{
+    background: #BF1363;
+    padding: 5px;
+}
+form.col-12.form-user-create{
+    background: rgb(255 255 255 / 50%);
+    border-radius: 20px;
+    padding: 30px;
 }

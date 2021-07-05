@@ -19,13 +19,13 @@
     <div class="card card-solid ">
         <div class="card-body">
             <div class="row  add-create-blog">
-                <form class="col-md-12 m-auto" action="{{ route('admin.settings.site.show', $site_settings->id) }}" method="post"
+                <form class="col-md-12 form-user-create m-auto" action="{{ route('admin.settings.site.show', $site_settings->id) }}" method="post"
                       enctype="multipart/form-data">
 
                     {{ csrf_field() }}
                     {{ method_field('put') }}
 
-                    <input class="form-control input-thick" hidden name="vendor_id" value="{{ $user }}">
+                    <input class="form-control input-thick" hidden name="vendor_id" value="">
 
                     <ul class="nav nav-pills mb-3" id="lang-tab" role="tablist">
                         @foreach (config('translatable.locales') as $index => $locale)
@@ -35,8 +35,9 @@
                         @endforeach
                     </ul>
                     <div class="tab-content" id="lang-tabContent">
+                        
                         @foreach (config('translatable.locales') as $locale)
-                          <div class="tab-pane fade show {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}" role="tabpanel" aria-labelledby="pills-{{ $locale }}-tab">
+                          <div class="tab-pane fade  show {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}" role="tabpanel" aria-labelledby="pills-{{ $locale }}-tab">
                               <div class="col-sm-12 col-md-12">
 
                              <div class="row">
@@ -170,8 +171,8 @@
                                  class="img-thumbnail image-preview mt-1" alt="">
                         </div> {{-- end of form group image --}}
                         <div class="form-group col-md-6 mt-5">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>
-                                Update Site Settings</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
+                                Create Blog</button>
                         </div>
                     </div> {{-- end of translatable data --}}
 

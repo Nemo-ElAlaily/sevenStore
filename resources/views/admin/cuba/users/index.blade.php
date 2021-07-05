@@ -53,46 +53,46 @@
 
         <div class="box-body bg-white mx-5 mt-3">
 
-            <table class="text-center pt-2 card-body table table-hover table-bordered">
                 @if ($users->count() > 0)
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>E-Mail</th>
+               
                     @if (auth()->user()->hasPermission('users_update','users_delete'))
                         <th>Action</th>
                     @endif
-                </tr>
-                </thead>
-
-                <tbody>
+            <div class="container">
+             <div class="row">
                 @foreach ($users as $index=>$user)
-                    <tr>
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ $user -> full_name }}</td>
-                        <td>{{ $user -> email }}</td>
-                        <td>
-                            @if (auth()->user()->hasPermission('users_update'))
+                
+                    <div class="col-md-4">
+                        <div class="user-home">
+                            <span class="number-user">#{{ $index + 1 }}</span>
+                            <span class="name-user fa fa-user"> {{ $user -> full_name }}</span>
+                            <span class="email-user fa fa-envelope"> {{ $user -> email }}</span>
+
+                            <div class="user-home-input">
+                                @if (auth()->user()->hasPermission('users_update'))
                                 <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btnEdit btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                 {{-- @else
                                     <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
-                            @endif
-                            @if (auth()->user()->hasPermission('users_delete'))
-                                <form action="{{ route('admin.users.destroy', $user->id) }}" method="post" style="display: inline-block">
-                                    {{ csrf_field() }}
-                                    {{ method_field('delete') }}
-                                    <button type="button" class="btn btnDelete show_confirm btn-sm"><i class="fa fa-trash"></i> Delete</button>
-                                </form><!-- end of form -->
-                                {{-- @else
-                                    <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button> --}}
-                            @endif
-                        </td>
-                    </tr>
+                                @endif
+                                @if (auth()->user()->hasPermission('users_delete'))
+                                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="post" style="display: inline-block">
+                                        {{ csrf_field() }}
+                                        {{ method_field('delete') }}
+                                        <button type="button" class="btn btnDelete show_confirm btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                                    </form><!-- end of form -->
+                                    {{-- @else
+                                        <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button> --}}
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                     
 
+                 
+             
                 @endforeach
-                </tbody>
-
+            </div>
+            </div>
             @else
                 <h2 class="mt-5 text-center pt-2">No Data Found</h2>
             @endif

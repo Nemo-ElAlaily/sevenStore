@@ -161,7 +161,7 @@
                                        </li>
 
                                        <li>
-                                          <a class="submenu-title" href="#" data-bs-original-title="" title="">
+                                          <a class="submenu-title " href="#" data-bs-original-title="" title="">
                                              <i class="nav-icon fa fa-ship"></i>
      
                                              Shipping
@@ -219,9 +219,25 @@
                                              <li><a href="{{route('admin.regions.index')}}" class="{{ Route::currentRouteName()=='admin.regions.index' ? 'active' : '' }}">All</a></li>
                                              <li><a href="{{route('admin.regions.create')}}" class="{{ Route::currentRouteName()=='admin.regions.create' ? 'active' : '' }}">Add City</a></li>
                                                 </ul>
-                                             </li>                                   
+                                             </li>     
+
+                                             <li>
+                                                <a class="submenu-title" href="#" data-bs-original-title="" title="">
+                                                    <i class="nav-icon fa fa-sort"></i>
+                                                      Orders
+                                                <div class="according-menu">
+                                                   <i class="fa fa-angle-{{request()->route()->getPrefix() == 'admin/regions' ? 'down' : 'right' }}"></i>
+                                                </div>                                     </a>
+                                                   <ul class="nav-sub-childmenu submenu-content" style="display: {{ request()->route()->getPrefix() == '/main_categories' ? 'block;' : 'none;' }}">
+                                                      <li><a href="{{route('admin.orders.index')}}" class="{{ Route::currentRouteName()=='admin.orders.index' ? 'active' : '' }}">All</a></li>
+                                                      <li><a href="#" class="">Completed Orders</a></li>
+                                                      <li><a href="#" class="#">Cancelled Orders</a></li>
+                                                </ul>
+                                                </li>  
+
                                           </ul>
                                        </li>
+
                                  </ul>
   
   
@@ -230,23 +246,7 @@
   
                               @endif
 
-                              @if (auth()->user()->hasPermission('orders_read'))
-                              <li class="sidebar-list">
-                                 <label class="badge badge-danger"></label>
-                                 <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/orders' ? 'active' : '' }}" href="#">
-                                    <i class="nav-icon fa fa-sort"></i>
-                                    <span>Orders</span>
-                                    <div class="according-menu">
-                                       <i class="fa fa-angle-{{request()->route()->getPrefix() == '/orders' ? 'down' : 'right' }}"></i>
-                                    </div>
-                                 </a>
-                                 <ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/orders' ? 'block;' : 'none;' }}">
-                                    <li><a href="{{route('admin.orders.index')}}" class="{{ Route::currentRouteName()=='admin.orders.index' ? 'active' : '' }}">All</a></li>
-                                    <li><a href="#" class="">Completed Orders</a></li>
-                                    <li><a href="#" class="#">Cancelled Orders</a></li>
-                                 </ul>
-                              </li>
-                              @endif
+                           
                               <li class="sidebar-list">
                                  <label class="badge badge-danger"></label>
                                  <a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/seo-tools' ? 'active' : '' }}" href="#">

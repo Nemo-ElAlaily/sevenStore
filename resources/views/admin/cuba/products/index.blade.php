@@ -49,9 +49,21 @@
 
         <div class="box-body bg-white mx-5 mt-3">
 
-            <table class="text-center pt-2 card-body table table-hover table-bordered">
                 @if ($products->count() > 0)
-
+                <div class="col-md-6 products-total">
+                  <div class="square-product-setting d-inline-block"><a class="icon-grid grid-layout-view" href="#" data-original-title="" title="" data-bs-original-title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></a></div>
+                  <div class="square-product-setting d-inline-block"><a class="icon-grid m-0 list-layout-view" href="#" data-original-title="" title="" data-bs-original-title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></a></div>
+                  <span class="d-none-productlist filter-toggle">
+                  Filters<span class="ms-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down toggle-data"><polyline points="6 9 12 15 18 9"></polyline></svg></span></span>
+                  <div class="grid-options d-inline-block">
+                     <ul>
+                        <li><a class="product-2-layout-view" href="#" data-original-title="" title="" data-bs-original-title=""><span class="line-grid line-grid-1 bg-primary"></span><span class="line-grid line-grid-2 bg-primary"></span></a></li>
+                        <li><a class="product-3-layout-view" href="#" data-original-title="" title="" data-bs-original-title=""><span class="line-grid line-grid-3 bg-primary"></span><span class="line-grid line-grid-4 bg-primary"></span><span class="line-grid line-grid-5 bg-primary"></span></a></li>
+                        <li><a class="product-4-layout-view" href="#" data-original-title="" title="" data-bs-original-title=""><span class="line-grid line-grid-6 bg-primary"></span><span class="line-grid line-grid-7 bg-primary"></span><span class="line-grid line-grid-8 bg-primary"></span><span class="line-grid line-grid-9 bg-primary"></span></a></li>
+                        <li><a class="product-6-layout-view" href="#" data-original-title="" title="" data-bs-original-title=""><span class="line-grid line-grid-10 bg-primary"></span><span class="line-grid line-grid-11 bg-primary"></span><span class="line-grid line-grid-12 bg-primary"></span><span class="line-grid line-grid-13 bg-primary"></span><span class="line-grid line-grid-14 bg-primary"></span><span class="line-grid line-grid-15 bg-primary"></span></a></li>
+                     </ul>
+                  </div>
+               </div>
               <div class="product-wrapper-grid">
                     <div class="row"> 
                     @foreach ($products as $index=>$product)
@@ -62,7 +74,6 @@
                         <img class="img-fluid img-all-products" src="{{ $product -> image_path }}" alt="">
                         <div class="product-hover">
                            <ul>
-  
                        
                               <li>
                               <a href="{{ route('admin.products.edit', $product->id) }}">
@@ -88,54 +99,6 @@
                            </ul>
                         </div>
                      </div>
-                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                           <div class="modal-content">
-                              <div class="modal-header">
-                                 <div class="product-box row">
-                                    <div class="product-img col-lg-6"><img class="img-fluid img-all-products" src="{{ $product -> image_path }}" alt=""></div>
-                                    <div class="product-details col-lg-6 text-start">
-                                       <h4>Woman T-shirt</h4>
-                                       <div class="product-price">$26.00
-                                          <del>$350.00    </del>
-                                       </div>
-                                       <div class="product-view">
-                                          <h6 class="f-w-600">Product Details</h6>
-                                          <p class="mb-0">Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.</p>
-                                       </div>
-                                       <div class="product-size">
-                                          <ul>
-                                             <li> 
-                                                <button class="btn btn-outline-light" type="button">M</button>
-                                             </li>
-                                             <li> 
-                                                <button class="btn btn-outline-light" type="button">L</button>
-                                             </li>
-                                             <li> 
-                                                <button class="btn btn-outline-light" type="button">Xl</button>
-                                             </li>
-                                          </ul>
-                                       </div>
-                                       <div class="product-qnty">
-                                          <h6 class="f-w-600">Quantity</h6>
-                                          <fieldset>
-                                             <div class="input-group">
-                                                <input class="touchspin text-center" type="text" value="5">
-                                             </div>
-                                          </fieldset>
-                                          <div class="addcart-btn">
-                                             <button class="btn btn-primary" type="button">Add to Cart</button>
-                                             <button class="btn btn-primary" type="button">View Details</button>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     
                      <div class="product-details">
                         <span class="btn btn-warning"># {{ $index + 1 }}</span>
                         <p>Product Name </p><span class="bg-danger">{{ $product -> name }}</span>
@@ -160,3 +123,14 @@
         </div>
     </div><!-- end of box -->
 @stop
+@section('script')
+<script src="{{asset('admins/cuba/assets/js/range-slider/ion.rangeSlider.min.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/range-slider/rangeslider-script.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/touchspin/vendors.min.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/touchspin/touchspin.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/touchspin/input-groups.min.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/owlcarousel/owl.carousel.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/select2/select2.full.min.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/select2/select2-custom.js')}}"></script>
+<script src="{{asset('admins/cuba/assets/js/product-tab.js')}}"></script>
+@endsection

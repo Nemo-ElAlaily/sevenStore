@@ -14,7 +14,7 @@
         <div class="card-body">
             <div class="row add-create-blog">
 
-                <form class="col-12" action="{{ route('admin.users.update', $user -> id) }}" method="post" enctype="multipart/form-data">
+                <form class="col-12 form-user-create" action="{{ route('admin.users.update', $user -> id) }}" method="post" enctype="multipart/form-data">
 
                     {{ csrf_field() }}
                     {{ method_field('put') }}

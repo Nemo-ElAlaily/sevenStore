@@ -15,7 +15,7 @@
             <div class="row add-create-blog">
 
 {{--                        @include('partials._errors')--}}
-                <form class="col-12" action="{{ route('admin.users.store') }}" method="post" enctype="multipart/form-data">
+                <form class="col-12  form-user-create" action="{{ route('admin.users.store') }}" method="post" enctype="multipart/form-data">
 
                             {{ csrf_field() }}
                             {{ method_field('post') }}
