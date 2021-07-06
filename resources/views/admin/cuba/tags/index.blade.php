@@ -34,24 +34,24 @@
 
         <div class="box-body bg-white mx-5 mt-3">
 
-            <table class="text-center pt-2 card-body table table-hover table-bordered">
+            <table data-vertable="ver3" class="table100 ver4 m-b-110">
                 @if ($tags->count() > 0)
                 <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Slug</th>
-                    <th>Action</th>
+                <tr class="row100 head">
+                    <th class="column100 column1">#</th>
+                    <th class="column100 column2">Name</th>
+                    <th class="column100 column3">Slug</th>
+                    <th class="column100 column4">Action</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 @foreach ($tags as $index=>$tag)
-                    <tr>
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ $tag-> name }}</td>
-                        <td>{{ $tag -> slug}}</td>
-                        <td>
+                    <tr class="row100">
+                        <td class="column100 column1" data-column="column1">{{ $index + 1 }}</td>
+                        <td class="column100 column2" data-column="column2">{{ $tag-> name }}</td>
+                        <td class="column100 column3" data-column="column3">{{ $tag -> slug}}</td>
+                        <td class="column100 column4" data-column="column4">
                             @if (auth()->user()->hasPermission('tags_update'))
                                 <a href="{{ route('admin.tags.edit', $tag->id) }}" class="btn btnEdit btn-sm"><i class="fa fa-edit fa-lg text-lg"></i></a>
                             @endif

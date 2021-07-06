@@ -139,7 +139,7 @@
                                           </a>
                                           <ul class="nav-sub-childmenu submenu-content" style="display: {{ request()->route()->getPrefix() == '/vendors' ? 'block;' : 'none;' }}">
                                              <li><a href="{{route('admin.products.index')}}" class="{{ Route::currentRouteName()=='admin.products.index' ? 'active' : '' }}">All</a></li>
-                                             <li><a href="{{route('admin.products.create')}}" class="{{ Route::currentRouteName()=='admin.products.create' ? 'active' : '' }}">Create User</a></li>
+                                             <li><a href="{{route('admin.products.create')}}" class="{{ Route::currentRouteName()=='admin.products.create' ? 'active' : '' }}">Create Product</a></li>
                                           </ul>
                                        </li>
 

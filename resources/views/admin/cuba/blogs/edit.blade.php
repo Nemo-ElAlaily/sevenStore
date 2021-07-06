@@ -18,16 +18,14 @@
     <!-- Default box -->
     <div class="card card-solid ">
         <div class="card-body">
-<<<<<<< HEAD
             <div class="row">
 
                 <form class="col-12 form-user-create" action="{{ route('admin.blogs.update', $blog->id) }}" method="post"
                     enctype="multipart/form-data">
-=======
+
             <div class="row  add-create-blog">
                 <form class="col-md-12 m-auto" action="{{ route('admin.blogs.store') }}" method="post"
                       enctype="multipart/form-data">
->>>>>>> 7a5d956361d8932cb4f3f1c9e74745e4a2df8425
 
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
