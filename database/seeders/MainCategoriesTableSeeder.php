@@ -19,7 +19,7 @@ class MainCategoriesTableSeeder extends Seeder
     {
         $characters = array(' ', '/', '!', '\\');
 
-        $categories = Taxonomy::where('taxonomy', 'LIKE' ,  'product_cat')->get();
+        $categories = Taxonomy::where('taxonomy', 'LIKE' ,  '%cat%')->get();
 
         foreach($categories as $category){
 
