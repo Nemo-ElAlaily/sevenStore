@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Blogs\Blog;
 use App\Models\Blogs\BlogTag;
 use App\Models\Blogs\BlogTranslation;
+use App\Models\MainCategories\MainCategory;
 use App\Models\Products\ProductTag;
 use Corcel\Model\Post;
 use Illuminate\Database\Seeder;
@@ -24,11 +25,15 @@ class BlogsTableSeeder extends Seeder
 
         foreach($wp_db_blogs as $blog)
         {
+            $category = MainCategory::whereTranslation('name', $blog -> main_category) -> first();
+            $uncategorized = MainCategory::whereTranslation('name', 'Uncategorized') -> first();
+
             DB::beginTransaction();
 
                 $new_blog = new Blog();
                 $new_blog -> id = $blog -> ID;
                 $new_blog -> user_id = $blog -> post_author;
+                $new_blog -> main_category_id = $category != "" ? $category -> id : $uncategorized -> id;
                 $new_blog -> image = $blog -> image == null ? 'default.png' : $blog -> image;
                 $new_blog -> is_active = $blog -> post_status == 'publish' ? 1 : 0;
                 $new_blog -> created_at = $blog -> created_at;

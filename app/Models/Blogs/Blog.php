@@ -2,6 +2,7 @@
 
 namespace App\Models\Blogs;
 
+use App\Models\MainCategories\MainCategory;
 use App\Models\Tags\Tag;
 use App\Models\User;
 use Astrotomic\Translatable\Translatable;
@@ -57,6 +58,10 @@ class Blog extends Model
     {
         return $this -> belongsTo(User::class);
     } // end of creator
+
+    public function category(){
+        return $this->belongsTo(MainCategory::class, 'main_category_id');
+    }
 
     /* ***********************************
     End of Relationships

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Blog\BlogCreateRequest;
 use App\Models\Blogs\Blog;
+use App\Models\Blogs\BlogTag;
+use App\Models\MainCategories\MainCategory;
+use App\Models\Tags\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,8 +35,9 @@ class BlogController extends Controller
     {
         $user = Auth::user()->id;
 
-        return view('admin.cuba.blogs.create', compact('user'));
-
+        $tags = Tag::all();
+        $categories = MainCategory::all();
+        return view('admin.cuba.blogs.create', compact('tags', 'categories', 'user'));
     } // end of create
 
     public function store(BlogCreateRequest $request)
@@ -79,16 +83,16 @@ class BlogController extends Controller
     public function edit($id)
     {
         try {
+            $tags = Tag::all();
             $blog = Blog::find($id);
-
-            $blog_tags = $blog -> tags ->pluck('id')->toArray();
-
+            $categories = MainCategory::all();
+            $blog_tags = $blog->tags->pluck('id')->toArray();
             if (!$blog) {
                 session()->flash('error', "Blog Doesn't Exist or has been deleted");
                 return redirect()->route('admin.blogs.index');
             }
 
-            return view('admin.cuba.blogs.edit', compact('blog', 'blog_tags'));
+            return view('admin.cuba.blogs.edit', compact('blog', 'tags', 'blog_tags', 'categories'));
         } catch (\Exception $exception) {
 
             session()->flash('error', 'Something Went Wrong, Please Contact Administrator, ' . $exception->getMessage());
