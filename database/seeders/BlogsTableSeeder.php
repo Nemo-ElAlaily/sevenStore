@@ -40,22 +40,16 @@ class BlogsTableSeeder extends Seeder
                 $new_blog -> updated_at = $blog -> updated_at;
                 $new_blog -> save();
 
+            foreach(config('translatable.locales') as $locale) {
                 $new_blog_translation = new BlogTranslation();
-                $new_blog_translation -> blog_id = $new_blog -> id;
-                $new_blog_translation -> locale = 'ar';
-                $new_blog_translation -> title = $blog -> post_title;
-                $new_blog_translation -> slug = str_replace($characters, '-' , $blog -> title);
-                $new_blog_translation -> description = $blog -> content;
-                $new_blog_translation -> save();
-
-                $new_blog_translation = new BlogTranslation();
-                $new_blog_translation -> blog_id = $new_blog -> id;
-                $new_blog_translation -> locale = 'en';
-                $new_blog_translation -> title = $blog -> post_title;
-                $new_blog_translation -> slug = str_replace($characters, '-' , $blog -> title);
-                $new_blog_translation -> description = $blog -> content;
-                $new_blog_translation -> save();
-
+                $new_blog_translation->blog_id = $new_blog->id;
+                $new_blog_translation->locale = $locale;
+                $new_blog_translation->title = $blog->post_title;
+                $new_blog_translation->slug = str_replace($characters, '-', $blog->title);
+                $new_blog_translation->description = $blog->content;
+                $new_blog_translation->save();
+            }
+            
             $blog_tags = $blog -> taxonomies -> where('taxonomy', 'post_tag');
 
             foreach ($blog_tags as $tag) {

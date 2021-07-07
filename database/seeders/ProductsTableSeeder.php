@@ -64,28 +64,22 @@ class ProductsTableSeeder extends Seeder
 
             $new_product = \App\Models\Products\Product::create($values);
 
-            $values_translation_ar = [];
-            $values_translation_ar += [
-                'product_id' => $new_product -> id,
-                'locale' => 'ar',
-                'name' => $product -> title,
-                'slug' => str_replace($characters, '-' , $product -> title),
-                'description' => $product -> content,
-                'features' => $product -> excerpt,
-            ];
 
-            $values_translation_en = [];
-            $values_translation_en += [
-                'product_id' =>  $new_product -> id,
-                'locale' => 'en',
-                'name' => $product -> title,
-                'slug' => str_replace($characters, '-' , $product -> title),
-                'description' => $product -> content,
-                'features' => $product -> excerpt,
-            ];
+            foreach(config('translatable.locales') as $locale) {
+                $values_translation = [];
+                $values_translation += [
+                    'product_id' => $new_product -> id,
+                    'locale' => $locale,
+                    'name' => $product -> title,
+                    'slug' => str_replace($characters, '-' , $product -> title),
+                    'description' => $product -> content,
+                    'features' => $product -> excerpt,
+                ];
+                \App\Models\Products\ProductTranslation::create($values_translation);
+            }
 
-            \App\Models\Products\ProductTranslation::create($values_translation_ar);
-            \App\Models\Products\ProductTranslation::create($values_translation_en);
+
+
 
             foreach ($product -> attachment as $gallery_item)
             {
