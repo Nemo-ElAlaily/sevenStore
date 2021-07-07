@@ -21,7 +21,15 @@
         <div class="card-body">
             <div class="row">
 
+<<<<<<< HEAD
+                <form class="col-12 form-user-create" action="{{ route('admin.blogs.update', $blog->id) }}" method="post"
+                    enctype="multipart/form-data">
+
+            <div class="row  add-create-blog">
+                <form class="col-md-12 m-auto" action="{{ route('admin.blogs.store') }}" method="post"
+=======
                 <form class="col-12" action="{{ route('admin.blogs.update', $blog->id) }}" method="post"
+>>>>>>> 872bddbdafed52ffe63169976be5ebb0567ecb22
                       enctype="multipart/form-data">
 
                     {{ csrf_field() }}

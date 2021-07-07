@@ -47,7 +47,7 @@
 
                     <div class="row">
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
-                            <div class="custom-control custom-switch">
+                            <div class="checkbox checkbox-warning">
                                 <input type="checkbox" class="custom-control-input" id="is_active" name="is_active"  @if($tag -> is_active == 1 )checked @endif>
                                 <label class="custom-control-label" for="is_active">Is Active</label>
                             </div>
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
-                            <div class="custom-control custom-switch">
+                            <div class="checkbox checkbox-secondary">
                                 <input type="checkbox" class="custom-control-input" id="is_popular_tag" name="is_popular_tag"  @if($tag -> is_popular_tag == 1 )checked @endif >
                                 <label class="custom-control-label" for="is_popular_tag">Is Popular</label>
                             </div>
