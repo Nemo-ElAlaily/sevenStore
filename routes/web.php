@@ -16,6 +16,10 @@ use App\Http\Livewire\OrderDetailsComponent;
 use App\Http\Livewire\BlogComponent;
 use App\Http\Livewire\SingleBlogComponent;
 use Illuminate\Support\Facades\Route;
+use App\Models\Settings\DatabaseSetting;
+use Illuminate\Support\Facades\Schema;
+
+
 
 
 /*
@@ -29,6 +33,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 define('FRONT_PAGINATION_COUNT', 20);
+ if(config('database.connections.mysql.database') == 'test' ){
+
+        Route::any('{query}', '\App\Http\Controllers\HomeController@redir');
+}
+
+Route::get('test','\App\Http\Controllers\HomeController@test');
+
+Route::get('/done', '\App\Http\Controllers\HomeController@migrate_seed')->name('done');
 
 Route::get('/welcome', '\App\Http\Controllers\HomeController@welcome')->name('app.welcome');
 Route::post('/welcome/start', '\App\Http\Controllers\HomeController@initApp')->name('app.start');

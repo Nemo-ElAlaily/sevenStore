@@ -49490,13 +49490,11 @@ label.bg-warning {
 .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #7366ff;
-    border-color: #7366ff;
-    transition: all .5s ease-in-out;
+    background-color: #f73164;
+    border-color: #f73164;
 }
 .page-link:hover {
-    background-color: #7366ff85;
-    color: #fff;
+    background-color: #ff00405c;
 }
 select.bg-dark:focus,
 input.bg-dark:focus {
@@ -50478,9 +50476,8 @@ background:linear-gradient(302deg, #f7316438, #0d6efd21);
 }
 textarea.textareaBlog{
     height: 150px;
-    /* width: 360px; */
+    width: 360px;
     box-shadow: rgb(0 0 0 / 24%) 4px -2px 10px;
-    padding: 10px;
 }
 .logo-wrapper{
     margin: auto;
@@ -50552,198 +50549,3 @@ form.col-12.form-user-create{
     border-radius: 20px;
     padding: 30px;
 }
-.labelPage{
-    font-size: 13px;
-    font-weight: 500;
-}
-.page-create-parent{
-    box-shadow: rgb(0 0 0 / 24%) 1px 3px 10px;
-    margin: auto;
-    text-align: center;
-    background:linear-gradient(302deg, #f7316438, #0d6efd21);
-}
-.page-create-form{
-    background: rgb(255 255 255 / 50%);
-}
-.page-home{
-    padding: 20px;
-    background: #EDF6E5;
-    margin-bottom: 50px;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    position: relative;
-    height: 200px;
-}
-.page-home .view,
-.page-home span{
-    display: block;
-}
-.page-home .page-index{
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 10px;
-    background-color: #FFBCBC;
-    border-bottom-left-radius: 10px;
-    color: #4C4C6D;
-}
-.page-home .page-home-title{
-    text-align: center;
-    background-color: #907FA4;
-    width: 85%;
-    margin: auto;
-    padding: 5px;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
-    color: #fff;
-    font-weight: 500;
-    font-family: 'Cairo';
-}
-.page-home .page-status{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    padding: 5px;
-    background-color: #E8E46E;
-    border-top-right-radius: 10px;
-    color: #4C4C6D;
-}
-.page-home .page-home-input .btn{
-    padding: 5px;
-}
-.page-home .view {
-    display: block;
-    margin: auto;
-    text-align: center;
-    padding: 5px;
-    border: 1px solid #868183;
-    margin-bottom: 15px;
-    color: #333;
-    border-radius: 5px;
-    transition: all .5s ease-in-out;
-    width: 60%;
-}
-.page-home .view:hover{
-background-color: #333;
-color: #fff;
-}
-.page-home-input{
-    text-align: center;
-}
-.page-home-input .btnDelete{
-background: #F54748;
-}
-.page-home-input .btnEdit{
-background: #FB9300;
-}
-.page-home-input .btnShow{
-background: #343F56 !important;
-}
-.show-product-gallery-section .card .card-body{
-}
-.show-product-gallery-section .gallery .hover-1 img{
-    background-color: #fff;
-    width: 35%;
-}
-
-
-
-.wrap-table100 {
-    width: 1300px;
-  }
-  
-  table {
-    width: 100%;
-    background-color: #fff;
-  }
-  
-  th, td {
-    font-weight: unset;
-    padding-right: 10px;
-  }
-  
-  .column100 {
-    padding-left: 25px;
-  }
-  
-  .column100.column1 {
-    padding-left: 42px;
-  }
-  
-  .row100.head th {
-    padding-top: 24px;
-    padding-bottom: 20px;
-  }
-  
-  .row100 td {
-    padding-top: 18px;
-    padding-bottom: 14px;
-  }
- tr.row100{
-    border-bottom: 10px solid #eee;
- }
-  
-  
-  .table100.ver4 td {
-    font-family: Montserrat-Regular;
-    font-size: 14px;
-    color: #808080;
-    line-height: 1.4;
-  }
-  
-  .table100.ver4 th {
-    color: #fff;
-    line-height: 1.4;
-    text-transform: uppercase;
-    background-color: #93ABD3;
-    border-right: 1px solid #eee;
-    padding: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
- 
-  
-  .table100.ver4 .hov-column-ver4 {
-    background-color: #ffebed;
-  }
-  
-  .table100.ver4 .hov-column-head-ver4 {
-    background-color: #f95462 !important;
-  }
-  
- 
-  
-  .table100 .btnEdit ,
-  .table100 .btnDelete{
-      background-color: transparent;
-      border: none;
-      border-radius: 5px;
-      color: #afa7a7;
-      padding: 5px 15px;
-      margin-bottom: 5px;
-  }
-  .table100 .btnEdit:hover ,
-  .table100 .btnDelete:hover{
-    opacity: 0.8;
-  }
-  .table100 .btnEdit{
-    background-color: #BBEAA6;
-  }
-  .table100 .btnDelete{
-    background-color: #F1C550;
-  }
-  .create-tag-page-form{
-    padding: 20px;
-    border-radius: 5px;
-  }
-  .ribbon-wrapper.card.tag-create{
-    height: auto !important;
-    padding: 15px;
-    box-shadow: rgb(0 0 0 / 32%) 0px -5px 10px 1px;
-    background-color: #c0c4c526;
-  }
-.create-tag-page-form .form-control{
-    border: none;
-    border-bottom: 1px solid #adaaaa;
-  }

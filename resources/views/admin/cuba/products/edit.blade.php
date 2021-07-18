@@ -11,16 +11,21 @@
     <!-- Default box -->
     <div class="card card-solid">
         <div class="card-body">
-            <div class="row add-create-blog">
-   
+            <div class="row">
+<<<<<<< HEAD
+=======
+                <div class="col-md-12">
+                    <img class="user-avatar" src="{{asset('admins/cuba/assets/images/create.png')}}" alt="">
+                </div>
+>>>>>>> e2f93f38afbb69024cf2a62d70880d8a75d2a66c
                 @include('admin.cuba.partials._errors')
-                <form class="col-12 form-user-create"  action="{{ route('admin.products.update', $product -> id) }}" method="POST" enctype="multipart/form-data">
+                <form class="col-12"  action="{{ route('admin.products.update', $product -> id) }}" method="POST" enctype="multipart/form-data">
 
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
 
-                    <div class="col-sm-12 col-md-6 mb-5">
-                        <div class="form-group col-md-6">
+                    <div class="col-sm-12 col-md-3 mb-5">
+                        <div class="form-group">
                             <label class="labelProd" for="main_category_id">Sub Category</label>
                             @error('main_category_id')
                             <span class="text-danger mx-5">{{ $message }}</span>
@@ -36,39 +41,36 @@
 
                     <div class="row">
                         @foreach (config('translatable.locales') as $locale)
-                            <div class="col-sm-12 col-lg-12">
-
-                            <div class="row">
-                                <div class="form-group mb-5 col-md-12">
-                                    <label class="labelPage" for="{{ $locale }}[name]">Product Name in @lang('site.' . $locale . '.name')</label>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="{{ $locale }}[name]">Product Name in @lang('site.' . $locale . '.name')</label>
                                     @error($locale . '.name')
                                     <br />
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-blog-create" type="text" name="{{ $locale }}[name]"
+                                    <input class="form-control input-thick" type="text" name="{{ $locale }}[name]"
                                            value="{{ $product -> translate($locale) -> name}}">
                                 </div>
 
-                                <div class="form-group mb-5 col-md-6">
-                                    <label class="labelPage" for="{{ $locale }}[description]">Product Description in @lang('site.' . $locale . '.name')</label>
+                                <div class="form-group">
+                                    <label for="{{ $locale }}[description]">Product Description in @lang('site.' . $locale . '.name')</label>
                                     @error($locale . '.description')
                                     <br />
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <textarea class="form-control  textareaBlog" type="text" name="{{ $locale }}[description]">
+                                    <textarea class="form-control input-thick ckeditor" type="text" name="{{ $locale }}[description]">
                                         {{ $product -> translate($locale) -> description}}
                                     </textarea>
                                 </div>
 
-                                <div class="form-group mb-5 col-md-6">
-                                    <label class="labelPage" for="{{ $locale }}[features]">Product Features in @lang('site.' . $locale . '.name')</label>
+                                <div class="form-group">
+                                    <label for="{{ $locale }}[features]">Product Features in @lang('site.' . $locale . '.name')</label>
                                     @error($locale . '.features')
                                     <br />
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <textarea class="form-control textareaBlog" type="text" name="{{ $locale }}[features]">{{ $product -> translate($locale) -> features}}</textarea>
+                                    <textarea class="form-control input-thick" type="text" name="{{ $locale }}[features]">{{ $product -> translate($locale) -> features}}</textarea>
                                 </div>
-                            </div>
 
                             </div>
                         @endforeach
@@ -84,44 +86,44 @@
                         <div class="col-sm-12 row">
 
                             <div class="form-group col-md-3">
-                                <label class="labelPage" for="stock">Stock </label>
+                                <label class="labelProd" for="stock">Stock </label>
                                 @error('stock')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <input class="form-control input-blog-create" type="number" name="stock"
+                                <input class="form-control input-thick" type="number" name="stock"
                                        value="{{ $product -> stock }}">
                             </div>
 
                             <div class="form-group col-md-3">
-                                <label class="labelPage" for="regular_price">Regular Price</label>
+                                <label class="labelProd" for="regular_price">Regular Price</label>
                                 @error('regular_price')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <input class="form-control input-blog-create" type="text" name="regular_price"
+                                <input class="form-control input-thick" type="text" name="regular_price"
                                        value="{{  $product -> regular_price }}">
                             </div>
 
                             <div class="form-group col-md-3">
-                                <label class="labelPage"for="sku">Sku</label>
+                                <label class="labelProd"for="sku">Sku</label>
                                 @error('sku')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <input class="form-control input-blog-create" type="text" name="sku"
+                                <input class="form-control input-thick" type="text" name="sku"
                                        value="{{  $product -> sku != null ? $product -> sku : 0 }}">
                             </div>
 
 
                             <div class="form-group col-md-3">
-                                <label class="labelPage"for="sale_price">Sale Price</label>
+                                <label class="labelProd"for="sale_price">Sale Price</label>
                                 @error('sale_price')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <input class="form-control input-blog-create" type="text" name="sale_price"
+                                <input class="form-control input-thick" type="text" name="sale_price"
                                        value="{{  $product -> sale_price }}">
                             </div>
 
-                            <div class="form-group col-sm-12 col-md-4  my-5">
-                                <label class="labelPage"label for="image">Image</label>
+                            <div class="form-group col-sm-12 col-md-12 mb-5">
+                                <label class="labelProd"label for="image">Image</label>
                                 @error('image')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
@@ -131,8 +133,10 @@
                                      class="img-thumbnail image-preview mt-1" alt="Upload Image">
                             </div> {{-- end of form group image --}}
 
-                            
-                    <div class="form-group col-sm-12 col-md-8 mt-5 card card-primary card-outline">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-12 card card-primary card-outline">
                         <div class="text-center col-sm-12">
                             <h3 class="m-3">Gallery</h3>
                             <hr>
@@ -148,9 +152,6 @@
                             </div>
                         </div>
                     </div> {{-- end of product gallery --}}
-
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>

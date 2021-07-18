@@ -38,24 +38,30 @@
 
     <div class="box-body bg-white mx-5 mt-3">
 
-        <div class="container">
-            <div class="row mt-5">
-        @if ($pages->count() > 0)
-          
-        
+        <table class="text-center pt-2 card-body table table-hover table-bordered">
+            @if ($pages->count() > 0)
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Page Title</th>
+                <th>Page Status</th>
+                <th>Page URL</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+
+            <tbody>
             @foreach ($pages as $index=>$page)
-            <div class="col-sm-6 col-md-6 col-lg-4">
-                <div class="page-home">
-                    <span class="page-index">#{{ $index + 1 }}</span>
-                    <span class="page-status"> {{ $page-> getActive() }}</span>
-                    <span class="page-home-title my-3"> {{ $page -> title }}</span>
-
-                    <div class="page-home-input">
-
+            <tr>
+                <td>{{ $index + 1 }}</td>
+                <td>{{ $page-> title }}</td>
+                <td>{{ $page-> getActive() }}</td>
+                <td>
                     @if($page -> is_active == 1)
-                        <a class="view" href="{{ route('front.page.details' , $page -> slug) }}" target="_blank">View in Browser</a>
+                        <a href="{{ route('front.page.details' , $page -> slug) }}" target="_blank">View in Browser</a>
                     @endif
-          
+                </td>
+                <td>
                     <a href="{{ route('admin.pages.show', $page->id) }}" class="btn btnShow  btn-sm"><i class="fa fa-eye fa-lg text-lg"></i></a>
                     <a href="{{ route('admin.pages.edit', $page->id) }}" class="btn btnEdit btn-sm"><i class="fa fa-edit fa-lg text-lg"></i></a>
                     <form action="{{ route('admin.pages.destroy', $page->id) }}" method="post" style="display: inline-block">
@@ -63,18 +69,17 @@
                         {{ method_field('delete') }}
                         <button type="button" class="btn btnDelete show_confirm btn-sm"><i class="fa fa-trash fa-lg text-lg"></i></button>
                     </form><!-- end of form -->
-                </div>
-                </div>
-                </div>
-      
-         
+                </td>
+            </tr>
+
             @endforeach
-        </div>
-    </div>
+            </tbody>
+
             @else
             <h2 class="mt-5 text-center pt-2">No Data Found</h2>
             @endif
 
+        </table><!-- end of table -->
 
     </div><!-- end of box body -->
 
