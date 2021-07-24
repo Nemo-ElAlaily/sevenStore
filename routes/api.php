@@ -30,18 +30,13 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
-
 });
-Route::namespace("Api")->group(function(){
-Route::get('getAllCategories','CategoryController@getAllCategories');
-Route::get('getAllProducts','ProductController@getAllProducts');
-Route::get('getProductsByCategory/{cat_id}','ProductController@getProductsByCategory');
-Route::get('getProductsByVendor/{vendor_id}','ProductController@getProductsByVendor');
-Route::get('getUserOrder/{user_id}','OrderController@getUserOrder');
+Route::namespace("Api")->group(function () {
+    Route::get('getAllCategories', 'CategoryController@getAllCategories');
+    Route::get('getAllProducts', 'ProductController@getAllProducts');
+    Route::get('getProductsByCategory/{cat_id}', 'ProductController@getProductsByCategory');
+    Route::get('getProductsByVendor/{vendor_id}', 'ProductController@getProductsByVendor');
+    Route::get('getUserOrder/{user_id}', 'OrderController@getUserOrder');
 
-Route::get('getUser/{user_id}','UserController@getUser');
-
-
-
-
+    Route::get('getUser/{user_id}', 'UserController@getUser');
 });

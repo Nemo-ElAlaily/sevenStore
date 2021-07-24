@@ -1,10 +1,10 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'Create Tag')
+@section('title', trans('site.Tags') . ' | ' . trans('site.add'))
 
 @section('breadcrumb-items')
-    <li class="breadcrumb-item">Tags</li>
-    <li class="breadcrumb-item">Create</li>
+    <li class="breadcrumb-item">{{ trans('site.Tags') }}</li>
+    <li class="breadcrumb-item">{{ trans('site.add') }}</li>
 @stop
 
 @section('content')
@@ -21,8 +21,8 @@
                     <div class="row">
                         @foreach (config('translatable.locales') as $locale)
                             <div class="form-group col-sm-12 col-lg-6">
-                                <label>Tag Name in @lang('site.' . $locale . '.name')</label>
-                                @error($locale . '.name')
+                                <label>{{ trans('site.name') }} @lang('site.' . $locale . '.name')</label>
+                                @error($locale . '.in name')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
                                 <input class="form-control input-thick" type="text" name="{{ $locale }}[name]"
@@ -31,8 +31,8 @@
                         @endforeach
                         @foreach (config('translatable.locales') as $locale)
                             <div class="form-group col-sm-12 col-lg-6">
-                                <label for="{{ $locale }}[slug]">Slug in @lang('site.' . $locale .
-                                    '.slug')</label>
+                                <label for="{{ $locale }}[slug]">{{ trans('site.slug') }} @lang('site.' . $locale .
+                                    '.in name')</label>
                                 @error($locale . '.slug')
                                     <br />
                                     <span class="text-danger mx-5">{{ $message }}</span>
@@ -46,28 +46,30 @@
                     <div class="row">
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
                             <div class="custom-control custom-switch">
-                                <input class=""  type="checkbox" class="custom-control-input" id="is_active" name="is_active" checked>
-                                <label class="custom-control-label" for="is_active">Is Active</label>
+                                <input class="" type="checkbox" class="custom-control-input" id="is_active" name="is_active"
+                                    checked>
+                                <label class="custom-control-label" for="is_active">{{ trans('site.Active ?') }}</label>
                             </div>
                             @error('is_active')
-                            <span class="text-danger mx-1">{{ $message }}</span>
+                                <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <div class="form-group col-sm-12 col-lg-6 my-5 text-md">
                             <div class="custom-control custom-switch">
-                                <input class=""  type="checkbox" class="custom-control-input" id="is_popular_tag" name="is_popular_tag" checked >
-                                <label class="custom-control-label" for="is_popular_tag">Is Popular</label>
+                                <input class="" type="checkbox" class="custom-control-input" id="is_popular_tag"
+                                    name="is_popular_tag" checked>
+                                <label class="custom-control-label" for="is_popular_tag">{{ trans('site.Is Popular') }}</label>
                             </div>
                             @error('is_popular_tag')
-                            <span class="text-danger mx-1">{{ $message }}</span>
+                                <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
 
                     <div class="form-group">
                         <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
-                            Add Tag</button>
+                            {{ trans('site.add') }}</button>
                     </div>
 
                 </form><!-- end of form -->

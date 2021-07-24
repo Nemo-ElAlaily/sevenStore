@@ -1,13 +1,13 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'Countries')
+@section('title', trans('site.Countries'))
 
 @section('breadcrumb-title')
-    <h5>Countries <span class="small text-muted">{{ $countries ->total() }}</span></h5>
+    <h5>{{ trans('site.Countries') }} <span class="small text-muted">{{ $countries->total() }}</span></h5>
 @stop
 
 @section('breadcrumb-items')
-    <li class="breadcrumb-item">Countries</li>
+    <li class="breadcrumb-item">{{ trans('site.Countries') }}</li>
 @stop
 
 
@@ -20,15 +20,17 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <input type="text" name="search" class="form-control" placeholder="Search Here..." value="{{ request()->search }}">
+                        <input type="text" name="search" class="form-control" placeholder="{{ trans('site.Search Here') }}..."
+                            value="{{ request()->search }}">
                     </div>
 
                     <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
+                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
                         @if (auth()->user()->hasPermission('countries_create'))
-                            <a href="{{ route('admin.countries.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> Add Country</a>
-                             @else
-                                <a href="#" class="btn btn-p`rimary disabled"><i class="fa fa-plus"></i> Add Country</a>
+                            <a href="{{ route('admin.countries.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i>
+                                {{ trans('site.add') . ' ' . trans('site.Country') }}</a>
+                        @else
+                            <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> {{ trans('site.add') . ' ' . trans('site.Country') }}</a>
                         @endif
                     </div>
 
@@ -43,47 +45,51 @@
 
             <table class="text-center pt-2 card-body table table-hover table-bordered">
                 @if ($countries->count() > 0)
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Flag</th>
-                    @if (auth()->user()->hasPermission('countries_update','countries_delete'))
-                        <th>Action</th>
-                    @endif
-                </tr>
-                </thead>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>{{ trans('site.name') }}</th>
+                            <th>{{ trans('site.Flag') }}</th>
+                            @if (auth()->user()->hasPermission('countries_update', 'countries_delete'))
+                                <th>{{ trans('site.Action') }}</th>
+                            @endif
+                        </tr>
+                    </thead>
 
-                <tbody>
-                @foreach ($countries as $index=>$country)
-                    <tr>
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ $country -> name }}</td>
-                        <td><img src="{{ $country -> flag_path }}" alt="{{ $country -> name }}" width="50"/></td>
-                        <td>
-                            @if (auth()->user()->hasPermission('countries_update'))
-                                <a href="{{ route('admin.countries.edit', $country->id) }}" class="btn btnEdit btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                                {{-- @else
+                    <tbody>
+                        @foreach ($countries as $index => $country)
+                            <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $country->name }}</td>
+                                <td><img src="{{ $country->flag_path }}" alt="{{ $country->name }}" width="50" />
+                                </td>
+                                <td>
+                                    @if (auth()->user()->hasPermission('countries_update'))
+                                        <a href="{{ route('admin.countries.edit', $country->id) }}"
+                                            class="btn btnEdit btn-sm"><i class="fa fa-edit"></i> {{ trans('site.edit') }}</a>
+                                        {{-- @else
                                     <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
-                            @endif
-                            @if (auth()->user()->hasPermission('countries_delete'))
-                                <form action="{{ route('admin.countries.destroy', $country->id) }}" method="post" style="display: inline-block">
-                                    {{ csrf_field() }}
-                                    {{ method_field('delete') }}
-                                    <button type="button" class="btn btnDelete show_confirm btn-sm"><i class="fa fa-trash"></i> Delete</button>
-                                </form><!-- end of form -->
-                                {{-- @else
+                                    @endif
+                                    @if (auth()->user()->hasPermission('countries_delete'))
+                                        <form action="{{ route('admin.countries.destroy', $country->id) }}" method="post"
+                                            style="display: inline-block">
+                                            {{ csrf_field() }}
+                                            {{ method_field('delete') }}
+                                            <button type="button" class="btn btnDelete show_confirm btn-sm"><i
+                                                    class="fa fa-trash"></i> {{ trans('site.delete') }}</button>
+                                        </form><!-- end of form -->
+                                        {{-- @else
                                     <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button> --}}
-                            @endif
-                        </td>
-                    </tr>
+                                    @endif
+                                </td>
+                            </tr>
 
-                @endforeach
-                </tbody>
+                        @endforeach
+                    </tbody>
 
-            @else
-                <h2 class="mt-5 text-center pt-2">No Data Found</h2>
-            @endif
+                @else
+                    <h2 class="mt-5 text-center pt-2">{{ trans('site.No Data Found') }}</h2>
+                @endif
 
             </table><!-- end of table -->
 

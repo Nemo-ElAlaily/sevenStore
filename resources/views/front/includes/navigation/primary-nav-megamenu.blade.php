@@ -9,9 +9,12 @@
                                 <div class="widget widget_nav_menu">
                                     <div class="menu-pages-menu-1-container">
                                         <ul id="menu-pages-menu-1" class="menu">
-                                            <li class="nav-title menu-item"><a href="#">Home &#038; Static Pages</a></li>
-                                            <li class="menu-item"><a href="{{ route('front.index') }}">Home v1</a></li>
-                                            <li class="menu-item current-menu-item current_page_item"><a href="#">Home v2</a></li>
+                                            <li class="nav-title menu-item"><a href="#">Home &#038; Static Pages</a>
+                                            </li>
+                                            <li class="menu-item"><a href="{{ route('front.index') }}">Home v1</a>
+                                            </li>
+                                            <li class="menu-item current-menu-item current_page_item"><a href="#">Home
+                                                    v2</a></li>
                                             <li class="menu-item"><a href="#">Home v3</a></li>
                                             <li class="menu-item"><a href="#">About</a></li>
                                             <li class="menu-item"><a href="#">Contact v2</a></li>
@@ -68,12 +71,15 @@
                                 <div class="widget widget_nav_menu">
                                     <div class="menu-pages-menu-3-container">
                                         <ul id="menu-pages-menu-3" class="menu">
-                                            <li class="nav-title menu-item"><a href="index.php?page=single-product">Single Product Pages</a></li>
+                                            <li class="nav-title menu-item"><a
+                                                    href="index.php?page=single-product">Single Product Pages</a></li>
                                             <li class="menu-item"><a href="#">Single Product Extended</a></li>
                                             <li class="menu-item"><a href="#">Single Product Fullwidth</a></li>
                                             <li class="menu-item"><a href="#">Single Product Sidebar</a></li>
-                                            <li class="menu-item"><a href="#">Single Product Sidebar Accessories </a></li>
-                                            <li class="menu-item"><a href="#">Single Product Sidebar Specification </a></li>
+                                            <li class="menu-item"><a href="#">Single Product Sidebar Accessories </a>
+                                            </li>
+                                            <li class="menu-item"><a href="#">Single Product Sidebar Specification </a>
+                                            </li>
                                             <li class="menu-item"><a href="#">Single Product Sidebar Reviews </a></li>
                                             <li class="nav-title menu-item"><a href="#">Ecommerce Pages</a></li>
                                             <li class="menu-item"><a href="#">Shop</a></li>

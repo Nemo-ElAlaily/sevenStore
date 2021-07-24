@@ -8,9 +8,11 @@
 
             <li class="nav-item active"><span class="nav-link">Top 20</span></li>
 
-            <li class="nav-item"><a class="nav-link" href="index.php?page=product-category">Smart Phones &amp; Tablets</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php?page=product-category">Smart Phones &amp;
+                    Tablets</a></li>
 
-            <li class="nav-item"><a class="nav-link" href="index.php?page=product-category">Laptops &amp; Computers</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php?page=product-category">Laptops &amp; Computers</a>
+            </li>
 
             <li class="nav-item"><a class="nav-link" href="index.php?page=product-category">Video Cameras</a></li>
         </ul>

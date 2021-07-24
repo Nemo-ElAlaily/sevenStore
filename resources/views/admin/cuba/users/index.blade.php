@@ -1,13 +1,13 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'Users')
+@section('title', trans('site.Users'))
 
 @section('breadcrumb-title')
-    <h5>Users <span class="small text-muted">{{ $users ->total() }}</span></h5>
+    <h5>{{ trans('site.Users') }} <span class="small text-muted">{{ $users->total() }}</span></h5>
 @stop
 
 @section('breadcrumb-items')
-    <li class="breadcrumb-item">Users</li>
+    <li class="breadcrumb-item">{{ trans('site.Users') }}</li>
 @stop
 
 @section('content')
@@ -20,26 +20,29 @@
                 <div class="row mx-5">
 
                     <div class="col-md-4">
-                        <input type="text" name="search" class="form-control" placeholder="Search Here..." value="{{ request()->search }}">
+                        <input type="text" name="search" class="form-control" placeholder="{{ trans('site.Search Here') }}..."
+                            value="{{ request()->search }}">
                     </div>
 
                     <div class="col-md-2">
                         <label class="w-100">
                             <select class="select-css" name="role" class="form-control">
-                                <option value="">All Roles</option>
-                                @foreach($roles as $role)
-                                    <option value="{{ $role -> name }}" {{ request() -> role == $role -> name ? 'selected' : '' }}>{{ $role -> display_name }}</option>
+                                <option value="">{{ trans('site.All Roles') }}</option>
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->name }}"
+                                        {{ request()->role == $role->name ? 'selected' : '' }}>
+                                        {{ $role->display_name }}</option>
                                 @endforeach
                             </select>
                         </label>
                     </div>
 
                     <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
+                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
                         @if (auth()->user()->hasPermission('users_create'))
-                            <a href="{{ route('admin.users.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> Add user</a>
-                             @else
-                                <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> Add user</a>
+                            <a href="{{ route('admin.users.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> {{ trans('site.add') . ' ' . trans('site.User') }}</a>
+                        @else
+                            <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> {{ trans('site.add') . ' ' . trans('site.User') }}</a>
                         @endif
                     </div>
 
@@ -53,51 +56,53 @@
 
         <div class="box-body bg-white mx-5 mt-3">
 
-                @if ($users->count() > 0)
-               
-                    @if (auth()->user()->hasPermission('users_update','users_delete'))
-                        <th>Action</th>
-                    @endif
-            <div class="container">
-             <div class="row">
-                @foreach ($users as $index=>$user)
-                
-                    <div class="col-md-4">
-                        <div class="user-home">
-                            <span class="number-user">#{{ $index + 1 }}</span>
-                            <span class="name-user fa fa-user"> {{ $user -> full_name }}</span>
-                            <span class="email-user fa fa-envelope"> {{ $user -> email }}</span>
+            @if ($users->count() > 0)
 
-                            <div class="user-home-input">
-                                @if (auth()->user()->hasPermission('users_update'))
-                                <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btnEdit btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                                {{-- @else
+                @if (auth()->user()->hasPermission('users_update', 'users_delete'))
+                    <th>Action</th>
+                @endif
+                <div class="container">
+                    <div class="row">
+                        @foreach ($users as $index => $user)
+
+                            <div class="col-md-4">
+                                <div class="user-home">
+                                    <span class="number-user">#{{ $index + 1 }}</span>
+                                    <span class="name-user fa fa-user"> {{ $user->full_name }}</span>
+                                    <span class="email-user fa fa-envelope"> {{ $user->email }}</span>
+
+                                    <div class="user-home-input">
+                                        @if (auth()->user()->hasPermission('users_update'))
+                                            <a href="{{ route('admin.users.edit', $user->id) }}"
+                                                class="btn btnEdit btn-sm"><i class="fa fa-edit"></i> {{ trans('site.edit') }}</a>
+                                            {{-- @else
                                     <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
-                                @endif
-                                @if (auth()->user()->hasPermission('users_delete'))
-                                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="post" style="display: inline-block">
-                                        {{ csrf_field() }}
-                                        {{ method_field('delete') }}
-                                        <button type="button" class="btn btnDelete show_confirm btn-sm"><i class="fa fa-trash"></i> Delete</button>
-                                    </form><!-- end of form -->
-                                    {{-- @else
+                                        @endif
+                                        @if (auth()->user()->hasPermission('users_delete'))
+                                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="post"
+                                                style="display: inline-block">
+                                                {{ csrf_field() }}
+                                                {{ method_field('delete') }}
+                                                <button type="button" class="btn btnDelete show_confirm btn-sm"><i
+                                                        class="fa fa-trash"></i> {{ trans('site.delete') }}</button>
+                                            </form><!-- end of form -->
+                                            {{-- @else
                                         <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button> --}}
-                                @endif
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                     
 
-                 
-             
-                @endforeach
-            </div>
-            </div>
+
+
+
+                        @endforeach
+                    </div>
+                </div>
             @else
-                <h2 class="mt-5 text-center pt-2">No Data Found</h2>
+                <h2 class="mt-5 text-center pt-2">{{ trans('site.No Data Found') }}</h2>
             @endif
 
-            </table><!-- end of table -->
 
             {{ $users->appends(request()->query())->links() }}
 

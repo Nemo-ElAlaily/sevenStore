@@ -5,13 +5,13 @@
                 <li class="product_cat"><span class="show-all-cat-dropdown">Show All Categories</span></li>
             </ul>
             <ul>
-                @foreach($categories as $category)
-               <li class="cat-item current-cat">
-                   <a href="{{ route('front.product.category', $category -> slug) }}">
-                       {{ $category -> name }}
-                   </a>
-                   <span class="count">({{ $category -> sub_categories -> count() }})</span>
-               </li>
+                @foreach ($categories as $category)
+                    <li class="cat-item current-cat">
+                        <a href="{{ route('front.product.category', $category->slug) }}">
+                            {{ $category->name }}
+                        </a>
+                        <span class="count">({{ $category->sub_categories->count() }})</span>
+                    </li>
                 @endforeach
 
             </ul>

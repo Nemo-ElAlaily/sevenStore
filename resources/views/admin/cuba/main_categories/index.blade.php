@@ -1,13 +1,13 @@
-@extends('layouts.admin.cuba')
+ @extends('layouts.admin.cuba')
 
-@section('title', 'Categories')
+@section('title', trans('site.Categories') )
 
 @section('breadcrumb-title')
-    <h5>Categories <span class="small text-muted">{{ $main_categories ->total() }}</span></h5>
+    <h5>{{ trans('site.Categories') }} <span class="small text-muted">{{ $main_categories ->total() }}</span></h5>
 @stop
 
 @section('breadcrumb-items')
-    <li class="breadcrumb-item">Categories</li>
+    <li class="breadcrumb-item">{{ trans('site.Categories') }}</li>
 @stop
 
 @section('content')
@@ -19,12 +19,13 @@
                 <div class="row mx-5">
 
                     <div class="col-md-4">
-                        <input type="text" name="search" class="form-control" placeholder="Search Here..." value="{{ request()->search }}">
+                        <input type="text" name="search" class="form-control" placeholder="{{ trans('site.Search Here') }}..." value="{{ request()->search }}">
                     </div>
 
                     <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
-                        <a href="{{ route('admin.main_categories.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> Add Category</a>
+                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
+                        <a href="{{ route('admin.main_categories.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i>
+                            {{ trans('site.add') }} {{ trans('site.Category') }}</a>
                     </div>
 
                 </div>
@@ -40,25 +41,25 @@
            <div class="container">
                <div class="row">
 
-               
+
                 @if ($main_categories->count() > 0)
-                
+
                     @foreach ($main_categories as $index=>$main_catogory)
                         <div class="col-md-4">
-                           
+
                             <div class=" card-shadow">
                                 <div class="card-group card-category">
                                     <div class="card">
-                                      <img class="card-img-top img-category" src="{{ $main_catogory -> image_path }}" alt="Card image cap">
+                                      <img class="card-img-top img-category" src="{{ $main_catogory -> image_path }}" alt="{{ $main_catogory -> name }}">
                                       <div class="card-body">
-                                        <span class="badge name-category">Name:</span>
-                                        <h5 class="card-title">{{ $main_catogory -> name }}</h5>
-                                        <p class="card-text"><span class="badge products-category">Products</span> <span class="badge badge-secondary"># {{ $index + 1 }}</span></p>
+                                        <span class="badge name-category">{{ trans('site.name') }}:</span>
+                                        <h5 class="card-title text-center">{{ $main_catogory -> name }}</h5>
+                                        <p class="card-text"><span class="badge products-category">{{ trans('site.products') }}</span> <span class="badge badge-secondary"># {{ $index + 1 }}</span></p>
                                       </div>
-                                      
+
                                       <div class="card-footer">
-                                          
-                                        <span class="actions badge">Actions</span>
+
+                                        <span class="actions badge">{{ trans('site.Action') }}</span>
                                         <div class="all-buttons-functions">
                                             <a href="{{ route('admin.main_categories.show', $main_catogory->id) }}" class="btn btnShow"><i class="fa fa-eye "></i></a>
                                             <a href="{{ route('admin.main_categories.edit', $main_catogory->id) }}" class="btn btnEdit"><i class="fa fa-edit"></i></a>
@@ -75,10 +76,9 @@
                         </div>
 
                     @endforeach
-                    </tbody>
 
                 @else
-                    <h2 class="mt-5 text-center pt-2">No Data Found</h2>
+                    <h2 class="mt-5 text-center pt-2">{{ trans('site.No Data Found') }}</h2>
                 @endif
 
             </div>

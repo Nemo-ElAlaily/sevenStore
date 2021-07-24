@@ -1,7 +1,7 @@
 <div id="content" class="site-content" tabindex="-1">
     <div class="container">
 
-        <nav class="woocommerce-breadcrumb" >
+        <nav class="woocommerce-breadcrumb">
             <a href="{{ route('front.index') }}">Home</a>
             <span class="delimiter">
                 <i class="fa fa-angle-right"></i>
@@ -18,17 +18,22 @@
                 <header class="page-header">
                     <h1 class="page-title"></h1>
                     <p class="woocommerce-result-count">
-                        Showing {{($products->currentpage()-1)*$products->perpage()+1}} - {{$products->currentpage()*$products->perpage()}}
-                        of  {{$products->total()}} Product
+                        Showing {{ ($products->currentpage() - 1) * $products->perpage() + 1 }} -
+                        {{ $products->currentpage() * $products->perpage() }}
+                        of {{ $products->total() }} Product
                     </p>
                 </header>
 
                 <div class="shop-control-bar">
                     <ul class="shop-view-switcher nav nav-tabs" role="tablist">
-                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" title="Grid View" href="#grid"><i class="fa fa-th"></i></a></li>
-                        <li class="nav-item"><a class="nav-link " data-toggle="tab" title="Grid Extended View" href="#grid-extended"><i class="fa fa-align-justify"></i></a></li>
-                        <li class="nav-item"><a class="nav-link " data-toggle="tab" title="List View" href="#list-view"><i class="fa fa-list"></i></a></li>
-                        <li class="nav-item"><a class="nav-link " data-toggle="tab" title="List View Small" href="#list-view-small"><i class="fa fa-th-list"></i></a></li>
+                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" title="Grid View"
+                                href="#grid"><i class="fa fa-th"></i></a></li>
+                        <li class="nav-item"><a class="nav-link " data-toggle="tab" title="Grid Extended View"
+                                href="#grid-extended"><i class="fa fa-align-justify"></i></a></li>
+                        <li class="nav-item"><a class="nav-link " data-toggle="tab" title="List View"
+                                href="#list-view"><i class="fa fa-list"></i></a></li>
+                        <li class="nav-item"><a class="nav-link " data-toggle="tab" title="List View Small"
+                                href="#list-view-small"><i class="fa fa-th-list"></i></a></li>
                     </ul>
 
                     @include('front.includes.components.shop-control-bar')

@@ -1,10 +1,10 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'Currency | ' . $currency -> name)
+@section('title', trans('site.Currencies') . ' | ' . $currency->name)
 
 @section('breadcrumb-items')
-    <li class="breadcrumb-item">Currencies</li>
-    <li class="breadcrumb-item">Edit</li>
+    <li class="breadcrumb-item">{{ trans('site.Currencies') }}</li>
+    <li class="breadcrumb-item">{{ trans('site.edit') }}</li>
 @stop
 
 
@@ -16,7 +16,7 @@
             <div class="row">
                 @include('admin.cuba.partials._errors')
 
-                <form class="col-12" action="{{ route('admin.currencies.update', $currency -> id) }}" method="post">
+                <form class="col-12" action="{{ route('admin.currencies.update', $currency->id) }}" method="post">
 
                     {{ csrf_field() }}
                     {{ method_field('put') }}
@@ -24,12 +24,13 @@
                     @foreach (config('translatable.locales') as $locale)
                         <div class="row">
                             <div class="form-group col-sm-12 col-lg-6">
-                                <label  class="currencyLabel">currency Name in @lang('site.' . $locale . '.name')</label>
-                                @error($locale . '.name')
-                                <span class="text-danger mx-5">{{ $message }}</span>
+                                <label class="currencyLabel">{{ trans('site.name') }} @lang('site.' . $locale .
+                                    '.name')</label>
+                                @error($locale . '.in name')
+                                    <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
                                 <input class="form-control input-thick" type="text" name="{{ $locale }}[name]"
-                                       value="{{ $currency->translate($locale)-> name }}">
+                                    value="{{ $currency->translate($locale)->name }}">
                             </div>
 
                         </div>
@@ -38,19 +39,22 @@
 
                     <div class="row">
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label class="currencyLabel">currency Symbol</label>
+                            <label class="currencyLabel">{{ trans('site.currency Symbol') }}</label>
                             @error('symbol')
-                            <span class="text-danger mx-5">{{ $message }}</span>
+                                <span class="text-danger mx-5">{{ $message }}</span>
                             @enderror
                             <input class="form-control input-thick" type="text" name="symbol"
-                                   value="{{ $currency -> symbol }}">
+                                value="{{ $currency->symbol }}">
                         </div>
-                            <span class="currencySpan">Starts with <mark>"#"</mark>, check <a target="_blank" href="https://www.toptal.com/designers/htmlarrows/currency/">This link for more information</a> </span>
+                        <span class="currencySpan">{{ trans('site.Starts with') }} <mark>"&"</mark>,
+                            {{ trans('site.check') }} <a target="_blank"
+                                href="https://www.toptal.com/designers/htmlarrows/currency/">{{ trans('site.This link for more information') }}</a>
+                        </span>
                     </div>
 
                     <div class="form-group">
                         <button type="submit" class="btn btnEdit"><i class="fa fa-plus"></i>
-                            Edit currency</button>
+                            {{ trans('site.edit') }} {{ trans('site.currency') }}</button>
                     </div>
 
                 </form><!-- end of form -->
