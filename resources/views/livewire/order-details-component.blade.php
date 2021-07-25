@@ -10,7 +10,9 @@
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
                 <article class="page type-page status-publish hentry">
-                    <header class="entry-header"><h1 itemprop="name" class="entry-title">Order Details</h1></header><!-- .entry-header -->
+                    <header class="entry-header">
+                        <h1 itemprop="name" class="entry-title">Order Details</h1>
+                    </header><!-- .entry-header -->
 
                     @include('front.includes.components.order-details-table')
 

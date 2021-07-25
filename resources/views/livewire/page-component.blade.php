@@ -14,13 +14,13 @@
                 <article class="page type-page status-publish hentry">
 
                     <header class="entry-header">
-                        <h1 class="entry-title">{{ $page -> title }}</h1>
+                        <h1 class="entry-title">{{ $page->title }}</h1>
                         <p class="entry-subtitle">Why Choose SPC Tech</p>
                     </header><!-- .entry-header -->
 
                     <div class="entry-content m-x-auto">
                         <section class="section inner-bottom-xs">
-                            {!! html_entity_decode($page -> content) !!}
+                            {!! html_entity_decode($page->content) !!}
                         </section>
                     </div>
 
@@ -29,4 +29,3 @@
         </div><!-- #primary -->
     </div><!-- .container -->
 </div><!-- #content -->
-

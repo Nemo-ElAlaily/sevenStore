@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
     <ul class="pager">
-       
+
         @if ($paginator->onFirstPage())
             <li class="disabled"><span>←</span></li>
         @else
@@ -8,9 +8,9 @@
         @endif
 
 
-      
+
         @foreach ($elements as $element)
-           
+
             @if (is_string($element))
                 <li class="disabled"><span>{{ $element }}</span></li>
             @endif
@@ -32,4 +32,4 @@
             <li class="disabled"><span>→</span></li>
         @endif
     </ul>
-@endif 
+@endif

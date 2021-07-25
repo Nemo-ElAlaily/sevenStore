@@ -18,8 +18,8 @@ class PageController extends Controller
 
     public function show($id)
     {
-        $page = Page::find($id);
-        return view('admin.cuba.pages.show', compact('page'));
+//        $page = Page::find($id);
+//        return view('admin.cuba.pages.show', compact('page'));
     } // end of create
 
     public function create()

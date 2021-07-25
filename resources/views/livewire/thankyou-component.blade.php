@@ -13,7 +13,8 @@
             <h1 itemprop="name" class="entry-title">Thank You For Your Order</h1>
             <br>
             <div class="hero-action-btn fadeInDown-4">
-                <a href="{{ route('front.shop') }}" class="big le-button text-gray-dark text-lg font-weight-bold">Continue Shopping</a>
+                <a href="{{ route('front.shop') }}"
+                    class="big le-button text-gray-dark text-lg font-weight-bold">Continue Shopping</a>
             </div>
         </header><!-- .entry-header -->
 

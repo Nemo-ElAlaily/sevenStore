@@ -9,7 +9,8 @@
                                 <figure class="wpb_wrapper vc_figure">
                                     <div class="vc_single_image-wrapper vc_box_border_grey">
 
-                                        <img src="{{ asset('front/images/megamenu-2.png') }}" class="vc_single_image-img attachment-full" alt="">
+                                        <img src="{{ asset('front/images/megamenu-2.png') }}"
+                                            class="vc_single_image-img attachment-full" alt="">
                                     </div>
                                 </figure>
                             </div>
@@ -33,7 +34,8 @@
                                         <li><a href="#">Computer Accessories</a></li>
                                         <li><a href="#">Software</a></li>
                                         <li class="nav-divider"></li>
-                                        <li><a href="#"><span class="nav-text">All Electronics</span><span class="nav-subtext">Discover more products</span></a></li>
+                                        <li><a href="#"><span class="nav-text">All Electronics</span><span
+                                                    class="nav-subtext">Discover more products</span></a></li>
                                     </ul>
 
                                 </div>

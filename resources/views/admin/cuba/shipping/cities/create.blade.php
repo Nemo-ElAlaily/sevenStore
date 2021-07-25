@@ -1,10 +1,10 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'Cities | Create')
+@section('title', trans('site.Cities') . ' | ' . trans('site.add'))
 
 @section('breadcrumb-items')
-    <li class="breadcrumb-item">Cities</li>
-    <li class="breadcrumb-item">Create</li>
+    <li class="breadcrumb-item">{{ trans('site.Cities') }}</li>
+    <li class="breadcrumb-item">{{ trans('site.add') }}</li>
 @stop
 
 
@@ -15,45 +15,47 @@
         <div class="card-body">
             <div class="row">
 
-{{--                        @include('partials._errors')--}}
-                <form class="col-12" action="{{ route('admin.cities.store') }}" method="post" enctype="multipart/form-data">
+                {{-- @include('partials._errors') --}}
+                <form class="col-12" action="{{ route('admin.cities.store') }}" method="post"
+                    enctype="multipart/form-data">
 
-                            {{ csrf_field() }}
-                            {{ method_field('post') }}
+                    {{ csrf_field() }}
+                    {{ method_field('post') }}
 
                     <div class="row">
                         @foreach (config('translatable.locales') as $locale)
-                        <div class="col-sm-12 col-lg-12">
+                            <div class="col-sm-12 col-lg-12">
                                 <div class="form-group">
-                                    <label class="citiesLabel" for="{{ $locale }}[name]">city Name in @lang('site.' . $locale . '.name')</label>
+                                    <label class="citiesLabel" for="{{ $locale }}[name]">{{ trans('site.name') }} @lang('site.' .
+                                        $locale . '.in name')</label>
                                     @error($locale . '.name')
-                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                        <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
                                     <input class="form-control input-thick" type="text" name="{{ $locale }}[name]"
-                                           value="{{ old($locale.'.name') }}">
+                                        value="{{ old($locale . '.name') }}">
                                 </div>
-                        </div>
+                            </div>
                         @endforeach
 
-                        <div class="col-sm-12 col-lg-12">
+                        <div class="col-sm-12 col-lg-12 mb-3">
                             <div class="form-group">
-                            <label class="citiesLabel" for="country">Country</label>
-                            @error('country_id')
-                            <span class="text-danger mx-5">{{ $message }}</span>
-                            @enderror
-                            <select name="country_id" class="form-control">
-                                <option value="">All Countries</option>
-                                @foreach ($countries as $country)
-                                    <option value="{{ $country -> id }}">{{ $country -> name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                                <label class="citiesLabel" for="country">{{ trans('site.Country name') }}</label>
+                                @error('country_id')
+                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                @enderror
+                                <select name="country_id" class="form-control">
+                                    <option value="">{{ trans('site.All Countries') }}</option>
+                                    @foreach ($countries as $country)
+                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
-                            Add city</button>
+                            {{ trans('site.add') . ' ' . trans('site.City') }}</button>
                     </div>
 
                 </form><!-- end of form -->

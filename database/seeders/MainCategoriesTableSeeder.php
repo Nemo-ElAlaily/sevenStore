@@ -31,14 +31,19 @@ class MainCategoriesTableSeeder extends Seeder
                 'image' => 'default.png',
             ]);
 
-            foreach(config('translatable.locales') as $locale){
-                MainCategoryTranslation::create([
-                    'main_category_id' => $new_category -> id,
-                    'locale' => $locale,
-                    'name' => $category -> name,
-                    'slug' =>  str_replace($characters, '-' , $category -> name),
-                ]);
-            }
+            MainCategoryTranslation::create([
+                'main_category_id' => $new_category -> id,
+                'locale' => 'ar',
+                'name' => $category -> name,
+                'slug' =>  str_replace($characters, '-' , $category -> name),
+            ]);
+
+            MainCategoryTranslation::create([
+                'main_category_id' => $new_category -> id,
+                'locale' => 'en',
+                'name' => $category -> name,
+                'slug' =>  str_replace($characters, '-' , $category -> name),
+            ]);
 
             DB::commit();
 

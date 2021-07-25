@@ -29,14 +29,19 @@ class TagsTableSeeder extends Seeder
                 'id' => $tag -> term_id,
             ]);
 
-            foreach(config('translatable.locales') as $locale) {
-                TagTranslation::create([
-                    'tag_id' => $new_tag->id,
-                    'locale' => $locale,
-                    'name' => $tag->name,
-                    'slug' => str_replace($characters, '-', $tag->name),
-                ]);
-            }
+            TagTranslation::create([
+                'tag_id' => $new_tag -> id,
+                'locale' => 'ar',
+                'name' => $tag -> name,
+                'slug' =>  str_replace($characters, '-' , $tag -> name),
+            ]);
+
+            TagTranslation::create([
+                'tag_id' => $new_tag -> id,
+                'locale' => 'en',
+                'name' => $tag -> name,
+                'slug' =>  str_replace($characters, '-' , $tag -> name),
+            ]);
 
             DB::commit();
 

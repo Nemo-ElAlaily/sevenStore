@@ -46,18 +46,27 @@ class PagesTableSeeder extends Seeder
                 $new_page -> is_active = $page -> status == 'publish' ? 1 : 0;
                 $new_page -> save();
 
-                foreach(config('translatable.locales') as $locale){
-                    $new_page_translation = new PageTranslation();
-                    $new_page_translation -> page_id = $new_page -> id;
-                    $new_page_translation -> locale = $locale;
-                    $new_page_translation -> title = $page -> title;
-                    $new_page_translation -> slug = $page -> post_name;
-                    $new_page_translation -> content = $page -> post_content;
-                    $new_page_translation -> meta_title = null;
-                    $new_page_translation -> meta_description = null;
-                    $new_page_translation -> meta_keyword = null;
-                    $new_page_translation -> save();
-                }
+                $new_page_translation = new PageTranslation();
+                $new_page_translation -> page_id = $new_page -> id;
+                $new_page_translation -> locale ='en';
+                $new_page_translation -> title = $page -> title;
+                $new_page_translation -> slug = $page -> post_name;
+                $new_page_translation -> content = $page -> post_content;
+                $new_page_translation -> meta_title = null;
+                $new_page_translation -> meta_description = null;
+                $new_page_translation -> meta_keyword = null;
+                $new_page_translation -> save();
+
+                $new_page_translation = new PageTranslation();
+                $new_page_translation -> page_id = $new_page -> id;
+                $new_page_translation -> locale ='ar';
+                $new_page_translation -> title = $page -> title;
+                $new_page_translation -> slug = $page -> post_name;
+                $new_page_translation -> content = $page -> post_content;
+                $new_page_translation -> meta_title = null;
+                $new_page_translation -> meta_description = null;
+                $new_page_translation -> meta_keyword = null;
+                $new_page_translation -> save();
 
             DB::commit();
 

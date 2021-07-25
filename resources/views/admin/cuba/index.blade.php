@@ -9,7 +9,7 @@
       <div class="card-counter primary">
         <i class="fa fa-code-fork"></i>
         <span class="count-numbers">{{ $orders_count }}</span>
-        <span class="count-name">Order</span>
+        <span class="count-name">{{ trans('site.Order') }}</span>
       </div>
     </div>
 
@@ -17,7 +17,7 @@
       <div class="card-counter danger">
         <i class="fa fa-ticket"></i>
         <span class="count-numbers">{{ $products_count }}</span>
-        <span class="count-name">Product</span>
+        <span class="count-name">{{ trans('site.product') }}</span>
       </div>
     </div>
 
@@ -25,7 +25,7 @@
       <div class="card-counter success">
         <i class="fa fa-database"></i>
         <span class="count-numbers">{{ $blog_count }}</span>
-        <span class="count-name">Blog</span>
+        <span class="count-name">{{ trans('site.Blog') }}</span>
       </div>
     </div>
 
@@ -33,7 +33,7 @@
       <div class="card-counter info">
         <i class="fa fa-users"></i>
         <span class="count-numbers">{{ $users_count }}</span>
-        <span class="count-name">Users</span>
+        <span class="count-name">{{ trans('site.User') }}</span>
       </div>
     </div>
   </div>
