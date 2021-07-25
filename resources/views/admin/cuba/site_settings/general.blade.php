@@ -145,6 +145,18 @@
                         @endforeach
                     </div>
 
+
+                  <div class="form-group">
+                    <label class="labelSetting">Google Analytics</label>
+                    @error($locale . '.meta_description')
+                    <br />
+                    {{-- <span class="text-danger mx-5">{{ $message }}</span> --}}
+                    @enderror
+                    <textarea class="form-control   input-thick bg-dark text-center"
+                           name="google_analytics"></textarea>
+                </div>
+
+
                     <div class="row">
 
                         <div class="form-group col-sm-12 col-lg-6">

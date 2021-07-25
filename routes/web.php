@@ -20,6 +20,10 @@ use App\Http\Livewire\SingleProductComponent;
 use App\Http\Livewire\TrackYourOrderComponent;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
+<<<<<<< HEAD
+use Laravel\Socialite\Facades\Socialite;
+=======
+>>>>>>> fa037c83eb2ec2f559a40969f29fef04fda18ed3
 
 
 
@@ -47,6 +51,26 @@ Route::get('/done', '\App\Http\Controllers\HomeController@migrate_seed')->name('
 Route::get('/welcome', '\App\Http\Controllers\HomeController@welcome')->name('app.welcome');
 Route::post('/welcome/start', '\App\Http\Controllers\HomeController@initApp')->name('app.start');
 
+<<<<<<< HEAD
+
+
+
+// Route::get('/auth/redirect', function () {
+//     return Socialite::driver('google')->redirect();
+// });
+
+// Route::get('/auth/callback', function () {
+//     $user = Socialite::driver('google')->user();
+
+//     // $user->token
+// });
+
+Route::get('login/{provider}', '\App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('social.login');
+Route::get('login/{provider}/callback', '\App\Http\Controllers\Auth\LoginController@handleProviderCallback');
+
+
+=======
+>>>>>>> fa037c83eb2ec2f559a40969f29fef04fda18ed3
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'], 'name' => 'front.'], function () {
     Route::name('front.')->group(function () {
 
