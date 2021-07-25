@@ -59,5 +59,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::resource('cities', 'Shipping\CityController');
         /* regions routes */
         Route::resource('regions', 'Shipping\RegionController');
+
+        /**menus */
+        Route::get('/main-menue','MenusController@mainMenuePages');
+      
     });
+    Route::put('updateMainMenue','MenusController@upadteMainMenuePages')->name('update.main.menue');
+    Route::put('updateSideMenue','MenusController@upadteSideMenuePages')->name('update.side.menue');
+    Route::put('updateFooterMenue','MenusController@upadteFooterMenuePages')->name('update.footer.menue');
+
+
+    
 });

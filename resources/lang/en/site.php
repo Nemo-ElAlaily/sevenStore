@@ -219,4 +219,13 @@ return [
     /* ******** End Users ******** */
     /* ***************************** */
 
+    /*********** billy****/
+
+    'menus' => 'Menus',
+    'main_menue'=>'Main Menue',
+    'Footer'=>'Footer',
+    'sidebar'=>'Sidebar',
+    'save'=>'Save',
+
+
 ];
