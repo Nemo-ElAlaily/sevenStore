@@ -70,15 +70,12 @@
 
                                                 <p class="lost_password"><a href="{{ route('password.request') }}">Forgot
                                                         your password?</a></p>
-<<<<<<< HEAD
 
                                             <div class="social-button">
                                                 <a href="{{route('social.login', 'facebook')}}" class="btn btn-circle facebook" style='background:#415e9b'><i class="fa fa-facebook"></i></a>
                                                 <a href="{{route('social.login', 'google')}}" class="btn btn-circle google"><i class="fa fa-google "></i></a>
-                                            
+
                                              </div>
-=======
->>>>>>> fa037c83eb2ec2f559a40969f29fef04fda18ed3
 
                                             </form>
 
