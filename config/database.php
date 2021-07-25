@@ -43,14 +43,14 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
- 'mysql' => [
+        'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST'),
             'port' => env('DB_PORT'),
             'database' => env('DB_DATABASE'),
             'username' => env('DB_USERNAME'),
-            'password' =>  env('DB_PASSWORD'),
+            'password' => env('DB_PASSWORD'),
             'unix_socket' => env('DB_SOCKET'),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -64,17 +64,17 @@ return [
         ],
 
         'wordpress' => [ // for WordPress database (used by Corcel)
-            'driver'    => 'mysql',
-            'host'      => env('WP_DB_HOST'),
-            'port'      => env('WP_DB_PORT'),
-            'database'  => env('WP_DB_DATABASE'),
-            'username'  => env('WP_DB_USERNAME'),
-            'password'  => env('WP_DB_PASSWORD'),
-            'charset'   => 'utf8',
+            'driver' => 'mysql',
+            'host' => env('WP_DB_HOST'),
+            'port' => env('WP_DB_PORT'),
+            'database' => env('WP_DB_DATABASE'),
+            'username' => env('WP_DB_USERNAME'),
+            'password' => env('WP_DB_PASSWORD'),
+            'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => 'wp_',
-            'strict'    => false,
-            'engine'    => null,
+            'prefix' => 'wp_',
+            'strict' => false,
+            'engine' => null,
         ],
 
         'pgsql' => [
@@ -137,7 +137,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str ::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [
