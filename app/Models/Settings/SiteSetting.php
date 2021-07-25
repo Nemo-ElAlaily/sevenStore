@@ -18,9 +18,10 @@ class SiteSetting extends Model implements TranslatableContract
     protected $appends = [
         'logo_path',
         'favicon_path',
+
     ];
 
-    protected $fillable = ['logo', 'favicon'];
+    protected $fillable = ['logo', 'favicon','google_analytics'];
 
     public function getLogoPathAttribute()
     {

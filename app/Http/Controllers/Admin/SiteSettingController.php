@@ -33,7 +33,7 @@ class SiteSettingController extends Controller
         $site_settings = SiteSetting::findorFail($id);
 
         $request_data = $request->except(['_token', '_method']);
-
+// dd($request);
         $logoPath = "";
         if($request->logo){
             if ($site_settings -> logo != 'default.png') {
@@ -53,7 +53,7 @@ class SiteSettingController extends Controller
         } else {
             $faviconPath = $site_settings -> favicon_path;
         }// end of outer if
-
+        $request_data['google_analytics']=$request->google_analytics;
         $request_data['logo'] = $logoPath;
         $request_data['favicon'] = $faviconPath;
         $site_settings->update($request_data);

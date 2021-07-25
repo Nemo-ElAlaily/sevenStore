@@ -7,6 +7,8 @@ use App\Models\Products\Product;
 use Livewire\Component;
 use Cart;
 
+use App\Models\Settings\DatabaseSetting;
+
 class HomeComponent extends Component
 {
     public function store($product_id, $product_name, $product_price)
@@ -42,6 +44,10 @@ class HomeComponent extends Component
 
     public function render()
     {
+        // dd(DatabaseSetting::all());
+        // if((DatabaseSetting::first() == null)){
+        //     return view('admin.cuba.forms.db-new');
+        // }
         $products_featured = Product::orderBy('created_at')->take(5)->get();
         $products_on_sale = Product::where('sale_price', '>' , 'regular_price')->inRandomOrder()->take(5)->get();
         $products_top_rated = Product::inRandomOrder()->take(5)->get();
