@@ -1,4 +1,4 @@
-<div class="home-v1-banner-block animate-in-view fadeIn animated" data-animation="fadeIn">
+<div class="home-v1-banner-block animate-in-associate(\App\Models\Products\Product::class)fadeIn animated" data-animation="fadeIn">
 
     <div class="home-v1-fullbanner-ad fullbanner-ad" style="margin-bottom: 70px">
         <a href="#">

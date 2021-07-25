@@ -13,7 +13,13 @@ return [
         'description' => 'Description',
         'in name' => 'in Arabic',
     ],
+    'Previous' => 'Previous',
+    'Next' => 'Next',
+
     'Home' => 'Home',
+    'Category' => 'Category',
+    'Tag' => 'Tag',
+    'Read More' => 'Read More',
 
     'Register' => 'Register',
     'or' => 'or',
@@ -48,8 +54,24 @@ return [
     /* ******** End Homepage ******** */
     /* ***************************** */
 
-    /* ******** Start blog component ******** */
+    /* ******** Start Breadcrumbs ******** */
     'Blog' => 'Blog',
-    /* ******** End blog component ******** */
+    'Cart' => 'Cart',
+    /* ******** End Breadcrumbs ******** */
+    /* ***************************** */
+
+    /* ******** Start Cart Component ******** */
+    'Your Cart is Empty !' => 'Your Cart is Empty !',
+    'Start Shopping' => 'Start Shopping',
+    'Product' => 'Product',
+    'Price' => 'Price',
+    'Quantity' => 'Quantity',
+    'Total' => 'Total',
+    'No Items added to the Cart' => 'No Items added to the Cart',
+    'Delete All' => 'Delete All',
+    'Proceed to Checkout' => 'Proceed to Checkout',
+    'View Cart' => 'View Cart',
+    'Checkout' => 'Checkout',
+    /* ******** End Cart Component ******** */
     /* ***************************** */
 ];

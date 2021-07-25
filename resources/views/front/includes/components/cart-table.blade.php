@@ -5,10 +5,10 @@
             <tr>
                 <th class="product-remove">&nbsp;</th>
                 <th class="product-thumbnail">&nbsp;</th>
-                <th class="product-name">Product</th>
-                <th class="product-price">Price</th>
-                <th class="product-quantity">Quantity</th>
-                <th class="product-subtotal">Total</th>
+                <th class="product-name">{{ trans('front.Product') }}</th>
+                <th class="product-price">{{ trans('front.Price') }}</th>
+                <th class="product-quantity">{{ trans('front.Quantity') }}</th>
+                <th class="product-subtotal">{{ trans('front.Total') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -38,7 +38,7 @@
                         <td data-title="Quantity" class="product-quantity">
                             <div class="quantity buttons_added">
                                 <input type="button" class="minus" value="{{ $item->model->qty }}">
-                                <label>Quantity:</label>
+                                <label>{{ trans('front.Quantity') }}:</label>
                                 <input type="number" size="4" class="input-text qty text" title="Qty"
                                     value="{{ $item->qty }}" name="{{ $item->model->qty }}" max="29" min="0"
                                     step="1">
@@ -57,7 +57,7 @@
             @else
                 <p class="cart_item">
 
-                    No Items added to the Cart
+                    {{ trans('front.No Items added to the Cart') }}
 
                 </p>
             @endif
@@ -73,12 +73,11 @@
 
                     {{-- </div> --}}
 
-                    <a class="button font-weight-bold" wire:click.prevent="destroyAll()">Delete All</a>
+                    <a class="button font-weight-bold" wire:click.prevent="destroyAll()">{{ trans('front.Delete All') }}</a>
 
                     <div class="wc-proceed-to-checkout">
 
-                        <a class="checkout-button button alt wc-forward" href="{{ route('front.checkout') }}">Proceed
-                            to Checkout</a>
+                        <a class="checkout-button button alt wc-forward" href="{{ route('front.checkout') }}">{{ trans('front.Proceed to Checkout') }}</a>
                     </div>
 
                     <input type="hidden" value="1eafc42c5e" name="_wpnonce" id="_wpnonce"><input type="hidden"

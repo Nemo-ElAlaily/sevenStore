@@ -2505,7 +2505,8 @@ table.cart {
     color: #747474;
     border-bottom: 1px solid #ddd;
     border-top: none;
-    font-weight: normal; }
+    font-weight: normal;
+    text-align: inherit; }
   table.cart td {
     vertical-align: middle;
     font-size: 1.214em;

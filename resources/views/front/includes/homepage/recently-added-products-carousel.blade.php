@@ -1,4 +1,4 @@
-<section class="home-v1-recently-viewed-products-carousel section-products-carousel animate-in-view fadeIn animated"
+<section class="home-v1-recently-viewed-products-carousel section-products-carousel animate-in-associate(\App\Models\Products\Product::class)fadeIn animated"
     data-animation="fadeIn">
 
     <header>

@@ -110,7 +110,7 @@
 
                             </table>
 
-                            {{ $orders->links('front.pagination.default') }}
+                            {{ $orders->links('vendor.pagination.default') }}
 
                         </form>
 

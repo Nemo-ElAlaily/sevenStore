@@ -13,7 +13,14 @@ return [
         'description' => 'الوصف',
         'in name' => 'بالعربية',
     ],
+
+    'Previous' => 'السابق',
+    'Next' => 'التالي',
+
     'Home' => 'الرئيسية',
+    'Category' => 'القسم',
+    'Tag' => 'التاج',
+    'Read More' => 'إقرأ المزيد',
 
     'Register' => 'اشتراك',
     'or' => 'أو',
@@ -48,9 +55,24 @@ return [
     /* ******** End Homepage ******** */
     /* ***************************** */
 
-    /* ******** Start blog component ******** */
+    /* ******** Start Breadcrumbs ******** */
     'Blog' => 'المدونة',
-    /* ******** End blog component ******** */
+    'Cart' => 'العربة',
+    /* ***** End Breadcrumbs ***** */
     /* ***************************** */
 
+    /* ******** Start Cart Component ******** */
+    'Your Cart is Empty !' => 'عربة التسوق خالية !',
+    'Start Shopping' => 'إبدأ التسوق الآن',
+    'Product' => 'اسم المنتج',
+    'Price' => 'السعر الوحدة',
+    'Quantity' => 'العدد',
+    'Total' => 'الإجمالي',
+    'No Items added to the Cart' => 'لم يتم اضافة اى منتج الي العربة',
+    'Delete All' => 'حذف الكل',
+    'Proceed to Checkout' => 'استكمال الطلب',
+    'View Cart' => 'عرض عربة التسوق',
+    'Checkout' => 'استكمال الطلب',
+    /* ******** End Cart Component ******** */
+    /* ***************************** */
 ];

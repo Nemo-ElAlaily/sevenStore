@@ -15,6 +15,6 @@
         of {{ $products->total() }} Product
     </p>
 
-    {{ $products->links('front.pagination.default') }}
+    {{ $products->links('vendor.pagination.default') }}
 
 </div>

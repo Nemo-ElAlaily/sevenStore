@@ -68,7 +68,7 @@ class ShopComponent extends Component
 
     public function addToCompare($product_id, $product_name, $product_price)
     {
-        Cart::instance('compare')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Product::class);
+        Cart::instance('compare')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Products\Product::class);
         $this->emitTo('compare-count-component', 'refreshComponent');
         session()->flash('success', 'Item Added in Compare list');
     } // end of add to Compare list

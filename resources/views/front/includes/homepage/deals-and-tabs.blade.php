@@ -1,4 +1,4 @@
-<div class="home-v1-deals-and-tabs deals-and-tabs row animate-in-view fadeIn animated" data-animation="fadeIn">
+<div class="home-v1-deals-and-tabs deals-and-tabs row animate-in-associate(\App\Models\Products\Product::class)fadeIn animated" data-animation="fadeIn">
 
     <div class="tabs-block col-lg-12">
         <div class="products-carousel-tabs">

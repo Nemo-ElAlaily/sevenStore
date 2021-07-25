@@ -34,49 +34,49 @@
 @if (Route::is('front.shop') || Route::is('front.product.details') || Route::is('front.product.category'))
 
     <body class="left-sidebar single-product">
-    @elseif(Route::is('front.blog'))
+@elseif(Route::is('front.blog'))
 
-        <body class="blog blog-list right-sidebar">
-        @elseif(Route::is('front.blog.details'))
+    <body class="blog blog-list right-sidebar">
+@elseif(Route::is('front.blog.details'))
 
-            <body class="single-post right-sidebar">
-            @else
+    <body class="single-post right-sidebar">
+@else
 
-                <body class="page home page-template-default">
+    <body class="page home page-template-default">
 @endif
-<div id="page" class="hfeed site">
 
-    @include('front.includes.header.top_bar')
+    <div id="page" class="hfeed site">
 
-
-    @include('front.includes.header.header')
-
-    @if (Route::is('front.*'))
-        {{ $slot }}
-    @else
-        @yield('content')
-    @endif
+        @include('front.includes.header.top_bar')
 
 
+        @include('front.includes.header.header')
 
-    {{-- @include('front.includes.footer.brands-carousel') --}}
+        @if (Route::is('front.*'))
+            {{ $slot }}
+        @else
+            @yield('content')
+        @endif
 
-    @include('front.includes.footer.footer')
+        {{-- @include('front.includes.footer.brands-carousel') --}}
 
-</div><!-- #page -->
+        @include('front.includes.footer.footer')
 
-<script type="text/javascript" src="{{ asset('front/js/tether.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('front/js/bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('front/js/bootstrap-hover-dropdown.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('front/js/echo.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('front/js/wow.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('front/js/jquery.easing.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('front/js/jquery.waypoints.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('front/js/electro.js') }}"></script>
-<script type="text/javascript"
-src="{{ asset('front/js/custom-' . LaravelLocalization::getCurrentLocaleDirection() . '.js') }}"></script>
-@livewireScripts
-</body>
+    </div><!-- #page -->
+
+    <script type="text/javascript" src="{{ asset('front/js/tether.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/js/bootstrap-hover-dropdown.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/js/echo.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/js/wow.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/js/jquery.easing.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/js/jquery.waypoints.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/js/electro.js') }}"></script>
+    <script type="text/javascript"
+    src="{{ asset('front/js/custom-' . LaravelLocalization::getCurrentLocaleDirection() . '.js') }}"></script>
+    @livewireScripts
+
+    </body>
 
 </html>

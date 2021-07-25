@@ -35,8 +35,8 @@
 
 
                 <p class="buttons">
-                    <a class="button wc-forward" href="{{ route('front.product.cart') }}">View Cart</a>
-                    <a class="button checkout wc-forward" href="{{ route('front.checkout') }}">Checkout</a>
+                    <a class="button wc-forward" href="{{ route('front.product.cart') }}">{{ trans('front.Cart') }}</a>
+                    <a class="button checkout wc-forward" href="{{ route('front.checkout') }}">{{ trans('front.Checkout') }}</a>
                 </p>
 
 

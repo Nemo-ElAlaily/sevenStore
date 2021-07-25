@@ -1,4 +1,4 @@
-<section class="section-product-cards-carousel animate-in-view fadeIn animated" data-animation="fadeIn">
+<section class="section-product-cards-carousel animate-in-associate(\App\Models\Products\Product::class)fadeIn animated" data-animation="fadeIn">
 
     <header>
 

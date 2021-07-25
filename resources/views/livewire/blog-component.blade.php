@@ -29,7 +29,7 @@
                                     <div class="entry-meta">
                                         <span class="cat-links">
                                             <a href="{{ route('front.blog.details', $blog->slug) }}"
-                                                rel="category tag">Category</a>, <a href="#" rel="category tag">Tag</a>
+                                                rel="category tag">{{ trans('front.Category') }}</a>, <a href="#" rel="category tag">{{ trans('front.Tag') }}</a>
                                         </span>
 
                                         <span class="posted-on">
@@ -49,9 +49,9 @@
 
                                 </div><!-- .entry-content -->
 
-                                <div class="post-readmore">
-                                    <a href="{{ route('front.blog.details', $blog->slug) }}"
-                                        class="btn btn-primary">Read More</a>
+                                <div class="btn btn-primary">
+                                    <a href="{{ route('front.blog.details', $blog->slug) }}" style="color: #fff;"
+                                        class="big le-button text-gray-dark text-lg font-weight-bold">{{ trans('front.Read More') }} ...</a>
                                 </div><!-- .post-readmore -->
 
                             </div><!-- .content-body -->
@@ -59,11 +59,7 @@
                     </a>
                 @endforeach
 
-
-                <!--                --><?php //require_once 'inc/components/blog-pagination.php';
-?>
-
-                {{ $blogs->links('front.pagination.default') }}
+                {{ $blogs->links('vendor.pagination.default') }}
 
             </main>
         </div><!-- /#primary -->

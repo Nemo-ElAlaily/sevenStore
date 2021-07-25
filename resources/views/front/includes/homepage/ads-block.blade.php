@@ -1,4 +1,4 @@
-<div class="home-v1-ads-block animate-in-view fadeIn animated" data-animation="fadeIn">
+<div class="home-v1-ads-block animate-in-associate(\App\Models\Products\Product::class)fadeIn animated" data-animation="fadeIn">
     <div class="ads-block row">
         <div class="ad col-xs-12 col-sm-4">
             <div class="media">
