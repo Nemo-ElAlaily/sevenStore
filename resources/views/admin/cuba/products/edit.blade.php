@@ -22,6 +22,9 @@
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
 
+                    <input class="form-control input-blog-create" hidden name="product_id" value="{{ $product -> id }}">
+
+
                     <div class="col-sm-12 col-md-3 mb-5">
                         <div class="form-group">
                             <label class="labelProd" for="main_category_id">{{ trans('site.subcategory') }}</label>
