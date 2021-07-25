@@ -30,9 +30,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // Fetch the Site Settings object
-<<<<<<< HEAD
-       
-=======
         $site_settings = SiteSetting::find(1);
         $social_settings = SocialSetting::all();
         $main_categories = MainCategory::all();
@@ -42,7 +39,6 @@ class AppServiceProvider extends ServiceProvider
             'main_categories' => $main_categories,
         ]);
     
->>>>>>> fa037c83eb2ec2f559a40969f29fef04fda18ed3
         Paginator::useBootstrap();
     }
 }
