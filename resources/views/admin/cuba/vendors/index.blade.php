@@ -1,13 +1,13 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'Vendor')
+@section('title', trans('site.Vendors'))
 
 @section('breadcrumb-title')
-    <h5>Vendors <span class="small text-muted">{{ $vendors->total() }}</span></h5>
+    <h5>{{ trans('site.Vendors') }} <span class="small text-muted">{{ $vendors->total() }}</span></h5>
 @stop
 
 @section('breadcrumb-items')
-    <li class="breadcrumb-item">Vendors</li>
+    <li class="breadcrumb-item">{{ trans('site.Vendors') }}</li>
 @stop
 
 @section('content')
@@ -20,17 +20,16 @@
                 <div class="row mx-5">
 
                     <div class="col-md-4">
-                        <input type="text" name="search" class="form-control" placeholder="Search Here..."
+                        <input type="text" name="search" class="form-control" placeholder="{{ trans('site.Search Here') }}..."
                             value="{{ request()->search }}">
                     </div>
 
                     <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> Search</button>
+                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
                         @if (auth()->user()->hasPermission('vendors_create'))
-                            <a href="{{ route('admin.users.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> Add
-                                user</a>
+                            <a href="{{ route('admin.users.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> {{ trans('site.add') . ' ' . trans('site.Vendor') }}</a>
                         @else
-                            <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> Add user</a>
+                            <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i> {{ trans('site.add') . ' ' . trans('site.Vendor') }}</a>
                         @endif
                     </div>
 
@@ -49,10 +48,10 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Products</th>
+                            <th>{{ trans('site.name') }}</th>
+                            <th>{{ trans('site.products') }}</th>
                             @if (auth()->user()->hasPermission('users_update', 'users_delete'))
-                                <th>Action</th>
+                                <th>{{ trans('site.Action') }}</th>
                             @endif
                         </tr>
                     </thead>
@@ -64,12 +63,12 @@
                                 <td>{{ $vendor->full_name }}</td>
                                 <td>
                                     <a href="{{ route('admin.products.index', ['vendor_id' => $vendor->id]) }}"
-                                        class="btn btn-dark btn-sm text-white"><i class="fa fa-eye"></i> View Products</a>
+                                        class="btn btn-dark btn-sm text-white"><i class="fa fa-eye"></i> {{ trans('site.View Products') }}</a>
                                 </td>
                                 <td>
                                     @if (auth()->user()->hasPermission('users_update'))
                                         <a href="{{ route('admin.vendors.edit', $vendor->id) }}"
-                                            class="btn btnEdit btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                            class="btn btnEdit btn-sm"><i class="fa fa-edit"></i> {{ trans('site.edit') }}</a>
                                         {{-- @else
                                     <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
                                     @endif
@@ -79,7 +78,7 @@
                                             {{ csrf_field() }}
                                             {{ method_field('delete') }}
                                             <button type="button" class="btn btnDelete show_confirm btn-sm"><i
-                                                    class="fa fa-trash"></i> Delete</button>
+                                                    class="fa fa-trash"></i> {{ trans('site.delete') }}</button>
                                         </form><!-- end of form -->
                                         {{-- @else
                                     <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button> --}}
@@ -91,7 +90,7 @@
                     </tbody>
 
                 @else
-                    <h2 class="mt-5 text-center pt-2">No Data Found</h2>
+                    <h2 class="mt-5 text-center pt-2">{{ trans('site.No Data Found') }}</h2>
                 @endif
 
             </table><!-- end of table -->

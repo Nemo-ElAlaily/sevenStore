@@ -58,7 +58,7 @@ class SiteSettingController extends Controller
         $request_data['favicon'] = $faviconPath;
         $site_settings->update($request_data);
 
-        session()->flash('success', 'Site Settings Updated Successfully');
+        session()->flash('success', trans('validation.Updated Successfully'));
         return redirect()->route('admin.settings.site.show', $site_settings->id);
 
     } // end of social update
@@ -88,7 +88,7 @@ class SiteSettingController extends Controller
 
         }  // end of foreach
 
-        session()->flash('success', 'Settings Updated Successfully');
+        session()->flash('success', trans('validation.Updated Successfully'));
         return redirect()->route('admin.settings.social.show');
 
     } // end of general update
@@ -127,7 +127,7 @@ class SiteSettingController extends Controller
 
             DB::commit();
 
-            session()->flash('success', 'Database Settings Updated Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.settings.database.show', $database_settings->id);
         }
         catch (\Exception $exception)

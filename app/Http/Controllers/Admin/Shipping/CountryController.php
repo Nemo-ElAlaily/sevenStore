@@ -48,12 +48,12 @@ class CountryController extends Controller
 
             Country::create($request_data);
 
-            session()->flash('success', 'Country Added Successfully');
+            session()->flash('success', trans('validation.Added Successfully'));
             return redirect()->route('admin.countries.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.countries.index');
 
         } // end of try -> catch
@@ -65,7 +65,7 @@ class CountryController extends Controller
         try {
             $country = Country::find($id);
             if(!$country) {
-                session()->flash('error', "country Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.countries.index');
             }
 
@@ -73,7 +73,7 @@ class CountryController extends Controller
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.countries.index');
 
         } // end of try -> catch
@@ -85,7 +85,7 @@ class CountryController extends Controller
         try {
             $country = Country::find($id);
             if(!$country) {
-                session()->flash('error', "country Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.countries.index');
             }
 
@@ -102,12 +102,12 @@ class CountryController extends Controller
 
             $country->update($request_data);
 
-            session()->flash('success', 'Country Updated Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.countries.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.countries.index');
 
         } // end of try -> catch
@@ -119,7 +119,7 @@ class CountryController extends Controller
         try {
             $country = Country::find($id);
             if(!$country) {
-                session()->flash('error', "country Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.countries.index');
             }
 
@@ -130,12 +130,12 @@ class CountryController extends Controller
             $country -> deleteTranslations();
             $country -> delete();
 
-            session()->flash('success', 'Country Deleted Successfully');
+            session()->flash('success', trans('validation.Deleted Successfully'));
             return redirect()->route('admin.countries.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.countries.index');
 
         } // end of try -> catch

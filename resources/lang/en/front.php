@@ -1,37 +1,55 @@
 <?php
 
 return [
-    'includes' => [
-        ],
-    'index' => [
-        'Find Your Dream Home' => 'Find Your Dream Home',
-        'We Have Over Million Properties For You' => 'We Have Over Million Properties For You',
-        'Entry Landmark Location' => 'Entry Landmark Location',
-        'Agency' => 'Agency',
+    /* ******** Start General ******** */
+    'en' => [
+        'name' => 'English',
+        'description' => 'Description',
+        'in name' => 'in English',
     ],
 
-    'For Sale' => 'For Sale',
-    'For Buy' => 'For Buy',
-    'For Rent' => 'For Rent',
-    'property_type' => 'Property Type',
-    'property_status' => 'Property Status',
-    'bedrooms' => 'Bedrooms',
-    'price' => 'Price',
-    'room' => 'Room',
-    'any_price' => 'Any Price',
+    'ar' => [
+        'name' => 'Arabic',
+        'description' => 'Description',
+        'in name' => 'in Arabic',
+    ],
+    'Home' => 'Home',
 
-    'search' => 'Search Now',
-    'all' => 'All',
+    'Register' => 'Register',
+    'or' => 'or',
+    'Sign in' => 'Sign in',
+    'My Profile' => 'My Profile',
+    'Dashboard' => 'Dashboard',
+    'Logout' => 'Logout',
 
-    'login' => 'Login',
-    'register' => 'Register',
-    'home' => 'Home',
-    'properties_' => 'Properties',
-    'properties' => 'Properties',
-    'agencies' => 'Agencies',
-    'blog' => 'Blog',
-    'contact' => 'Contact',
-    'about_us' => 'About Us',
-    'submit_property' => 'Submit Property',
-    'footer_paragraph' => 'lorem'
+    'add to cart' => 'Add To Cart',
+    'Wishlist' => 'Wishlist',
+    'compare' => 'Compare',
+    /* ******** End General ******** */
+    /* ***************************** */
+
+    /* ******** Start top bar ******** */
+    'Welcome to' => 'Welcome to',
+    'Track Your Order' => 'Track Your Order',
+    'Shop' => 'Shop',
+    /* ******** End top bar ******** */
+    /* ***************************** */
+
+    /* ******** Start Homepage ******** */
+    'Browse by Category' => 'Browse by Category',
+    'Featured' => 'Featured',
+    'On Sale' => 'On Sale',
+    'Top Rated' => 'Top Rated',
+    'Recently Added' => 'Recently Added',
+    'Sign up to Newsletter' => 'Sign up to Newsletter',
+    'Contact Info' => 'Contact Info',
+    'Got Questions ? Call us 24/7!' => 'Got Questions ? Call us 24/7!',
+    'All Rights Reserved' => 'All Rights Reserved',
+    /* ******** End Homepage ******** */
+    /* ***************************** */
+
+    /* ******** Start blog component ******** */
+    'Blog' => 'Blog',
+    /* ******** End blog component ******** */
+    /* ***************************** */
 ];

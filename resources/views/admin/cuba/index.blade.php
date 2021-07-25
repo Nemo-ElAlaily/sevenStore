@@ -1,6 +1,6 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'Dashboard')
+@section('title', trans('site.dashboard'))
 
 @section('content')
 <div class="container">

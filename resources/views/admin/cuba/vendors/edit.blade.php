@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label></label>
+                            <label>{{ trans('site.Last Name') }}</label>
                             @error('billing_last_name')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -43,7 +43,7 @@
                         </div>
 
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label>Billing Company</label>
+                            <label>{{trans('site.Billing Company')}}</label>
                             @error('billing_last_name')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label>Billing Address - 1</label>
+                            <label>{{ trans('site.Billing Address - 1') }}</label>
                             @error('billing_address_1')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label>Billing Address - 2</label>
+                            <label>{{ trans('site.Billing Address - 2') }}</label>
                             @error('billing_address_2')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label>Billing City</label>
+                            <label>{{ trans('site.City') }}</label>
                             @error('billing_city')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -79,7 +79,7 @@
                         </div>
 
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label>Billing Country</label>
+                            <label>{{ trans('site.Country') }}</label>
                             @error('billing_country')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -88,7 +88,7 @@
                         </div>
 
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label>Billing Country</label>
+                            <label>{{ trans('site.Phone') }}</label>
                             @error('billing_phone')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label>Billing E-mail</label>
+                            <label>{{ trans('site.E-Mail') }}</label>
                             @error('billing_email')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -106,7 +106,7 @@
                         </div>
 
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label>Admin Percentage</label>
+                            <label>{{ trans('site.Admin Percentage') }}</label>
                             @error('admin_percentage')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -118,7 +118,7 @@
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="can_sell_products"
                                     name="can_sell_products" @if ($vendor->can_sell_products == 1) checked @endif>
-                                <label class="custom-control-label" for="can_sell_products">Can Sell Products</label>
+                                <label class="custom-control-label" for="can_sell_products">{{ trans('site.Can Sell Products') }}</label>
                             </div>
                             @error('can_sell_products')
                                 <span class="text-danger mx-1">{{ $message }}</span>
@@ -129,7 +129,7 @@
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="can_add_products"
                                     name="can_add_products" @if ($vendor->can_add_products == 1) checked @endif>
-                                <label class="custom-control-label" for="can_add_products">Can Add Products</label>
+                                <label class="custom-control-label" for="can_add_products">{{ trans('site.Can Add Products') }}</label>
                             </div>
                             @error('can_add_products')
                                 <span class="text-danger mx-1">{{ $message }}</span>
@@ -140,8 +140,8 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary toastrDefaultSuccess"><i class="fa fa-plus"></i>
-                            Update Vendor</button>
+                        <button type="submit" class="btn btn-primary toastrDefaultSuccess"><i class="fa fa-edit"></i>
+                            {{ trans('site.update') }}</button>
                     </div>
 
                 </form><!-- end of form -->

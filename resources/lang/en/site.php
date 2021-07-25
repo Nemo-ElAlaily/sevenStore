@@ -73,6 +73,7 @@ return [
     'product' => 'Product',
     'Main Categories' => 'Main Categories',
     'Categories' => 'Categories',
+    'All Categories' => 'All Categories',
     'Main Category' => 'Main Category',
     'Category' => 'Category',
     'subcategory' => 'Subcategory',
@@ -207,6 +208,14 @@ return [
     'Avatar' => 'Avatar',
     'User Role' => 'User Role',
     'All Roles' => 'All Roles',
+    'Billing Company' => 'Billing Company',
+    'Billing Address - 1' => 'Billing Address - 1',
+    'Billing Address - 2' => 'Billing Address - 2',
+    'Phone' => 'Phone',
+    'Admin Percentage' => 'Admin Percentage %',
+    'Can Sell Products' => 'Can Sell Products',
+    'Can Add Products' => 'Can Add Products',
+    'View Products' => 'View Products',
     /* ******** End Users ******** */
     /* ***************************** */
 

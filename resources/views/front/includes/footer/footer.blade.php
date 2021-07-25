@@ -1,24 +1,24 @@
 <footer id="colophon" class="site-footer">
     <div class="footer-newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-7">
-                    <h5 class="newsletter-title">Sign up to Newsletter</h5>
-                    <span class="newsletter-marketing-text">...and receive <strong>$20 coupon for first
-                            shopping</strong></span>
-                </div>
-                <div class="col-xs-12 col-sm-5">
-                    <form>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter your email address">
-                            <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="button">Sign Up</button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-xs-12 col-sm-7">--}}
+{{--                    <h5 class="newsletter-title">{{ trans('site.Sign up to Newsletter') }}</h5>--}}
+{{--                    <span class="newsletter-marketing-text">...and receive <strong>$20 coupon for first--}}
+{{--                            shopping</strong></span>--}}
+{{--                </div>--}}
+{{--                <div class="col-xs-12 col-sm-5">--}}
+{{--                    <form>--}}
+{{--                        <div class="input-group">--}}
+{{--                            <input type="text" class="form-control" placeholder="Enter your email address">--}}
+{{--                            <span class="input-group-btn">--}}
+{{--                                <button class="btn btn-secondary" type="button">Sign Up</button>--}}
+{{--                            </span>--}}
+{{--                        </div>--}}
+{{--                    </form>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
 
     <div class="footer-bottom-widgets">
@@ -93,7 +93,7 @@
                         <div class="media">
                             <span class="media-left call-us-icon media-middle"><i class="ec ec-support"></i></span>
                             <div class="media-body">
-                                <span class="call-us-text">Got Questions ? Call us 24/7!</span>
+                                <span class="call-us-text">{{ trans('front.Got Questions ? Call us 24/7!') }}</span>
                                 <span class="call-us-number">{{ $site_settings->phone }}</span>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
 
 
                     <div class="footer-address">
-                        <strong class="footer-address-title">Contact Info</strong>
+                        <strong class="footer-address-title">{{ trans('front.Contact Info') }}</strong>
                         <address>{{ $site_settings->address }}, {{ $site_settings->city }},
                             {{ $site_settings->country }}</address>
                     </div><!-- /.footer-address -->
@@ -126,8 +126,7 @@
 
     <div class="copyright-bar">
         <div class="container">
-            <div class="pull-left flip copyright">&copy; <a href="#">{{ $site_settings->title }}</a> - All Rights
-                Reserved</div>
+            <div class="pull-left flip copyright">&copy; <a href="#">{{ $site_settings->title }}</a> - {{ trans('front.All Rights Reserved') }}</div>
             <div class="pull-right flip payment">
                 <div class="footer-payment-logo">
                     <ul class="cash-card card-inline">

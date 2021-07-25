@@ -97,12 +97,12 @@
                                                             style="display: {{ request()->route()->getPrefix() == '/vendors'
     ? 'block;'
     : 'none;' }}">
-                                                            <li><a href="" class="">{{ trans('site.Admins') }}</a>
+                                                            <li><a href="{{ route('admin.users.index', ['role' => 'admin']) }}" class="">{{ trans('site.Admins') }}</a>
                                                             </li>
-                                                            <li><a href=""
+                                                            <li><a href="{{ route('admin.users.index', ['role' => 'shop_manager']) }}"
                                                                     class="">{{ trans('site.Shop Mangers') }}</a>
                                                             </li>
-                                                            <li><a href=""
+                                                            <li><a href="{{ route('admin.users.index', ['role' => 'moderator']) }}"
                                                                     class="">{{ trans('site.Moderators') }}</a></li>
                                                         </ul>
                                                     </li>

@@ -75,6 +75,7 @@ return [
     'Main Category' => 'قسم',
     'Category' => 'قسم',
     'Categories' => 'الأقسام',
+    'All Categories' => 'كل الأقسام',
     'subcategory' => 'القسم الفرعي',
     'subcategories' => 'الاقسام الفرعية',
 
@@ -211,7 +212,16 @@ return [
     'Avatar' => 'صورة المستخدم',
     'User Role' => 'صلاحيات المستخدم',
     'All Roles' => 'كل الصلاحيات',
+    'Billing Company' => 'اسم الشركة',
+    'Billing Address - 1' => 'العنوان 1',
+    'Billing Address - 2' => 'العنوان 2',
+    'Phone' => 'رقم التليفون',
+    'Admin Percentage' => 'نسبة الموقع %',
+    'Can Sell Products' => 'يمكنه بيع المنتجات',
+    'Can Add Products' => 'بمكنه اضافة منتجات',
+    'View Products' => 'عرض المنتجات',
     /* ******** End Users ******** */
     /* ***************************** */
+
 
 ];

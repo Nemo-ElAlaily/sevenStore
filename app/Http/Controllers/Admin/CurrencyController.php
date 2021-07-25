@@ -39,12 +39,12 @@ class CurrencyController extends Controller
         try {
             Currency::create($request->all());
 
-            session()->flash('success', 'Currency Added Successfully');
+            session()->flash('success', trans('validation.Added Successfully'));
             return redirect()->route('admin.currencies.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.currencies.index');
 
         }
@@ -56,14 +56,14 @@ class CurrencyController extends Controller
         try {
             $currency =Currency::find($id);
             if(!$currency) {
-                session()->flash('error', "Currency Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.currencies.index');
             }
             return view('admin.cuba.currencies.edit', compact('currency'));
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.currencies.index');
 
 
@@ -76,18 +76,18 @@ class CurrencyController extends Controller
         try {
             $currency = Currency::find($id);
             if(!$currency) {
-                session()->flash('error', "Currency Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.currencies.index');
             }
 
             $currency -> update($request -> all());
 
-            session()->flash('success', 'Currency Updated Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.currencies.index');
 
         } catch (\Exception $exception ) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.currencies.index');
 
         } // end of try -> catch
@@ -99,19 +99,19 @@ class CurrencyController extends Controller
         try {
             $currency = Currency::find($id);
             if(!$currency) {
-                session()->flash('error', "Currency Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.currencies.index');
             }
 
             $currency -> deleteTranslations();
             $currency -> delete();
 
-            session()->flash('success', 'Currency Deleted Successfully');
+            session()->flash('success', trans('validation.Deleted Successfully'));
             return redirect()->route('admin.currencies.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.currencies.index');
 
         } // end of try -> catch

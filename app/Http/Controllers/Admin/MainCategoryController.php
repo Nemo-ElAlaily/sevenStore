@@ -36,7 +36,7 @@ class MainCategoryController extends Controller
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.main_categories.index' );
 
         } // end of try & catch
@@ -91,13 +91,13 @@ class MainCategoryController extends Controller
 
             DB::commit();
 
-            session()->flash('success', 'Category Added Successfully');
+            session()->flash('success', trans('validation.Added Successfully'));
             return redirect()->route('admin.main_categories.index');
 
         } catch (\Exception $exception) {
             //return $exception;
             DB::rollback();
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.main_categories.index');
 
         } // end of try & catch
@@ -110,7 +110,7 @@ class MainCategoryController extends Controller
             $main_category = MainCategory::find($id);
 
             if(!$main_category){
-                session()->flash('error', "Category ID Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.main_categories.index');
             }
 
@@ -118,7 +118,7 @@ class MainCategoryController extends Controller
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.main_categories.index');
 
         }
@@ -132,7 +132,7 @@ class MainCategoryController extends Controller
             $all_categories = MainCategory::all();
 
             if(!$main_category){
-                session()->flash('error', "Category ID Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.main_categories.index');
             }
 
@@ -140,7 +140,7 @@ class MainCategoryController extends Controller
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.main_categories.index');
 
         }
@@ -177,7 +177,7 @@ class MainCategoryController extends Controller
             }
 
             if(!$main_category){
-                session()->flash('error', "Category Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.category.index');
             }
 
@@ -206,13 +206,13 @@ class MainCategoryController extends Controller
 
             DB::commit();
 
-            session()->flash('success', 'Category Updated Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.main_categories.index');
 
         } catch (\Exception $exception) {
 
             DB::rollback();
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.main_categories.index');
 
         } // end of try & catch
@@ -224,7 +224,7 @@ class MainCategoryController extends Controller
         $main_category = MainCategory::find($id);
 
         if(!$main_category){
-            session()->flash('error', "Category ID Doesn't Exist or has been deleted");
+            session()->flash('error', trans('validation.do not exists'));
             return redirect()->route('admin.main_categories.index');
         }
 
@@ -235,12 +235,12 @@ class MainCategoryController extends Controller
 
             $main_category -> delete();
 
-            session()->flash('success', 'Category Deleted Successfully');
+            session()->flash('success', trans('validation.Deleted Successfully'));
             return redirect()->route('admin.main_categories.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.main_categories.index');
 
         } // end of try & catch

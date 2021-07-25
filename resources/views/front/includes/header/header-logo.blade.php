@@ -1,7 +1,7 @@
 <!-- ============================================================= Header Logo ============================================================= -->
 <div class="header-logo">
     <a href="{{ route('front.index') }}" class="header-logo-link">
-        <img class="logo-header" src="{{ $site_settings->logo_path }}" alt="{{ $site_settings->title }}" />
+        <img class="logo-header" style="height: 80px;" src="{{ $site_settings->logo_path }}" alt="{{ $site_settings->title }}" />
     </a>
 
     <div class="toggleSide" id="">

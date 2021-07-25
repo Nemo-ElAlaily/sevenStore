@@ -33,7 +33,7 @@ $compareItems = Cart::instance('compare')
                     </span>
                     <a rel="nofollow"
                         wire:click.prevent="store( '{{ $product->id }}', '{{ $product->name }}', '{{ $product->sale_price }}' )"
-                        class="button add_to_cart_button">Add to cart</a>
+                        class="button add_to_cart_button">{{ trans('front.add to cart') }}</a>
                 </div><!-- /.price-add-to-cart -->
 
                 <div class="hover-area">
@@ -43,25 +43,25 @@ $compareItems = Cart::instance('compare')
                             <a href="#" rel="nofollow" style="color: #ea1b25"
                                 wire:click.prevent="removeFromWishlist('{{ $product->id }}')">
                                 <i class="fa fa-heart"></i>
-                                Wishlist
+                                {{ trans('front.Wishlist') }}
                             </a>
                         @else
                             <a href="#" rel="nofollow" class="btn-add-to-wishlist"
                                 wire:click.prevent="addToWishlist('{{ $product->id }}', '{{ $product->name }}', '{{ $product->sale_price }}')">
                                 <i class="fa fa-heart-o"></i>
-                                Wishlist
+                                {{ trans('front.Wishlist') }}
                             </a>
                         @endif
 
                         @if ($compareItems->contains($product->id))
                             <a class="add-to-compare-link" href="#" rel="nofollow" style="color: #ea1b25"
                                 wire:click.prevent="removeFromCompare('{{ $product->id }}')">
-                                Compare
+                                {{ trans('front.Compare') }}
                             </a>
                         @else
                             <a class="add-to-compare-link" href="#" rel="nofollow" class="btn-add-to-wishlist"
                                 wire:click.prevent="addToCompare('{{ $product->id }}', '{{ $product->name }}', '{{ $product->sale_price }}')">
-                                Compare
+                                {{ trans('front.Compare') }}
                             </a>
                         @endif
 

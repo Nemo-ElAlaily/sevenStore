@@ -9,7 +9,7 @@
     <ul class="nav navbar-nav">
 
         @foreach ($main_categories->where('parent_id', 0)->slice(1, 9) as $main_category)
-            <li class="menu-item">
+            <li class="menu-item m-auto">
                 <a title="Gadgets"
                     href="{{ route('front.product.category', $main_category->slug) }}">{{ $main_category->name }}</a>
             </li>

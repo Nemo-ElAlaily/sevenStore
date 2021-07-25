@@ -1,33 +1,56 @@
 <?php
 
 return [
-    'index' => [
-        'Find Your Dream Home' => 'احصل علي منزل احلامك',
-        'We Have Over Million Properties For You' => 'ابحث ضمن مليون عقار جمعناهم من اجلك',
-        'Entry Landmark Location' => 'اختر المنطقة',
-        'Agency' => 'اسم الشركة',
+    /* ******** Start General ******** */
+    'en' => [
+        'name' => 'الانجليزية',
+        'description' => 'الوصف',
+        'in name' => 'بالانجليزية',
     ],
 
-    'For Sale' => 'للشراء',
-    'For Rent' => 'للايجار',
-    'property_type' => 'نوع العقار',
-    'property_status' => 'حالة العقار',
-    'bedrooms' => 'غرف النوم',
-    'price' => 'السعر',
-    'room' => 'عدد الغرف',
-    'any_price' => 'اي سعر',
+    'ar' => [
+        'name' => 'العربية',
+        'description' => 'الوصف',
+        'in name' => 'بالعربية',
+    ],
+    'Home' => 'الرئيسية',
 
-    'search' => 'ابحث الآن',
-    'all' => 'كل',
-    'login' => 'تسجيل دخول',
-    'register' => 'اشتراك',
-    'home' => 'الرئيسية',
-    'properties_' => 'العقارات',
-    'properties' => 'عقارات',
-    'agencies' => 'الشركات',
-    'blog' => 'المقالات',
-    'contact' => 'اتصل بنا',
-    'about_us' => 'من نحن',
-    'submit_property' => 'إضافة عقار',
+    'Register' => 'اشتراك',
+    'or' => 'أو',
+    'Sign in' => 'تسجيل دخول',
+    'My Profile' => 'حسابي',
+    'Dashboard' => 'لوحة التحكم',
+    'Logout' => 'تسجيل خروج',
+
+    'add to cart' => 'اضف الي العربة',
+    'Wishlist' => 'قائمة الرغبات',
+    'compare' => 'قارن',
+    /* ******** End General ******** */
+    /* ***************************** */
+
+    /* ******** Start top bar ******** */
+    'Welcome to' => 'مرحباً بكم في',
+    'Track Your Order' => 'أتبع طلبك',
+    'Shop' => 'تسوق الآن',
+    /* ******** End top bar ******** */
+    /* ***************************** */
+
+    /* ******** Start Homepage ******** */
+    'Browse by Category' => 'تصفح علي حسب القسم',
+    'Featured' => 'المنتجات المميزة',
+    'On Sale' => 'خصومات',
+    'Top Rated' => 'تقييم عالي',
+    'Recently Added' => 'منتجات جديدة',
+    'Sign up to Newsletter' => 'اشترك في مجلتنا',
+    'Contact Info' => 'اتصل بنا',
+    'Got Questions ? Call us 24/7!' => 'لديك سؤال ؟ اتصل بنا 24/7!',
+    'All Rights Reserved' => 'جميع الحقوق محفوظة',
+    /* ******** End Homepage ******** */
+    /* ***************************** */
+
+    /* ******** Start blog component ******** */
+    'Blog' => 'المدونة',
+    /* ******** End blog component ******** */
+    /* ***************************** */
 
 ];

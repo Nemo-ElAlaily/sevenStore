@@ -10081,7 +10081,7 @@ h3.faq-title {
   background-color: rgba(0,0,0,0.5);
   z-index: 10000;
   display: none;
-  
+
 }
 #sidebarHeader1{
     width: 330px;
@@ -10288,8 +10288,6 @@ float: left;
   text-align: center !important;
 }
 
-<<<<<<< HEAD
-
 .nav-tabs .nav-item{
   /*float: none;*/
 }
@@ -10303,8 +10301,6 @@ float: left;
 .header-front-side{
     position : fixed;
 }
-=======
 #setting,#withdraw{
   display: none;
 }
->>>>>>> cc3780eb8059399a75f4d1baee915d06f4cb7246
