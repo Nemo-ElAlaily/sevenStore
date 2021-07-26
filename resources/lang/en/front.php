@@ -21,6 +21,8 @@ return [
 
     'Home' => 'Home',
     'Category' => 'Category',
+    'Pages' => 'Pages',
+    'Categories' => 'Categories',
     'Tag' => 'Tag',
     'Read More' => 'Read More',
 

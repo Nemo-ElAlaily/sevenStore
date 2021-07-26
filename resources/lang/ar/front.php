@@ -22,6 +22,8 @@ return [
 
     'Home' => 'الرئيسية',
     'Category' => 'القسم',
+    'Pages' => 'الصفحات',
+    'Categories' => 'الاقسام',
     'Tag' => 'التاج',
     'Read More' => 'إقرأ المزيد',
 

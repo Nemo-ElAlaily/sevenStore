@@ -35,11 +35,11 @@ $categories = App\Models\MainCategories\MainCategory::where([['parent_id', 0],['
                                                 class="logoBrand animate__backInDown" alt="">
                                         </a>
                                         <!-- End Logo -->
-                                       
+
                                     </div>
                                     <!-- List -->
                                     <ul id="headerSidebarList" class="u-header-collapse__nav">
-                                             <h4 class='text-center' >categories</h4>
+                                             <h4 class='text-center' >{{ trans('front.Categories') }}</h4>
 
                                         @foreach ($categories as $category)
                                                 @if(($category->name != 'بدون تصنيف'))
@@ -74,19 +74,19 @@ $categories = App\Models\MainCategories\MainCategory::where([['parent_id', 0],['
                                     </ul>
                                     <!-- End List -->
                                     <hr>
-                                  
+
                                     <ul id="headerSidebarList" class="u-header-collapse__nav" >
-                                             <h4 class='text-center' >Pages</h4>
+                                             <h4 class='text-center' >{{ trans('front.Pages') }}</h4>
 
                                         @foreach ($sidebar_pages as $page)
-                                               
+
                                             <!-- Home Section -->
                                             <li class="u-has-submenu u-header-collapse__submenu">
                                                 <a href='{{route("front.page.details",$page->slug)}}'>
                                                     {{ $page->title }}
                                                 </a>
                                             </li>
-                                            
+
                                             <!-- End Home Section -->
                                         @endforeach
 
