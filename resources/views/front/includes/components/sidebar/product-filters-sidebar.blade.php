@@ -2,7 +2,7 @@
     <h3 class="widget-title">Filters</h3>
 
     <aside class="widget woocommerce widget_price_filter">
-        <h3 class="widget-title">Price</h3>
+        <h3 class="widget-title">{{ trans('front.Price') }}</h3>
         <form action="#">
             <div class="price_slider_wrapper">
                 <div style="" class="price_slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
@@ -12,7 +12,7 @@
                 </div>
                 <div class="price_slider_amount">
                     <a href="#" class="button">Filter</a>
-                    <div style="" class="price_label">Price: <span class="from">$428</span> — <span class="to">$3485</span></div>
+                    <div style="" class="price_label">{{ trans('front.Price') }}: <span class="from">$428</span> — <span class="to">$3485</span></div>
                     <div class="clear"></div>
                 </div>
             </div>

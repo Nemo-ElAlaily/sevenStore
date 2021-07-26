@@ -28,18 +28,18 @@
                                     <div class="product-short-description">
                                         {!! html_entity_decode($product->features) !!}
                                     </div>
-                                    <div class="product-rating">
-                                        <div title="Rated 4 out of 5" class="star-rating"><span
-                                                style="width:80%"><strong class="rating">4</strong> out of 5</span>
-                                        </div> (3)
-                                    </div>
+{{--                                    <div class="product-rating">--}}
+{{--                                        <div title="Rated 4 out of 5" class="star-rating"><span--}}
+{{--                                                style="width:80%"><strong class="rating">4</strong> out of 5</span>--}}
+{{--                                        </div> (3)--}}
+{{--                                    </div>--}}
                                 </a>
                             </div>
                             <div class="col-xs-12">
                                 <div class="price-add-to-cart">
                                     <span class="price"><span class="electro-price"><span class="amount">&pound;
                                                 {{ $product->sale_price }}</span></span></span>
-                                    <a class="button add_to_cart_button" href="#" rel="nofollow">Add to cart</a>
+                                    <a class="button add_to_cart_button" href="#" rel="nofollow">{{ trans('front.add to cart') }}</a>
                                 </div><!-- /.price-add-to-cart -->
                                 <div class="hover-area">
                                     <div class="action-buttons">
@@ -48,13 +48,13 @@
                                             <a href="#" rel="nofollow" class="" style="color: #ea1b25"
                                                 wire:click.prevent="removeFromWishlist('{{ $product->id }}')">
                                                 <i class="fa fa-heart"></i>
-                                                Wishlist
+                                                {{ trans('front.Wishlist') }}
                                             </a>
                                         @else
                                             <a href="#" rel="nofollow" class=""
                                                 wire:click.prevent="addToWishlist('{{ $product->id }}', '{{ $product->name }}', '{{ $product->sale_price }}')">
                                                 <i class="fa fa-heart-o"></i>
-                                                Wishlist
+                                                {{ trans('front.Wishlist') }}
                                             </a>
                                         @endif
 
@@ -62,13 +62,13 @@
                                             <a class="add-to-compare-link" href="#" rel="nofollow"
                                                 style="color: #ea1b25"
                                                 wire:click.prevent="removeFromCompare('{{ $product->id }}')">
-                                                Compare
+                                                {{ trans('front.Compare') }}
                                             </a>
                                         @else
                                             <a class="add-to-compare-link" href="#" rel="nofollow"
                                                 class="btn-add-to-wishlist"
                                                 wire:click.prevent="addToCompare('{{ $product->id }}', '{{ $product->name }}', '{{ $product->sale_price }}')">
-                                                Compare
+                                                {{ trans('front.Compare') }}
                                             </a>
                                         @endif
                                     </div>

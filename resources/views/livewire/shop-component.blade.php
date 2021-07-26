@@ -5,7 +5,7 @@
             <a href="{{ route('front.index') }}">{{ trans('front.Home') }}</a>
             <span class="delimiter">
                 <i class="fa fa-angle-right"></i>
-            </span>Shop
+            </span>{{ trans('front.Shop') }}
         </nav>
 
         <div id="primary" class="content-area">
@@ -18,9 +18,9 @@
                 <header class="page-header">
                     <h1 class="page-title"></h1>
                     <p class="woocommerce-result-count">
-                        Showing {{ ($products->currentpage() - 1) * $products->perpage() + 1 }} -
+                        {{ trans('front.Showing') }} {{ ($products->currentpage() - 1) * $products->perpage() + 1 }} -
                         {{ $products->currentpage() * $products->perpage() }}
-                        of {{ $products->total() }} Product
+                        {{ trans('front.of') }} {{ $products->total() }} {{ trans('front.products') }}
                     </p>
                 </header>
 

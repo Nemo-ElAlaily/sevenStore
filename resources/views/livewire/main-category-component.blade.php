@@ -4,7 +4,7 @@
         <nav class="woocommerce-breadcrumb">
             <a href="{{ route('front.index') }}">{{ trans('front.Home') }}</a>
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>
-            <a href="">Product Categories</a>
+            <a href="">{{ trans('front.Product Categories') }}</a>
             <span class="delimiter">
                 <i class="fa fa-angle-right"></i>
             </span>{{ $main_category_name }}
@@ -20,9 +20,9 @@
                     <h1 class="page-title">{{ $main_category_name }}</h1>
                     @if ($products->count() > 0)
                         <p class="woocommerce-result-count">
-                            Showing {{ ($products->currentpage() - 1) * $products->perpage() + 1 }} -
+                            {{ trans('front.Showing') }} {{ ($products->currentpage() - 1) * $products->perpage() + 1 }} -
                             {{ $products->currentpage() * $products->perpage() }}
-                            of {{ $products->total() }} Product
+                            {{ trans('front.of') }} {{ $products->total() }} {{ trans('front.products') }}
                         </p>
                     @endif
                 </header>
@@ -55,11 +55,11 @@
                 @else
                     <!-- TITLE -->
                     <div class="wishlist-title ">
-                        <h2>No Products Add in this Category Yet !</h2>
+                        <h2>{{ trans('front.No Products Add in this Category Yet !') }}</h2>
                         <br>
                         <div class="hero-action-btn fadeInDown-4">
                             <a href="{{ route('front.shop') }}"
-                                class="big le-button text-gray-dark text-lg font-weight-bold">Continue Shopping</a>
+                                class="big le-button text-gray-dark text-lg font-weight-bold">{{ trans('front.Continue Shopping') }}</a>
                         </div>
                     </div>
                 @endif

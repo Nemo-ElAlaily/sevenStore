@@ -24,16 +24,19 @@
                                     src="{{ $product->image_path }}" alt="{{ $product->slug }}">
                             </div>
 
-                            <div class="product-rating">
-                                <div title="Rated 4 out of 5" class="star-rating"><span style="width:80%"><strong
-                                            class="rating">4</strong> out of 5</span></div> (3)
-                            </div>
+{{--                            <div class="product-rating">--}}
+{{--                                <div title="Rated 4 out of 5" class="star-rating">--}}
+{{--                                    <span style="width:80%">--}}
+{{--                                        <strong class="rating">4</strong> out of 5--}}
+{{--                                    </span>--}}
+{{--                                </div> (3)--}}
+{{--                            </div>--}}
 
-                            <div class="product-short-description text-sm">
-                                {!! html_entity_decode($product->description) !!}
-                            </div>
+{{--                            <div class="product-short-description text-sm">--}}
+{{--                                {!! html_entity_decode($product->description) !!}--}}
+{{--                            </div>--}}
 
-                            <div class="product-sku">SKU: {{ $product->sku }}</div>
+                            <div class="product-sku">{{ trans('front.SKU') }}: {{ $product->sku }}</div>
                         </a>
                         <div class="price-add-to-cart">
                             <span class="price">
@@ -42,7 +45,7 @@
                                     <del><span class="amount">&pound; {{ $product->regular_price }}</span></del>
                                 </span>
                             </span>
-                            <a rel="nofollow" href="#" class="button add_to_cart_button">Add to cart</a>
+                            <a rel="nofollow" href="#" class="button add_to_cart_button">{{ trans('front.add to cart') }}</a>
                         </div><!-- /.price-add-to-cart -->
                         <div class="hover-area">
                             <div class="action-buttons">
@@ -51,25 +54,25 @@
                                     <a href="#" rel="nofollow" class="btn-add-to-wishlist" style="color: #ea1b25"
                                         wire:click.prevent="removeFromWishlist('{{ $product->id }}')">
                                         <i class="fa fa-heart"></i>
-                                        Wishlist
+                                        {{ trans('front.Wishlist') }}
                                     </a>
                                 @else
                                     <a href="#" rel="nofollow" class=""
                                         wire:click.prevent="addToWishlist('{{ $product->id }}', '{{ $product->name }}', '{{ $product->sale_price }}')">
                                         <i class="fa fa-heart-o"></i>
-                                        Wishlist
+                                        {{ trans('front.Wishlist') }}
                                     </a>
                                 @endif
 
                                 @if ($compareItems->contains($product->id))
                                     <a class="add-to-compare-link" href="#" rel="nofollow" style="color: #ea1b25"
                                         wire:click.prevent="removeFromCompare('{{ $product->id }}')">
-                                        Compare
+                                        {{ trans('front.Compare') }}
                                     </a>
                                 @else
                                     <a class="add-to-compare-link" href="#" rel="nofollow" class="btn-add-to-wishlist"
                                         wire:click.prevent="addToCompare('{{ $product->id }}', '{{ $product->name }}', '{{ $product->sale_price }}')">
-                                        Compare
+                                        {{ trans('front.Compare') }}
                                     </a>
                                 @endif
                             </div>

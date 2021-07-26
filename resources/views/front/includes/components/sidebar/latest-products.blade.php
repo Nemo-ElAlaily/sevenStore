@@ -1,5 +1,5 @@
 <aside class="widget widget_products">
-    <h3 class="widget-title">Latest Products</h3>
+    <h3 class="widget-title">{{ trans('front.Latest Products') }}</h3>
     <ul class="product_list_widget">
 
         @foreach ($latest_products as $product)

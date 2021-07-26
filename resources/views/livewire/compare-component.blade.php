@@ -40,7 +40,7 @@
                                             @endforeach
                                         </tr>
                                         <tr>
-                                            <th>{{ trans('front.Price') }}</th>
+                                            <th>{{ trans('front.item Price') }}</th>
                                             @foreach (Cart::instance('compare')->content() as $compareItem)
                                                 <td>
                                                     <div class="product-price price"><span class="electro-price"><span

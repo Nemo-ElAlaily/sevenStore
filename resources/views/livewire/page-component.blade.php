@@ -3,7 +3,7 @@
 
         <nav class="woocommerce-breadcrumb">
             <a href="{{ route('front.index') }}">{{ trans('front.Home') }}</a>
-            <span class="delimiter"><i class="fa fa-angle-right"></i></span>Cart
+            <span class="delimiter"><i class="fa fa-angle-right"></i></span>{{ $page -> title }}
         </nav>
 
         @include('front.partials._session')
@@ -15,7 +15,6 @@
 
                     <header class="entry-header">
                         <h1 class="entry-title">{{ $page->title }}</h1>
-                        <p class="entry-subtitle">Why Choose SPC Tech</p>
                     </header><!-- .entry-header -->
 
                     <div class="entry-content m-x-auto">

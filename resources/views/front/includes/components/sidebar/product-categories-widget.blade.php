@@ -2,7 +2,7 @@
     <ul class="product-categories category-single">
         <li class="product_cat">
             <ul class="show-all-cat">
-                <li class="product_cat"><span class="show-all-cat-dropdown">Show All Categories</span></li>
+                <li class="product_cat"><span class="show-all-cat-dropdown">{{ trans('front.Show All Categories') }}</span></li>
             </ul>
             <ul>
                 @foreach ($categories as $category)

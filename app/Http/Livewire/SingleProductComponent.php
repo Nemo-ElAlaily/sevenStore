@@ -96,7 +96,7 @@ class SingleProductComponent extends Component
 
     public function render()
     {
-        $product = Product::where('slug', $this -> slug) -> first();
+        $product = Product::whereTranslation('slug', $this -> slug) -> first();
 
             return  view('livewire.single-product-component',
                  compact('product'))

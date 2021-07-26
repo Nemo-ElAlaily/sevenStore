@@ -15,6 +15,9 @@ return [
     ],
     'Previous' => 'Previous',
     'Next' => 'Next',
+    'of' => 'of',
+
+    'Showing' => 'Showing',
 
     'Home' => 'Home',
     'Category' => 'Category',
@@ -64,6 +67,8 @@ return [
     'Your Cart is Empty !' => 'Your Cart is Empty !',
     'Start Shopping' => 'Start Shopping',
     'Product' => 'Product',
+    'products' => 'Products',
+    'item Price' => 'Price',
     'Price' => 'Price',
     'Quantity' => 'Quantity',
     'Total' => 'Total',
@@ -91,6 +96,7 @@ return [
     'Address 2' => 'Address 2',
     'City' => 'City',
     'Country' => 'Country',
+    'Region' => 'Region',
     'Postcode' => 'Postcode',
     'Save as Main Address' => 'Save as Main Address',
     'Your order' => 'Your order',
@@ -116,5 +122,32 @@ return [
     'No Product Added Yet!' => 'No Product Added Yet!',
     'Shop Now' => 'Shop Now',
     /* ******** End Compare Component ******** */
+    /* ***************************** */
+
+    /* ******** Start main categories Component ******** */
+    'Continue Shopping' => 'Continue Shopping',
+    'Product Categories' => 'Product Categories',
+    'No Products Add in this Category Yet !' => 'No Products Add in this Category Yet !',
+    'Show All Categories' => 'Show All Categories',
+    'Latest Products' => 'Latest Products',
+    'Order Details' => 'Order Details',
+    'Payment Method' => 'Payment Method',
+    /* ******** End main categories Component ******** */
+    /* ***************************** */
+
+    /* ******** Start Shop Component ******** */
+    'Default sorting' => 'Default sorting',
+    'Sort by newness' => 'Sort by newness',
+    'Sort by price: low to high' => 'Sort by price: low to high',
+    'Sort by price: high to low' => 'Sort by price: high to low',
+    'Show' => 'Show',
+    'Show All' => 'Show All',
+    'SKU' => 'SKU',
+    /* ******** End Shop Component ******** */
+    /* ***************************** */
+
+    /* ******** Start product Component ******** */
+
+    /* ******** End product Component ******** */
     /* ***************************** */
 ];

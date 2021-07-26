@@ -4,7 +4,7 @@
         <nav itemprop="breadcrumb" class="woocommerce-breadcrumb">
             <a href="{{ route('front.index') }}">{{ trans('front.Home') }}</a>
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>
-            <a href="{{ route('front.blog') }}">Blog</a>
+            <a href="{{ route('front.blog') }}">{{ trans('front.Blog') }}</a>
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>
             {{ $blog->title }}
         </nav>
@@ -30,8 +30,8 @@
                         <h1 class="entry-title" itemprop="name headline">{{ $blog->title }}</h1>
 
                         <div class="entry-meta">
-                            <span class="cat-links"><a href="#" rel="category tag">Category</a>, <a href="#"
-                                    rel="category tag">Tag</a></span>
+                            <span class="cat-links"><a href="#" rel="category tag">{{ $blog -> category -> name }}</a>, <a href="#"
+                                    rel="category tag">{{ $blog -> tags -> first() -> name }}</a></span>
                             <span class="posted-on"><a href="#" rel="bookmark"><time class="entry-date published"
                                         datetime="2016-03-04T07:34:20+00:00">{{ $blog->created_at }}</time> <time
                                         class="updated" datetime="2016-03-04T18:46:11+00:00"
