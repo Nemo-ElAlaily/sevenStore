@@ -178,4 +178,16 @@ return [
     'Your Wishlist is Empty !' => 'Your Wishlist is Empty !',
     /* ******** End My Wishlist bar ******** */
     /* ***************************** */
+
+    /* ******** Start Controller validation ******** */
+    'Item Removed from Your Cart' => 'Item Removed from Your Cart',
+    'All Items Removed from Your Cart' => 'All Items Removed from Your Cart',
+    'Item Moved to Cart' => 'Item Moved to Cart',
+    'Item Removed from List' => 'Item Removed from List',
+    'Item Added in Shopping Cart' => 'Item Added in Shopping Cart',
+    'Item Added to Wishlist' => 'Item Added to Wishlist',
+    'Item Added in Compare list' => 'Item Added in Compare list',
+    'Item Removed From Compare list' => 'Item Removed From Compare list',
+    /* ******** End Controller validation ******** */
+    /* ***************************** */
 ];

@@ -179,4 +179,16 @@ return [
     'Your Wishlist is Empty !' => 'القائمة المفضلة خالية حتي الآن',
     /* ******** End My Wishlist bar ******** */
     /* ***************************** */
+
+    /* ******** Start Controller validation ******** */
+    'Item Removed from Your Cart' => 'تم حذف المنتج من العربة',
+    'All Items Removed from Your Cart' => 'تم حذف جميع المنتجات من العربة',
+    'Item Moved to Cart' => 'تم نقل المنتج الي عربة التسوق',
+    'Item Removed from List' => 'تم حذف المنتج من القائمة',
+    'Item Added in Shopping Cart' => 'تم اضافة المنتج في عربة التسوق',
+    'Item Added to Wishlist' => 'تم اضافة المنتج الي قائمة الرغبات',
+    'Item Added in Compare list' => 'تم اضافة المنتج في قائمة المقارنات',
+    'Item Removed From Compare list' => 'تم حذف المنتج من قائمة المقارنات',
+    /* ******** End Controller validation ******** */
+    /* ***************************** */
 ];

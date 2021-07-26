@@ -21,7 +21,7 @@ class SingleProductComponent extends Component
     public function store($product_id, $product_name, $product_price)
     {
         Cart::instance('cart')->add($product_id, $product_name, $this -> qty, $product_price)->associate(\App\Models\Products\Product::class);
-        session()->flash('success', 'Item Added to Cart');
+        session()->flash('success', trans('front.Item Added in Shopping Cart'));
         return redirect()->route('front.product.cart');
 
     } // end of store
@@ -50,7 +50,7 @@ class SingleProductComponent extends Component
 //        }
 
         $this->emitTo('wishlist-count-component', 'refreshComponent');
-        session()->flash('success', 'Item Added to Wishlist');
+        session()->flash('success', trans('front.Item Added to Wishlist'));
 
     } // end of add to wishlist
 
@@ -66,7 +66,7 @@ class SingleProductComponent extends Component
             if ($witem -> id == $product_id) {
                 Cart::instance('wishlist') -> remove($witem -> rowId);
                 $this->emitTo('wishlist-count-component', 'refreshComponent');
-                session()->flash('error', 'Item Removed to Wishlist');
+                session()->flash('error', trans('front.Item Removed to Wishlist'));
                 return;
             } // end of if
 
@@ -78,7 +78,7 @@ class SingleProductComponent extends Component
     {
         Cart::instance('compare')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Products\Product::class);
         $this->emitTo('compare-count-component', 'refreshComponent');
-        session()->flash('success', 'Item Added in Compare list');
+        session()->flash('success', trans('front.Item Added in Compare list'));
     } // end of add to Compare list
 
     public function removeFromCompare($product_id)
@@ -88,7 +88,7 @@ class SingleProductComponent extends Component
             if ($compareItem -> id == $product_id) {
                 Cart::instance('compare') -> remove($compareItem -> rowId);
                 $this->emitTo('compare-count-component', 'refreshComponent');
-                session()->flash('error', 'Item Removed From Compare list');
+                session()->flash('error', trans('front.Item Removed From Compare list'));
             } // end of if
 
         } // end of foreach
