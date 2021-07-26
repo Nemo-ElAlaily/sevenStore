@@ -1439,7 +1439,7 @@ img.desaturate:hover {
 .wc-tabs > li a, .ec-tabs > li a {
     line-height: 1em;
     font-size: 1.286em;
-    color: #fff;
+    color: #000;
     padding-bottom: 1em;
     position: relative;
     display: block; }
@@ -7591,7 +7591,7 @@ div.quantity > label {
     display: none; }
 
 .single-product .price {
-    color: #fff;
+    color: #000;
     font-size: 2.5em;
     line-height: 1.286em;
     font-weight: normal;
@@ -9975,7 +9975,7 @@ h3.faq-title {
     background-color: rgba(0,0,0,0.5);
     z-index: 10000;
     display: none;
-    
+
 }
 #sidebarHeader1{
     width: 330px;

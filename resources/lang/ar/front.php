@@ -120,6 +120,7 @@ return [
     'Out Of Stock' => 'نفذ من المخزن',
     'Low Stock' => 'كمية محدودة',
     'In stock' => 'متاح',
+    'Available' => 'متوفر',
     'No Product Added Yet!' => 'لم يتم اضافة اي منتج!',
     'Shop Now' => 'تسوق الآن',
     /* ******** End Compare Component ******** */
@@ -148,7 +149,32 @@ return [
     /* ***************************** */
 
     /* ******** Start product Component ******** */
-
+    'Sale!' => 'أوكازيون!',
+    'Description' => 'وصف المنتج',
+    'features' => 'المميزات',
     /* ******** End product Component ******** */
+    /* ***************************** */
+
+    /* ******** Start thank you Component ******** */
+    'Thank You' => 'شكراً لك',
+    'Thank You For Your Order' => 'شكرا لطلبكم، نتمني ان تكون تجربة جيدة',
+    /* ******** End thank you Component ******** */
+    /* ***************************** */
+
+    /* ******** Start My Orders Component ******** */
+    'My Orders' => 'طلباتي',
+    'Order Number' => 'رقم الطلب',
+    'Order Total' => 'إجمالي الطلب',
+    'Order Status' => 'حالة الطلب',
+    'No Orders Yet!' => 'لا يوجد طلبات حتي الآن',
+    /* ******** End My Orders bar ******** */
+    /* ***************************** */
+
+    /* ******** Start My Wishlist Component ******** */
+    'My Wishlist' => 'قائمتي المفضلة',
+    'Product Name' => 'اسم المنتج',
+    'Move to Cart' => 'نقل المنتج الي العربة',
+    'Your Wishlist is Empty !' => 'القائمة المفضلة خالية حتي الآن',
+    /* ******** End My Wishlist bar ******** */
     /* ***************************** */
 ];

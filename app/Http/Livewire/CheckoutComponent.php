@@ -26,6 +26,7 @@ class CheckoutComponent extends Component
     public  $payment_method;
     public  $terms;
     public  $make_main_data;
+    public  $company;
 
     public $thank_you;
 

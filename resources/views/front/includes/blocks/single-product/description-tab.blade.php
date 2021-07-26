@@ -3,11 +3,11 @@
 </div><!-- /.electro-description -->
 
 <div class="product_meta">
-    <span class="sku_wrapper">SKU: <span class="sku" itemprop="sku">{{ $product->sku }}</span></span>
+    <span class="sku_wrapper">{{ trans('front.SKU') }}: <span class="sku" itemprop="sku">{{ $product->sku }}</span></span>
 
 
-    <span class="posted_in">Category:
-        <a href="index.php?page=product-category" rel="tag">{{ $product->mainCategory->name }}</a>
+    <span class="posted_in">{{ trans('front.Category') }}:
+        <a href="{{ route('front.product.category', $product->mainCategory->slug) }}" rel="tag">{{ $product->mainCategory->name }}</a>
     </span>
 
     {{-- <span class="tagged_as">Tags: --}}

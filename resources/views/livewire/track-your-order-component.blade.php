@@ -5,7 +5,7 @@
             <a href="{{ route('front.index') }}">{{ trans('front.Home') }}</a>
             <span class="delimiter">
                 <i class="fa fa-angle-right"></i>
-            </span>Track Your Order
+            </span>{{ trans('front.Track Your Order') }}
         </nav>
 
         <div class="content-area" id="primary">
@@ -27,7 +27,7 @@
                             @if ($orders->count() > 0)
                                 <!-- TITLE -->
                                 <div class="wishlist-title">
-                                    <h2>My Orders <span class="text-muted"
+                                    <h2>{{ trans('front.My Orders') }} <span class="text-muted"
                                             style="font-size: 14px;">{{ $orders->total() }}</span></h2>
                                 </div>
 
@@ -39,18 +39,18 @@
                                         <tr>
 
                                             <th class="product-name text-center">
-                                                <span class="nobr">Order Number</span>
+                                                <span class="nobr">{{ trans('front.Order Number') }}</span>
                                             </th>
 
                                             <th class="product-price text-center">
-                                                <span class="nobr">Order Total</span>
+                                                <span class="nobr">{{ trans('front.Order Total') }}</span>
                                             </th>
                                             <th class="product-stock-stauts text-center">
-                                                <span class="nobr">Order Status</span>
+                                                <span class="nobr">{{ trans('front.Order Status') }}</span>
                                             </th>
 
                                             <th class="product-add-to-cart text-center">
-                                                <span class="nobr">Order Details</span>
+                                                <span class="nobr">{{ trans('front.Order Details') }}</span>
                                             </th>
 
                                         </tr>
@@ -61,7 +61,7 @@
                                             <tr class="text-center">
 
                                                 <td class="product-name">
-                                                    <a href="#">{{ $order->slug }}</a>
+                                                    <a href="{{ route('front.order.details',$order->slug ) }}">{{ $order->slug }}</a>
                                                 </td>
 
                                                 <td class="product-price">
@@ -78,7 +78,7 @@
 
                                                     <!-- Add to cart button -->
                                                     <a href="{{ route('front.order.details', $order->slug) }}"
-                                                        class="button">Order Details</a>
+                                                        class="button btn-primary">{{ trans('front.Order Details') }}</a>
                                                     <!-- Change wishlist -->
 
                                                     <!-- Remove from wishlist -->
@@ -89,12 +89,11 @@
                                     @else
                                         <!-- TITLE -->
                                         <div class="wishlist-title ">
-                                            <h2>No Orders Yet!</h2>
+                                            <h2>{{ trans('front.No Orders Yet!') }}</h2>
                                             <br>
                                             <div class="hero-action-btn fadeInDown-4">
                                                 <a href="{{ route('front.shop') }}"
-                                                    class="big le-button text-gray-dark text-lg font-weight-bold">Shop
-                                                    Now</a>
+                                                    class="big le-button text-gray-dark text-lg font-weight-bold">{{ trans('front.Shop Now') }}</a>
                                             </div>
                                         </div>
                             @endif

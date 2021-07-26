@@ -5,7 +5,7 @@
             <a href="{{ route('front.index') }}">{{ trans('front.Home') }}</a>
             <span class="delimiter">
                 <i class="fa fa-angle-right"></i>
-            </span>Wishlist
+            </span>{{ trans('front.Wishlist') }}
         </nav>
 
         <div class="content-area" id="primary">
@@ -27,7 +27,7 @@
                             @if (Cart::instance('wishlist')->content()->count() > 0)
                                 <!-- TITLE -->
                                 <div class="wishlist-title ">
-                                    <h2>My Wishlist</h2>
+                                    <h2>{{ trans('front.My Wishlist') }}</h2>
                                 </div>
 
                                 <!-- WISHLIST TABLE -->
@@ -42,14 +42,14 @@
                                             <th class="product-thumbnail"></th>
 
                                             <th class="product-name">
-                                                <span class="nobr">Product Name</span>
+                                                <span class="nobr">{{ trans('front.Product Name') }}</span>
                                             </th>
 
                                             <th class="product-price">
-                                                <span class="nobr">Unit Price</span>
+                                                <span class="nobr">{{ trans('front.item Price') }}</span>
                                             </th>
                                             <th class="product-stock-stauts">
-                                                <span class="nobr">Stock Status</span>
+                                                <span class="nobr">{{ trans('front.Availability') }}</span>
                                             </th>
 
                                             <th class="product-add-to-cart"></th>
@@ -88,11 +88,11 @@
 
                                                 <td class="product-stock-status">
                                                     @if ($witem->model->stock == 0)
-                                                        <span class="text-danger"> Out Of Stock</span>
+                                                        <span class="text-danger"> {{ trans('front.Out Of Stock') }}</span>
                                                     @elseif ($witem -> model -> stock > 0 && $witem -> model ->
-                                                        stock < 5) <span class=""> Low Stock</span>
+                                                        stock < 5) <span class=""> {{ trans('front.Low Stock') }}</span>
                                                         @else
-                                                            <span class="text-success"> Available</span>
+                                                            <span class="text-success"> {{ trans('front.Available') }}</span>
                                                     @endif
                                                 </td>
 
@@ -102,7 +102,7 @@
                                                     <!-- Add to cart button -->
                                                     <a href="#" class="button"
                                                         wire:click.prevent="moveProductFromWishlistToCart( '{{ $witem->rowId }}' )">
-                                                        Move to Cart</a>
+                                                        {{ trans('front.Move to Cart') }}</a>
                                                     <!-- Change wishlist -->
 
                                                     <!-- Remove from wishlist -->
@@ -112,12 +112,11 @@
                                     @else
                                         <!-- TITLE -->
                                         <div class="wishlist-title ">
-                                            <h2>Your Wishlist is Empty !</h2>
+                                            <h2>{{ trans('front.Your Wishlist is Empty !') }}</h2>
                                             <br>
                                             <div class="hero-action-btn fadeInDown-4">
                                                 <a href="{{ route('front.shop') }}"
-                                                    class="big le-button text-gray-dark text-lg font-weight-bold">Start
-                                                    Shopping</a>
+                                                    class="big le-button text-gray-dark text-lg font-weight-bold">{{ trans('front.Shop Now') }}</a>
                                             </div>
                                         </div>
                             @endif

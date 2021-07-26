@@ -119,6 +119,7 @@ return [
     'Out Of Stock' => 'Out Of Stock',
     'Low Stock' => 'Low Stock',
     'In stock' => 'In stock',
+    'Available' => 'Available',
     'No Product Added Yet!' => 'No Product Added Yet!',
     'Shop Now' => 'Shop Now',
     /* ******** End Compare Component ******** */
@@ -147,7 +148,32 @@ return [
     /* ***************************** */
 
     /* ******** Start product Component ******** */
-
+    'Sale!' => 'Sale!',
+    'Description' => 'Description',
+    'features' => 'features',
     /* ******** End product Component ******** */
+    /* ***************************** */
+
+    /* ******** Start thank you Component ******** */
+    'Thank You' => 'Thank You',
+    'Thank You For Your Order' => 'Thank You For Your Order',
+    /* ******** End thank you Component ******** */
+    /* ***************************** */
+
+    /* ******** Start My Orders Component ******** */
+    'My Orders' => 'My Orders',
+    'Order Number' => 'Order Number',
+    'Order Total' => 'Order Total',
+    'Order Status' => 'Order Status',
+    'No Orders Yet!' => 'No Orders Yet!',
+    /* ******** End My Orders bar ******** */
+    /* ***************************** */
+
+    /* ******** Start My Wishlist Component ******** */
+    'My Wishlist' => 'My Wishlist',
+    'Product Name' => 'Product Name',
+    'Move to Cart' => 'Move to Cart',
+    'Your Wishlist is Empty !' => 'Your Wishlist is Empty !',
+    /* ******** End My Wishlist bar ******** */
     /* ***************************** */
 ];

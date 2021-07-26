@@ -4,10 +4,7 @@
         <nav class="woocommerce-breadcrumb">
             <a href="#">{{ trans('front.Home') }}</a>
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>
-            <a href="#">Accessories</a>
-            <span class="delimiter"><i class="fa fa-angle-right"></i></span>
-            <a
-                href="{{ route('front.product.category', $product->mainCategory->slug) }}">{{ $product->mainCategory->name }}</a>
+            <a href="{{ route('front.product.category', $product->mainCategory->slug) }}">{{ $product->mainCategory->name }}</a>
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>{{ $product->name }}
         </nav><!-- /.woocommerce-breadcrumb -->
 
@@ -22,7 +19,10 @@
 
                     <div class="single-product-wrapper">
                         <div class="product-images-wrapper">
-                            <span class="onsale">Sale!</span>
+
+                            @if($product -> regular_price > $product -> sale_price)
+                                <span class="onsale">{{ trans('front.Sale!') }}</span>
+                            @endif
                             <?php /*require_once 'inc/blocks/single-product/images-block.php'; */
                             ?>
 
@@ -38,11 +38,11 @@
                         <ul class="nav nav-tabs electro-nav-tabs tabs wc-tabs" role="tablist">
 
                             <li class="nav-item description_tab">
-                                <a href="#tab-description" class="active" data-toggle="tab">Description</a>
+                                <a href="#tab-description" class="active" data-toggle="tab">{{ trans('front.Description') }}</a>
                             </li>
 
                             <li class="nav-item specification_tab">
-                                <a href="#tab-specification" data-toggle="tab">features</a>
+                                <a href="#tab-specification" data-toggle="tab">{{ trans('front.features') }}</a>
                             </li>
 
                             {{-- <li class="nav-item reviews_tab"> --}}
