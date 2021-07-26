@@ -68,11 +68,54 @@ return [
     'Price' => 'السعر الوحدة',
     'Quantity' => 'العدد',
     'Total' => 'الإجمالي',
+    'Subtotal' => 'المجموع الفرعي',
     'No Items added to the Cart' => 'لم يتم اضافة اى منتج الي العربة',
     'Delete All' => 'حذف الكل',
     'Proceed to Checkout' => 'استكمال الطلب',
     'View Cart' => 'عرض عربة التسوق',
     'Checkout' => 'استكمال الطلب',
+    'Shipping' => 'بيانات الشحن',
+    'Free Shipping' => 'شحن مجاني',
+    'Cart Totals' => 'اجمالي الطلب',
+    'Tax' => 'الضريبة',
     /* ******** End Cart Component ******** */
+    /* ***************************** */
+
+    /* ******** Start Checkout Component ******** */
+    'Shipping Details' => 'بيانات الشحن',
+    'First Name' => 'الاسم الاول',
+    'Last Name' => 'الاسم الاخير',
+    'Company Name' => 'اسم الشركة',
+    'Email Address' => 'البريد الإلكتروني',
+    'Phone' => 'رقم التليفون',
+    'Address 1' => 'العنوان 1',
+    'Address 2' => 'العنوان 2',
+    'City' => 'المحافظة',
+    'Country' => 'البلد',
+    'Postcode' => 'الرمز البريدي',
+    'Save as Main Address' => 'حفظ كبيانات أساسية',
+    'Your order' => 'تفاصبل الطلب',
+    'Shipping Cost' => 'سعر الشحن',
+    'Cash on Delivery' => 'الدفع عند التسليم',
+    'Pay with cash upon delivery.' => 'ادفع عند تسليم المنتج كاش',
+    'Fawry' => 'فوري',
+    'What is Fawry ?' => 'ما هو فوري ؟',
+    'PayMob' => 'باي موب',
+    'What is PayMob?' => 'ما هو الباي موب ؟',
+    'I’ve read and accept the' => 'لقد قرأت وأوافق على',
+    'terms &amp; conditions' => 'الشروط و الاحكام',
+    'Place order' => 'تأكيد الطلب',
+    /* ******** End Checkout Component ******** */
+    /* ***************************** */
+
+    /* ******** Start Compare Component ******** */
+    'Compare' => 'قارن',
+    'Availability' => 'الكمية المتاحة',
+    'Out Of Stock' => 'نفذ من المخزن',
+    'Low Stock' => 'كمية محدودة',
+    'In stock' => 'متاح',
+    'No Product Added Yet!' => 'لم يتم اضافة اي منتج!',
+    'Shop Now' => 'تسوق الآن',
+    /* ******** End Compare Component ******** */
     /* ***************************** */
 ];

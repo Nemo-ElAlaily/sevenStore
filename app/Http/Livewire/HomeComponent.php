@@ -13,7 +13,7 @@ class HomeComponent extends Component
 {
     public function store($product_id, $product_name, $product_price)
     {
-        Cart::instance('cart')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Product::class);
+        Cart::instance('cart')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Products\Product::class);
         $this->emitTo('cart-count-component', 'refreshComponent');
         session()->flash('success', 'Item Added in Shopping Cart');
         return redirect()->back();
@@ -22,7 +22,7 @@ class HomeComponent extends Component
 
     public function addToWishlist($product_id, $product_name, $product_price)
     {
-        Cart::instance('wishlist')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Product::class);
+        Cart::instance('wishlist')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Products\Product::class);
         $this->emitTo('wishlist-count-component', 'refreshComponent');
         session()->flash('success', 'Item Added to Wishlist');
 

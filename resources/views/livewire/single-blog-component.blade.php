@@ -2,7 +2,7 @@
     <div class="container">
 
         <nav itemprop="breadcrumb" class="woocommerce-breadcrumb">
-            <a href="{{ route('front.index') }}">Home</a>
+            <a href="{{ route('front.index') }}">{{ trans('front.Home') }}</a>
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>
             <a href="{{ route('front.blog') }}">Blog</a>
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>

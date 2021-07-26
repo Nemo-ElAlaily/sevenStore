@@ -67,11 +67,54 @@ return [
     'Price' => 'Price',
     'Quantity' => 'Quantity',
     'Total' => 'Total',
+    'Subtotal' => 'Subtotal',
     'No Items added to the Cart' => 'No Items added to the Cart',
     'Delete All' => 'Delete All',
     'Proceed to Checkout' => 'Proceed to Checkout',
     'View Cart' => 'View Cart',
     'Checkout' => 'Checkout',
+    'Shipping' => 'Shipping',
+    'Free Shipping' => 'Free Shipping',
+    'Cart Totals' => 'Cart Totals',
+    'Tax' => 'Tax',
     /* ******** End Cart Component ******** */
+    /* ***************************** */
+
+    /* ******** Start Checkout Component ******** */
+    'Shipping Details' => 'Shipping Details',
+    'First Name' => 'First Name',
+    'Last Name' => 'Last Name',
+    'Company Name' => 'Company Name',
+    'Email Address' => 'Email Address',
+    'Phone' => 'Phone',
+    'Address 1' => 'Address 1',
+    'Address 2' => 'Address 2',
+    'City' => 'City',
+    'Country' => 'Country',
+    'Postcode' => 'Postcode',
+    'Save as Main Address' => 'Save as Main Address',
+    'Your order' => 'Your order',
+    'Shipping Cost' => 'Shipping Cost',
+    'Cash on Delivery' => 'Cash on Delivery',
+    'Pay with cash upon delivery.' => 'Pay with cash upon delivery.',
+    'Fawry' => 'Fawry',
+    'What is Fawry ?' => 'What is Fawry ?',
+    'PayMob' => 'PayMob',
+    'What is PayMob?' => 'What is PayMob?',
+    'I’ve read and accept the' => 'I’ve read and accept the',
+    'terms &amp; conditions' => 'terms &amp; conditions',
+    'Place order' => 'Place order',
+    /* ******** End Checkout Component ******** */
+    /* ***************************** */
+
+    /* ******** Start Compare Component ******** */
+    'Compare' => 'Compare',
+    'Availability' => 'Availability',
+    'Out Of Stock' => 'Out Of Stock',
+    'Low Stock' => 'Low Stock',
+    'In stock' => 'In stock',
+    'No Product Added Yet!' => 'No Product Added Yet!',
+    'Shop Now' => 'Shop Now',
+    /* ******** End Compare Component ******** */
     /* ***************************** */
 ];

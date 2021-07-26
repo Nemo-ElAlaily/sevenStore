@@ -1,3 +1,6 @@
+<?php
+    $item = Cart::instance('cart');
+?>
 <li class="nav-item dropdown">
     <a href="{{ route('front.product.cart') }}" class="nav-link" data-toggle="dropdown">
         <i class="ec ec-shopping-bag"></i>
@@ -31,7 +34,7 @@
                 </ul><!-- end product list -->
 
 
-                <p class="total"><strong>Subtotal:</strong> <span class="amount">£969.98</span></p>
+                <p class="total"><strong>{{ trans('front.Subtotal') }}:</strong> <span class="amount">{{ $item->subtotal }}</span></p>
 
 
                 <p class="buttons">

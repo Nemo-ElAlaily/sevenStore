@@ -11,7 +11,7 @@ class CompareComponent extends Component
     {
         $item = Cart::instance('compare')->get($rowId);
         Cart::instance('compare')->remove($rowId);
-        Cart::instance('cart')->add($item -> id, $item -> name, 1, $item -> price) -> associate('App\Models\Product');
+        Cart::instance('cart')->add($item -> id, $item -> name, 1, $item -> price) ->associate(\App\Models\Products\Product::class);
         $this->emitTo('compare-count-component', 'refreshComponent');
         $this->emitTo('cart-count-component', 'refreshComponent');
         session()->flash('success', 'Item Moved to Cart');
