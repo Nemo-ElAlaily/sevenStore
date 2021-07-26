@@ -1,3 +1,11 @@
+<?php
+$categories = App\Models\MainCategories\MainCategory::where([['parent_id', 0],['is_active','1'],['show_in_footer','1']])->get();
+    $sidebar_pages =  App\Models\Pages\Page::where([['is_active','1'],['show_in_footer','1']])->get();
+        // $footer_pages =  App\Models\Pages\Page::where([['is_active','1'],['show_in_footer','1']])->get();
+        // $navbar_pages =  App\Models\Pages\Page::where([['is_active','1'],['show_in_navbar','1']])->get();
+
+    //  dd($sidebar_pages);
+?>
 <footer id="colophon" class="site-footer">
     <div class="footer-newsletter">
 {{--        <div class="container">--}}
@@ -31,20 +39,18 @@
                                 <h4 class="widget-title">Find It Fast</h4>
                                 <div class="menu-footer-menu-1-container">
                                     <ul id="menu-footer-menu-1" class="menu">
-                                        <li class="menu-item"><a href="#">Laptops &#038; Computers</a></li>
-                                        <li class="menu-item"><a href="#">Cameras &#038; Photography</a></li>
-                                        <li class="menu-item"><a href="#">Smart Phones &#038; Tablets</a></li>
-                                        <li class="menu-item"><a href="#">Video Games &#038; Consoles</a></li>
-                                        <li class="menu-item"><a href="#">TV &#038; Audio</a></li>
-                                        <li class="menu-item"><a href="#">Gadgets</a></li>
-                                        <li class="menu-item "><a href="#">Car Electronic &#038; GPS</a></li>
+                                    @foreach ($categories->slice(0,9) as $category)
+                                                @if(($category->name != 'بدون تصنيف'))
+                                        <li class="menu-item"><a href="{{route('front.product.category',$category->slug)}}">{{$category->name}}</a></li>
+                                        @endif
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
                         </aside>
                     </div><!-- /.columns -->
 
-                    <div class="columns">
+                    <!-- <div class="columns">
                         <aside id="nav_menu-3" class="widget clearfix widget_nav_menu">
                             <div class="body">
                                 <h4 class="widget-title">&nbsp;</h4>
@@ -60,21 +66,18 @@
                                 </div>
                             </div>
                         </aside>
-                    </div><!-- /.columns -->
+                    </div>/.columns -->
 
                     <div class="columns">
                         <aside id="nav_menu-4" class="widget clearfix widget_nav_menu">
                             <div class="body">
-                                <h4 class="widget-title">Customer Care</h4>
+                                <h4 class="widget-title">Fast Links</h4>
                                 <div class="menu-footer-menu-3-container">
                                     <ul id="menu-footer-menu-3" class="menu">
-                                        <li class="menu-item"><a href="#">My Account</a></li>
-                                        <li class="menu-item"><a href="#">Track your Order</a></li>
-                                        <li class="menu-item"><a href="#">Wishlist</a></li>
-                                        <li class="menu-item"><a href="#">Customer Service</a></li>
-                                        <li class="menu-item"><a href="#">Returns/Exchange</a></li>
-                                        <li class="menu-item"><a href="#">FAQs</a></li>
-                                        <li class="menu-item"><a href="#">Product Support</a></li>
+                                    @foreach ($sidebar_pages as $page)
+                                        <li class="menu-item"><a href='{{route("front.page.details",$page->slug)}}'>{{ $page->title }}</a></li>
+                                        @endforeach
+                                      
                                     </ul>
                                 </div>
                             </div>

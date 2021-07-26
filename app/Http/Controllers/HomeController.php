@@ -181,7 +181,7 @@ class HomeController extends Controller
         $contents = str_replace("// Fetch the Site Settings object", "// Fetch the Site Settings object
         \$site_settings = SiteSetting::find(1);
         \$social_settings = SocialSetting::all();
-        \$main_categories = MainCategory::all();
+        \$main_categories = MainCategory::where('show_in_navbar','1')->get();
         View::share([
             'site_settings' =>  \$site_settings,
             'social_settings' => \$social_settings,

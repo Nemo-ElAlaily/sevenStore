@@ -1,7 +1,10 @@
 <?php
-$categories = App\Models\MainCategories\MainCategory::whereTranslation('name', 'not like', 'بدون تصنيف')
-    ->where('parent_id', 0)
-    ->get();
+$categories = App\Models\MainCategories\MainCategory::where([['parent_id', 0],['is_active','1'],['show_in_sidebar','1']])->get();
+    $sidebar_pages =  App\Models\Pages\Page::where([['is_active','1'],['show_in_sidebar','1']])->get();
+        // $footer_pages =  App\Models\Pages\Page::where([['is_active','1'],['show_in_footer','1']])->get();
+        // $navbar_pages =  App\Models\Pages\Page::where([['is_active','1'],['show_in_navbar','1']])->get();
+
+    //  dd($sidebar_pages);
 ?>
 <section class="sidebar-header-parent">
     <aside id="sidebarHeader1" class="" aria-labelledby="sidebarHeaderInvokerMenu"
@@ -32,13 +35,14 @@ $categories = App\Models\MainCategories\MainCategory::whereTranslation('name', '
                                                 class="logoBrand animate__backInDown" alt="">
                                         </a>
                                         <!-- End Logo -->
-
+                                       
                                     </div>
                                     <!-- List -->
                                     <ul id="headerSidebarList" class="u-header-collapse__nav">
+                                             <h4 class='text-center' >categories</h4>
 
                                         @foreach ($categories as $category)
-
+                                                @if(($category->name != 'بدون تصنيف'))
                                             <!-- Home Section -->
                                             <li class="u-has-submenu u-header-collapse__submenu">
                                                 <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"
@@ -63,11 +67,30 @@ $categories = App\Models\MainCategories\MainCategory::whereTranslation('name', '
                                                     </ul>
                                                 </div>
                                             </li>
+                                            @endif
                                             <!-- End Home Section -->
                                         @endforeach
 
                                     </ul>
                                     <!-- End List -->
+                                    <hr>
+                                  
+                                    <ul id="headerSidebarList" class="u-header-collapse__nav" >
+                                             <h4 class='text-center' >Pages</h4>
+
+                                        @foreach ($sidebar_pages as $page)
+                                               
+                                            <!-- Home Section -->
+                                            <li class="u-has-submenu u-header-collapse__submenu">
+                                                <a href='{{route("front.page.details",$page->slug)}}'>
+                                                    {{ $page->title }}
+                                                </a>
+                                            </li>
+                                            
+                                            <!-- End Home Section -->
+                                        @endforeach
+
+                                    </ul>
                                 </div>
                             </div>
                         </div>
