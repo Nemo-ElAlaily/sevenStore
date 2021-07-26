@@ -474,7 +474,7 @@
                         <a class="sidebar-link sidebar-title {{ request()->route()->getPrefix() == '/blogs'
     ? 'active'
     : '' }}"
-                            href="#">
+                            href="{{route('admin.menus')}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-film">
@@ -495,17 +495,7 @@
     : 'right' }}"></i>
                             </div>
                         </a>
-                        <ul class="sidebar-submenu"
-                            style="display: {{ request()->route()->getPrefix() == '/blogs'
-    ? 'block;'
-    : 'none;' }}">
-                            <li><a href="{{ route('admin.blogs.index') }}" class="#">
-                                    Main Menue</a></li>
-                            <li><a href="{{ route('admin.blogs.create') }}" class="#">
-                            Footer link 1 Menue</a></li>
-                            <li><a href="{{ route('admin.blogs.create') }}" class="#">
-                            Footer link 2 Menue</a></li>
-                        </ul>
+                        
                     </li>
 
 

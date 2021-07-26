@@ -61,7 +61,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::resource('regions', 'Shipping\RegionController');
 
         /**menus */
-        Route::get('/main-menue','MenusController@mainMenuePages');
+        Route::get('/main-menue','MenusController@mainMenuePages')->name('menus');
       
     });
     Route::put('updateMainMenue','MenusController@upadteMainMenuePages')->name('update.main.menue');
