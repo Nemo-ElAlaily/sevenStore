@@ -204,7 +204,7 @@
                     </div>
 
                   <div class="form-group">
-                    <label class="labelSetting">Facebook Analytics</label>
+                    <label class="labelSetting">Google Analytics</label>
                     @error($locale . '.meta_description')
                     <br />
                     {{-- <span class="text-danger mx-5">{{ $message }}</span> --}}
