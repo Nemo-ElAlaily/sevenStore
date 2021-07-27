@@ -78,6 +78,7 @@ return [
     'All Categories' => 'كل الأقسام',
     'subcategory' => 'القسم الفرعي',
     'subcategories' => 'الاقسام الفرعية',
+    'Category name' => 'اسم القسم',
 
     'Shipping' => 'الشحن',
     'Currencies' => 'العملات',

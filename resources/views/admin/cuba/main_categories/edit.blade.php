@@ -15,14 +15,14 @@
             <div class="row">
                 <div class="edit-category-form">
                     @include('admin.cuba.partials._errors')
-                    <form class="col-md-7 m-auto"
+                    <form class=""
                         action="{{ route('admin.main_categories.update', $main_category->id) }}" method="post"
                         enctype="multipart/form-data">
 
                         {{ csrf_field() }}
                         {{ method_field('put') }}
 
-                        <div class="row">
+                        <div class="row mb-5">
                             <div class="form-group col-sm-12 col-md-6 text-md">
                                 <div class="custom-control custom-switch">
                                     <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" @if ($main_category->is_active == 1) checked @endif>
@@ -65,25 +65,31 @@
                                     <span class="text-danger mx-1">{{ $message }}</span>
                                 @enderror
                             </div>
+                        </div>
 
-                            <div class="col-sm-12 row">
+                        <div class="col-sm-12 row">
+                            @foreach (config('translatable.locales') as $locale)
                                 <div class="form-group col-md-6">
-                                    <label class="  my-2" for="name"></label>
-                                    @error('name')
-                                        <span class="text-danger mx-5">{{ $message }}</span>
+                                    <label class="create-category-label" for="{{ $locale }}[name]">{{ trans('site.Category name') }} @lang('site.' .
+                                            $locale . '.in name')</label>
+                                    @error($locale . '.name')
+                                    <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-thick  text-center " type="text" name="name"
-                                        placeholder="{{ trans('site.name') }}" value="{{ $main_category->name }}">
+                                    <input class="form-control input-thick create-category-input" type="text"
+                                           name="{{ $locale }}[name]" value="{{ $main_category->translate($locale)->name }}">
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label class="  my-2" for="slug"></label>
-                                    @error('slug')
-                                        <span class="text-danger mx-5">{{ $message }}</span>
+                                    <label class="create-category-label" for="{{ $locale }}[slug]">{{ trans('site.slug') }} @lang('site.' .
+                                            $locale . '.in name')</label>
+                                    @error($locale . '.slug')
+                                    <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-thick  text-center " type="text" name="slug"
-                                        placeholder="{{ trans('site.slug') }}" value="{{ $main_category->slug }}">
+                                    <input class="form-control input-thick create-category-input " type="text"
+                                           name="{{ $locale }}[slug]" value="{{ $main_category->translate($locale)->slug }}">
                                 </div>
+
+                            @endforeach
 
 
                                 <div class="col-sm-12 col-md-6">
@@ -115,7 +121,6 @@
                                 </div> {{-- end of form group image --}}
 
                             </div>
-                        </div>
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-received"><i class="fa fa-edit"></i>

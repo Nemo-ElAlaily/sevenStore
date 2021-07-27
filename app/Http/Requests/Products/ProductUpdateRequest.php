@@ -35,7 +35,7 @@ class ProductUpdateRequest extends FormRequest
 
        foreach (config('translatable.locales') as $index => $locale) {
            $rules += [
-               $locale . '.name' => ['required', Rule::unique('product_translations', 'name')->ignore($this -> product_id, 'product_id')],
+               $locale . '.name' => ['required'],
                $locale . '.description' => ['required'],
                $locale . '.features' => ['required'],
            ];

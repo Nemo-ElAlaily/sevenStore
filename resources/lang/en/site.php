@@ -77,6 +77,7 @@ return [
     'Main Category' => 'Main Category',
     'Category' => 'Category',
     'subcategory' => 'Subcategory',
+    'Category name' => 'Category Name',
 
     'Shipping' => 'Shipping',
     'Currencies' => 'Currencies',
