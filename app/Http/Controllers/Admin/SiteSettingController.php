@@ -54,6 +54,15 @@ class SiteSettingController extends Controller
             $faviconPath = $site_settings -> favicon_path;
         }// end of outer if
         $request_data['google_analytics']=$request->google_analytics;
+        $request_data['google_client_id']=$request->google_client_id;
+        $request_data['google_secret_key']=$request->google_secret_key;
+        $request_data['google_redirect']=$request->google_redirect;
+
+        $request_data['facebook_client_id']=$request->facebook_client_id;
+        $request_data['facebook_secret_key']=$request->facebook_secret_key;
+        $request_data['facebook_redirect']=$request->facebook_redirect;
+        // dd($request->facebook_redirect);
+
         $request_data['logo'] = $logoPath;
         $request_data['favicon'] = $faviconPath;
         $site_settings->update($request_data);

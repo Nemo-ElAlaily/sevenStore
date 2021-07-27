@@ -47,7 +47,7 @@
                                             <br />
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control   input-thick bg-dark text-center" type="text"
+                                        <input class="form-control   input-thick  text-center" type="text"
                                             name="{{ $locale }}[title]"
                                             value="{{ $site_settings->translate($locale)->title }}">
                                     </div>
@@ -59,7 +59,7 @@
                                             <br />
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control   input-thick bg-dark text-center" type="text"
+                                        <input class="form-control   input-thick  text-center" type="text"
                                             name="{{ $locale }}[welcome_phrase]"
                                             value="{{ $site_settings->translate($locale)->welcome_phrase }}">
                                     </div>
@@ -71,7 +71,7 @@
                                             <br />
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control   input-thick bg-dark text-center" type="text"
+                                        <input class="form-control   input-thick  text-center" type="text"
                                             name="{{ $locale }}[address]"
                                             value="{{ $site_settings->translate($locale)->address }}">
                                     </div>
@@ -83,7 +83,7 @@
                                             <br />
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control   input-thick bg-dark text-center" type="text"
+                                        <input class="form-control   input-thick  text-center" type="text"
                                             name="{{ $locale }}[city]"
                                             value="{{ $site_settings->translate($locale)->city }}">
                                     </div>
@@ -95,7 +95,7 @@
                                             <br />
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control   input-thick bg-dark text-center" type="text"
+                                        <input class="form-control   input-thick  text-center" type="text"
                                             name="{{ $locale }}[country]"
                                             value="{{ $site_settings->translate($locale)->country }}">
                                     </div>
@@ -108,7 +108,7 @@
                                             <br />
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control   input-thick bg-dark text-center" type="text"
+                                        <input class="form-control   input-thick  text-center" type="text"
                                             name="{{ $locale }}[meta_title]"
                                             value="{{ $site_settings->translate($locale)->meta_title }}">
                                     </div>
@@ -122,7 +122,7 @@
                                             <br />
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control   input-thick bg-dark text-center" type="text"
+                                        <input class="form-control   input-thick  text-center" type="text"
                                             name="{{ $locale }}[meta_description]"
                                             value="{{ $site_settings->translate($locale)->meta_description }}">
                                     </div>
@@ -135,7 +135,7 @@
                                             <br />
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control   input-thick bg-dark text-center" type="text"
+                                        <input class="form-control   input-thick  text-center" type="text"
                                             name="{{ $locale }}[meta_keyword]"
                                             value="{{ $site_settings->translate($locale)->meta_keyword }}">
                                     </div>
@@ -145,14 +145,71 @@
                         @endforeach
                     </div>
 
+                    <div class='row'>
+                        <div class='col-md-6'>
+                                      <div class="form-group">
+                                            <label class="labelSetting">Google Client ID</label>
+                                            <br />
+                                            <input class="form-control input-thick"
+                                                name="google_client_id">
+                                     </div>
+                                </div>         
+
+                                <div class='col-md-6'>
+                                      <div class="form-group">
+                                            <label class="labelSetting">Google Secret Key</label>
+                                            <br />
+                                            <input class="form-control input-thick"
+                                                name="google_secret_key">
+                                     </div>
+                                </div>   
+                                
+                                <div class='col-md-6'>
+                                      <div class="form-group">
+                                            <label class="labelSetting">Google Redirect Link</label>
+                                            <br />
+                                            <input class="form-control input-thick"
+                                                name="google_redirect">
+                                     </div>
+                                </div>  
+                                <!-- facebook data -->
+
+                                <div class='col-md-6'>
+                                      <div class="form-group">
+                                            <label class="labelSetting">Facebook Client ID</label>
+                                            <br />
+                                            <input class="form-control input-thick"
+                                                name="facebook_client_id">
+                                     </div>
+                                </div>         
+
+                                <div class='col-md-6'>
+                                      <div class="form-group">
+                                            <label class="labelSetting">Facebook Secret Key</label>
+                                            <br />
+                                            <input class="form-control input-thick"
+                                                name="facebook_secret_key">
+                                     </div>
+                                </div>
+
+                                     <div class='col-md-6'>
+                                      <div class="form-group">
+                                            <label class="labelSetting">Facebook Redirect Link</label>
+                                            <br />
+                                            <input class="form-control input-thick"
+                                                name="facebook_redirect">
+                                     </div>
+                                     
+                                </div>         
+                    </div>
 
                   <div class="form-group">
-                    <label class="labelSetting">Google Analytics</label>
+                    <label class="labelSetting">Facebook Analytics</label>
                     @error($locale . '.meta_description')
                     <br />
                     {{-- <span class="text-danger mx-5">{{ $message }}</span> --}}
                     @enderror
-                    <textarea class="form-control   input-thick bg-dark text-center"
+                    <textarea class="form-control   input-thick  text-center"
                            name="google_analytics"></textarea>
                 </div>
 
