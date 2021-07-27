@@ -19,6 +19,15 @@ class CreateSiteSettingsTable extends Migration
             $table->string('logo')->default('default.png');
             $table->string('favicon')->default('favicon.png');
             $table->longText('google_analytics')->nullable();
+            $table->string('google_client_id')->nullable();
+            $table->string('google_secret_key')->nullable();
+            $table->string('google_redirect')->nullable();
+
+            $table->string('facebook_client_id')->nullable();
+            $table->string('facebook_secret_key')->nullable();
+            $table->string('facebook_redirect')->nullable();
+            
+            
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
             $table->timestamps();

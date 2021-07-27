@@ -182,6 +182,7 @@ class HomeController extends Controller
         \$site_settings = SiteSetting::find(1);
         \$social_settings = SocialSetting::all();
         \$main_categories = MainCategory::where('show_in_navbar','1')->get();
+        siteSettings();
         View::share([
             'site_settings' =>  \$site_settings,
             'social_settings' => \$social_settings,

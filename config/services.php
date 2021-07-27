@@ -1,5 +1,6 @@
 <?php
-
+// use App\Models\Settings\SiteSetting;
+// $site_setting = SiteSetting::find(1);
 return [
 
     /*
@@ -31,16 +32,18 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '718383962278297',
-        'client_secret' => '08a193caf6292f503a75651c2ccc46e6',
-        'redirect' => 'http://www.royalsooq.com/login/facebook/callback',
+        'client_id' => '',
+        'client_secret' =>'',
+        'redirect' => '',
     ],
 
 
     'google' => [
-        'client_id' => '917137254460-gdjkikg8au504caagjqs72ngjge1hks7.apps.googleusercontent.com',
-        'client_secret' => 'YTgFEUdhzooCxf3mB2gy9WVj',
-        'redirect' => 'https://test.futurecityapp.com/login/google/callback',
+        'client_id' => '',
+        'client_secret' => '',
+        'redirect' => '',
+        
+        
     ],
 
 ];
