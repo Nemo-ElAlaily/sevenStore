@@ -60,7 +60,7 @@ class ProductController extends Controller
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.products.index' );
 
         } // end of try & catch
@@ -108,14 +108,14 @@ class ProductController extends Controller
 
             DB::commit();
 
-            session()->flash('success', 'Product Added Successfully');
+            session()->flash('success', trans('validation.Added Successfully'));
             return redirect()->route('admin.products.index');
 
         } catch (\Exception $exception) {
 
             DB::rollback();
             return $exception;
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.products.index');
 
         } // end of try & catch
@@ -128,7 +128,7 @@ class ProductController extends Controller
             $product = Product::with('gallery')->find($id);
 
             if(!$product){
-                session()->flash('error', "Product Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.products.index');
             }
             $categories = MainCategory::where(['id' => $product -> main_category_id ])->orWhere(['parent_id' => $product -> main_category_id]) -> get();
@@ -137,7 +137,7 @@ class ProductController extends Controller
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.products.index');
 
         }
@@ -149,7 +149,7 @@ class ProductController extends Controller
             $product = Product::with('gallery')->find($id);
 
             if(!$product){
-                session()->flash('error', "Product Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.products.index');
             }
 
@@ -159,7 +159,7 @@ class ProductController extends Controller
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.products.index');
 
         } // end of try & catch
@@ -174,7 +174,7 @@ class ProductController extends Controller
             $product = Product::find($id);
 
             if(!$product){
-                session()->flash('error', "Product Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.products.index');
             }
 
@@ -201,14 +201,14 @@ class ProductController extends Controller
 
             DB::commit();
 
-            session()->flash('success', 'Product Updated Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.products.index');
 
         } catch (\Exception $exception) {
 
             DB::rollback();
             return $exception;
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.products.index');
 
         } // end of try & catch
@@ -220,7 +220,7 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         if(!$product){
-            session()->flash('error', "Product Doesn't Exist or has been deleted");
+            session()->flash('error', trans('validation.do not exists'));
             return redirect()->route('admin.products.index');
         }
 
@@ -231,12 +231,12 @@ class ProductController extends Controller
 
             $product -> delete();
 
-            session()->flash('success', 'Product Deleted Successfully');
+            session()->flash('success', trans('validation.Deleted Successfully'));
             return redirect()->route('admin.products.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.products.index');
 
         } // end of try & catch

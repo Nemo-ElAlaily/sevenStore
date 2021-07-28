@@ -1,21 +1,27 @@
 <?php
 
-use App\Http\Livewire\HomeComponent;
-use App\Http\Livewire\ShopComponent;
+use App\Http\Livewire\BlogComponent;
 use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\PageComponent;
+use App\Http\Livewire\ShopComponent;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
+use App\Http\Livewire\CompareComponent;
+use App\Http\Livewire\ProfileComponent;
 use App\Http\Livewire\CheckoutComponent;
-use App\Http\Livewire\SingleProductComponent;
-use App\Http\Livewire\MainCategoryComponent;
 use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\WishlistComponent;
-use App\Http\Livewire\CompareComponent;
-use App\Http\Livewire\PageComponent;
-use App\Http\Livewire\ProfileComponent;
-use App\Http\Livewire\TrackYourOrderComponent;
-use App\Http\Livewire\OrderDetailsComponent;
-use App\Http\Livewire\BlogComponent;
+use App\Models\Settings\DatabaseSetting;
 use App\Http\Livewire\SingleBlogComponent;
-use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\MainCategoryComponent;
+use App\Http\Livewire\OrderDetailsComponent;
+use App\Http\Livewire\SingleProductComponent;
+use App\Http\Livewire\TrackYourOrderComponent;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Laravel\Socialite\Facades\Socialite;
+
+
 
 
 /*
@@ -28,12 +34,37 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 define('FRONT_PAGINATION_COUNT', 20);
+if (config('database.connections.mysql.database') == 'test') {
+
+    Route::any('{query}', '\App\Http\Controllers\HomeController@redir');
+}
+
+Route::get('test', '\App\Http\Controllers\HomeController@test');
+
+Route::get('/done', '\App\Http\Controllers\HomeController@migrate_seed')->name('done');
 
 Route::get('/welcome', '\App\Http\Controllers\HomeController@welcome')->name('app.welcome');
 Route::post('/welcome/start', '\App\Http\Controllers\HomeController@initApp')->name('app.start');
 
-Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ], 'name' => 'front.'], function() {
+
+
+// Route::get('/auth/redirect', function () {
+//     return Socialite::driver('google')->redirect();
+// });
+
+// Route::get('/auth/callback', function () {
+//     $user = Socialite::driver('google')->user();
+
+//     // $user->token
+// });
+
+Route::get('login/{provider}', '\App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('social.login');
+Route::get('login/{provider}/callback', '\App\Http\Controllers\Auth\LoginController@handleProviderCallback');
+
+
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'], 'name' => 'front.'], function () {
     Route::name('front.')->group(function () {
 
         Route::get('/', HomeComponent::class)->name('index');
@@ -57,9 +88,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         Route::get('/compare', CompareComponent::class)->name('product.compare');
 
         Route::get('/pages/{slug}', PageComponent::class)->name('page.details');
-
     });
 
     Auth::routes(['verify' => true]);
-
 });

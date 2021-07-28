@@ -2,10 +2,10 @@
     <div class="container">
 
         <nav class="woocommerce-breadcrumb">
-            <a href="{{ route('front.index') }}">Home</a>
+            <a href="{{ route('front.index') }}">{{ trans('front.Home') }}</a>
             <span class="delimiter">
                 <i class="fa fa-angle-right"></i>
-            </span>Track Your Order
+            </span>{{ trans('front.Track Your Order') }}
         </nav>
 
         <div class="content-area" id="primary">
@@ -19,91 +19,97 @@
                         <div id="yith-wcwl-messages"></div>
                         <form class="woocommerce" method="post" id="yith-wcwl-form">
 
-                            <input type="hidden" value="68bc4ab99c" name="yith_wcwl_form_nonce" id="yith_wcwl_form_nonce">
+                            <input type="hidden" value="68bc4ab99c" name="yith_wcwl_form_nonce"
+                                id="yith_wcwl_form_nonce">
                             <input type="hidden" value="/electro/wishlist/" name="_wp_http_referer">
 
 
-                        @if($orders -> count() > 0)
-                            <!-- TITLE -->
+                            @if ($orders->count() > 0)
+                                <!-- TITLE -->
                                 <div class="wishlist-title">
-                                    <h2>My Orders <span class="text-muted" style="font-size: 14px;">{{ $orders -> total() }}</span></h2>
+                                    <h2>{{ trans('front.My Orders') }} <span class="text-muted"
+                                            style="font-size: 14px;">{{ $orders->total() }}</span></h2>
                                 </div>
 
                                 <!-- WISHLIST TABLE -->
-                                <table data-token="" data-id="" data-page="1" data-per-page="5" data-pagination="no" class="shop_table cart wishlist_table">
+                                <table data-token="" data-id="" data-page="1" data-per-page="5" data-pagination="no"
+                                    class="shop_table cart wishlist_table">
 
                                     <thead>
-                                    <tr>
+                                        <tr>
 
-                                        <th class="product-name text-center">
-                                            <span class="nobr">Order Number</span>
-                                        </th>
+                                            <th class="product-name text-center">
+                                                <span class="nobr">{{ trans('front.Order Number') }}</span>
+                                            </th>
 
-                                        <th class="product-price text-center">
-                                            <span class="nobr">Order Total</span>
-                                        </th>
-                                        <th class="product-stock-stauts text-center">
-                                            <span class="nobr">Order Status</span>
-                                        </th>
+                                            <th class="product-price text-center">
+                                                <span class="nobr">{{ trans('front.Order Total') }}</span>
+                                            </th>
+                                            <th class="product-stock-stauts text-center">
+                                                <span class="nobr">{{ trans('front.Order Status') }}</span>
+                                            </th>
 
-                                        <th class="product-add-to-cart text-center">
-                                            <span class="nobr">Order Details</span>
-                                        </th>
+                                            <th class="product-add-to-cart text-center">
+                                                <span class="nobr">{{ trans('front.Order Details') }}</span>
+                                            </th>
 
-                                    </tr>
+                                        </tr>
                                     </thead>
 
                                     <tbody>
-                                    @foreach($orders as $order)
-                                        <tr class="text-center">
+                                        @foreach ($orders as $order)
+                                            <tr class="text-center">
 
-                                            <td class="product-name">
-                                                <a href="#">{{ $order -> slug }}</a>
-                                            </td>
+                                                <td class="product-name">
+                                                    <a href="{{ route('front.order.details',$order->slug ) }}">{{ $order->slug }}</a>
+                                                </td>
 
-                                            <td class="product-price">
-                                                <span class="electro-price"><span class="amount">&pound; {{ $order -> total }}</span></span>
-                                            </td>
+                                                <td class="product-price">
+                                                    <span class="electro-price"><span class="amount">&pound;
+                                                            {{ $order->total }}</span></span>
+                                                </td>
 
-                                            <td class="product-name">
-                                                <a href="#">{{ $order -> getShippingStatus() }}</a>
-                                            </td>
+                                                <td class="product-name">
+                                                    <a href="#">{{ $order->getShippingStatus() }}</a>
+                                                </td>
 
-                                            <td class="product-add-to-cart">
-                                                <!-- Date added -->
+                                                <td class="product-add-to-cart">
+                                                    <!-- Date added -->
 
-                                                <!-- Add to cart button -->
-                                                <a href="{{ route('front.order.details', $order -> slug) }}" class="button">Order Details</a>
-                                                <!-- Change wishlist -->
+                                                    <!-- Add to cart button -->
+                                                    <a href="{{ route('front.order.details', $order->slug) }}"
+                                                        class="button btn-primary">{{ trans('front.Order Details') }}</a>
+                                                    <!-- Change wishlist -->
 
-                                                <!-- Remove from wishlist -->
-                                            </td>
+                                                    <!-- Remove from wishlist -->
+                                                </td>
 
-                                        </tr>
-                                    @endforeach
+                                            </tr>
+                                        @endforeach
                                     @else
                                         <!-- TITLE -->
                                         <div class="wishlist-title ">
-                                            <h2>No Orders Yet!</h2>
+                                            <h2>{{ trans('front.No Orders Yet!') }}</h2>
                                             <br>
                                             <div class="hero-action-btn fadeInDown-4">
-                                                <a href="{{ route('front.shop') }}" class="big le-button text-gray-dark text-lg font-weight-bold">Shop Now</a>
+                                                <a href="{{ route('front.shop') }}"
+                                                    class="big le-button text-gray-dark text-lg font-weight-bold">{{ trans('front.Shop Now') }}</a>
                                             </div>
                                         </div>
-                                    @endif
+                            @endif
 
 
-                                    </tbody>
+                            </tbody>
 
-                                    <tfoot>
-                                    <tr>
-                                        <td colspan="6"></td>
-                                    </tr>
-                                    </tfoot>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6"></td>
+                                </tr>
+                            </tfoot>
 
-                                </table>
+                            </table>
 
-                                {{ $orders ->links('front.pagination.default') }}
+                            {{ $orders->links('vendor.pagination.default') }}
 
                         </form>
 

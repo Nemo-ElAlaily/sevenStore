@@ -74,7 +74,7 @@ class VendorController extends Controller
 
             DB::commit();
 
-            session()->flash('success', 'Vendor Updated Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.vendors.index');
 
         } catch (\Exception $exception) {
@@ -92,7 +92,7 @@ class VendorController extends Controller
             if(Auth::user()->hasPermission('vendors_delete')){
 
                 if(!$vendor){
-                    session()->flash('error', "Vendor ID Doesn't Exist or has been deleted");
+                    session()->flash('error', trans('validation.do not exists'));
                     return redirect()->route('admin.vendors.index');
                 }
 
@@ -103,7 +103,7 @@ class VendorController extends Controller
 
                 $vendor -> delete();
 
-                session()->flash('success', 'Vendor Deleted Successfully');
+                session()->flash('success', trans('validation.Deleted Successfully'));
                 return redirect()->route('admin.vendors.index');
             } else {
                 session() -> flash('error', 'Not Authorized, Please contact Administrator');

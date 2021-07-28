@@ -162,7 +162,7 @@ class UserController extends Controller
 
             DB::commit();
 
-            session()->flash('success', 'User Updated Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.users.index');
 
         } catch (\Exception $exception) {
@@ -180,7 +180,7 @@ class UserController extends Controller
             Storage::disk('public_uploads')->delete('/users/' . $user -> avatar);
         }
         $user -> delete();
-        session()->flash('success', 'User Deleted Successfully');
+        session()->flash('success', trans('validation.Deleted Successfully'));
         return redirect()->route('admin.users.index');
 
     } // end of destroy

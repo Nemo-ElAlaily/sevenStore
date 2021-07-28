@@ -18,8 +18,8 @@ class PageController extends Controller
 
     public function show($id)
     {
-        $page = Page::find($id);
-        return view('admin.cuba.pages.show', compact('page'));
+//        $page = Page::find($id);
+//        return view('admin.cuba.pages.show', compact('page'));
     } // end of create
 
     public function create()
@@ -104,7 +104,7 @@ class PageController extends Controller
         $request_data = $request->except(['_token', '_method']);
         $page -> update($request_data);
 
-        session()->flash('success', 'Page Updated Successfully');
+        session()->flash('success', trans('validation.Updated Successfully'));
         return redirect()->route('admin.pages.index');
 
     } // end of update
@@ -115,7 +115,7 @@ class PageController extends Controller
         $page->deleteTranslations();
         $page->delete();
 
-        session()->flash('success', 'Page Deleted Successfully');
+        session()->flash('success', trans('validation.Deleted Successfully'));
         return redirect()->route('admin.pages.index');
 
     } // end of destroy

@@ -177,4 +177,11 @@ return [
         'available'             => 'مُتاح',
         'size'                  => 'الحجم',
     ],
+
+
+    'Added Successfully' => 'تمت الاضافة بنجاح',
+    'Updated Successfully' => 'تم التعديل بنجاح',
+    'Deleted Successfully' => 'تم الحذف بنجاح',
+    'contact admin' => 'لم تتم العملية، برجاء مراجعة المسئول ..',
+    'do not exists' => 'غير متاح او تم الحذف',
 ];

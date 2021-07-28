@@ -1,10 +1,10 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'Countries | Create')
+@section('title', trans('site.Countries') . ' | ' . trans('site.create') )
 
 @section('breadcrumb-items')
-    <li class="breadcrumb-item">Countries</li>
-    <li class="breadcrumb-item">Create</li>
+    <li class="breadcrumb-item">{{ trans('site.Countries') }}</li>
+    <li class="breadcrumb-item">{{ trans('site.add') }}</li>
 @stop
 
 
@@ -16,47 +16,48 @@
             <div class="row">
 
                 @include('admin.cuba.partials._errors')
-                <form class="col-12" action="{{ route('admin.countries.store') }}" method="post" enctype="multipart/form-data">
+                <form class="col-12" action="{{ route('admin.countries.store') }}" method="post"
+                    enctype="multipart/form-data">
 
-                            {{ csrf_field() }}
-                            {{ method_field('post') }}
+                    {{ csrf_field() }}
+                    {{ method_field('post') }}
 
                     <div class="row">
                         @foreach (config('translatable.locales') as $locale)
-                        <div class="col-sm-12 col-lg-12">
+                            <div class="col-sm-12 col-lg-12">
                                 <div class="form-group">
-                                    <label class="countriesLable" for="{{ $locale }}[name]">Country Name in @lang('site.' . $locale . '.name')</label>
-                                    @error($locale . '.name')
-                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                    <label class="countriesLable" for="{{ $locale }}[name]">{{ trans('site.Country name') }}                                         @lang('site.' . $locale . '.name')</label>
+                                    @error($locale . '.in name')
+                                        <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
                                     <input class="form-control input-thick" type="text" name="{{ $locale }}[name]"
-                                           value="{{ old($locale.'.name') }}">
+                                        value="{{ old($locale . '.name') }}">
                                 </div>
-                        </div>
+                            </div>
                         @endforeach
                     </div>
 
-                    <div class="row">
+                    <div class="row mb-5">
 
-                            <div class="form-group col-sm-12 col-lg-12">
-                                <label class="countriesLable" for="flag">Flag</label>
-                                @error('flag')
+                        <div class="form-group col-sm-12 col-lg-12">
+                            <label class="countriesLable" for="flag">{{ trans('site.Flag') }}</label>
+                            @error('flag')
                                 <span class="text-danger mx-1">{{ $message }}</span>
-                                @enderror
-                                <input type="file" name="flag" class="form-control input-sm image">
+                            @enderror
+                            <input type="file" name="flag" class="form-control input-sm image">
 
-                                <img src="{{ asset('uploads/countries/default.png') }}" width="100px"
-                                     class="img-thumbnail image-preview mt-1" alt="Image Preview">
-                            </div> {{-- end of form group image --}}
+                            <img src="{{ asset('uploads/countries/default.png') }}" width="100px"
+                                class="img-thumbnail image-preview mt-1" alt="Image Preview">
+                        </div> {{-- end of form group image --}}
 
-                        </div>
+                    </div>
 
-                            <div class="form-group">
-                                <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
-                                    Add country</button>
-                            </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
+                            {{ trans('site.add') }}</button>
+                    </div>
 
-                        </form><!-- end of form -->
+                </form><!-- end of form -->
 
             </div>
         </div>

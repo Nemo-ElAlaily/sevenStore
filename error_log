@@ -1,0 +1,1 @@
+[25-Jul-2021 10:50:40 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /home/future/public_html/test.futurecityapp.com/vendor/thunderer/shortcode/src/Parser/RegularParser.php on line 304

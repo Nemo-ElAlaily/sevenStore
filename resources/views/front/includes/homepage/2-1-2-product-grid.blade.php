@@ -1,11 +1,13 @@
-
-<section class="home-v1-recently-viewed-products-carousel section-products-carousel animate-in-view fadeIn animated" data-animation="fadeIn">
+<section class="home-v1-recently-viewed-products-carousel section-products-carousel animate-in-associate(\App\Models\Products\Product::class)fadeIn animated"
+    data-animation="fadeIn">
 
     <header>
-        <h2 class="h1">Browe by Category</h2>
+        <h2 class="h1">{{ trans('front.Browse by Category') }}</h2>
         <div class="owl-nav">
-            <a href="#products-carousel-prev" data-target="#recently-added-products-carousel" class="slider-prev"><i class="fa fa-angle-left"></i></a>
-            <a href="#products-carousel-next" data-target="#recently-added-products-carousel" class="slider-next"><i class="fa fa-angle-right"></i></a>
+            <a href="#products-carousel-prev" data-target="#recently-added-products-carousel" class="slider-prev"><i
+                    class="fa fa-angle-left"></i></a>
+            <a href="#products-carousel-next" data-target="#recently-added-products-carousel" class="slider-next"><i
+                    class="fa fa-angle-right"></i></a>
         </div>
     </header>
 

@@ -11,10 +11,10 @@ class CompareComponent extends Component
     {
         $item = Cart::instance('compare')->get($rowId);
         Cart::instance('compare')->remove($rowId);
-        Cart::instance('cart')->add($item -> id, $item -> name, 1, $item -> price) -> associate('App\Models\Product');
+        Cart::instance('cart')->add($item -> id, $item -> name, 1, $item -> price) ->associate(\App\Models\Products\Product::class);
         $this->emitTo('compare-count-component', 'refreshComponent');
         $this->emitTo('cart-count-component', 'refreshComponent');
-        session()->flash('success', 'Item Moved to Cart');
+        session()->flash('success', trans('front.Item Moved to Cart'));
 
     } // end of move Product From Wish list To Cart
 
@@ -25,7 +25,7 @@ class CompareComponent extends Component
             if ($compareItem -> id == $product_id) {
                 Cart::instance('compare') -> remove($compareItem -> rowId);
                 $this->emitTo('compare-count-component', 'refreshComponent');
-                session()->flash('error', 'Item Removed from List');
+                session()->flash('error', trans('front.Item Removed from List'));
 
                 return;
             } // end of if

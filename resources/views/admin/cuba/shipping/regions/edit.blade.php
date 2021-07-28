@@ -1,10 +1,10 @@
 @extends('layouts.admin.cuba')
 
-@section('title', 'Region | ' . $region -> name)
+@section('title', trans('site.Region') . ' | ' . $region->name)
 
 @section('breadcrumb-items')
-    <li class="breadcrumb-item">Region</li>
-    <li class="breadcrumb-item">Edit</li>
+    <li class="breadcrumb-item">{{ trans('site.Region') }}</li>
+    <li class="breadcrumb-item">{{ trans('site.edit') }}</li>
 @stop
 
 @section('content')
@@ -15,7 +15,8 @@
             <div class="row">
 
                 @include('admin.cuba.partials._errors')
-                <form class="col-12" action="{{ route('admin.regions.update', $region -> id) }}" method="post" enctype="multipart/form-data">
+                <form class="col-12" action="{{ route('admin.regions.update', $region->id) }}" method="post"
+                    enctype="multipart/form-data">
 
                     {{ csrf_field() }}
                     {{ method_field('put') }}
@@ -24,48 +25,51 @@
                         @foreach (config('translatable.locales') as $locale)
                             <div class="col-sm-12 col-lg-12">
                                 <div class="form-group">
-                                    <label class="regionLabel" for="{{ $locale }}[name]">Region Name in @lang('site.' . $locale . '.name')</label>
+                                    <label class="regionLabel" for="{{ $locale }}[name]">{{ trans('site.Region Name') }} @lang('site.'
+                                        . $locale . '.in name')</label>
                                     @error($locale . '.name')
-                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                        <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
                                     <input class="form-control input-thick" type="text" name="{{ $locale }}[name]"
-                                           value="{{ $region->translate($locale)-> name }}">
+                                        value="{{ $region->translate($locale)->name }}">
                                 </div>
 
                             </div>
                         @endforeach
 
-                            <div class="col-sm-12 col-lg-6">
-                                <div class="form-group">
-                                    <label class="regionLabel" for="city_id">City</label>
-                                    @error('city_id')
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="regionLabel" for="city_id">{{ trans('site.Cities') }}</label>
+                                @error('city_id')
                                     <span class="text-danger mx-5">{{ $message }}</span>
-                                    @enderror
-                                    <select name="city_id" class="form-control">
-                                        <option value="">All Cities</option>
-                                        @foreach ($cities as $city)
-                                            <option value="{{ $city -> id }}" {{ $region -> city_id  == $city->id ? 'selected' : '' }}>{{ $city -> name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                @enderror
+                                <select name="city_id" class="form-control">
+                                    <option value="">{{ trans('site.All Cities') }}</option>
+                                    @foreach ($cities as $city)
+                                        <option value="{{ $city->id }}"
+                                            {{ $region->city_id == $city->id ? 'selected' : '' }}>
+                                            {{ $city->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
+                        </div>
 
-                            <div class="col-sm-12 col-lg-6">
-                                <div class="form-group">
-                                    <label class="regionLabel" for="shipping_cost">Shipping Cost</label>
-                                    @error('shipping_cost')
+                        <div class="col-sm-12 col-lg-6 mb-3">
+                            <div class="form-group">
+                                <label class="regionLabel" for="shipping_cost">{{ trans('site.Shipping Cost') }}</label>
+                                @error('shipping_cost')
                                     <span class="text-danger mx-5">{{ $message }}</span>
-                                    @enderror
-                                    <input class="form-control input-thick" type="number" name="shipping_cost"
-                                           value="{{ $region -> shipping_cost }}">
-                                </div>
+                                @enderror
+                                <input class="form-control input-thick" type="number" name="shipping_cost"
+                                    value="{{ $region->shipping_cost }}">
                             </div>
+                        </div>
 
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btnEdit"><i class="fa fa-plus"></i>
-                            Update Region</button>
+                        <button type="submit" class="btn btnEdit"><i class="fa fa-edit"></i>
+                            {{ trans('site.update') }}</button>
                     </div>
 
                 </form><!-- end of form -->

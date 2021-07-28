@@ -4,10 +4,14 @@ namespace App\Providers;
 
 use App\Models\MainCategories\MainCategory;
 use App\Models\Settings\SiteSetting;
+use App\Models\Pages\Page;
+
 use App\Models\Settings\SocialSetting;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
+use Config;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,12 +36,16 @@ class AppServiceProvider extends ServiceProvider
         // Fetch the Site Settings object
         $site_settings = SiteSetting::find(1);
         $social_settings = SocialSetting::all();
-        $main_categories = MainCategory::all();
+        $main_categories = MainCategory::where('show_in_navbar','1')->get();
+
+        siteSettings();
+       
         View::share([
             'site_settings' =>  $site_settings,
             'social_settings' => $social_settings,
             'main_categories' => $main_categories,
         ]);
+
         Paginator::useBootstrap();
     }
 }

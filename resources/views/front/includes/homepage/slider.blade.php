@@ -1,4 +1,4 @@
-<div class="home-v1-slider" >
+<div class="home-v1-slider">
     <!-- ========================================== SECTION – HERO : END========================================= -->
 
     <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">

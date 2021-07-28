@@ -5,7 +5,7 @@
     <div id="content" class="site-content" tabindex="-1">
         <div class="container">
 
-            <nav class="woocommerce-breadcrumb" >
+            <nav class="woocommerce-breadcrumb">
                 <a href="{{ route('front.index') }}">Home</a>
                 <span class="delimiter">
                     <i class="fa fa-angle-right"></i>
@@ -15,12 +15,14 @@
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
 
-                    <section class="section-product-cards-carousel" >
+                    <section class="section-product-cards-carousel">
                         <header>
                             <h2 class="h1">Recommended Products</h2>
                             <div class="owl-nav">
-                                <a href="#products-carousel-prev" data-target="#recommended-product" class="slider-prev"><i class="fa fa-angle-left"></i></a>
-                                <a href="#products-carousel-next" data-target="#recommended-product" class="slider-next"><i class="fa fa-angle-right"></i></a>
+                                <a href="#products-carousel-prev" data-target="#recommended-product" class="slider-prev"><i
+                                        class="fa fa-angle-left"></i></a>
+                                <a href="#products-carousel-next" data-target="#recommended-product" class="slider-next"><i
+                                        class="fa fa-angle-right"></i></a>
                             </div>
                         </header>
 
@@ -46,10 +48,14 @@
 
                     <div class="shop-control-bar">
                         <ul class="shop-view-switcher nav nav-tabs" role="tablist">
-                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" title="Grid View" href="#grid"><i class="fa fa-th"></i></a></li>
-                            <li class="nav-item"><a class="nav-link " data-toggle="tab" title="Grid Extended View" href="#grid-extended"><i class="fa fa-align-justify"></i></a></li>
-                            <li class="nav-item"><a class="nav-link " data-toggle="tab" title="List View" href="#list-view"><i class="fa fa-list"></i></a></li>
-                            <li class="nav-item"><a class="nav-link " data-toggle="tab" title="List View Small" href="#list-view-small"><i class="fa fa-th-list"></i></a></li>
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" title="Grid View"
+                                    href="#grid"><i class="fa fa-th"></i></a></li>
+                            <li class="nav-item"><a class="nav-link " data-toggle="tab" title="Grid Extended View"
+                                    href="#grid-extended"><i class="fa fa-align-justify"></i></a></li>
+                            <li class="nav-item"><a class="nav-link " data-toggle="tab" title="List View"
+                                    href="#list-view"><i class="fa fa-list"></i></a></li>
+                            <li class="nav-item"><a class="nav-link " data-toggle="tab" title="List View Small"
+                                    href="#list-view-small"><i class="fa fa-th-list"></i></a></li>
                         </ul>
 
                         @include('front.includes.components.shop-control-bar')

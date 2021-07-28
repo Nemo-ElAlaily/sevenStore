@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Redirect;
 
 define('ADMIN_PAGINATION_COUNT', 10);
 
-Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function() {
-    Route::prefix('admin')->name('admin.')->middleware( ['auth', 'role:super_admin|admin|vendor|shop_manager|moderator'])->group(function () {
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
+    Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:super_admin|admin|vendor|shop_manager|moderator'])->group(function () {
 
         Route::get('/', 'AdminController@index')->name('index');
 
@@ -37,7 +37,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         /* end of Main Categories Routes */
 
         /* Pages Routes */
-        Route::resource('pages', 'PageController');
+        Route::resource('pages', 'PageController')->except(['show']);
         /* end of Pages Routes */
 
         /* Orders Routes */
@@ -60,6 +60,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
         /* regions routes */
         Route::resource('regions', 'Shipping\RegionController');
 
+        /**menus */
+        Route::get('/main-menue','MenusController@mainMenuePages')->name('menus');
+      
     });
+    Route::put('updateMainMenue','MenusController@upadteMainMenuePages')->name('update.main.menue');
+    Route::put('updateSideMenue','MenusController@upadteSideMenuePages')->name('update.side.menue');
+    Route::put('updateFooterMenue','MenusController@upadteFooterMenuePages')->name('update.footer.menue');
 
+
+    
 });

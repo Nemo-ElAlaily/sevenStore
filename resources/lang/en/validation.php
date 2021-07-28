@@ -148,4 +148,11 @@ return [
 
     'attributes' => [],
 
+
+    'Added Successfully' => 'Added Successfully',
+    'Updated Successfully' => 'Updated Successfully',
+    'Deleted Successfully' => 'Deleted Successfully',
+    'contact admin' => 'Something Went Wrong, Please Contact Administrator ..',
+    'do not exists' => 'Doesn\'t Exist or has been Deleted'
+
 ];

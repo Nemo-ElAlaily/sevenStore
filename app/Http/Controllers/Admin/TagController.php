@@ -38,12 +38,12 @@ class TagController extends Controller
             $request_data = $request -> except(['_token', '_method']);
 
             Tag::create($request_data);
-            session()->flash('success', 'Tag Added Successfully');
+            session()->flash('success', trans('validation.Added Successfully'));
             return redirect()->route('admin.tags.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator' . $exception->getMessage());
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.tags.index');
         } // end of try -> catch
 
@@ -54,13 +54,13 @@ class TagController extends Controller
         try {
             $tag = Tag::find($id);
             if (!$tag) {
-                session()->flash('error', "Type Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.tags.index');
             }
             return view('admin.cuba.tags.edit', compact('tag'));
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.tags.index');
         } // end of try -> catch
 
@@ -71,7 +71,7 @@ class TagController extends Controller
         try {
             $tag = Tag::find($id);
             if (!$tag) {
-                session()->flash('error', "Type Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.tags.index');
             }
 
@@ -80,11 +80,11 @@ class TagController extends Controller
 
             $tag->update($request->except(['_token', '_method']));
 
-            session()->flash('success', 'Tag Updated Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.tags.index');
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.tags.index');
         } // end of try -> catch
 
@@ -95,18 +95,18 @@ class TagController extends Controller
         try {
             $tag = tag::find($id);
             if (!$tag) {
-                session()->flash('error', "Type Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.tags.index');
             }
 
             $tag->deleteTranslations();
             $tag->delete();
 
-            session()->flash('success', 'Tag Deleted Successfully');
+            session()->flash('success', trans('validation.Deleted Successfully'));
             return redirect()->route('admin.tags.index');
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.tags.index');
         } // end of try -> catch
 

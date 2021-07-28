@@ -1,4 +1,4 @@
-<section class="section-product-cards-carousel animate-in-view fadeIn animated" data-animation="fadeIn">
+<section class="section-product-cards-carousel animate-in-associate(\App\Models\Products\Product::class)fadeIn animated" data-animation="fadeIn">
 
     <header>
 
@@ -8,9 +8,11 @@
 
             <li class="nav-item active"><span class="nav-link">Top 20</span></li>
 
-            <li class="nav-item"><a class="nav-link" href="index.php?page=product-category">Smart Phones &amp; Tablets</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php?page=product-category">Smart Phones &amp;
+                    Tablets</a></li>
 
-            <li class="nav-item"><a class="nav-link" href="index.php?page=product-category">Laptops &amp; Computers</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php?page=product-category">Laptops &amp; Computers</a>
+            </li>
 
             <li class="nav-item"><a class="nav-link" href="index.php?page=product-category">Video Cameras</a></li>
         </ul>

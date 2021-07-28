@@ -27,6 +27,8 @@ class DatabaseSettingsRequest extends FormRequest
             "DB_HOST" => 'required',
             "DB_DATABASE" => 'required',
             "DB_USERNAME" => 'required',
+            "cpanel_username" => 'required',
+            "cpanel_pass" => 'required',
            // "DB_PASSWORD" => 'required',
 
             "WP_DB_HOST" => 'required',
@@ -39,7 +41,15 @@ class DatabaseSettingsRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'This Field is Required',
+              'DB_HOST.required'  => 'The Database Host field is required',
+              'DB_DATABASE.required'  => 'The Database Name  field is required',
+        'DB_USERNAME.required'  => 'The Database Username field is required',
+        'cpanel_username.required'  => 'The Cpanel username field is required',
+        'cpanel_pass.required'  => 'The  Cpanel password field is required',
+        
+    'WP_DB_HOST.required'  => 'The Wordpress Host field is required',
+'WP_DB_DATABASE.required'  => 'The Wordpress Database field is required',
+        'WP_DB_USERNAME.required'  => 'The Wordpress Databae UserName field is required',
         ];
     }
 }

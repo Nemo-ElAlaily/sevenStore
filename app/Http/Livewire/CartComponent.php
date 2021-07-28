@@ -31,14 +31,14 @@ class CartComponent extends Component
     {
         Cart::instance('cart')->remove($rowId);
         $this->emitTo('cart-count-component', 'refreshComponent');
-        session()->flash('success', 'Item Removed from Your Cart');
+        session()->flash('success', trans('front.Item Removed from Your Cart'));
     } // end of destroy
 
     public function destroyAll()
     {
         Cart::instance('cart')->destroy();
         $this->emitTo('cart-count-component', 'refreshComponent');
-        session()->flash('success', 'All Items Removed from Your Cart');
+        session()->flash('success', trans('front.All Items Removed from Your Cart'));
 
     } // end of destroy All
 

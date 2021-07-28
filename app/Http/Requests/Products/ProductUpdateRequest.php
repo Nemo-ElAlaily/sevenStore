@@ -33,11 +33,11 @@ class ProductUpdateRequest extends FormRequest
            'image' => 'mimes:jpeg,bmp,png,gif',
        ];
 
-       foreach (config('translatable.locales') as $locale) {
+       foreach (config('translatable.locales') as $index => $locale) {
            $rules += [
-               $locale . '.name' => ['required', Rule::unique('product_translations', 'name')],
-               $locale . '.description' => ['required', Rule::unique('product_translations', 'description')],
-               $locale . '.features' => ['required', Rule::unique('product_translations', 'features')],
+               $locale . '.name' => ['required'],
+               $locale . '.description' => ['required'],
+               $locale . '.features' => ['required'],
            ];
 
        } // end of for each

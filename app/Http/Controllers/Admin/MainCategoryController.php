@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MainCategories\MainCategoryCreateRequest;
+use App\Http\Requests\MainCategories\MainCategoryUpdateRequest;
 use App\Models\MainCategories\MainCategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -36,13 +38,13 @@ class MainCategoryController extends Controller
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.main_categories.index' );
 
         } // end of try & catch
     } //end of create
 
-    public function store( Request $request)
+    public function store(MainCategoryCreateRequest $request)
     {
         try {
             if(!$request -> has('is_active')){
@@ -69,35 +71,30 @@ class MainCategoryController extends Controller
                 $request -> request -> add(['show_in_footer' => 1]);
             }
 
+            $request_data = $request -> except(['_token', '_method', 'image' , 'gallery']);
+
+
             DB::beginTransaction();
 
-            $imagePath = "";
+            $image_path = "";
             if($request -> image){
-                $imagePath = uploadImage('uploads/main_categories/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
+                $image_path = uploadImage('uploads/main_categories/' . '/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
+                $request_data['image'] = Carbon::now() -> year . '/' . Carbon::now() -> month . '/' .  $image_path;
             } else {
-                $imagePath = 'default.png';
+                $request_data['image'] = 'default.png';
             }
 
-            $category =  MainCategory::create([
-                'name' => $request -> name,
-                'slug' => str_replace( [' ', '/'], '_', $request -> name),
-                'parent_id' => $request -> parent_id,
-                'image' => $imagePath,
-                'is_active' => $request -> is_active,
-                'show_in_navbar' => $request -> show_in_navbar,
-                'show_in_sidebar' => $request -> show_in_sidebar,
-                'show_in_footer' => $request -> show_in_footer,
-            ]);
+            $category =  MainCategory::create($request_data);
 
             DB::commit();
 
-            session()->flash('success', 'Category Added Successfully');
+            session()->flash('success', trans('validation.Added Successfully'));
             return redirect()->route('admin.main_categories.index');
 
         } catch (\Exception $exception) {
-            //return $exception;
+
             DB::rollback();
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.main_categories.index');
 
         } // end of try & catch
@@ -110,7 +107,7 @@ class MainCategoryController extends Controller
             $main_category = MainCategory::find($id);
 
             if(!$main_category){
-                session()->flash('error', "Category ID Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.main_categories.index');
             }
 
@@ -118,7 +115,7 @@ class MainCategoryController extends Controller
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.main_categories.index');
 
         }
@@ -132,7 +129,7 @@ class MainCategoryController extends Controller
             $all_categories = MainCategory::all();
 
             if(!$main_category){
-                session()->flash('error', "Category ID Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.main_categories.index');
             }
 
@@ -140,17 +137,22 @@ class MainCategoryController extends Controller
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.main_categories.index');
 
         }
 
     } //end of edit
 
-    public function update($id ,Request $request)
+    public function update($id ,MainCategoryUpdateRequest $request)
     {
         try {
             $main_category = MainCategory::find($id);
+
+            if(!$main_category){
+                session()->flash('error', trans('validation.do not exists'));
+                return redirect()->route('admin.category.index');
+            }
 
             if(!$request -> has('is_active')){
                 $request -> request -> add(['is_active' => 0]);
@@ -176,43 +178,32 @@ class MainCategoryController extends Controller
                 $request -> request -> add(['show_in_footer' => 1]);
             }
 
-            if(!$main_category){
-                session()->flash('error', "Category Doesn't Exist or has been deleted");
-                return redirect()->route('admin.category.index');
-            }
+            $request_data = $request -> except(['_token', '_method', 'image' , 'gallery']);
 
             DB::beginTransaction();
 
-            $imagePath = "";
+            $image_path = "";
             if($request->image){
                 if ($main_category -> image != 'default.png') {
                     Storage::disk('public_uploads')->delete('/main_categories/' . $main_category -> image);
                 } // end of inner if
-                $imagePath = uploadImage('uploads/main_categories' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
+                $image_path = uploadImage('uploads/main_categories'. '/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
+                $request_data['image'] = Carbon::now() -> year . '/' . Carbon::now() -> month . '/' .  $image_path;
             } else {
-                $imagePath = $main_category -> image_path;
+                $request_data['image'] = $main_category -> image;
             }// end of outer if
 
-            $main_category -> update([
-                'name' => $request -> name,
-                'slug' => str_replace( [' ', '/'], '_', $request -> name),
-                'parent_id' => $request -> parent_id,
-                'image' => $imagePath,
-                'is_active' => $request -> is_active,
-                'show_in_navbar' => $request -> show_in_navbar,
-                'show_in_sidebar' => $request -> show_in_sidebar,
-                'show_in_footer' => $request -> show_in_footer,
-            ]);
+            $main_category -> update($request_data);
 
             DB::commit();
 
-            session()->flash('success', 'Category Updated Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.main_categories.index');
 
         } catch (\Exception $exception) {
 
             DB::rollback();
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.main_categories.index');
 
         } // end of try & catch
@@ -224,7 +215,7 @@ class MainCategoryController extends Controller
         $main_category = MainCategory::find($id);
 
         if(!$main_category){
-            session()->flash('error', "Category ID Doesn't Exist or has been deleted");
+            session()->flash('error', trans('validation.do not exists'));
             return redirect()->route('admin.main_categories.index');
         }
 
@@ -235,12 +226,12 @@ class MainCategoryController extends Controller
 
             $main_category -> delete();
 
-            session()->flash('success', 'Category Deleted Successfully');
+            session()->flash('success', trans('validation.Deleted Successfully'));
             return redirect()->route('admin.main_categories.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.main_categories.index');
 
         } // end of try & catch

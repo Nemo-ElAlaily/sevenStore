@@ -33,7 +33,7 @@ class SiteSettingController extends Controller
         $site_settings = SiteSetting::findorFail($id);
 
         $request_data = $request->except(['_token', '_method']);
-
+// dd($request);
         $logoPath = "";
         if($request->logo){
             if ($site_settings -> logo != 'default.png') {
@@ -53,12 +53,21 @@ class SiteSettingController extends Controller
         } else {
             $faviconPath = $site_settings -> favicon_path;
         }// end of outer if
+        $request_data['google_analytics']=$request->google_analytics;
+        $request_data['google_client_id']=$request->google_client_id;
+        $request_data['google_secret_key']=$request->google_secret_key;
+        $request_data['google_redirect']=$request->google_redirect;
+
+        $request_data['facebook_client_id']=$request->facebook_client_id;
+        $request_data['facebook_secret_key']=$request->facebook_secret_key;
+        $request_data['facebook_redirect']=$request->facebook_redirect;
+        // dd($request->facebook_redirect);
 
         $request_data['logo'] = $logoPath;
         $request_data['favicon'] = $faviconPath;
         $site_settings->update($request_data);
 
-        session()->flash('success', 'Site Settings Updated Successfully');
+        session()->flash('success', trans('validation.Updated Successfully'));
         return redirect()->route('admin.settings.site.show', $site_settings->id);
 
     } // end of social update
@@ -88,7 +97,7 @@ class SiteSettingController extends Controller
 
         }  // end of foreach
 
-        session()->flash('success', 'Settings Updated Successfully');
+        session()->flash('success', trans('validation.Updated Successfully'));
         return redirect()->route('admin.settings.social.show');
 
     } // end of general update
@@ -127,7 +136,7 @@ class SiteSettingController extends Controller
 
             DB::commit();
 
-            session()->flash('success', 'Database Settings Updated Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.settings.database.show', $database_settings->id);
         }
         catch (\Exception $exception)

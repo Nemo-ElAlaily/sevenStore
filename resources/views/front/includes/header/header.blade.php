@@ -11,7 +11,7 @@
         </div><!-- /.row -->
     </div>
 </header><!-- #masthead -->
-<nav class="navbar navbar-primary navbar-full">
+<nav class="navbar navbar-primary navbar-full" @if(LaravelLocalization::getCurrentLocale() == 'ar') style="height: 65px; margin: auto" @endif>
     <div class="container">
 
         @include('front.includes.navigation.primary-nav')

@@ -358,17 +358,3 @@ $("#flip-btn").click(function(){
 $("#flip-back").click(function(){
     $(".flip-card-inner").removeClass("flipped")
 });
-
-/* Remove Place Holder In Focus */
-
-$(".form-control").each(
-    function(){
-        $(this).data('holder',$(this).attr('placeholder'));
-        $(this).focusin(function(){
-            $(this).attr('placeholder','');
-        });
-        $(this).focusout(function(){
-            $(this).attr('placeholder',$(this).data('holder'));
- });
-        
-});

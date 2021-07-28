@@ -63,12 +63,12 @@ class BlogController extends Controller
 
             $blog = Blog::create($request_data);
 
-            session()->flash('success', 'Blog Added Successfully');
+            session()->flash('success', trans('validation.Added Successfully'));
             return redirect()->route('admin.blogs.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.blogs.index');
         } // end of try -> catch
 
@@ -88,7 +88,7 @@ class BlogController extends Controller
             $categories = MainCategory::all();
             $blog_tags = $blog->tags->pluck('id')->toArray();
             if (!$blog) {
-                session()->flash('error', "Blog Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.blogs.index');
             }
 
@@ -110,7 +110,7 @@ class BlogController extends Controller
 
             $blog = Blog::find($id);
             if (!$blog) {
-                session()->flash('error', "Blog Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.blogs.index');
             }
 
@@ -138,11 +138,11 @@ class BlogController extends Controller
             }
 
             $blog->update($request_data);
-            session()->flash('success', 'Blog Added Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.blogs.index');
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator ' . $exception->getMessage());
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.blogs.index');
         } // end of try -> catch
 
@@ -154,7 +154,7 @@ class BlogController extends Controller
         try {
             $blog = Blog::find($id);
             if (!$blog) {
-                session()->flash('error', "Blog Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.agencies.index');
             }
 
@@ -165,11 +165,11 @@ class BlogController extends Controller
             $blog->deleteTranslations();
             $blog->delete();
 
-            session()->flash('success', 'Blog Deleted Successfully');
+            session()->flash('success', trans('validation.Deleted Successfully'));
             return redirect()->route('admin.blogs.index');
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.blogs.index');
         } // end of try -> catch
     } // end of destroy

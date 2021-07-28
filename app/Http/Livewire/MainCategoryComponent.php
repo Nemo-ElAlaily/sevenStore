@@ -25,8 +25,8 @@ class MainCategoryComponent extends Component
 
     public function store($product_id, $product_name, $product_price)
     {
-        Cart::add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Product::class);
-        session()->flash('success', 'Item Added to Cart');
+        Cart::add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Products\Product::class);
+        session()->flash('success', trans('front.Item Added in Shopping Cart'));
         return redirect()->route('front.product.cart');
 
     } // end of store

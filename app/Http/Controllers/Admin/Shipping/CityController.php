@@ -42,12 +42,12 @@ class CityController extends Controller
 
             City::create($request_data);
 
-            session()->flash('success', 'City Added Successfully');
+            session()->flash('success', trans('validation.Added Successfully'));
             return redirect()->route('admin.cities.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.cities.index');
 
         } // end of try -> catch
@@ -59,7 +59,7 @@ class CityController extends Controller
         try {
             $city = City::find($id);
             if(!$city) {
-                session()->flash('error', "City Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.cities.index');
             }
             $countries = Country::all();
@@ -67,7 +67,7 @@ class CityController extends Controller
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.cities.index');
 
         } // end of try -> catch
@@ -80,7 +80,7 @@ class CityController extends Controller
             $city = City::find($id);
 
             if(!$city) {
-                session()->flash('error', "City Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.cities.index');
             }
 
@@ -88,12 +88,12 @@ class CityController extends Controller
 
             $city->update($request_data);
 
-            session()->flash('success', 'City Updated Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.cities.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.cities.index');
 
         } // end of try -> catch
@@ -106,19 +106,19 @@ class CityController extends Controller
             $city = City::find($id);
 
             if(!$city) {
-                session()->flash('error', "City Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.cities.index');
             }
 
             $city -> deleteTranslations();
             $city -> delete();
 
-            session()->flash('success', 'City Deleted Successfully');
+            session()->flash('success', trans('validation.Deleted Successfully'));
             return redirect()->route('admin.cities.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.cities.index');
 
         } // end of try -> catch

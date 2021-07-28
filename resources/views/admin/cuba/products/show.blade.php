@@ -1,10 +1,10 @@
 @extends('layouts.admin.cuba')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{asset('admins/cuba/assets/css/vendors/photoswipe.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admins/cuba/assets/css/vendors/photoswipe.css') }}">
 @endsection
 
-@section('title', 'Product | ' . $product -> name)
+@section('title', 'Product | ' . $product->name)
 
 @section('breadcrumb-items')
     <li class="breadcrumb-item">Products</li>
@@ -15,25 +15,27 @@
     <!-- Default box -->
     <div class="card card-solid">
         <div class="card-body">
-            <div class="row add-create-blog">
+            <div class="row">
 
                 @include('admin.cuba.partials._errors')
 
-                <form class="col-12 form-user-create">
+                <form class="col-sm-12">
                     <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btnEdit mb-4">
                         <i class="fa fa-edit fa-lg"></i> Edit This Product
                     </a>
 
-                    <div class="col-sm-12 col-md-4 mb-5">
+                    <div class="col-sm-12 col-md-3 mb-5">
                         <div class="form-group">
-                            <label class="labelPage"  class="labelProd" for="main_category_id">Sub Category</label>
+                            <label class="labelProd" for="main_category_id">Sub Category</label>
                             @error('main_category_id')
-                            <span class="text-danger mx-5">{{ $message }}</span>
+                                <span class="text-danger mx-5">{{ $message }}</span>
                             @enderror
                             <select class="select-css" name="main_category_id" class="form-control">
                                 <option value="0">All Sub Categories</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category -> id }}" {{ $product -> main_category_id == $category -> id ? 'selected' : '' }}>{{ $category -> name }}</option>
+                                    <option value="{{ $category->id }}"
+                                        {{ $product->main_category_id == $category->id ? 'selected' : '' }}>
+                                        {{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -41,36 +43,40 @@
 
                     <div class="row">
                         @foreach (config('translatable.locales') as $locale)
-                            <div class="col-sm-12 col-md-6">
-
-                                <div class="form-group mb-5 ">
-                                    <label class="labelPage"  for="{{ $locale }}[name]">Product Name in @lang('site.' . $locale . '.name')</label>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="{{ $locale }}[name]">Product Name in @lang('site.' . $locale .
+                                        '.name')</label>
                                     @error($locale . '.name')
-                                    <br />
-                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                        <br />
+                                        <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-blog-create" type="text" name="{{ $locale }}[name]"
-                                           value="{{ $product -> translate($locale) -> name}}">
+                                    <input class="form-control input-thick" type="text" name="{{ $locale }}[name]"
+                                        value="{{ $product->translate($locale)->name }}">
                                 </div>
 
-                                <div class="form-group mb-5 ">
-                                    <label class="labelPage"  for="{{ $locale }}[description]">Product Description in @lang('site.' . $locale . '.name')</label>
+                                <div class="form-group">
+                                    <label for="{{ $locale }}[description]">Product Description in @lang('site.' .
+                                        $locale . '.name')</label>
                                     @error($locale . '.description')
-                                    <br />
-                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                        <br />
+                                        <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <textarea class="form-control  textareaBlog" type="text" name="{{ $locale }}[description]">
-                                        {{ $product -> translate($locale) -> description}}
-                                    </textarea>
+                                    <textarea class="form-control input-thick ckeditor" type="text"
+                                        name="{{ $locale }}[description]">
+                                            {{ $product->translate($locale)->description }}
+                                        </textarea>
                                 </div>
 
-                                <div class="form-group mb-5 ">
-                                    <label class="labelPage"  for="{{ $locale }}[features]">Product Features in @lang('site.' . $locale . '.name')</label>
+                                <div class="form-group">
+                                    <label for="{{ $locale }}[features]">Product Features in @lang('site.' . $locale
+                                        . '.name')</label>
                                     @error($locale . '.features')
-                                    <br />
-                                    <span class="text-danger mx-5">{{ $message }}</span>
+                                        <br />
+                                        <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <textarea class="form-control textareaBlog" type="text" name="{{ $locale }}[features]">{{ $product -> translate($locale) -> features}}</textarea>
+                                    <textarea class="form-control input-thick" type="text"
+                                        name="{{ $locale }}[features]">{{ $product->translate($locale)->features }}</textarea>
                                 </div>
 
                             </div>
@@ -87,69 +93,47 @@
                         <div class="col-sm-12 row">
 
                             <div class="form-group col-md-3">
-                                <label class="labelPage"  class="labelProd" for="stock">Stock </label>
+                                <label class="labelProd" for="stock">Stock </label>
                                 @error('stock')
-                                <span class="text-danger mx-5">{{ $message }}</span>
+                                    <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <input class="form-control input-blog-create" type="number" name="stock"
-                                       value="{{ $product -> stock }}">
+                                <input class="form-control input-thick" type="number" name="stock"
+                                    value="{{ $product->stock }}">
                             </div>
 
                             <div class="form-group col-md-3">
-                                <label class="labelPage"  class="labelProd" for="regular_price">Regular Price</label>
+                                <label class="labelProd" for="regular_price">Regular Price</label>
                                 @error('regular_price')
-                                <span class="text-danger mx-5">{{ $message }}</span>
+                                    <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <input class="form-control input-blog-create" type="text" name="regular_price"
-                                       value="{{  $product -> regular_price }}">
+                                <input class="form-control input-thick" type="text" name="regular_price"
+                                    value="{{ $product->regular_price }}">
                             </div>
 
                             <div class="form-group col-md-3">
-                                <label class="labelPage"  class="labelProd"for="sku">Sku</label>
+                                <label class="labelProd" for="sku">Sku</label>
                                 @error('sku')
-                                <span class="text-danger mx-5">{{ $message }}</span>
+                                    <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <input class="form-control input-blog-create" type="text" name="sku"
-                                       value="{{  $product -> sku }}">
+                                <input class="form-control input-thick" type="text" name="sku"
+                                    value="{{ $product->sku }}">
                             </div>
 
                             <div class="form-group col-md-3">
-                                <label class="labelPage"  class="labelProd"for="sale_price">Sale Price</label>
+                                <label class="labelProd" for="sale_price">Sale Price</label>
                                 @error('sale_price')
-                                <span class="text-danger mx-5">{{ $message }}</span>
+                                    <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
-                                <input class="form-control input-blog-create" type="text" name="sale_price"
-                                       value="{{  $product -> sale_price }}">
+                                <input class="form-control input-thick" type="text" name="sale_price"
+                                    value="{{ $product->sale_price }}">
                             </div>
 
 
-                            <div class="form-group text-center col-sm-12 col-lg-12 mt-5">
-                                <h5 class="">Product Image</h5>
-                                <img src="{{ $product -> image_path }}" width="300"
-                                     class="img-thumbnail image-preview m-1" alt="{{ $product -> name }}">
+                            <div class="form-group col-sm-12 col-lg-12 mt-5">
+                                <label>Product Image</label>
+                                <img src="{{ $product->image_path }}" width="300"
+                                    class="img-thumbnail image-preview m-1" alt="{{ $product->name }}">
                             </div> {{-- end of form group image --}}
-
-                            <div class="col-sm-12 mt-5 text-center m-auto show-product-gallery-section">
-                                <h5>Product Gallery <span class="digits">{{ $product -> gallery -> count() }}</span></h5>
-
-                                <div class="card">
-
-                                    <div class="card-body">
-                                        <div class="row my-gallery gallery" id="aniimated-thumbnials" itemscope="">
-                                            @foreach($product -> gallery as $index => $gallery_item)
-                                                <figure class="col-md-12 img-hover hover-1" itemprop="associatedMedia" itemscope="">
-                                                    <a href="{{ $gallery_item -> image }}" itemprop="contentUrl" data-size="1600x950">
-                                                        <div>
-                                                            <img class="" src="{{ $gallery_item -> image }}" itemprop="thumbnail" alt="{{ $product -> slug . $index }}">
-                                                        </div>
-                                                    </a>
-                                                    <figcaption itemprop="caption description">{{ $product -> slug . ' 1' }}</figcaption>
-                                                </figure>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
                     </div>
@@ -161,7 +145,28 @@
         <!-- /.card-body -->
 
         <div class="row">
-       
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Product Gallery <span class="digits">{{ $product->gallery->count() }}</span></h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row my-gallery gallery" id="aniimated-thumbnials" itemscope="">
+                            @foreach ($product->gallery as $index => $gallery_item)
+                                <figure class="col-md-3 col-6 img-hover hover-1" itemprop="associatedMedia" itemscope="">
+                                    <a href="{{ $gallery_item->image }}" itemprop="contentUrl" data-size="1600x950">
+                                        <div>
+                                            <img src="{{ $gallery_item->image }}" itemprop="thumbnail"
+                                                alt="{{ $product->slug . $index }}">
+                                        </div>
+                                    </a>
+                                    <figcaption itemprop="caption description">{{ $product->slug . ' 1' }}</figcaption>
+                                </figure>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div><!-- end of gallery -->
 
     </div>
@@ -170,9 +175,9 @@
     <!-- Root element of PhotoSwipe. Must have class pswp.-->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
         <!--
-            Background of PhotoSwipe.
-            It's a separate element, as animating opacity is faster than rgba().
-            -->
+                Background of PhotoSwipe.
+                It's a separate element, as animating opacity is faster than rgba().
+                -->
         <div class="pswp__bg"></div>
         <!-- Slides wrapper with overflow:hidden.-->
         <div class="pswp__scroll-wrap">
@@ -216,7 +221,7 @@
 @stop
 
 @section('script')
-    <script src="{{asset('admins/cuba/assets/js/photoswipe/photoswipe.min.js')}}"></script>
-    <script src="{{asset('admins/cuba/assets/js/photoswipe/photoswipe-ui-default.min.js')}}"></script>
-    <script src="{{asset('admins/cuba/assets/js/photoswipe/photoswipe.js')}}"></script>
+    <script src="{{ asset('admins/cuba/assets/js/photoswipe/photoswipe.min.js') }}"></script>
+    <script src="{{ asset('admins/cuba/assets/js/photoswipe/photoswipe-ui-default.min.js') }}"></script>
+    <script src="{{ asset('admins/cuba/assets/js/photoswipe/photoswipe.js') }}"></script>
 @endsection

@@ -41,12 +41,12 @@ class RegionController extends Controller
 
             Region::create($request_data);
 
-            session()->flash('success', 'Region Added Successfully');
+            session()->flash('success', trans('validation.Added Successfully'));
             return redirect()->route('admin.regions.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.regions.index');
 
         } // end of try -> catch
@@ -58,7 +58,7 @@ class RegionController extends Controller
         try {
             $region = Region::find($id);
             if(!$region) {
-                session()->flash('error', "Region Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.regions.index');
             }
             $cities = City::all();
@@ -66,7 +66,7 @@ class RegionController extends Controller
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.regions.index');
 
         } // end of try -> catch
@@ -79,7 +79,7 @@ class RegionController extends Controller
             $region = Region::find($id);
 
             if(!$region) {
-                session()->flash('error', "City Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.regions.index');
             }
 
@@ -87,12 +87,12 @@ class RegionController extends Controller
 
             $region->update($request_data);
 
-            session()->flash('success', 'Region Updated Successfully');
+            session()->flash('success', trans('validation.Updated Successfully'));
             return redirect()->route('admin.regions.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.regions.index');
 
         } // end of try -> catch
@@ -105,19 +105,19 @@ class RegionController extends Controller
             $region = Region::find($id);
 
             if(!$region) {
-                session()->flash('error', "Region Doesn't Exist or has been deleted");
+                session()->flash('error', trans('validation.do not exists'));
                 return redirect()->route('admin.regions.index');
             }
 
             $region -> deleteTranslations();
             $region -> delete();
 
-            session()->flash('success', 'Region Deleted Successfully');
+            session()->flash('success', trans('validation.Deleted Successfully'));
             return redirect()->route('admin.regions.index');
 
         } catch (\Exception $exception) {
 
-            session()->flash('error', 'Something Went Wrong, Please Contact Administrator');
+            session()->flash('error', trans('validation.contact admin'));
             return redirect()->route('admin.regions.index');
 
         } // end of try -> catch

@@ -24,7 +24,7 @@ class ShopComponent extends Component
 
     public function store($product_id, $product_name, $product_price)
     {
-        Cart::instance('cart')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Product::class);
+        Cart::instance('cart')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Products\Product::class);
         $this->emitTo('cart-count-component', 'refreshComponent');
         session()->flash('success', 'Item Added in Shopping Cart');
         return redirect()->back();
@@ -34,7 +34,7 @@ class ShopComponent extends Component
     public function addToWishlist($product_id, $product_name, $product_price)
     {
         $db_wishlist = Wishlist::where(['product_id' => $product_id, 'user_id' => auth() -> user() -> id ])->first();
-        $item = Cart::instance('wishlist')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Product::class);
+        $item = Cart::instance('wishlist')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Products\Product::class);
         if(!$db_wishlist) {
             $wishlist_item = Wishlist::firstOrCreate([
                 'user_id' => auth() -> user() -> id,
@@ -43,7 +43,7 @@ class ShopComponent extends Component
         }
 
         $this->emitTo('wishlist-count-component', 'refreshComponent');
-        session()->flash('success', 'Item Added to Wishlist');
+        session()->flash('success', trans('front.Item Added to Wishlist'));
 
     } // end of add to wishlist
 
@@ -68,9 +68,9 @@ class ShopComponent extends Component
 
     public function addToCompare($product_id, $product_name, $product_price)
     {
-        Cart::instance('compare')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Product::class);
+        Cart::instance('compare')->add($product_id, $product_name, 1, $product_price)->associate(\App\Models\Products\Product::class);
         $this->emitTo('compare-count-component', 'refreshComponent');
-        session()->flash('success', 'Item Added in Compare list');
+        session()->flash('success', trans('front.Item Added in Compare list'));
     } // end of add to Compare list
 
     public function removeFromCompare($product_id)
@@ -80,7 +80,7 @@ class ShopComponent extends Component
             if ($compareItem -> id == $product_id) {
                 Cart::instance('compare') -> remove($compareItem -> rowId);
                 $this->emitTo('compare-count-component', 'refreshComponent');
-                session()->flash('error', 'Item Removed From Compare list');
+                session()->flash('error', trans('front.Item Removed From Compare list'));
             } // end of if
 
         } // end of foreach

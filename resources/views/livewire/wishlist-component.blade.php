@@ -2,10 +2,10 @@
     <div class="container">
 
         <nav class="woocommerce-breadcrumb">
-            <a href="{{ route('front.index') }}">Home</a>
+            <a href="{{ route('front.index') }}">{{ trans('front.Home') }}</a>
             <span class="delimiter">
                 <i class="fa fa-angle-right"></i>
-            </span>Wishlist
+            </span>{{ trans('front.Wishlist') }}
         </nav>
 
         <div class="content-area" id="primary">
@@ -19,108 +19,122 @@
                         <div id="yith-wcwl-messages"></div>
                         <form class="woocommerce" method="post" id="yith-wcwl-form">
 
-                            <input type="hidden" value="68bc4ab99c" name="yith_wcwl_form_nonce" id="yith_wcwl_form_nonce">
+                            <input type="hidden" value="68bc4ab99c" name="yith_wcwl_form_nonce"
+                                id="yith_wcwl_form_nonce">
                             <input type="hidden" value="/electro/wishlist/" name="_wp_http_referer">
 
 
-                        @if(Cart::instance('wishlist') -> content() -> count() > 0)
-                            <!-- TITLE -->
-                            <div class="wishlist-title ">
-                                <h2>My Wishlist</h2>
-                            </div>
+                            @if (Cart::instance('wishlist')->content()->count() > 0)
+                                <!-- TITLE -->
+                                <div class="wishlist-title ">
+                                    <h2>{{ trans('front.My Wishlist') }}</h2>
+                                </div>
 
-                            <!-- WISHLIST TABLE -->
-                            <table data-token="" data-id="" data-page="1" data-per-page="5" data-pagination="no" class="shop_table cart wishlist_table">
+                                <!-- WISHLIST TABLE -->
+                                <table data-token="" data-id="" data-page="1" data-per-page="5" data-pagination="no"
+                                    class="shop_table cart wishlist_table">
 
-                                <thead>
-                                <tr>
-
-                                    <th class="product-remove"></th>
-
-                                    <th class="product-thumbnail"></th>
-
-                                    <th class="product-name">
-                                        <span class="nobr">Product Name</span>
-                                    </th>
-
-                                    <th class="product-price">
-                                        <span class="nobr">Unit Price</span>
-                                    </th>
-                                    <th class="product-stock-stauts">
-                                        <span class="nobr">Stock Status</span>
-                                    </th>
-
-                                    <th class="product-add-to-cart"></th>
-
-                                </tr>
-                                </thead>
-
-                                <tbody>
-                                    @foreach(Cart::instance('wishlist') -> content() as $witem)
+                                    <thead>
                                         <tr>
-                                            <td class="product-remove">
-                                                <div>
-                                                    <a title="Remove this product" class="remove remove_from_wishlist" href="#" wire:click.prevent="removeFromWishlist('{{ $witem -> model -> id }}')">×</a>
-                                                </div>
-                                            </td>
 
-                                            <td class="product-thumbnail">
-                                                <a href="{{ route('front.product.details', $witem -> model -> slug) }}">
-                                                    <img width="180" height="180" alt="{{ $witem -> model -> slug }}" class="wp-post-image" src="{{ $witem -> model -> image_path }}"></a>
-                                            </td>
+                                            <th class="product-remove"></th>
 
-                                            <td class="product-name">
-                                                <a href="{{ route('front.product.details', $witem -> model -> slug) }}">{{ $witem -> model -> name }}</a>
-                                            </td>
+                                            <th class="product-thumbnail"></th>
 
-                                            <td class="product-price">
-                                                <span class="electro-price"><span class="amount">&pound; {{ $witem -> model -> sale_price }}</span></span>
-                                            </td>
+                                            <th class="product-name">
+                                                <span class="nobr">{{ trans('front.Product Name') }}</span>
+                                            </th>
 
-                                            <td class="product-stock-status">
-                                                @if ($witem -> model ->stock == 0)
-                                                    <span class="text-danger"> Out Of Stock</span>
-                                                @elseif ($witem -> model -> stock > 0 && $witem -> model -> stock < 5)
-                                                    <span class=""> Low Stock</span>
-                                                @else
-                                                    <span class="text-success"> Available</span>
-                                                @endif
-                                            </td>
+                                            <th class="product-price">
+                                                <span class="nobr">{{ trans('front.item Price') }}</span>
+                                            </th>
+                                            <th class="product-stock-stauts">
+                                                <span class="nobr">{{ trans('front.Availability') }}</span>
+                                            </th>
 
-                                            <td class="product-add-to-cart">
-                                                <!-- Date added -->
+                                            <th class="product-add-to-cart"></th>
 
-                                                <!-- Add to cart button -->
-                                                <a href="#" class="button" wire:click.prevent="moveProductFromWishlistToCart( '{{ $witem -> rowId }}' )"> Move to Cart</a>
-                                                <!-- Change wishlist -->
-
-                                                <!-- Remove from wishlist -->
-                                            </td>
                                         </tr>
-                                    @endforeach
-                                @else
-                                    <!-- TITLE -->
-                                    <div class="wishlist-title ">
-                                        <h2>Your Wishlist is Empty !</h2>
-                                        <br>
-                                        <div class="hero-action-btn fadeInDown-4">
-                                            <a href="{{ route('front.shop') }}" class="big le-button text-gray-dark text-lg font-weight-bold">Start Shopping</a>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (Cart::instance('wishlist')->content() as $witem)
+                                            <tr>
+                                                <td class="product-remove">
+                                                    <div>
+                                                        <a title="Remove this product"
+                                                            class="remove remove_from_wishlist" href="#"
+                                                            wire:click.prevent="removeFromWishlist('{{ $witem->model->id }}')">×</a>
+                                                    </div>
+                                                </td>
+
+                                                <td class="product-thumbnail">
+                                                    <a
+                                                        href="{{ route('front.product.details', $witem->model->slug) }}">
+                                                        <img width="180" height="180"
+                                                            alt="{{ $witem->model->slug }}" class="wp-post-image"
+                                                            src="{{ $witem->model->image_path }}"></a>
+                                                </td>
+
+                                                <td class="product-name">
+                                                    <a
+                                                        href="{{ route('front.product.details', $witem->model->slug) }}">{{ $witem->model->name }}</a>
+                                                </td>
+
+                                                <td class="product-price">
+                                                    <span class="electro-price"><span class="amount">&pound;
+                                                            {{ $witem->model->sale_price }}</span></span>
+                                                </td>
+
+                                                <td class="product-stock-status">
+                                                    @if ($witem->model->stock == 0)
+                                                        <span class="text-danger"> {{ trans('front.Out Of Stock') }}</span>
+                                                    @elseif ($witem -> model -> stock > 0 && $witem -> model ->
+                                                        stock < 5) <span class=""> {{ trans('front.Low Stock') }}</span>
+                                                        @else
+                                                            <span class="text-success"> {{ trans('front.Available') }}</span>
+                                                    @endif
+                                                </td>
+
+                                                <td class="product-add-to-cart">
+                                                    <!-- Date added -->
+
+                                                    <!-- Add to cart button -->
+                                                    <a href="#" class="button"
+                                                        wire:click.prevent="moveProductFromWishlistToCart( '{{ $witem->rowId }}' )">
+                                                        {{ trans('front.Move to Cart') }}</a>
+                                                    <!-- Change wishlist -->
+
+                                                    <!-- Remove from wishlist -->
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @else
+                                        <!-- TITLE -->
+                                        <div class="wishlist-title ">
+                                            <h2>{{ trans('front.Your Wishlist is Empty !') }}</h2>
+                                            <br>
+                                            <div class="hero-action-btn fadeInDown-4">
+                                                <a href="{{ route('front.shop') }}"
+                                                    class="big le-button text-gray-dark text-lg font-weight-bold">{{ trans('front.Shop Now') }}</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                @endif
+                            @endif
 
 
-                                </tbody>
+                            </tbody>
 
-                                <tfoot>
+                            <tfoot>
                                 <tr>
                                     <td colspan="6"></td>
                                 </tr>
-                                </tfoot>
+                            </tfoot>
 
                             </table>
 
-                            <input type="hidden" value="85fe311a9d" name="yith_wcwl_edit_wishlist" id="yith_wcwl_edit_wishlist"><input type="hidden" value="/electro/wishlist/" name="_wp_http_referer">
+                            <input type="hidden" value="85fe311a9d" name="yith_wcwl_edit_wishlist"
+                                id="yith_wcwl_edit_wishlist"><input type="hidden" value="/electro/wishlist/"
+                                name="_wp_http_referer">
 
                         </form>
 
