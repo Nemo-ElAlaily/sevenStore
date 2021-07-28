@@ -16,4 +16,14 @@ return [
     'failed'   => 'بيانات الاعتماد هذه غير متطابقة مع البيانات المسجلة لدينا.',
     'password' => 'كلمة المرور المستخدمة غير صحيحة.',
     'throttle' => 'عدد كبير جدا من محاولات الدخول. يرجى المحاولة مرة أخرى بعد :seconds ثانية.',
+
+    'My Account' => 'حسابي',
+    'Login' => 'تسجيل دخول',
+    'Welcome back! Sign in to your account' => 'اهلاً مجدداً! أدخل الي الحساب الخاص بك',
+    'Password' => 'كلمة السر',
+    'Password Confirmation' => 'تأكيد كلمة السر',
+    'Remember me' => 'تذكرني',
+    'Forgot your password?' => 'نسيت كلمة السر؟',
+    'Register' => 'اشتراك',
+    'Create your very own account' => 'قم بإنشاء حسابك الخاص بك!',
 ];

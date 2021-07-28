@@ -17,4 +17,13 @@ return [
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
+    'My Account' => 'My Account',
+    'Login' => 'Login',
+    'Welcome back! Sign in to your account' => 'Welcome back! Sign in to your account',
+    'Password' => 'Password',
+    'Password Confirmation' => 'Password Confirmation',
+    'Remember me' => 'Remember me',
+    'Forgot your password?' => 'Forgot your password?',
+    'Register' => 'Register',
+    'Create your very own account' => 'Create your very own account',
 ];

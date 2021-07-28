@@ -5,9 +5,9 @@
         <div class="container">
 
             <nav class="woocommerce-breadcrumb">
-                <a href="{{ route('front.index') }}">Home</a>
+                <a href="{{ route('front.index') }}">{{ trans('front.Home') }}</a>
                 <span class="delimiter"><i class="fa fa-angle-right"></i>
-                </span>My Account
+                </span>{{ trans('auth.My Account') }}
             </nav><!-- .woocommerce-breadcrumb -->
 
             <div class="content-area">
@@ -21,21 +21,21 @@
                         <div class="entry-content">
                             <div class="woocommerce">
                                 <div class="customer-login-form">
-                                    <span class="or-text">or</span>
+                                    <span class="or-text">{{ trans('front.or') }}</span>
 
                                     <div class="col2-set" id="customer_login">
 
                                         <div class="col-1">
 
 
-                                            <h2>Login</h2>
+                                            <h2>{{ trans('auth.Login') }}</h2>
 
                                             <form method="POST" class="login">
                                                 @csrf
-                                                <p class="before-login-text">Welcome back! Sign in to your account</p>
+                                                <p class="before-login-text">{{ trans('auth.Welcome back! Sign in to your account') }}</p>
 
                                                 <p class="form-row form-row-wide">
-                                                    <label for="username">Email address<span
+                                                    <label for="username">{{ trans('front.Email Address') }}<span
                                                             class="required">*</span></label>
                                                     <input type="email"
                                                         class="input-text @error('email') is-invalid @enderror" name="email"
@@ -49,7 +49,7 @@
                                                 </p>
 
                                                 <p class="form-row form-row-wide">
-                                                    <label for="password">Password<span class="required">*</span></label>
+                                                    <label for="password">{{ trans('auth.Password') }}<span class="required">*</span></label>
                                                     <input class="input-text @error('password') is-invalid @enderror"
                                                         type="password" name="password" id="password"
                                                         autocomplete="current-password" />
@@ -61,15 +61,14 @@
                                                 </p>
 
                                                 <p class="form-row">
-                                                    <input class="button" type="submit" value="Login" name="login">
+                                                    <input class="button" type="submit" value="{{ trans('auth.Login') }}" name="login">
                                                     <label for="rememberme" class="inline">
                                                         <input name="rememberme" type="checkbox" id="rememberme"
-                                                            value="forever" /> Remember me
+                                                            value="forever" /> {{ trans('auth.Remember me') }}
                                                     </label>
                                                 </p>
 
-                                                <p class="lost_password"><a href="{{ route('password.request') }}">Forgot
-                                                        your password?</a></p>
+                                                <p class="lost_password"><a href="{{ route('password.request') }}">{{ trans('auth.Forgot your password?') }}</a></p>
 
                                             <div class="social-button">
                                                 <a href="{{route('social.login', 'facebook')}}" class="btn btn-circle facebook" style='background:#415e9b'><i class="fa fa-facebook"></i></a>
@@ -84,14 +83,14 @@
 
                                         <div class="col-2">
 
-                                            <h2>Register</h2>
+                                            <h2>{{ trans('auth.Register') }}</h2>
 
                                             <form method="POST" class="register" action="{{ route('register') }}">
                                                 @csrf
-                                                <p class="before-register-text">Create your very own account</p>
+                                                <p class="before-register-text">{{ trans('auth.Create your very own account') }}</p>
 
                                                 <p class="form-row form-row-wide">
-                                                    <label for="email">Email address<span class="required">*</span></label>
+                                                    <label for="email">{{ trans('front.Email Address') }}<span class="required">*</span></label>
                                                     <input type="email"
                                                         class="input-text @error('email') is-invalid @enderror" name="email"
                                                         id="email" value="{{ old('email') }}" autocomplete="email" />
@@ -103,7 +102,7 @@
                                                 </p>
 
                                                 <p class="form-row form-row-wide">
-                                                    <label for="password">Password<span class="required">*</span></label>
+                                                    <label for="password">{{ trans('auth.Password') }}<span class="required">*</span></label>
                                                     <input class="input-text @error('password') is-invalid @enderror"
                                                         type="password" name="password" id="password"
                                                         autocomplete="current-password" />
@@ -115,7 +114,7 @@
                                                 </p>
 
                                                 <p class="form-row form-row-wide">
-                                                    <label for="password-confirm">Password Confirmation<span
+                                                    <label for="password-confirm">{{ trans('auth.Password Confirmation') }}<span
                                                             class="required">*</span></label>
                                                     <input class="input-text @error('password') is-invalid @enderror"
                                                         type="password" name="password_confirmation" id="password-confirm"
@@ -141,7 +140,7 @@
                                                 </div>
 
                                                 <p class="form-row"><input type="submit" class="button" name="register"
-                                                        value="Register" /></p>
+                                                        value="{{ trans('auth.Register') }}" /></p>
 
                                             </form>
 
