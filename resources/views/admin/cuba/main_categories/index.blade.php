@@ -51,13 +51,13 @@
                                 <div class="card-group card-category">
                                     <div class="card">
                                       <img class="card-img-top img-category" src="{{ $main_catogory -> image_path }}" alt="{{ $main_catogory -> name }}">
-                                      <div class="card-body">
+                                      <div class="card-body p-2">
                                         <span class="badge name-category">{{ trans('site.name') }}:</span>
                                         <h5 class="card-title text-center">{{ $main_catogory -> name }}</h5>
                                         <p class="card-text"><span class="badge products-category">{{ trans('site.products') }}</span> <span class="badge badge-secondary"># {{ $index + 1 }}</span></p>
                                       </div>
 
-                                      <div class="card-footer">
+                                      <div class="card-footer  p-2">
 
                                         <span class="actions badge">{{ trans('site.Action') }}</span>
                                         <div class="all-buttons-functions">

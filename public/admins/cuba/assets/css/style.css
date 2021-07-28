@@ -49479,7 +49479,7 @@ label.bg-warning {
     color: #fff;
 }
 .btnEdit,.btnDelete,.btnShow{
-    padding: 10px;
+    padding: 5px;
 }
 .nameCat {
     font-size: 16px;
@@ -50260,7 +50260,7 @@ width: 298px;
     border-radius: 10px;
 }
 .card-category{
-    padding: 15px;
+    padding: 5px;
     border-radius: 5px;
     margin: 15px 10px 20px;
     background:linear-gradient(302deg, #f7316438, #0d6efd21);
@@ -50314,7 +50314,7 @@ margin: auto;
 margin-bottom: 15px;
 }
 .parent-category-edit{
-background:linear-gradient(302deg, #f7316438, #0d6efd21);
+    background-color: #e8e6e6 !important;
 }
 .edit-category-form{
     background-color: #fff;
