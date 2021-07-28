@@ -12,9 +12,9 @@
     <!-- Default box -->
     <div class="container">
         <div class="row">
-            <div class="col-md-10 m-auto">
+            <div class="col-md-10 m-auto bg-user">
                 <div class="card-body">
-                    <div class="row add-create-blog">
+                    <div class="row bg-user-child ">
 
                         <form class="col-12 form-user-create" action="{{ route('admin.users.update', $user->id) }}"
                             method="post" enctype="multipart/form-data">

@@ -49504,7 +49504,7 @@ input.bg-dark:focus {
     transition: all 1s ease-in-out;
     cursor: pointer;
     top: 14px;
-    width: 200px;
+    width: 150px;
     border-radius: 50px;
     position: relative;
 }
@@ -50314,7 +50314,7 @@ margin: auto;
 margin-bottom: 15px;
 }
 .parent-category-edit{
-    background-color: #e8e6e6 !important;
+background:linear-gradient(302deg, #f7316438, #0d6efd21);
 }
 .edit-category-form{
     background-color: #fff;
@@ -50544,4 +50544,23 @@ color: #bbb;
 }
 form.col-12.form-user-create{
     padding: 15px;
+}
+.bg-user{
+    background-color: #f1f1f1;
+}
+.bg-user-child{
+    width: 90%;
+    margin: auto;
+    border-radius: 20px;
+    background-color: #fff;
+}
+.w-80{
+    width: 80%;
+    margin: auto;
+}
+.nav-info .nav-link, .nav-pills.nav-info .nav-link{
+    padding: 5px;
+}
+.nav-link.active{
+    padding: 5px;
 }
