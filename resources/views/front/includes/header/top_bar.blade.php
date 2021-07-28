@@ -38,11 +38,11 @@
                                 class="ec ec-user mr-1"></i> {{ trans('front.Register') }} <span class="text-gray-50">{{ trans('front.or') }}</span> {{ trans('front.Sign in') }}</a></li>
                 @endguest
                 @auth
-                    <li class="menu-item menu-item-has-children animate-dropdown dropdown"><a title="My Account" href="#"
+                    <li class="menu-item menu-item-has-children animate-dropdown dropdown"><a title="My Account" href="{{ route('front.profile') }}"
                             data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><i
                                 class="ec ec-user"></i>{{ Auth::user()->full_name }}</a>
                         <ul role="menu" class="dropdown-menu">
-                            <li class="dropdown-item"><a class="dropdown-item" title="My Profile" href="#">{{ trans('front.My Profile') }}</a>
+                            <li class="dropdown-item"><a class="dropdown-item" title="My Profile" href="{{ route('front.profile') }}">{{ trans('front.My Profile') }}</a>
                             </li>
                             @if (Auth::user()->hasRole('super_admin|admin|shop_manager|vendor|moderator'))
                                 <li class="dropdown-item"><a class="dropdown-item" title="My Profile"
