@@ -1,4 +1,4 @@
-@extends('layouts.admin.cuba')
+@extends('admin.cuba.layouts.app')
 
 @section('title', 'Menue'   )
 
@@ -21,7 +21,7 @@
                                 @csrf
                                 @method('PUT')
 							<div class="collapse hide" id="collapseicon1" data-bs-parent="#accordion" aria-labelledby="collapseicon1" style="">
-							<div class='row'>	
+							<div class='row'>
 							<div class="card-body animate-chk col-xl-6" style='height:236px; overflow-y:scroll;'>
 							<h5 class="text-center text-secondary">{{ trans('site.Pages') }}</h5>
 									@foreach($pages as $p)
@@ -41,8 +41,8 @@
 									</label>
 									@endforeach
 								</div>
-								</div> 
-								
+								</div>
+
 								<button class="btn btn-block btn-primary text-center" type="submit" data-bs-original-title="" title="" style='margin: 10px;'>Save</button>
 							</div>
                             </form>
@@ -61,7 +61,7 @@
                             @csrf
                                 @method('PUT')
 							<div class="collapse hide" id="collapseicon2" data-bs-parent="#accordion" aria-labelledby="collapseicon2" style="">
-								<div class='row'>	
+								<div class='row'>
 								<div class="card-body animate-chk col-xl-6" style='height:236px; overflow-y:scroll;'>
 								<h5 class="text-center  text-secondary">{{ trans('site.Pages') }}</h5>
 
@@ -100,7 +100,7 @@
                                 @csrf
                                 @method('PUT')
 							<div class="collapse hide" id="collapseicon3" data-bs-parent="#accordion" aria-labelledby="collapseicon3" style="">
-								<div class='row'>	
+								<div class='row'>
 								<div class="card-body animate-chk col-xl-6" style='height:236px; overflow-y:scroll;'>
 								<h5 class="text-center  text-secondary">{{ trans('site.Pages') }}</h5>
 
@@ -125,5 +125,5 @@
                             </form>
 						</div>
 					</div>
-</div>                  
+</div>
                 @stop

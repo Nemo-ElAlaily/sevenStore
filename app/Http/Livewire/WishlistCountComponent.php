@@ -10,6 +10,6 @@ class WishlistCountComponent extends Component
 
     public function render()
     {
-        return view('livewire.wishlist-count-component');
+        return view('themes.electro.livewire.wishlist-count-component');
     }
 }

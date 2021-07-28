@@ -18,6 +18,6 @@ class PageComponent extends Component
     public function render()
     {
         $page = Page::whereTranslationLike('slug', $this -> slug)->active()->first();
-        return view('livewire.page-component', compact('page'))->layout('layouts.front.app');
+        return view('themes.electro.livewire.page-component', compact('page'))->layout('themes.electro.layouts.app');
     }
 }

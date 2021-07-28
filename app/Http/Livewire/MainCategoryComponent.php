@@ -57,7 +57,7 @@ class MainCategoryComponent extends Component
         $latest_products = Product::orderBy('created_at', 'DESC')->take(5)->get();
 
 
-        return view('livewire.main-category-component', compact('products', 'categories', 'main_category_name', 'latest_products'))->layout('layouts.front.app');
+        return view('themes.electro.livewire.main-category-component', compact('products', 'categories', 'main_category_name', 'latest_products'))->layout('themes.electro.layouts.app');
     } // end of render
 
 } // end of component

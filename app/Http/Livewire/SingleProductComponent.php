@@ -98,8 +98,8 @@ class SingleProductComponent extends Component
     {
         $product = Product::whereTranslation('slug', $this -> slug) -> first();
 
-            return  view('livewire.single-product-component',
+            return  view('themes.electro.livewire.single-product-component',
                  compact('product'))
-                ->layout('layouts.front.app');
+                ->layout('themes.electro.layouts.app');
     }
 }

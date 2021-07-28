@@ -36,6 +36,6 @@ class CompareComponent extends Component
 
     public function render()
     {
-        return view('livewire.compare-component')->layout('layouts.front.app');
+        return view('themes.electro.livewire.compare-component')->layout('themes.electro.layouts.app');
     } // end of render
 }
