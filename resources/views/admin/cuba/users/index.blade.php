@@ -1,4 +1,4 @@
-@extends('layouts.admin.cuba')
+@extends('admin.cuba.layouts.app')
 
 @section('title', trans('site.Users'))
 
@@ -61,7 +61,7 @@
             @if ($users->count() > 0)
 
                 @if (auth()->user()->hasPermission('users_update', 'users_delete'))
-                   
+
                 @endif
                 <thead>
                     <tr>
@@ -111,7 +111,7 @@
     </div>
             {{ $users->appends(request()->query())->links() }}
 
-       
+
 
 
     </div><!-- end of box -->

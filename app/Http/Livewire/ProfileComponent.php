@@ -8,6 +8,6 @@ class ProfileComponent extends Component
 {
     public function render()
     {
-        return view('livewire.profile-component')->layout('layouts.front.app');
+        return view('themes.electro.livewire.profile-component')->layout('themes.electro.layouts.app');
     }
 }

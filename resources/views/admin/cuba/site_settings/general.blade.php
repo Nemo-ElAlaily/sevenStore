@@ -1,4 +1,4 @@
-@extends('layouts.admin.cuba')
+@extends('admin.cuba.layouts.app')
 
 @section('title', 'Site Settings')
 
@@ -153,7 +153,7 @@
                                             <input class="form-control input-thick"
                                                 name="google_client_id">
                                      </div>
-                                </div>         
+                                </div>
 
                                 <div class='col-md-6'>
                                       <div class="form-group">
@@ -162,8 +162,8 @@
                                             <input class="form-control input-thick"
                                                 name="google_secret_key">
                                      </div>
-                                </div>   
-                                
+                                </div>
+
                                 <div class='col-md-6'>
                                       <div class="form-group">
                                             <label class="labelSetting">Google Redirect Link</label>
@@ -171,7 +171,7 @@
                                             <input class="form-control input-thick"
                                                 name="google_redirect">
                                      </div>
-                                </div>  
+                                </div>
                                 <!-- facebook data -->
 
                                 <div class='col-md-6'>
@@ -181,7 +181,7 @@
                                             <input class="form-control input-thick"
                                                 name="facebook_client_id">
                                      </div>
-                                </div>         
+                                </div>
 
                                 <div class='col-md-6'>
                                       <div class="form-group">
@@ -199,8 +199,8 @@
                                             <input class="form-control input-thick"
                                                 name="facebook_redirect">
                                      </div>
-                                     
-                                </div>         
+
+                                </div>
                     </div>
 
                   <div class="form-group">

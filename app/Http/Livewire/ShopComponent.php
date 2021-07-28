@@ -136,11 +136,12 @@ class ShopComponent extends Component
             $query
                 ->where('locale', MainCategory::locale())
                 ->where('name', 'NOT LIKE', 'بدون تصنيف');
-        })->where('parent_id', 0)->get();
+        })->where(['parent_id' => 0 ])->get();
+
         $latest_products = Product::orderBy('created_at', 'DESC')->take(5)->get();
 
 
-        return view('livewire.shop-component', compact('products', 'categories', 'latest_products'))->layout('layouts.front.app');
+        return view('themes.electro.livewire.shop-component', compact('products', 'categories', 'latest_products'))->layout('themes.electro.layouts.app');
     } // end of render
 
 } // end of component

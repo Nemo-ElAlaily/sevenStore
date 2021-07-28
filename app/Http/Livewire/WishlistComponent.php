@@ -34,7 +34,7 @@ class WishlistComponent extends Component
 
     public function render()
     {
-        return view('livewire.wishlist-component')->layout('layouts.front.app');
+        return view('themes.electro.livewire.wishlist-component')->layout('themes.electro.layouts.app');
     } // end of render
 
 } // end of component

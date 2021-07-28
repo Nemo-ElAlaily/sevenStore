@@ -41,7 +41,7 @@ class SiteSettingController extends Controller
             } // end of inner if
             $logoPath = uploadImage('uploads/site/',  $request -> logo);
         } else {
-            $logoPath = $site_settings -> logo_path;
+            $logoPath = $site_settings -> logo;
         }// end of outer if
 
         $faviconPath = "";
@@ -51,7 +51,7 @@ class SiteSettingController extends Controller
             } // end of inner if
             $faviconPath = uploadImage('uploads/site/',  $request -> favicon);
         } else {
-            $faviconPath = $site_settings -> favicon_path;
+            $faviconPath = $site_settings -> favicon;
         }// end of outer if
         $request_data['google_analytics']=$request->google_analytics;
         $request_data['google_client_id']=$request->google_client_id;

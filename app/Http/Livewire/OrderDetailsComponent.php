@@ -18,6 +18,6 @@ class OrderDetailsComponent extends Component
     {
         $order = Order::where('slug', $this -> slug)->with('orderItems')-> first();
 
-        return view('livewire.order-details-component', compact('order'))->layout('layouts.front.app');
+        return view('themes.electro.livewire.order-details-component', compact('order'))->layout('themes.electro.layouts.app');
     }
 }

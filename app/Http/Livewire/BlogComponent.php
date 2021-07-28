@@ -10,6 +10,6 @@ class BlogComponent extends Component
     public function render()
     {
         $blogs = Blog::paginate(FRONT_PAGINATION_COUNT);
-        return view('livewire.blog-component', compact('blogs'))->layout('layouts.front.app');
+        return view('themes.electro.livewire.blog-component', compact('blogs'))->layout('themes.electro.layouts.app');
     }
 }

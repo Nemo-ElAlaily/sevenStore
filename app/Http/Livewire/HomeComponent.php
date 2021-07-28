@@ -59,7 +59,7 @@ class HomeComponent extends Component
                 ->where('name', 'NOT LIKE', 'بدون تصنيف');
         })->where('parent_id', 0)->inRandomOrder()->take(20)->get();
 
-        return view('livewire.home-component', compact('products_featured', 'products_on_sale', 'products_top_rated', 'latest_products', 'categories'))->layout('layouts.front.app');
+        return view('themes.electro.livewire.home-component', compact('products_featured', 'products_on_sale', 'products_top_rated', 'latest_products', 'categories'))->layout('themes.electro.layouts.app');
     } // end of render
 
 } // end of component

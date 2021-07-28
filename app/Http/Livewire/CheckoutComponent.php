@@ -147,9 +147,9 @@ class CheckoutComponent extends Component
     {
         $this -> verifyForCheckout();
         if(Cart::instance('cart') -> count() > 0){
-            return view('livewire.checkout-component')->layout('layouts.front.app');
+            return view('themes.electro.livewire.checkout-component')->layout('themes.electro.layouts.app');
         } else {
-            return view('livewire.cart-component')->layout('layouts.front.app');
+            return view('themes.electro.livewire.cart-component')->layout('themes.electro.layouts.app');
         }
     } // end of render
 

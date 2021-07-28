@@ -11,6 +11,6 @@ class CartCountComponent extends Component
 
     public function render()
     {
-        return view('livewire.cart-count-component');
+        return view('themes.electro.livewire.cart-count-component');
     }
 }

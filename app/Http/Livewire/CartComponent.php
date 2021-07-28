@@ -70,7 +70,7 @@ class CartComponent extends Component
     public function render()
     {
         $this -> setAmountForCheckout();
-        return view('livewire.cart-component')->layout('layouts.front.app');
+        return view('themes.electro.livewire.cart-component')->layout('themes.electro.layouts.app');
     } // end of render
 
 } // end of component

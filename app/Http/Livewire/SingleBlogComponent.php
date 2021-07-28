@@ -17,8 +17,8 @@ class SingleBlogComponent extends Component
     {
         $blog = Blog::whereTranslation('slug', $this -> slug) -> first();
 
-        return  view('livewire.single-blog-component',
+        return  view('themes.electro.livewire.single-blog-component',
             compact('blog'))
-            ->layout('layouts.front.app');
+            ->layout('themes.electro.layouts.app');
     }
 }
