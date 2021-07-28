@@ -1,4 +1,4 @@
-@extends('admin.cuba.layouts.app')
+@extends('admin.cuba.layouts.cuba')
 
 @section('title', trans('site.create') . ' | ' . trans('site.Blogs'))
 
@@ -44,7 +44,7 @@
                     {{ method_field('post') }}
 
                     <div class="row">
-         
+
                         @foreach (config('translatable.locales') as $locale)
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">

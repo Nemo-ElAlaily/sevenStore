@@ -1,4 +1,4 @@
-@extends('admin.cuba.layouts.app')
+@extends('admin.cuba.layouts.cuba')
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('admins/cuba/assets/css/vendors/photoswipe.css') }}">
