@@ -1,4 +1,4 @@
-@extends('admin.cuba.layouts.app')
+@extends('admin.cuba.layouts.cuba')
 
 @section('title', trans('site.City') . ' | ' . $city->name)
 
