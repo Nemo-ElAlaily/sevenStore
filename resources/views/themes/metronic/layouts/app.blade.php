@@ -11,14 +11,14 @@
 
     <title>{{ $site_settings->title }}</title>
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/bootstrap.min.css') }}" media="all" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/font-awesome.min.css') }}" media="all" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/font-electro.css') }}" media="all" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/owl-carousel.css') }}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('front/electro/css/bootstrap.min.css') }}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('front/electro/css/font-awesome.min.css') }}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('front/electro/css/font-electro.css') }}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('front/electro/css/owl-carousel.css') }}" media="all" />
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('front/css/style-' . LaravelLocalization::getCurrentLocaleDirection() . '.css') }}"
+        href="{{ asset('front/electro/css/style-' . LaravelLocalization::getCurrentLocaleDirection() . '.css') }}"
         media="all" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/colors/yellow.css') }}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('front/electro/css/colors/yellow.css') }}" media="all" />
     <link
         href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,700italic,800,800italic,600italic,400italic,300italic'
         rel='stylesheet' type='text/css'>
@@ -27,7 +27,7 @@
 
     @livewireStyles
 
-    <script type="text/javascript" src="{{ asset('front/js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/electro/js/jquery.min.js') }}"></script>
 
 </head>
 
@@ -64,17 +64,17 @@
 
     </div><!-- #page -->
 
-    <script type="text/javascript" src="{{ asset('front/js/tether.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('front/js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('front/js/bootstrap-hover-dropdown.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('front/js/echo.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('front/js/wow.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('front/js/jquery.easing.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('front/js/jquery.waypoints.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('front/js/electro.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/electro/js/tether.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/electro/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/electro/js/bootstrap-hover-dropdown.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/electro/js/owl.carousel.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/electro/js/echo.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/electro/js/wow.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/electro/js/jquery.easing.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/electro/js/jquery.waypoints.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('front/electro/js/electro.js') }}"></script>
     <script type="text/javascript"
-    src="{{ asset('front/js/custom-' . LaravelLocalization::getCurrentLocaleDirection() . '.js') }}"></script>
+    src="{{ asset('front/electro/js/custom-' . LaravelLocalization::getCurrentLocaleDirection() . '.js') }}"></script>
     @livewireScripts
 
     </body>

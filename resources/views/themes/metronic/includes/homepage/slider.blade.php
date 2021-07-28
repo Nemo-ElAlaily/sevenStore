@@ -3,7 +3,7 @@
 
     <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
 
-        <div class="item" style="background-image: {{ asset('front/images/slider/banner-2.jpg') }}">
+        <div class="item" style="background-image: {{ asset('front/electro/images/slider/banner-2.jpg') }}">
             <div class="container">
                 <div class="row">
                     <div class="col-md-offset-3 col-md-5">
@@ -28,7 +28,7 @@
         </div><!-- /.item -->
 
 
-        <div class="item" style="background-image: {{ asset('front/images/slider/banner-1.jpg') }}">
+        <div class="item" style="background-image: {{ asset('front/electro/images/slider/banner-1.jpg') }}">
             <div class="container">
                 <div class="row">
                     <div class="col-md-offset-3 col-md-5">
@@ -50,7 +50,7 @@
             </div><!-- /.container -->
         </div><!-- /.item -->
 
-        <div class="item" style="background-image:  {{ asset('front/images/slider/banner-1.jpg') }}">
+        <div class="item" style="background-image:  {{ asset('front/electro/images/slider/banner-1.jpg') }}">
             <div class="container">
                 <div class="row">
                     <div class="col-md-offset-3 col-md-5">
