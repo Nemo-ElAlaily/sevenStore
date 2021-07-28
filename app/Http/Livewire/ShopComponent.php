@@ -7,6 +7,7 @@ use App\Models\Wishlist;
 use Cart;
 use Illuminate\Http\Request;
 use Livewire\Component;
+use App\Models\Settings\SiteSetting;
 use Livewire\WithPagination;
 use App\Models\MainCategories\MainCategory;
 
@@ -141,7 +142,7 @@ class ShopComponent extends Component
         $latest_products = Product::orderBy('created_at', 'DESC')->take(5)->get();
 
 
-        return view('themes.electro.livewire.shop-component', compact('products', 'categories', 'latest_products'))->layout('themes.electro.layouts.app');
+        return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.shop-component', compact('products', 'categories', 'latest_products'))->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
     } // end of render
 
 } // end of component

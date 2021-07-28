@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Blogs\Blog;
 use Livewire\Component;
+use App\Models\Settings\SiteSetting;
 
 class SingleBlogComponent extends Component
 {
@@ -17,8 +18,8 @@ class SingleBlogComponent extends Component
     {
         $blog = Blog::whereTranslation('slug', $this -> slug) -> first();
 
-        return  view('themes.electro.livewire.single-blog-component',
+        return  view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.single-blog-component',
             compact('blog'))
-            ->layout('themes.electro.layouts.app');
+            ->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
     }
 }

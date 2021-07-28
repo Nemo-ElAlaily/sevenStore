@@ -15,6 +15,7 @@ class CreateSiteSettingsTable extends Migration
     {
         Schema::create('site_settings', function (Blueprint $table) {
             $table->increments('id');
+            $table->bigInteger('theme_id')->default(1); // from themes table
             $table->string('phone')->nullable();
             $table->string('logo')->default('default.png');
             $table->string('favicon')->default('favicon.png');
@@ -26,12 +27,13 @@ class CreateSiteSettingsTable extends Migration
             $table->string('facebook_client_id')->nullable();
             $table->string('facebook_secret_key')->nullable();
             $table->string('facebook_redirect')->nullable();
-            
-            
+
+
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 

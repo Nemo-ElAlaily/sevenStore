@@ -2,6 +2,7 @@
 
 namespace App\Models\Settings;
 
+use App\Models\Themes\Theme;
 use Astrotomic\Translatable\Translatable;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,7 +22,7 @@ class SiteSetting extends Model implements TranslatableContract
 
     ];
 
-    protected $fillable = ['logo', 'favicon','google_analytics','google_client_id',
+    protected $fillable = [ 'theme_id', 'logo', 'favicon','google_analytics','google_client_id',
                             'google_secret_key',
                             'google_redirect',
                             'facebook_client_id',
@@ -38,5 +39,18 @@ class SiteSetting extends Model implements TranslatableContract
     {
         return asset('uploads/site/' . $this -> favicon );
     }
+
+    /* ***********************************
+    Start of Relationships
+    *********************************** */
+
+    public function theme()
+    {
+        return $this -> belongsTo(Theme::class, 'theme_id', 'id');
+    } // end of theme
+
+    /* ***********************************
+    End of Relationships
+    *********************************** */
 
 } // end of model

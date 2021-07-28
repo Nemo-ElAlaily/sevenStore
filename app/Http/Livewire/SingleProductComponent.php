@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Products\Product;
 use App\Models\Wishlist;
 use Livewire\Component;
+use App\Models\Settings\SiteSetting;
 use Cart;
 
 class SingleProductComponent extends Component
@@ -98,8 +99,8 @@ class SingleProductComponent extends Component
     {
         $product = Product::whereTranslation('slug', $this -> slug) -> first();
 
-            return  view('themes.electro.livewire.single-product-component',
+            return  view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.single-product-component',
                  compact('product'))
-                ->layout('themes.electro.layouts.app');
+                ->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
     }
 }

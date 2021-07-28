@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\MainCategories\MainCategory;
 use App\Models\Products\Product;
 use Livewire\Component;
+use App\Models\Settings\SiteSetting;
 use Cart;
 
 use App\Models\Settings\DatabaseSetting;
@@ -59,7 +60,7 @@ class HomeComponent extends Component
                 ->where('name', 'NOT LIKE', 'بدون تصنيف');
         })->where('parent_id', 0)->inRandomOrder()->take(20)->get();
 
-        return view('themes.electro.livewire.home-component', compact('products_featured', 'products_on_sale', 'products_top_rated', 'latest_products', 'categories'))->layout('themes.electro.layouts.app');
+        return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.home-component', compact('products_featured', 'products_on_sale', 'products_top_rated', 'latest_products', 'categories'))->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
     } // end of render
 
 } // end of component

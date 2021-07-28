@@ -4,12 +4,13 @@ namespace App\Http\Livewire;
 
 use App\Models\Blogs\Blog;
 use Livewire\Component;
+use App\Models\Settings\SiteSetting;
 
 class BlogComponent extends Component
 {
     public function render()
     {
         $blogs = Blog::paginate(FRONT_PAGINATION_COUNT);
-        return view('themes.electro.livewire.blog-component', compact('blogs'))->layout('themes.electro.layouts.app');
+        return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.blog-component', compact('blogs'))->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
     }
 }

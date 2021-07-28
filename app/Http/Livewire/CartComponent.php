@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Settings\SiteSetting;
 use Cart;
 
 class CartComponent extends Component
@@ -70,7 +71,7 @@ class CartComponent extends Component
     public function render()
     {
         $this -> setAmountForCheckout();
-        return view('themes.electro.livewire.cart-component')->layout('themes.electro.layouts.app');
+        return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.cart-component')->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
     } // end of render
 
 } // end of component

@@ -8,6 +8,7 @@ use App\Models\Products\Product;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use App\Models\Settings\SiteSetting;
 use Cart;
 use Illuminate\Support\Facades\Auth;
 
@@ -147,9 +148,9 @@ class CheckoutComponent extends Component
     {
         $this -> verifyForCheckout();
         if(Cart::instance('cart') -> count() > 0){
-            return view('themes.electro.livewire.checkout-component')->layout('themes.electro.layouts.app');
+            return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.checkout-component')->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
         } else {
-            return view('themes.electro.livewire.cart-component')->layout('themes.electro.layouts.app');
+            return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.cart-component')->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
         }
     } // end of render
 

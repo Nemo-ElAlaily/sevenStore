@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Settings\SiteSetting;
 
 class CompareCountComponent extends Component
 {
@@ -10,6 +11,6 @@ class CompareCountComponent extends Component
 
     public function render()
     {
-        return view('themes.electro.livewire.compare-count-component');
+        return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.compare-count-component');
     }
 }

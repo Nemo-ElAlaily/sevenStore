@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Settings\SiteSetting;
 use Cart;
 
 class WishlistComponent extends Component
@@ -34,7 +35,7 @@ class WishlistComponent extends Component
 
     public function render()
     {
-        return view('themes.electro.livewire.wishlist-component')->layout('themes.electro.layouts.app');
+        return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.wishlist-component')->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
     } // end of render
 
 } // end of component

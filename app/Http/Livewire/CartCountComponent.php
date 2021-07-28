@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Settings\SiteSetting;
 use App\Models\Products\Product;
 
 class CartCountComponent extends Component
@@ -11,6 +12,6 @@ class CartCountComponent extends Component
 
     public function render()
     {
-        return view('themes.electro.livewire.cart-count-component');
+        return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.cart-count-component');
     }
 }

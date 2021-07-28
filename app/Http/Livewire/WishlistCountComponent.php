@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Settings\SiteSetting;
 
 class WishlistCountComponent extends Component
 {
@@ -10,6 +11,6 @@ class WishlistCountComponent extends Component
 
     public function render()
     {
-        return view('themes.electro.livewire.wishlist-count-component');
+        return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.wishlist-count-component');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Settings\SiteSetting;
 use Cart;
 
 class CompareComponent extends Component
@@ -36,6 +37,6 @@ class CompareComponent extends Component
 
     public function render()
     {
-        return view('themes.electro.livewire.compare-component')->layout('themes.electro.layouts.app');
+        return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.compare-component')->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
     } // end of render
 }

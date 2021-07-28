@@ -12,6 +12,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::get('/', 'AdminController@index')->name('index');
 
         /* Site Settings Routes */
+        Route::get('/themes', 'ThemeController@index')->name('theme.index');
+
         Route::get('site_settings/{id}', 'SiteSettingController@generalShow')->name('settings.site.show');
         Route::put('site_settings/{id}', 'SiteSettingController@generalUpdate')->name('settings.site.update');
 
@@ -62,12 +64,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 
         /**menus */
         Route::get('/main-menue','MenusController@mainMenuePages')->name('menus');
-      
+
     });
     Route::put('updateMainMenue','MenusController@upadteMainMenuePages')->name('update.main.menue');
     Route::put('updateSideMenue','MenusController@upadteSideMenuePages')->name('update.side.menue');
     Route::put('updateFooterMenue','MenusController@upadteFooterMenuePages')->name('update.footer.menue');
 
 
-    
+
 });
