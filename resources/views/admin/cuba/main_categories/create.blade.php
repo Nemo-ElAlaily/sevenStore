@@ -15,6 +15,7 @@
             <div class="row">
 
                 @include('admin.cuba.partials._errors')
+                @include('admin.cuba.partials._session')
                 <form action="{{ route('admin.main_categories.store') }}" method="post"
                     enctype="multipart/form-data">
 
@@ -68,58 +69,62 @@
                                 </div>
 
                             </div>
-                            <ul class="nav nav-pills nav-info" id="pills-infotab" role="tablist">
-                                <li class="nav-item"><a class="nav-link active" id="pills-infohome-tab" data-bs-toggle="pill" href="#pills-infohome" role="tab" aria-controls="pills-infohome" aria-selected="true" data-bs-original-title="" title="">
-                                    <div class="media">
-                                    <i class="flag-icon flag-icon-eg"></i>
-                                  </div>AR</a></li>
-                                <li class="nav-item"><a class="nav-link" id="pills-infoprofile-tab" data-bs-toggle="pill" href="#pills-infoprofile" role="tab" aria-controls="pills-infoprofile" aria-selected="false" data-bs-original-title="" title=""> <div class="media">
-                                    <i class="flag-icon flag-icon-my"></i>
-                                  </div>EN</a></li>
+                            <ul class="nav nav-pills nav-info mb-3" id="pills-infotab" role="tablist">
+
+                                @foreach (config('translatable.locales') as $index => $locale)
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}-tab" data-bs-toggle="pill" href="#{{ $locale }}" role="tab" aria-controls="{{ $locale }}" aria-selected="true" data-bs-original-title="" title="">
+                                            <div class="media">
+                                                <i class="{{ $locale == 'en' ? 'us' : 'ae' }}"></i>
+                                            </div>
+                                            {{ trans('site.' . $locale . '.name' ) }}</a>
+                                    </li>
+                                @endforeach
                             </ul>
-                            <div class="tab-content" id="pills-infotabContent">
-                                <div class="tab-pane fade show active" id="pills-infohome" role="tabpanel" aria-labelledby="pills-infohome-tab">
-                                    <p class="mb-0 m-t-30">Ar Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                                </div>
-                                <div class="tab-pane fade" id="pills-infoprofile" role="tabpanel" aria-labelledby="pills-infoprofile-tab">
-                                    <p class="mb-0 m-t-30">En Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                                </div>
+                            <div class="tab-content container" id="pills-infotabContent">
+                                @foreach (config('translatable.locales') as $index => $locale)
+                                    <div class="row tab-pane fade show {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}" role="tabpanel" aria-labelledby="{{ $locale }}-tab">
+                                        <div class="row d-flex">
+                                            <div class="form-group col-md-6">
+                                                <label class="create-category-label" for="{{ $locale }}[name]">{{ trans('site.Category name') }} @lang('site.' .
+                                                $locale . '.in name')</label>
+                                                @error($locale . '.name')
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                                @enderror
+                                                <input class="form-control input-thick create-category-input" type="text"
+                                                       name="{{ $locale }}[name]" value="">
+                                            </div>
+    
+                                            <div class="form-group col-md-6">
+                                                <label class="create-category-label" for="{{ $locale }}[slug]">{{ trans('site.slug') }} @lang('site.' .
+                                                $locale . '.in name')</label>
+                                                @error($locale . '.slug')
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                                @enderror
+                                                <input class="form-control input-thick create-category-input " type="text"
+                                                       name="{{ $locale }}[slug]" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
                             </div>
-                            @foreach (config('translatable.locales') as $locale)
-                                <div class="form-group col-md-6">
-                                    <label class="create-category-label" for="{{ $locale }}[name]">{{ trans('site.Category name') }} @lang('site.' .
-                                            $locale . '.in name')</label>
-                                    @error($locale . '.name')
+
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label class="  my-2" for="parent_id">{{ trans('site.Parent Category') }}</label>
+                                    @error('parent_id')
                                         <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-thick create-category-input" type="text"
-                                        name="{{ $locale }}[name]" placeholder="" value="{{ old($locale . '.name') }}">
+                                    <select name="parent_id" class="form-control select-css ">
+                                        <option value="0">{{ trans('site.Is Parent') }}</option>
+                                        @foreach ($categories as $item)
+                                            <option value="{{ $item->id }}" >{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-
-                                <div class="form-group col-md-6">
-                                    <label class="create-category-label" for="{{ $locale }}[slug]">{{ trans('site.slug') }} @lang('site.' .
-                                            $locale . '.in name')</label>
-                                    @error($locale . '.slug')
-                                        <span class="text-danger mx-5">{{ $message }}</span>
-                                    @enderror
-                                    <input class="form-control input-thick create-category-input " type="text"
-                                        name="{{ $locale }}[slug]" placeholder="" value="{{ old($locale . '.slug') }}">
-                                </div>
-
-                            @endforeach
-
-                            <div class="form-group col-md-6">
-                                <label class="create-category-label" for="parent_id">{{ trans('site.Parent Category') }}</label>
-                                @error('parent_id')
-                                    <span class="text-danger mx-5">{{ $message }}</span>
-                                @enderror
-                                <select name="parent_id" class="form-control select-css ">
-                                    <option value="0">{{ trans('site.all') }} {{ trans('site.Categories') }}</option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
                             </div>
+
                             <div class="form-group col-sm-12 col-md-6">
                                 <label class="create-category-label" for="image">{{ trans('site.Image') }}</label>
                                 @error('image')
