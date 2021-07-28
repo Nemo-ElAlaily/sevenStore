@@ -13,6 +13,7 @@
     <div class="card mx-5 shadow-lg">
         <div class="card-body">
             <div class="row">
+
                 @include('admin.cuba.partials._errors')
                 <form action="{{ route('admin.main_categories.store') }}" method="post"
                     enctype="multipart/form-data">
@@ -21,7 +22,7 @@
                         <div class="row">
                             <div class="row mb-5">
                                 <div class="form-group col-sm-12 col-md-6">
-                                    <div class="custom-control custom-switch">
+                                    <div class="form-check checkbox checkbox-solid-secondary">
                                         <input class="" type="checkbox" class="custom-control-input" id="is_active"
                                             name="is_active" checked>
                                         <label class="custom-control-label" for="is_active">{{ trans('site.Active ?') }}</label>
@@ -32,7 +33,7 @@
                                 </div>
 
                                 <div class="form-group col-sm-12 col-md-6 ">
-                                    <div class="custom-control custom-switch">
+                                    <div class="form-check checkbox checkbox-solid-secondary">
                                         <input class="" type="checkbox" class="custom-control-input" id="show_in_navbar"
                                             name="show_in_navbar" checked>
                                         <label class="custom-control-label" for="show_in_navbar">{{ trans('site.Show in Navbar') }}</label>
@@ -43,7 +44,7 @@
                                 </div>
 
                                 <div class="form-group col-sm-12 col-md-6 ">
-                                    <div class="custom-control custom-switch">
+                                    <div class="form-check checkbox checkbox-solid-secondary">
                                         <input class="" type="checkbox" class="custom-control-input"
                                             id="show_in_sidebar" name="show_in_sidebar" checked>
                                         <label class="custom-control-label" for="show_in_sidebar">{{ trans('site.Show in Sidebar') }}</label>
@@ -56,7 +57,7 @@
 
 
                                 <div class="form-group col-sm-12 col-md-6 ">
-                                    <div class="custom-control custom-switch">
+                                    <div class="form-check checkbox checkbox-solid-secondary">
                                         <input class="" type="checkbox" class="custom-control-input" id="show_in_footer"
                                             name="show_in_footer" checked>
                                         <label class="custom-control-label" for="show_in_footer">{{ trans('site.Show in Footer') }}</label>
@@ -67,7 +68,23 @@
                                 </div>
 
                             </div>
-
+                            <ul class="nav nav-pills nav-info" id="pills-infotab" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" id="pills-infohome-tab" data-bs-toggle="pill" href="#pills-infohome" role="tab" aria-controls="pills-infohome" aria-selected="true" data-bs-original-title="" title="">
+                                    <div class="media">
+                                    <i class="flag-icon flag-icon-eg"></i>
+                                  </div>AR</a></li>
+                                <li class="nav-item"><a class="nav-link" id="pills-infoprofile-tab" data-bs-toggle="pill" href="#pills-infoprofile" role="tab" aria-controls="pills-infoprofile" aria-selected="false" data-bs-original-title="" title=""> <div class="media">
+                                    <i class="flag-icon flag-icon-my"></i>
+                                  </div>EN</a></li>
+                            </ul>
+                            <div class="tab-content" id="pills-infotabContent">
+                                <div class="tab-pane fade show active" id="pills-infohome" role="tabpanel" aria-labelledby="pills-infohome-tab">
+                                    <p class="mb-0 m-t-30">Ar Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                                </div>
+                                <div class="tab-pane fade" id="pills-infoprofile" role="tabpanel" aria-labelledby="pills-infoprofile-tab">
+                                    <p class="mb-0 m-t-30">En Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                                </div>
+                            </div>
                             @foreach (config('translatable.locales') as $locale)
                                 <div class="form-group col-md-6">
                                     <label class="create-category-label" for="{{ $locale }}[name]">{{ trans('site.Category name') }} @lang('site.' .

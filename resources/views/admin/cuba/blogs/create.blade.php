@@ -19,8 +19,24 @@
     <!-- Default box -->
     <div class="card card-solid">
         <div class="card-body">
+            <ul class="nav nav-pills nav-info" id="pills-infotab" role="tablist">
+                <li class="nav-item"><a class="nav-link active" id="pills-infohome-tab" data-bs-toggle="pill" href="#pills-infohome" role="tab" aria-controls="pills-infohome" aria-selected="true" data-bs-original-title="" title="">
+                    <div class="media">
+                    <i class="flag-icon flag-icon-eg"></i>
+                  </div>AR</a></li>
+                <li class="nav-item"><a class="nav-link" id="pills-infoprofile-tab" data-bs-toggle="pill" href="#pills-infoprofile" role="tab" aria-controls="pills-infoprofile" aria-selected="false" data-bs-original-title="" title=""> <div class="media">
+                    <i class="flag-icon flag-icon-my"></i>
+                  </div>EN</a></li>
+            </ul>
             <div class="row">
-
+                <div class="tab-content" id="pills-infotabContent">
+                    <div class="tab-pane fade show active" id="pills-infohome" role="tabpanel" aria-labelledby="pills-infohome-tab">
+                        <p class="mb-0 m-t-30">Ar Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-infoprofile" role="tabpanel" aria-labelledby="pills-infoprofile-tab">
+                        <p class="mb-0 m-t-30">En Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                    </div>
+                </div>
                 <form class="col-12" action="{{ route('admin.blogs.store') }}" method="post"
                     enctype="multipart/form-data">
 
@@ -28,6 +44,7 @@
                     {{ method_field('post') }}
 
                     <div class="row">
+         
                         @foreach (config('translatable.locales') as $locale)
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
@@ -167,8 +184,8 @@
 
                     </div>
 
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
+                    <div class="form-group my-4">
+                        <button type="submit" class="btn btn-secondary"><i class="fa fa-plus"></i>
                             {{ trans('site.create') }} {{ trans('site.Blog') }}</button>
                     </div>
 
