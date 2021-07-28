@@ -41,7 +41,7 @@ class SiteSettingController extends Controller
             } // end of inner if
             $logoPath = uploadImage('uploads/site/',  $request -> logo);
         } else {
-            $logoPath = $site_settings -> logo_path;
+            $logoPath = $site_settings -> logo;
         }// end of outer if
 
         $faviconPath = "";
