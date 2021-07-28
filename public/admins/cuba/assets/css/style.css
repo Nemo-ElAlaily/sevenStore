@@ -50558,9 +50558,35 @@ form.col-12.form-user-create{
     width: 80%;
     margin: auto;
 }
+.w-50{
+    width: 50%;
+    margin: auto;
+}
 .nav-info .nav-link, .nav-pills.nav-info .nav-link{
     padding: 5px;
 }
 .nav-link.active{
     padding: 5px;
+}
+.label-page{
+    font-size: 13px;
+    color: #9a9999;
+    font-family: 'Roboto';
+    margin-top: 6px;
+}
+.bg-white{
+    background-color: #fff;
+}
+.p-2px{
+    padding: 2px;
+}
+.border-radius{
+    border-radius:10px
+}
+.box-shadow{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.textaarea-page{
+    height: 250px;
+    padding: 10px;
 }
