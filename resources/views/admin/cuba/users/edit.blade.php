@@ -12,7 +12,7 @@
     <!-- Default box -->
     <div class="container">
         <div class="row">
-            <div class="col-md-10 m-auto bg-user">
+            <div class="col-md-10 p-4 m-auto box-shadow border-radius mb-5">
                 <div class="card-body">
                     <div class="row bg-user-child ">
 

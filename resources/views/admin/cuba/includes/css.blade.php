@@ -16,5 +16,6 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('admins/cuba/assets/css/style.css') }}">
 <link id="color" rel="stylesheet" href="{{ asset('admins/cuba/assets/css/color-1.css') }}" media="screen">
 <!-- Responsive css-->
+<link rel="stylesheet" type="text/css" href="https://www.sevencameras.com/wp-content/plugins/dokan-lite/assets/vendors/font-awesome/font-awesome.min.css?ver=3.2.8">
 <link rel="stylesheet" type="text/css" href="{{ asset('admins/cuba/assets/css/animate.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('admins/cuba/assets/css/responsive.css') }}">

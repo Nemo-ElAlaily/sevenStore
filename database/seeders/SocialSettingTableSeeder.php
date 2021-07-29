@@ -14,7 +14,7 @@ class SocialSettingTableSeeder extends Seeder
     public function run()
     {
         $settings = [
-            'facebook', 'twitter', 'whatsApp', 'linkedIn', 'pinterest', 'instagram', 'youtube',
+            'facebook', 'twitter', 'whatsapp', 'linkedin', 'pinterest', 'instagram', 'youtube',
         ];
 
         foreach ($settings as $setting){
