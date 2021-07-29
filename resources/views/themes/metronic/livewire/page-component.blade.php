@@ -6,8 +6,8 @@
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>{{ $page -> title }}
         </nav>
 
-        @include('themes.electro.partials._session')
-        @include('themes.electro.partials._errors')
+        @include('themes.metronic.partials._session')
+        @include('themes.metronic.partials._errors')
 
         <div id="primary" class="content-area">
             <main id="main" class="site-main">

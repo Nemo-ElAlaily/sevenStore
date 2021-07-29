@@ -14,7 +14,7 @@
                         <h1 itemprop="name" class="entry-title">{{ trans('front.Order Details') }}</h1>
                     </header><!-- .entry-header -->
 
-                    @include('themes.electro.includes.components.order-details-table')
+                    @include('themes.metronic.includes.components.order-details-table')
 
                 </article>
             </main><!-- #main -->

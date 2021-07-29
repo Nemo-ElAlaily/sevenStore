@@ -10,8 +10,8 @@
 
         <div class="content-area" id="primary">
 
-            @include('themes.electro.partials._session')
-            @include('themes.electro.partials._errors')
+            @include('themes.metronic.partials._session')
+            @include('themes.metronic.partials._errors')
 
             <main class="site-main" id="main">
                 <article class="page type-page status-publish hentry">
@@ -109,7 +109,7 @@
 
                             </table>
 
-                            {{ $orders->links('themes.electro.pagination.default') }}
+                            {{ $orders->links('themes.metronic.pagination.default') }}
 
                         </form>
 

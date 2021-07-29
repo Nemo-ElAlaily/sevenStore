@@ -20,7 +20,7 @@
 
     <div id="home-v1-product-cards-careousel">
         <div class="woocommerce columns-3 home-v1-product-cards-carousel product-cards-carousel owl-carousel">
-            @include('themes.electro.includes.components.product-item')
+            @include('themes.metronic.includes.components.product-item')
         </div>
     </div><!-- #home-v1-product-cards-careousel -->
 

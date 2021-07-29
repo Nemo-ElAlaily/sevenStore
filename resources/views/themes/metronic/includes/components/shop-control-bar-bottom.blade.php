@@ -15,6 +15,6 @@
         {{ trans('front.of') }} {{ $products->total() }} {{ trans('front.products') }}
     </p>
 
-    {{ $products->links('themes.electro.pagination.default') }}
+    {{ $products->links('themes.metronic.pagination.default') }}
 
 </div>

@@ -14,7 +14,7 @@
     <div id="recently-added-products-carousel">
         <div class="woocommerce columns-6">
             <div class="products owl-carousel recently-added-products products-carousel columns-6">
-                @include('themes.electro.includes.components.category-carousel-item')
+                @include('themes.metronic.includes.components.category-carousel-item')
             </div>
         </div>
     </div>

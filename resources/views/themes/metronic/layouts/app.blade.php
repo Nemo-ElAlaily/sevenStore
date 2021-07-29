@@ -47,10 +47,10 @@
 
     <div id="page" class="hfeed site">
 
-        @include('themes.electro.includes.header.top_bar')
+        @include('themes.metronic.includes.header.top_bar')
 
 
-        @include('themes.electro.includes.header.header')
+        @include('themes.metronic.includes.header.header')
 
         @if (Route::is('front.*'))
             {{ $slot }}
@@ -58,9 +58,9 @@
             @yield('content')
         @endif
 
-        {{-- @include('themes.electro.includes.footer.brands-carousel') --}}
+        {{-- @include('themes.metronic.includes.footer.brands-carousel') --}}
 
-        @include('themes.electro.includes.footer.footer')
+        @include('themes.metronic.includes.footer.footer')
 
     </div><!-- #page -->
 

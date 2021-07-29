@@ -3,11 +3,11 @@
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
 
-                @include('themes.electro.includes.homepage.slider')
-                @include('themes.electro.includes.homepage.deals-and-tabs')
-                @include('themes.electro.includes.homepage.2-1-2-product-grid')
-                @include('themes.electro.includes.homepage.home-banner')
-                @include('themes.electro.includes.homepage.recently-added-products-carousel')
+                @include('themes.metronic.includes.homepage.slider')
+                @include('themes.metronic.includes.homepage.deals-and-tabs')
+                @include('themes.metronic.includes.homepage.2-1-2-product-grid')
+                @include('themes.metronic.includes.homepage.home-banner')
+                @include('themes.metronic.includes.homepage.recently-added-products-carousel')
 
             </main><!-- #main -->
         </div><!-- #primary -->

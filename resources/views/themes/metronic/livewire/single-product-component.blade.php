@@ -9,8 +9,8 @@
         </nav><!-- /.woocommerce-breadcrumb -->
 
 
-        @include('themes.electro.partials._session')
-        @include('themes.electro.partials._errors')
+        @include('themes.metronic.partials._session')
+        @include('themes.metronic.partials._errors')
 
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
@@ -29,7 +29,7 @@
                             <img src="{{ $product->image_path }}" alt="{{ $product->slug }}">
                         </div><!-- /.product-images-wrapper -->
 
-                        @include('themes.electro.includes.blocks.single-product.single-product-summary')
+                        @include('themes.metronic.includes.blocks.single-product.single-product-summary')
 
                     </div><!-- /.single-product-wrapper -->
 
@@ -54,11 +54,11 @@
                             <div class="tab-content">
 
                                 <div class="tab-pane active in panel entry-content wc-tab" id="tab-description">
-                                    @include('themes.electro.includes.blocks.single-product.description-tab')
+                                    @include('themes.metronic.includes.blocks.single-product.description-tab')
                                 </div>
 
                                 <div class="tab-pane panel entry-content wc-tab" id="tab-specification">
-                                    {{-- @include('themes.electro.includes.blocks.single-product.specification-tab') --}}
+                                    {{-- @include('themes.metronic.includes.blocks.single-product.specification-tab') --}}
                                     {!! html_entity_decode($product->features) !!}
                                 </div><!-- /.panel -->
 

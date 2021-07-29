@@ -59,7 +59,7 @@
                     </a>
                 @endforeach
 
-                {{ $blogs->links('themes.electro.pagination.default') }}
+                {{ $blogs->links('themes.metronic.pagination.default') }}
 
             </main>
         </div><!-- /#primary -->

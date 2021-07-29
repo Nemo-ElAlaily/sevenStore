@@ -22,8 +22,8 @@
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            @include('themes.electro.partials._session')
-                                            @include('themes.electro.partials._errors')
+                                            @include('themes.metronic.partials._session')
+                                            @include('themes.metronic.partials._errors')
                                         </div>
                                         <div class="col-md-5">
 

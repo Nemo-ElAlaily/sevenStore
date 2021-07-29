@@ -6,8 +6,8 @@
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>{{ trans('front.Cart') }}
         </nav>
 
-        @include('themes.electro.partials._session')
-        @include('themes.electro.partials._errors')
+        @include('themes.metronic.partials._session')
+        @include('themes.metronic.partials._errors')
 
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
@@ -17,8 +17,8 @@
                             <h1 itemprop="name" class="entry-title">{{ trans('front.Cart') }}</h1>
                         </header><!-- .entry-header -->
 
-                        @include('themes.electro.includes.components.cart-table')
-                        @include('themes.electro.includes.components.cart-collaterals')
+                        @include('themes.metronic.includes.components.cart-table')
+                        @include('themes.metronic.includes.components.cart-collaterals')
 
                     @else
 

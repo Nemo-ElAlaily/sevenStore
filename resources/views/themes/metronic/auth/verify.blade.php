@@ -1,4 +1,4 @@
-@extends('themes.electro.layouts.app')
+@extends('themes.metronic.layouts.app')
 
 @section('content')
     <div id="content" class="site-content" tabindex="-1">
