@@ -1,4 +1,4 @@
-@extends('layouts.admin.db-forms')
+@extends('admin.cuba.layouts.db-forms')
 
 @section('title', trans('site.Database Setup'))
 
