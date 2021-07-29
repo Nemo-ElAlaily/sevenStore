@@ -14,4 +14,4 @@
     <i class="fa fa-arrow-up"></i>
 </div>
 
-@include('themes.electro.includes.header.header-left-sidebar')
+@include('themes.metronic.includes.header.header-left-sidebar')

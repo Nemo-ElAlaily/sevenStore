@@ -9,8 +9,8 @@
                     <div itemprop="mainContentOfPage" class="entry-content">
                         <div class="table-responsive">
 
-                            @include('themes.electro.partials._session')
-                            @include('themes.electro.partials._errors')
+                            @include('themes.metronic.partials._session')
+                            @include('themes.metronic.partials._errors')
 
 
                             @if (Cart::instance('compare')->content()->count() > 0)

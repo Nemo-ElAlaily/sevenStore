@@ -6,8 +6,8 @@
             <span class="delimiter"><i class="fa fa-angle-right"></i></span>{{ trans('front.Thank You') }}
         </nav>
 
-        @include('themes.electro.partials._session')
-        @include('themes.electro.partials._errors')
+        @include('themes.metronic.partials._session')
+        @include('themes.metronic.partials._errors')
 
         <header class="entry-header">
             <h1 itemprop="name" class="entry-title">{{ trans('front.Thank You For Your Order') }}</h1>

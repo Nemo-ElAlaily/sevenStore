@@ -14,7 +14,7 @@
                         <h1 itemprop="name" class="entry-title">{{ trans('front.Checkout') }}</h1>
                     </header><!-- .entry-header -->
 
-                    @include('themes.electro.includes.components.checkout-table')
+                    @include('themes.metronic.includes.components.checkout-table')
                 </article>
             </main><!-- #main -->
         </div><!-- #primary -->

@@ -12,19 +12,19 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="tab-products-1" role="tabpanel">
                     <div class="woocommerce columns-3">
-                        @include('themes.electro.includes.components.product-item_featured')
+                        @include('themes.metronic.includes.components.product-item_featured')
                     </div>
                 </div>
 
                 <div class="tab-pane active" id="tab-products-2" role="tabpanel">
                     <div class="woocommerce columns-3">
-                        @include('themes.electro.includes.components.product-item_on_sale')
+                        @include('themes.metronic.includes.components.product-item_on_sale')
                     </div>
                 </div>
 
                 <div class="tab-pane" id="tab-products-3" role="tabpanel">
                     <div class="woocommerce columns-3">
-                        @include('themes.electro.includes.components.product-item_top_rated')
+                        @include('themes.metronic.includes.components.product-item_top_rated')
                     </div>
                 </div>
             </div>

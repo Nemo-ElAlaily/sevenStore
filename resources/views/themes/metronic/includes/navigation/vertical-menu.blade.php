@@ -11,43 +11,43 @@
         <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown">
             <a title="Computers &amp; Accessories" data-hover="dropdown" href="#" data-toggle="dropdown"
                 class="dropdown-toggle" aria-haspopup="true">Computers &#038; Accessories</a>
-            @include('themes.electro.includes.navigation.vertical-menu-megamenu')
+            @include('themes.metronic.includes.navigation.vertical-menu-megamenu')
         </li>
 
         <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown">
             <a title="Cameras, Audio &amp; Video" data-hover="dropdown" href="#" data-toggle="dropdown"
                 class="dropdown-toggle" aria-haspopup="true">Cameras, Audio &#038; Video</a>
-            @include('themes.electro.includes.navigation.vertical-menu-megamenu')
+            @include('themes.metronic.includes.navigation.vertical-menu-megamenu')
         </li>
 
         <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown">
             <a title="Mobiles &amp; Tablets" data-hover="dropdown" href="#" data-toggle="dropdown"
                 class="dropdown-toggle" aria-haspopup="true">Mobiles &#038; Tablets</a>
-            @include('themes.electro.includes.navigation.vertical-menu-megamenu')
+            @include('themes.metronic.includes.navigation.vertical-menu-megamenu')
         </li>
 
         <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown">
             <a title="Movies, Music &amp; Video Games" data-hover="dropdown" href="#" data-toggle="dropdown"
                 class="dropdown-toggle" aria-haspopup="true">Movies, Music &#038; Video Games</a>
-            @include('themes.electro.includes.navigation.vertical-menu-megamenu')
+            @include('themes.metronic.includes.navigation.vertical-menu-megamenu')
         </li>
 
         <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown">
             <a title="TV &amp; Audio" data-hover="dropdown" href="#" data-toggle="dropdown" class="dropdown-toggle"
                 aria-haspopup="true">TV &#038; Audio</a>
-            @include('themes.electro.includes.navigation.vertical-menu-megamenu')
+            @include('themes.metronic.includes.navigation.vertical-menu-megamenu')
         </li>
 
         <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown">
             <a title="Watches &amp; Eyewear" data-hover="dropdown" href="#" data-toggle="dropdown"
                 class="dropdown-toggle" aria-haspopup="true">Watches &#038; Eyewear</a>
-            @include('themes.electro.includes.navigation.vertical-menu-megamenu')
+            @include('themes.metronic.includes.navigation.vertical-menu-megamenu')
         </li>
 
         <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown">
             <a title="Car, Motorbike &amp; Industrial" data-hover="dropdown" href="#" data-toggle="dropdown"
                 class="dropdown-toggle" aria-haspopup="true">Car, Motorbike &#038; Industrial</a>
-            @include('themes.electro.includes.navigation.vertical-menu-megamenu')
+            @include('themes.metronic.includes.navigation.vertical-menu-megamenu')
         </li>
 
         <li id="menu-item-2695" class="menu-item menu-item-has-children animate-dropdown dropdown">

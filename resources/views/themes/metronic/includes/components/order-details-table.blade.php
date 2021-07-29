@@ -1,7 +1,7 @@
 <form>
 
-    @include('themes.electro.partials._errors')
-    @include('themes.electro.partials._session')
+    @include('themes.metronic.partials._errors')
+    @include('themes.metronic.partials._session')
 
     <div id="customer_details" class="col2-set">
         <div class="col-1">

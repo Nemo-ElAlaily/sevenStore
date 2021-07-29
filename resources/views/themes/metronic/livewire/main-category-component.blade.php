@@ -10,8 +10,8 @@
             </span>{{ $main_category_name }}
         </nav>
 
-        @include('themes.electro.partials._session')
-        @include('themes.electro.partials._errors')
+        @include('themes.metronic.partials._session')
+        @include('themes.metronic.partials._errors')
 
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
@@ -40,18 +40,18 @@
                                     href="#list-view-small"><i class="fa fa-th-list"></i></a></li>
                         </ul>
 
-                        @include('themes.electro.includes.components.shop-control-bar')
+                        @include('themes.metronic.includes.components.shop-control-bar')
 
                     </div>
 
                     <div class="tab-content">
-                        @include('themes.electro.includes.components.product-grid')
-                        @include('themes.electro.includes.components.product-grid-ext')
-                        @include('themes.electro.includes.components.product-list-view')
-                        @include('themes.electro.includes.components.product-list-view-small')
+                        @include('themes.metronic.includes.components.product-grid')
+                        @include('themes.metronic.includes.components.product-grid-ext')
+                        @include('themes.metronic.includes.components.product-list-view')
+                        @include('themes.metronic.includes.components.product-list-view-small')
                     </div>
 
-                    @include('themes.electro.includes.components.shop-control-bar-bottom')
+                    @include('themes.metronic.includes.components.shop-control-bar-bottom')
                 @else
                     <!-- TITLE -->
                     <div class="wishlist-title ">
@@ -68,10 +68,10 @@
         </div><!-- #primary -->
 
         <div id="sidebar" class="sidebar" role="complementary">
-            @include('themes.electro.includes.components.sidebar.product-categories-widget')
-            @include('themes.electro.includes.components.sidebar.product-filters-sidebar')
-            {{-- @include('themes.electro.includes.components.sidebar.home-v2-ad-block') --}}
-            @include('themes.electro.includes.components.sidebar.latest-products')
+            @include('themes.metronic.includes.components.sidebar.product-categories-widget')
+            @include('themes.metronic.includes.components.sidebar.product-filters-sidebar')
+            {{-- @include('themes.metronic.includes.components.sidebar.home-v2-ad-block') --}}
+            @include('themes.metronic.includes.components.sidebar.latest-products')
         </div>
 
     </div><!-- .container -->

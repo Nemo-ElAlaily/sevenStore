@@ -1,4 +1,4 @@
-@extends('themes.electro.layouts.app')
+@extends('themes.metronic.layouts.app')
 
 @section('content')
     <div id="content" class="site-content" tabindex="-1">
@@ -12,8 +12,8 @@
 
             <div class="content-area">
 
-                @include('themes.electro.partials._session')
-                @include('themes.electro.partials._errors')
+                @include('themes.metronic.partials._session')
+                @include('themes.metronic.partials._errors')
 
                 <main id="main" class="site-main">
                     <article id="post-8" class="hentry">
