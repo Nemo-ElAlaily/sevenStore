@@ -15,7 +15,7 @@
                 <ul class="cart_list product_list_widget ">
 
                     @if (Cart::instance('cart')->count() > 0)
-                        @foreach (Cart::instance('cart')->content() as $item)
+                            @foreach (Cart::instance('cart')->content() as $item)
                             <li class="mini_cart_item">
                                 <a title="Remove this item" class="remove" href="#">×</a>
                                 <a href="#">

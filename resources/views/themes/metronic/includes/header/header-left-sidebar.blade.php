@@ -1,114 +1,223 @@
 <?php
 $categories = App\Models\MainCategories\MainCategory::where([['parent_id', 0],['is_active','1'],['show_in_sidebar','1']])->get();
     $sidebar_pages =  App\Models\Pages\Page::where([['is_active','1'],['show_in_sidebar','1']])->get();
-        // $footer_pages =  App\Models\Pages\Page::where([['is_active','1'],['show_in_footer','1']])->get();
-        // $navbar_pages =  App\Models\Pages\Page::where([['is_active','1'],['show_in_navbar','1']])->get();
-
-    //  dd($sidebar_pages);
 ?>
-<section class="sidebar-header-parent">
-    <aside id="sidebarHeader1" class="" aria-labelledby="sidebarHeaderInvokerMenu"
-        style="animation-duration: 500ms; left: -335px;">
-        <div class="u-sidebar__scroller">
-            <div class="u-sidebar__container">
-                <div class="u-header-sidebar__footer-offset pb-0">
 
-                    <!-- Content -->
-                    <div class="js-scrollbar u-sidebar__body mCustomScrollbar _mCS_1 mCS-autoHide"
-                        style="position: relative; overflow: visible;">
-                        <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside"
-                            style="max-height: none;" tabindex="0">
-                            <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;"
-                                dir="ltr">
-                                <div id="headerSidebarContent" class="u-sidebar__content u-header-sidebar__content">
-                                    <!-- Toggle Button -->
-                                    <div class="btnClose">
-                                        <i class="ec ec-close-remove text-gray-90 font-size-20"></i>
-                                    </div>
-                                    <!-- End Toggle Button -->
-
-                                    <div class="header-front-side">
-                                        <!-- Logo -->
-                                        <a class="ml-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-vertical"
-                                            href="#" aria-label="Electro">
-                                            <img src="{{ $site_settings->logo_path }}"
-                                                class="logoBrand animate__backInDown" alt="">
-                                        </a>
-                                        <!-- End Logo -->
-
-                                    </div>
-                                    <!-- List -->
-                                    <ul id="headerSidebarList" class="u-header-collapse__nav">
-                                             <h4 class='text-center' >{{ trans('front.Categories') }}</h4>
-
-                                        @foreach ($categories as $category)
-                                                @if(($category->name != 'بدون تصنيف'))
-                                            <!-- Home Section -->
-                                            <li class="u-has-submenu u-header-collapse__submenu">
-                                                <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"
-                                                    href="javascript:;" role="button" data-toggle="collapse"
-                                                    aria-expanded="false" aria-controls="{{ $category->id }}"
-                                                    data-target="#{{ $category->id }}">
-                                                    {{ $category->name }}
-                                                </a>
-
-
-                                                <div id="{{ $category->id }}" class="collapse"
-                                                    data-parent="#{{ $category->id }}">
-                                                    <ul id="headerSidebarHomeMenu" class="u-header-collapse__nav-list">
-                                                        @foreach ($category->sub_categories as $sub_category)
-                                                            <!-- Home - v1 -->
-                                                            <li><a class="u-header-collapse__submenu-nav-link"
-                                                                    href="{{ route('front.product.category', $sub_category->slug) }}">{{ $sub_category->name }}</a>
-                                                            </li>
-                                                            <!-- End Home - v1 -->
-                                                        @endforeach
-
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            @endif
-                                            <!-- End Home Section -->
-                                        @endforeach
-
-                                    </ul>
-                                    <!-- End List -->
-                                    <hr>
-
-                                    <ul id="headerSidebarList" class="u-header-collapse__nav" >
-                                             <h4 class='text-center' >{{ trans('front.Pages') }}</h4>
-
-                                        @foreach ($sidebar_pages as $page)
-
-                                            <!-- Home Section -->
-                                            <li class="u-has-submenu u-header-collapse__submenu">
-                                                <a href='{{route("front.page.details",$page->slug)}}'>
-                                                    {{ $page->title }}
-                                                </a>
-                                            </li>
-
-                                            <!-- End Home Section -->
-                                        @endforeach
-
-                                    </ul>
-                                </div>
-                            </div>
+<!-- BEGIN NAVIGATION -->
+<div class="collapse navbar-collapse mega-menu">
+    <ul class="nav navbar-nav">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" data-delay="0" data-close-others="false" data-target="product-list.html" href="product-list.html">
+                Woman
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <!-- BEGIN DROPDOWN MENU -->
+            <ul class="dropdown-menu" aria-labelledby="mega-menu">
+                <li>
+                    <div class="nav-content">
+                        <!-- BEGIN DROPDOWN MENU - COLUMN -->
+                        <div class="nav-content-col">
+                            <h3>Footwear</h3>
+                            <ul>
+                                <li><a href="product-list.html">Astro Trainers</a></li>
+                                <li><a href="product-list.html">Basketball Shoes</a></li>
+                                <li><a href="product-list.html">Boots</a></li>
+                                <li><a href="product-list.html">Canvas Shoes</a></li>
+                                <li><a href="product-list.html">Football Boots</a></li>
+                                <li><a href="product-list.html">Golf Shoes</a></li>
+                                <li><a href="product-list.html">Hi Tops</a></li>
+                                <li><a href="product-list.html">Indoor and Court Trainers</a></li>
+                            </ul>
                         </div>
-                        <div id="mCSB_1_scrollbar_vertical"
-                            class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
-                            style="display: block;">
-                            <div class="mCSB_draggerContainer">
-                                <div id="mCSB_1_dragger_vertical" class="mCSB_dragger"
-                                    style="position: absolute; min-height: 50px; top: 0px; height: 141px; display: block; max-height: 206px;">
-                                    <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
-                                </div>
-                                <div class="mCSB_draggerRail"></div>
+                        <!-- END DROPDOWN MENU - COLUMN -->
+                        <!-- BEGIN DROPDOWN MENU - COLUMN -->
+                        <div class="nav-content-col">
+                            <h3>Clothing</h3>
+                            <ul>
+                                <li><a href="product-list.html">Base Layer</a></li>
+                                <li><a href="product-list.html">Character</a></li>
+                                <li><a href="product-list.html">Chinos</a></li>
+                                <li><a href="product-list.html">Combats</a></li>
+                                <li><a href="product-list.html">Cricket Clothing</a></li>
+                                <li><a href="product-list.html">Fleeces</a></li>
+                                <li><a href="product-list.html">Gilets</a></li>
+                                <li><a href="product-list.html">Golf Tops</a></li>
+                            </ul>
+                        </div>
+                        <!-- END DROPDOWN MENU - COLUMN -->
+                        <!-- BEGIN DROPDOWN MENU - COLUMN -->
+                        <div class="nav-content-col">
+                            <h3>Accessories</h3>
+                            <ul>
+                                <li><a href="product-list.html">Belts</a></li>
+                                <li><a href="product-list.html">Caps</a></li>
+                                <li><a href="product-list.html">Gloves, Hats and Scarves</a></li>
+                            </ul>
+
+                            <h3>Clearance</h3>
+                            <ul>
+                                <li><a href="product-list.html">Jackets</a></li>
+                                <li><a href="product-list.html">Bottoms</a></li>
+                            </ul>
+                        </div>
+                        <!-- END DROPDOWN MENU - COLUMN -->
+                        <!-- BEGIN DROPDOWN MENU - BRANDS -->
+                        <div class="nav-brands">
+                            <ul>
+                                <li><a href="product-list.html"><img title="esprit" alt="esprit" src="{{ asset('front/metronic/' . LaravelLocalization::getCurrentLocaleDirection()) }}/temp/brands/esprit.jpg"></a></li>
+                                <li><a href="product-list.html"><img title="gap" alt="gap" src="{{ asset('front/metronic/' . LaravelLocalization::getCurrentLocaleDirection()) }}/temp/brands/gap.jpg"></a></li>
+                                <li><a href="product-list.html"><img title="next" alt="next" src="{{ asset('front/metronic/' . LaravelLocalization::getCurrentLocaleDirection()) }}/temp/brands/next.jpg"></a></li>
+                                <li><a href="product-list.html"><img title="puma" alt="puma" src="{{ asset('front/metronic/' . LaravelLocalization::getCurrentLocaleDirection()) }}/temp/brands/puma.jpg"></a></li>
+                                <li><a href="product-list.html"><img title="zara" alt="zara" src="{{ asset('front/metronic/' . LaravelLocalization::getCurrentLocaleDirection()) }}/temp/brands/zara.jpg"></a></li>
+                            </ul>
+                        </div>
+                        <!-- END DROPDOWN MENU - BRANDS -->
+                    </div>
+                </li>
+            </ul>
+            <!-- END DROPDOWN MENU -->
+        </li>
+        <li><a href="product-list.html">Men</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" data-delay="0" data-close-others="false" data-target="product-list.html" href="product-list.html">
+                Kids
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <!-- BEGIN DROPDOWN MENU -->
+            <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                    <a href="product-list.html">Hi Tops <i class="fa fa-angle-right"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="product-list.html">Second Level Link</a></li>
+                        <li><a href="product-list.html">Second Level Link</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="product-list.html">Second Level Link <i class="fa fa-angle-right"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="product-list.html">Third Level Link</a></li>
+                                <li><a href="product-list.html">Third Level Link</a></li>
+                                <li><a href="product-list.html">Third Level Link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="product-list.html">Running Shoes</a></li>
+                <li><a href="product-list.html">Jackets and Coats</a></li>
+                <li><a href="product-list.html">Tennis Clothing</a></li>
+                <li class="dropdown-submenu">
+                    <a href="product-list.html">Running Clothing <i class="fa fa-angle-right"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="product-list.html">Second Level Link</a></li>
+                        <li><a href="product-list.html">Second Level Link</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="product-list.html">Second Level Link <i class="fa fa-angle-right"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="product-list.html">Third Level Link</a></li>
+                                <li><a href="product-list.html">Third Level Link</a></li>
+                                <li><a href="product-list.html">Third Level Link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- END DROPDOWN MENU -->
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" data-delay="0" data-close-others="false" data-target="product-list.html" href="product-list.html">
+                New
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <!-- BEGIN DROPDOWN MENU -->
+            <ul class="dropdown-menu" aria-labelledby="mega-menu-catalogue">
+                <li>
+                    <div class="nav-content">
+                        <div class="product-item">
+                            <div class="pi-img-wrapper">
+                                <a href="item.html"><img src="{{ asset('front/metronic/' . LaravelLocalization::getCurrentLocaleDirection()) }}/temp/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
                             </div>
+                            <h3><a href="item.html">Berry Lace Dress</a></h3>
+                            <div class="pi-price">$29.00</div>
+                            <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                        </div>
+                        <div class="product-item">
+                            <div class="pi-img-wrapper">
+                                <a href="item.html"><img src="{{ asset('front/metronic/' . LaravelLocalization::getCurrentLocaleDirection()) }}/temp/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                            </div>
+                            <h3><a href="item.html">Berry Lace Dress</a></h3>
+                            <div class="pi-price">$29.00</div>
+                            <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                        </div>
+                        <div class="product-item">
+                            <div class="pi-img-wrapper">
+                                <a href="item.html"><img src="{{ asset('front/metronic/' . LaravelLocalization::getCurrentLocaleDirection()) }}/temp/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                            </div>
+                            <h3><a href="item.html">Berry Lace Dress</a></h3>
+                            <div class="pi-price">$29.00</div>
+                            <a href="#" class="btn btn-default add2cart">Add to cart</a>
                         </div>
                     </div>
-                    <!-- End Content -->
-                </div>
+                </li>
+            </ul>
+            <!-- END DROPDOWN MENU -->
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" data-delay="0" data-close-others="false" data-target="#" href="#">
+                Pages
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <!-- BEGIN DROPDOWN MENU -->
+            <ul class="dropdown-menu">
+                <li><a href="index-light-footer.html">Light Footer</a></li>
+                <li><a href="product-list.html">Product List</a></li>
+                <li><a href="search-result.html">Search Result</a></li>
+                <li><a href="item.html">Product Page</a></li>
+                <li><a href="shopping-cart-null.html">Shopping Cart (Null Cart)</a></li>
+                <li><a href="shopping-cart.html">Shopping Cart</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="reg-page.html">Registration Page</a></li>
+                <li><a href="login-page.html">Login Page</a></li>
+                <li><a href="forgotton-password.html">Forget Password</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-conditions-page.html">Terms & Conditions</a></li>
+                <li><a href="site-map.html">Site Map</a></li>
+                <li><a href="page-404.html">404</a></li>
+                <li><a href="page-500.html">500</a></li>
+            </ul>
+            <!-- END DROPDOWN MENU -->
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" data-delay="0" data-close-others="false" data-target="#" href="#">
+                Features
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <!-- BEGIN DROPDOWN MENU -->
+            <ul class="dropdown-menu">
+                <li><a href="feature-typography.html">Typography</a></li>
+                <li><a href="feature-forms.html">Forms</a></li>
+                <li><a href="feature-buttons.html">Buttons</a></li>
+                <li><a href="feature-icons.html">Icons</a></li>
+            </ul>
+            <!-- END DROPDOWN MENU -->
+        </li>
+        <li><a href="http://keenthemes.com/preview/metronic_admin/ecommerce_index.html">Admin theme</a></li>
+        <!-- BEGIN TOP SEARCH -->
+        <li class="menu-search">
+            <span class="sep"></span>
+            <i class="fa fa-search search-btn"></i>
+            <div class="search-box">
+                <form action="#">
+                    <div class="input-group">
+                        <input type="text" placeholder="Search" class="form-control">
+                        <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit">Search</button>
+                                    </span>
+                    </div>
+                </form>
             </div>
-        </div>
-    </aside>
-</section>
+        </li>
+        <!-- END TOP SEARCH -->
+    </ul>
+</div>
+<!-- END NAVIGATION -->
