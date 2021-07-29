@@ -16,7 +16,7 @@
     @include('admin.cuba.partials._session')
     @include('admin.cuba.partials._errors')
     <!-- Default box -->
-    <div class="card card-solid">
+    <div class="mb-4 w-80 bg-white box-shadow border-radius card-solid">
         <div class="card-body">
             <div class="row">
                 <form class="col-12" action="{{ route('admin.settings.site.show', $site_settings->id) }}" method="post"
@@ -38,108 +38,113 @@
                         @foreach (config('translatable.locales') as $index => $locale)
                             <div class="tab-pane fade show {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}"
                                 role="tabpanel" aria-labelledby="pills-{{ $locale }}-tab">
-                                <div class="col-sm-12 col-lg-6">
-                                    <div class="form-group">
-                                        <label class="labelSetting" for="{{ $locale }}">Title in @lang('site.' .
-                                            $locale .
-                                            '.name')</label>
-                                        @error($locale . '.title')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control   input-thick  text-center" type="text"
-                                            name="{{ $locale }}[title]"
-                                            value="{{ $site_settings->translate($locale)->title }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="labelSetting" for="{{ $locale }}">Welcome Phrase in
-                                            @lang('site.' . $locale .
-                                            '.name')</label>
-                                        @error($locale . '.welcome_phrase')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control   input-thick  text-center" type="text"
-                                            name="{{ $locale }}[welcome_phrase]"
-                                            value="{{ $site_settings->translate($locale)->welcome_phrase }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="labelSetting" for="{{ $locale }}">Title in @lang('site.' .
-                                            $locale .
-                                            '.name')</label>
-                                        @error($locale . '.address')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control   input-thick  text-center" type="text"
-                                            name="{{ $locale }}[address]"
-                                            value="{{ $site_settings->translate($locale)->address }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="labelSetting" for="{{ $locale }}">Title in @lang('site.' .
-                                            $locale .
-                                            '.name')</label>
-                                        @error($locale . '.city')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control   input-thick  text-center" type="text"
-                                            name="{{ $locale }}[city]"
-                                            value="{{ $site_settings->translate($locale)->city }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="labelSetting" for="{{ $locale }}">Title in @lang('site.' .
-                                            $locale .
-                                            '.name')</label>
-                                        @error($locale . '.country')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control   input-thick  text-center" type="text"
-                                            name="{{ $locale }}[country]"
-                                            value="{{ $site_settings->translate($locale)->country }}">
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label class="labelSetting" for="{{ $locale }}[meta_title]">Meta Title in
-                                            @lang('site.' .
-                                            $locale . '.meta_title')</label>
-                                        @error($locale . '.meta_title')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control   input-thick  text-center" type="text"
-                                            name="{{ $locale }}[meta_title]"
-                                            value="{{ $site_settings->translate($locale)->meta_title }}">
-                                    </div>
+                                <div class="d-flex justify-content-between">
 
-                                    <div class="form-group">
-                                        <label class="labelSetting" for="{{ $locale }}[meta_description]">Meta
-                                            Description in @lang('site.' .
-                                            $locale .
-                                            '.meta_description')</label>
-                                        @error($locale . '.meta_description')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control   input-thick  text-center" type="text"
-                                            name="{{ $locale }}[meta_description]"
-                                            value="{{ $site_settings->translate($locale)->meta_description }}">
-                                    </div>
+                                    <div class="row">
 
-                                    <div class="form-group">
-                                        <label class="labelSetting" for="{{ $locale }}[meta_keyword]">Meta Keyword in
-                                            @lang('site.' .
-                                            $locale . '.meta_keyword')</label>
-                                        @error($locale . '.meta_keyword')
-                                            <br />
-                                            <span class="text-danger mx-5">{{ $message }}</span>
-                                        @enderror
-                                        <input class="form-control   input-thick  text-center" type="text"
-                                            name="{{ $locale }}[meta_keyword]"
-                                            value="{{ $site_settings->translate($locale)->meta_keyword }}">
+                                        <div class="form-group col-md-6">
+                                            <label class="label-page" for="{{ $locale }}">Title in @lang('site.' .
+                                                $locale .
+                                                '.name')</label>
+                                            @error($locale . '.title')
+                                                <br />
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                            @enderror
+                                            <input class="form-control     text-center" type="text"
+                                                name="{{ $locale }}[title]"
+                                                value="{{ $site_settings->translate($locale)->title }}">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="label-page" for="{{ $locale }}">Welcome Phrase in
+                                                @lang('site.' . $locale .
+                                                '.name')</label>
+                                            @error($locale . '.welcome_phrase')
+                                                <br />
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                            @enderror
+                                            <input class="form-control     text-center" type="text"
+                                                name="{{ $locale }}[welcome_phrase]"
+                                                value="{{ $site_settings->translate($locale)->welcome_phrase }}">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="label-page" for="{{ $locale }}">Title in @lang('site.' .
+                                                $locale .
+                                                '.name')</label>
+                                            @error($locale . '.address')
+                                                <br />
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                            @enderror
+                                            <input class="form-control     text-center" type="text"
+                                                name="{{ $locale }}[address]"
+                                                value="{{ $site_settings->translate($locale)->address }}">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="label-page" for="{{ $locale }}">Title in @lang('site.' .
+                                                $locale .
+                                                '.name')</label>
+                                            @error($locale . '.city')
+                                                <br />
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                            @enderror
+                                            <input class="form-control     text-center" type="text"
+                                                name="{{ $locale }}[city]"
+                                                value="{{ $site_settings->translate($locale)->city }}">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="label-page" for="{{ $locale }}">Title in @lang('site.' .
+                                                $locale .
+                                                '.name')</label>
+                                            @error($locale . '.country')
+                                                <br />
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                            @enderror
+                                            <input class="form-control     text-center" type="text"
+                                                name="{{ $locale }}[country]"
+                                                value="{{ $site_settings->translate($locale)->country }}">
+                                        </div>
+    
+                                        <div class="form-group col-md-6">
+                                            <label class="label-page" for="{{ $locale }}[meta_title]">Meta Title in
+                                                @lang('site.' .
+                                                $locale . '.meta_title')</label>
+                                            @error($locale . '.meta_title')
+                                                <br />
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                            @enderror
+                                            <input class="form-control     text-center" type="text"
+                                                name="{{ $locale }}[meta_title]"
+                                                value="{{ $site_settings->translate($locale)->meta_title }}">
+                                        </div>
+    
+                                        <div class="form-group col-md-6">
+                                            <label class="label-page" for="{{ $locale }}[meta_description]">Meta
+                                                Description in @lang('site.' .
+                                                $locale .
+                                                '.meta_description')</label>
+                                            @error($locale . '.meta_description')
+                                                <br />
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                            @enderror
+                                            <input class="form-control     text-center" type="text"
+                                                name="{{ $locale }}[meta_description]"
+                                                value="{{ $site_settings->translate($locale)->meta_description }}">
+                                        </div>
+    
+                                        <div class="form-group col-md-6">
+                                            <label class="label-page" for="{{ $locale }}[meta_keyword]">Meta Keyword in
+                                                @lang('site.' .
+                                                $locale . '.meta_keyword')</label>
+                                            @error($locale . '.meta_keyword')
+                                                <br />
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                            @enderror
+                                            <input class="form-control     text-center" type="text"
+                                                name="{{ $locale }}[meta_keyword]"
+                                                value="{{ $site_settings->translate($locale)->meta_keyword }}">
+                                        </div>
+    
                                     </div>
-
                                 </div>
                             </div>
                         @endforeach
@@ -148,27 +153,27 @@
                     <div class='row'>
                         <div class='col-md-6'>
                                       <div class="form-group">
-                                            <label class="labelSetting">Google Client ID</label>
+                                            <label class="label-page">Google Client ID</label>
                                             <br />
-                                            <input class="form-control input-thick"
+                                            <input class="form-control "
                                                 name="google_client_id">
                                      </div>
                                 </div>
 
                                 <div class='col-md-6'>
                                       <div class="form-group">
-                                            <label class="labelSetting">Google Secret Key</label>
+                                            <label class="label-page">Google Secret Key</label>
                                             <br />
-                                            <input class="form-control input-thick"
+                                            <input class="form-control "
                                                 name="google_secret_key">
                                      </div>
                                 </div>
 
                                 <div class='col-md-6'>
                                       <div class="form-group">
-                                            <label class="labelSetting">Google Redirect Link</label>
+                                            <label class="label-page">Google Redirect Link</label>
                                             <br />
-                                            <input class="form-control input-thick"
+                                            <input class="form-control "
                                                 name="google_redirect">
                                      </div>
                                 </div>
@@ -176,27 +181,27 @@
 
                                 <div class='col-md-6'>
                                       <div class="form-group">
-                                            <label class="labelSetting">Facebook Client ID</label>
+                                            <label class="label-page">Facebook Client ID</label>
                                             <br />
-                                            <input class="form-control input-thick"
+                                            <input class="form-control "
                                                 name="facebook_client_id">
                                      </div>
                                 </div>
 
                                 <div class='col-md-6'>
                                       <div class="form-group">
-                                            <label class="labelSetting">Facebook Secret Key</label>
+                                            <label class="label-page">Facebook Secret Key</label>
                                             <br />
-                                            <input class="form-control input-thick"
+                                            <input class="form-control "
                                                 name="facebook_secret_key">
                                      </div>
                                 </div>
 
                                      <div class='col-md-6'>
                                       <div class="form-group">
-                                            <label class="labelSetting">Facebook Redirect Link</label>
+                                            <label class="label-page">Facebook Redirect Link</label>
                                             <br />
-                                            <input class="form-control input-thick"
+                                            <input class="form-control "
                                                 name="facebook_redirect">
                                      </div>
 
@@ -204,12 +209,12 @@
                     </div>
 
                   <div class="form-group">
-                    <label class="labelSetting">Google Analytics</label>
+                    <label class="label-page">Google Analytics</label>
                     @error($locale . '.meta_description')
                     <br />
                     {{-- <span class="text-danger mx-5">{{ $message }}</span> --}}
                     @enderror
-                    <textarea class="form-control   input-thick  text-center"
+                    <textarea class="form-control     text-center"
                            name="google_analytics"></textarea>
                 </div>
 
@@ -217,7 +222,7 @@
                     <div class="row">
 
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label>Logo</label>
+                            <label class="label-page">Logo</label>
                             @error('logo')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -228,7 +233,7 @@
                         </div> {{-- end of form group image --}}
 
                         <div class="form-group col-sm-6 col-lg-6">
-                            <label>Favicon</label>
+                            <label class="label-page">Favicon</label>
                             @error('favicon')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -240,7 +245,7 @@
                         </div> {{-- end of form group favicon --}}
 
                     </div> {{-- end of translatable data --}}
-                    <div class="form-group">
+                    <div class="form-group mt-5">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>
                             Update Site Settings</button>
                     </div>

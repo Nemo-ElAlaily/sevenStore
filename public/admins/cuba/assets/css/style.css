@@ -49505,7 +49505,7 @@ input.bg-dark:focus {
     cursor: pointer;
     top: 14px;
     width: 150px;
-    border-radius: 50px;
+    border-radius: 20px;
     position: relative;
 }
 .image-preview:hover {
@@ -50021,9 +50021,9 @@ width: 200px;
     border-radius: 8px;
 }
 .form-control{
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
-    color: #212529;
+    color: #49494a;
 }
 .prodLabel{
     font-size: 14px;
@@ -50431,7 +50431,7 @@ background:linear-gradient(302deg, #f7316438, #0d6efd21);
    color: #504e70;
    font-weight: 400;
    margin-bottom: 15px;
-   height: 115px;
+   height: 80px;
 }
 .blog .blog-item-inner .blog-info .blog-tags {
    font-size: 14px;

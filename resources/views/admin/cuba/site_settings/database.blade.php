@@ -24,7 +24,7 @@
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
 
-                <div class="row card">
+                <div class="row bg-white w-80 pb-2 border-radius box-shadow mb-5">
                     <div class="col-sm-12 row">
                         <table class="text-center pt-2 bg-white table table-hover table-bordered">
                             <thead>

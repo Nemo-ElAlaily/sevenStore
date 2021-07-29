@@ -38,7 +38,7 @@
 
                         <div class="form-group col-sm-12 col-lg-6  text-md">
                             <div class="form-check checkbox checkbox-solid-secondary">
-                                <input class="" type="checkbox" class="custom-control-input" id="show_in_footer"
+                                <input class="" type="checkbox" class="custom-control-input" id="show_in_navbar"
                                     name="show_in_navbar" checked>
                                 <label class="label-page" class="custom-control-label" for="show_in_navbar">{{ trans('site.Show in Navbar') }}</label>
                             </div>
@@ -49,7 +49,7 @@
 
                         <div class="form-group col-sm-12 col-lg-6  text-md">
                             <div class="form-check checkbox checkbox-solid-secondary">
-                                <input class="" type="checkbox" class="custom-control-input" id="show_in_footer"
+                                <input class="" type="checkbox" class="custom-control-input" id="show_in_sidebar"
                                     name="show_in_sidebar" checked>
                                 <label class="label-page" class="custom-control-label" for="show_in_sidebar">{{ trans('site.Show in Sidebar') }}</label>
                             </div>
@@ -160,7 +160,7 @@
                       </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mt-5">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
                             {{ trans('site.add') }} {{ trans('site.Page') }}</button>
                     </div>

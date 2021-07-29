@@ -17,87 +17,81 @@
     @include('admin.cuba.partials._errors')
 
     <!-- Default box -->
-    <div class="card card-solid">
+    <div class="w-80 bg-white border-radius card-solid">
         <div class="card-body">
-            <ul class="nav nav-pills nav-info" id="pills-infotab" role="tablist">
-                <li class="nav-item"><a class="nav-link active" id="pills-infohome-tab" data-bs-toggle="pill" href="#pills-infohome" role="tab" aria-controls="pills-infohome" aria-selected="true" data-bs-original-title="" title="">
-                    <div class="media">
-                    <i class="flag-icon flag-icon-eg"></i>
-                  </div>AR</a></li>
-                <li class="nav-item"><a class="nav-link" id="pills-infoprofile-tab" data-bs-toggle="pill" href="#pills-infoprofile" role="tab" aria-controls="pills-infoprofile" aria-selected="false" data-bs-original-title="" title=""> <div class="media">
-                    <i class="flag-icon flag-icon-my"></i>
-                  </div>EN</a></li>
+            <ul class="nav nav-pills nav-info mt-3 " id="pills-infotab" role="tablist">
+                @foreach (config('translatable.locales') as $index => $locale)
+                    <li class="nav-item">
+                        <a class="nav-link {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}-tab" data-bs-toggle="pill" href="#{{ $locale }}" role="tab" aria-controls="{{ $locale }}" aria-selected="true" data-bs-original-title="" title="">
+                            <div class="media">
+                                <i class="{{ $locale == 'en' ? 'us' : 'ae' }}"></i>
+                            </div>
+                            {{ trans('site.' . $locale . '.name' ) }}</a>
+                    </li>
+                @endforeach
             </ul>
-            <div class="row">
-                <div class="tab-content" id="pills-infotabContent">
-                    <div class="tab-pane fade show active" id="pills-infohome" role="tabpanel" aria-labelledby="pills-infohome-tab">
-                        <p class="mb-0 m-t-30">Ar Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                    </div>
-                    <div class="tab-pane fade" id="pills-infoprofile" role="tabpanel" aria-labelledby="pills-infoprofile-tab">
-                        <p class="mb-0 m-t-30">En Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                    </div>
-                </div>
+            <div class="row mt-4">
                 <form class="col-12" action="{{ route('admin.blogs.store') }}" method="post"
                     enctype="multipart/form-data">
 
                     {{ csrf_field() }}
                     {{ method_field('post') }}
 
-                    <div class="row">
+                    <div class="tab-content container" id="pills-infotabContent">
 
                         @foreach (config('translatable.locales') as $locale)
-                            <div class="col-sm-12 col-lg-6">
+                        <div class="w-80 tab-pane fade show {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}" role="tabpanel" aria-labelledby="{{ $locale }}-tab">
                                 <div class="form-group">
-                                    <label for="{{ $locale }}[title]">{{ trans('site.title') }} @lang('site.' .
+                                    <label class="label-page" for="{{ $locale }}[title]">{{ trans('site.title') }} @lang('site.' .
                                         $locale .
                                         '.in name')</label>
                                     @error($locale . '.title')
                                         <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-thick" type="text" name="{{ $locale }}[title]"
+                                    <input class="form-control p-2px" type="text" name="{{ $locale }}[title]"
                                         value="{{ old($locale . '.title') }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label
+                                    <label class="label-page"
                                         for="{{ $locale }}[description]">{{ trans('site.' . $locale . '.description') }}
                                         @lang('site.' .
                                         $locale . '.in name')</label>
                                     @error($locale . '.description')
                                         <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <textarea class="form-control input-thick ckeditor" type="text"
+                                    <textarea class="form-control input-thick box-shadow textaarea-page" type="text"
                                         name="{{ $locale }}[description]"
                                         value="{{ old($locale . '.description') }}"></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="{{ $locale }}[creator]">{{ trans('site.Creator Name') }}
+                                    <label class="label-page" for="{{ $locale }}[creator]">{{ trans('site.Creator Name') }}
                                         @lang('site.' . $locale .
                                         '.in name')</label>
                                     @error($locale . '.creator')
                                         <br />
                                         <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-thick" type="text" name="{{ $locale }}[creator]"
+                                    <input class="form-control p-2px" type="text" name="{{ $locale }}[creator]"
                                         value="{{ old($locale . '.creator') }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="{{ $locale }}[meta_title]">{{ trans('site.Meta Title') }}
+                                    <label class="label-page" for="{{ $locale }}[meta_title]">{{ trans('site.Meta Title') }}
                                         @lang('site.' . $locale .
                                         '.in name')</label>
                                     @error($locale . '.meta_title')
                                         <br />
                                         <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-thick" type="text"
+                                    <input class="form-control p-2px" type="text"
                                         name="{{ $locale }}[meta_title]"
                                         value="{{ old($locale . '.meta_title') }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="{{ $locale }}[meta_keywords]">{{ trans('site.Meta Keywords') }}
+                                    <label class="label-page" for="{{ $locale }}[meta_keywords]">{{ trans('site.Meta Keywords') }}
                                         @lang('site.' .
                                         $locale .
                                         '.in name')</label>
@@ -105,13 +99,13 @@
                                         <br />
                                         <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-thick" type="text"
+                                    <input class="form-control p-2px" type="text"
                                         name="{{ $locale }}[meta_keywords]"
                                         value="{{ old($locale . '.meta_keywords') }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label
+                                    <label class="label-page" 
                                         for="{{ $locale }}[meta_description]">{{ trans('site.Meta Description') }}
                                         @lang('site.' .
                                         $locale .
@@ -120,39 +114,44 @@
                                         <br />
                                         <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-thick" type="text"
+                                    <input class="form-control p-2px" type="text"
                                         name="{{ $locale }}[meta_description]"
                                         value="{{ old($locale . '.meta_description') }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="{{ $locale }}[meta_slug]">{{ trans('site.slug') }} @lang('site.' .
+                                    <label class="label-page" for="{{ $locale }}[meta_slug]">{{ trans('site.slug') }} @lang('site.' .
                                         $locale .
                                         '.in name')</label>
                                     @error($locale . '.meta_slug')
                                         <br />
                                         <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-thick" type="text"
+                                    <input class="form-control p-2px" type="text"
                                         name="{{ $locale }}[meta_slug]" value="{{ old($locale . '.meta_slug') }}">
                                 </div>
                             </div>
                         @endforeach
                     </div>
-                    <div class="row">
-                        <div class="form-group col-sm-6 col-lg-6">
-                            <label>{{ trans('site.Active ?') }}</label>
-                            <input type="checkbox" name="is_active" class="form-control">
+                    <div class="row mt-5 mb-4">
+                        <div class="form-group col-sm-6 col-lg-6 ">
+                            <div class="form-check checkbox checkbox-solid-secondary">
+                                <input type="checkbox" name="is_active" class="custom-control-input" id="is_active">
+                                <label class="label-page" for="is_active">{{ trans('site.Active ?') }}</label>
+                            </div>
+
                         </div>
                         <div class="form-group col-sm-6 col-lg-6">
-                            <label>{{ trans('site.Show in Home Page ?') }}</label>
-                            <input type="checkbox" name="show_in_homepage" class="form-control">
+                            <div class="form-check checkbox checkbox-solid-secondary">
+                            <input type="checkbox" name="show_in_homepage" class="custom-control-input" id="show_in_homepage">
+                            <label class="label-page" for="show_in_homepage" >{{ trans('site.Show in Home Page ?')}}</label>
+                        </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label>{{ trans('site.Tags') }}</label>
+                            <label class="label-page" >{{ trans('site.Tags') }}</label>
                             <select class="js-example-basic-multiple form-control" name="tags[]" multiple="multiple">
                                 @foreach ($tags as $tag)
                                     <option value={{ $tag->id }}>{{ $tag->name }}</option>
@@ -160,7 +159,7 @@
                             </select>
                         </div>
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label>{{ trans('site.Category') }}</label>
+                            <label class="label-page" >{{ trans('site.Category') }}</label>
                             <select class="js-example-basic form-control" name="category_id">
                                 @foreach ($categories as $category)
                                     <option value={{ $category->id }}>{{ $category->name }}</option>
@@ -172,7 +171,7 @@
                     <div class="row pt-3">
 
                         <div class="form-group col-sm-12 col-lg-12">
-                            <label>{{ trans('site.Image') }}</label>
+                            <label class="label-page" >{{ trans('site.Image') }}</label>
                             @error('image')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
@@ -184,7 +183,7 @@
 
                     </div>
 
-                    <div class="form-group my-4">
+                    <div class="form-group my-5">
                         <button type="submit" class="btn btn-secondary"><i class="fa fa-plus"></i>
                             {{ trans('site.create') }} {{ trans('site.Blog') }}</button>
                     </div>

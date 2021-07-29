@@ -10,12 +10,12 @@
 @section('content')
 
     <!-- Default box -->
-    <div class="card-solid">
+    <div class="card-solid ">
         <div class="card-body">
             <div class="row bg-user p-4">
 
                 {{-- @include('partials._errors') --}}
-                <form class="col-10 m-auto bg-user-child p-2" action="{{ route('admin.users.store') }}" method="post"
+                <form class="col-10 box-shadow m-auto bg-user-child p-2" action="{{ route('admin.users.store') }}" method="post"
                     enctype="multipart/form-data">
 
                     {{ csrf_field() }}

@@ -12,7 +12,7 @@
 @stop
 
 @section('content')
-    <div class="box-body mx-5 mt-3">
+    <div class="box-body">
 
         @include('admin.cuba.partials._session')
         @include('admin.cuba.partials._errors')
@@ -24,8 +24,8 @@
             {{ method_field('POST') }}
 
             <div class="row">
-                <div class="col-sm-12 row">
-                    <table class="text-center pt-2 table table-hover table-bordered">
+                <div class="border-radius box-shadow w-80 box-body p-5 my-5 bg-white">
+                    <table class="text-center pt-2 card-body table table-hover table-bordered">
                         @if ($socials->count() > 0)
                             <thead>
                                 <tr>
@@ -59,7 +59,7 @@
 
                                 @endforeach
 
-                                <div class="form-group">
+                                <div class="form-group mb-4">
                                     <button type="submit" class="btn btnAdd"><i class="fa fa-edit"></i>
                                         Update Social Links</button>
                                 </div>

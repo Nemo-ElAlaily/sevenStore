@@ -9,7 +9,7 @@
 
 @section('content')
     <!-- Default box -->
-    <div class="card card-solid">
+    <div class="w-80 card-solid">
         <div class="card-body">
             <div class="row add-create-blog">
                 @include('admin.cuba.partials._errors')
@@ -56,7 +56,7 @@
                                         <br />
                                         <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <textarea class="form-control input-thick textareaBlog" type="text"
+                                    <textarea class="form-control input-thick box-shadow" type="text"
                                         name="{{ $locale }}[description]">
                                         {{ old($locale . '.description') }}
                                     </textarea>
@@ -68,7 +68,7 @@
                                         <br />
                                         <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <textarea class="form-control textareaBlogtextareaBlog" type="text"
+                                    <textarea class="form-control box-shadow" type="text"
                                         name="{{ $locale }}[features]">{{ old($locale . '.features') }}</textarea>
                                 </div>
 
