@@ -24984,7 +24984,7 @@ body.dark-only .toggle-sidebar svg {
     stroke: var(--theme-deafult);
 }
 body.dark-only .page-wrapper .page-body-wrapper {
-    background-color: #1d1e26;
+    background-color: #f8f8f847;
 }
 body.dark-only .page-wrapper .sidebar-main-title p {
     color: rgba(255, 255, 255, 0.6);
@@ -39908,7 +39908,7 @@ body[class*="dark-"] .for-light {
     stroke: #2c323f;
 }
 .page-wrapper .page-body-wrapper {
-    background-color: #f8f8f8;
+    background-color: #f8f8f847;
 }
 .page-wrapper .page-body-wrapper .page-body {
     min-height: calc(100vh - 136px);
@@ -49862,35 +49862,25 @@ width: 200px;
     width: 100px;
 }
 
-.card .card-body{
-    padding: 40px;
-    position: relative;
-    padding-bottom:10px;
-}
-.overlay{
 
-    background-color: rgb(220 220 220 / 75%);
-    border-radius: 20px;
-
-}
 .cardwizard
 {
-    background:  linear-gradient(45deg, #fff722, #ff26f9);
     background-size: 100% 100%;
     border-radius: 20px;
-    box-shadow: inset -20px 0 38px -18px #ff26f9,inset -3px -13px 65px -18px yellow;
 
     /* background-image: url('https://th.bing.com/th/id/OIP.Bi5V4qpNplQJFFXz4ux9owHaEc?pid=ImgDet&rs=1'); */
 }
 
 
 .cardwizard .form-control{
-    background: transparent;
     color: #333;
     padding-left: 60px;
     border: 1px solid #fff;
     margin: 0 auto 30px;
     width:70%;
+    position: relative;
+}
+
 }
 .input-container{
     position: relative;
@@ -49898,19 +49888,16 @@ width: 200px;
 .input-container .fa
 {
     position: absolute;
-    left: 120px;
+    left: 50px;
     top: 0;
-    border-right: 2px solid #e6e6e6;
+    border-right: 2px solid #7d7c7c91;
+    color: #333;
     padding: 7px;
-    color: #bfbfbf;
     font-size: 20px;
+    z-index: 1;
 }
 
-.input-container .form-control::placeholder {
-    color: #eee;
-    opacity: .8;
-    text-align: center;
-  }
+
 .dashboard .widget{
 
     background-color: darkcyan;
@@ -50546,7 +50533,7 @@ form.col-12.form-user-create{
     padding: 15px;
 }
 .bg-user{
-    background-color: #f1f1f1;
+    /* background-color: #f1f1f1; */
 }
 .bg-user-child{
     width: 90%;
@@ -50589,4 +50576,20 @@ form.col-12.form-user-create{
 .textaarea-page{
     height: 250px;
     padding: 10px;
+}
+
+.linear-database{
+
+   background: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%)
+}
+
+   .sizeing-database{
+        padding:  40px 20px;
+        margin-top: 30px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }
+.social-icon-setting{
+font-size: 23px !important;
+    margin-right: 10px;
 }

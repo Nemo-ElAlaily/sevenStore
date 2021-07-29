@@ -37,10 +37,30 @@
                             </thead>
 
                             <tbody>
+                                <?php 
+                                    $color = array(
+                                        'facebook' => '#3b5998', 
+                                        'twitter'=> '#1da1f2',
+                                        'whatsapp' => '#25d366',
+                                        'linkedin' => '#3b5998',
+                                        'pinterest'=> '#bd081c',
+                                        'instagram'=> '#0a66c2',
+                                        'youtube'=> '#c32aa3',
+                                         );
+                            // dd($color)
+                                ?>
+                                {{-- color{
+                                    facebook: '#3b5998',
+                                    twitter: '#1da1f2',
+                                    youtube: '#ff0000',
+                                    pinterest: '#bd081c',
+                                    linkedin: '#0a66c2',
+                                    instagram: '#c32aa3',
+                                } --}}
                                 @foreach ($socials as $index => $social)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ ucfirst($social->key) }}</td>
+                                        <td><i class="social-icon-setting fa fa-{{ $social->key }} fa-lg" style="color: {{ $color[$social->key] }}"> </i> {{ ucfirst($social->key) }}</td>
                                         <td>
                                             <div class="form-group">
                                                 <input class="form-control input-thick" type="text"

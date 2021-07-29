@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-    <div class="box box-primary">
+    <div class="box box-primary w-80 bg-white box-shadow border-radius mb-5 py-5">
 
         <div class="box-header with-border">
 
