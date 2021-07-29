@@ -49862,35 +49862,25 @@ width: 200px;
     width: 100px;
 }
 
-.card .card-body{
-    padding: 40px;
-    position: relative;
-    padding-bottom:10px;
-}
-.overlay{
 
-    background-color: rgb(220 220 220 / 75%);
-    border-radius: 20px;
-
-}
 .cardwizard
 {
-    background:  linear-gradient(45deg, #fff722, #ff26f9);
     background-size: 100% 100%;
     border-radius: 20px;
-    box-shadow: inset -20px 0 38px -18px #ff26f9,inset -3px -13px 65px -18px yellow;
 
     /* background-image: url('https://th.bing.com/th/id/OIP.Bi5V4qpNplQJFFXz4ux9owHaEc?pid=ImgDet&rs=1'); */
 }
 
 
 .cardwizard .form-control{
-    background: transparent;
     color: #333;
     padding-left: 60px;
     border: 1px solid #fff;
     margin: 0 auto 30px;
     width:70%;
+    position: relative;
+}
+
 }
 .input-container{
     position: relative;
@@ -49898,19 +49888,16 @@ width: 200px;
 .input-container .fa
 {
     position: absolute;
-    left: 120px;
+    left: 50px;
     top: 0;
-    border-right: 2px solid #e6e6e6;
+    border-right: 2px solid #7d7c7c91;
+    color: #333;
     padding: 7px;
-    color: #bfbfbf;
     font-size: 20px;
+    z-index: 1;
 }
 
-.input-container .form-control::placeholder {
-    color: #eee;
-    opacity: .8;
-    text-align: center;
-  }
+
 .dashboard .widget{
 
     background-color: darkcyan;
@@ -50590,3 +50577,15 @@ form.col-12.form-user-create{
     height: 250px;
     padding: 10px;
 }
+
+.linear-database{
+
+   background: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%)
+}
+
+   .sizeing-database{
+        padding:  40px 20px;
+        margin-top: 30px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }

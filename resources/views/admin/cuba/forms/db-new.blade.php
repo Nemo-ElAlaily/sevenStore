@@ -1,4 +1,4 @@
-@extends('layouts.admin.db-forms')
+@extends('admin.cuba.layouts.db-forms')
 
 @section('title', trans('site.Database Setup'))
 
@@ -24,7 +24,7 @@
                         {{-- <div class="alert alertTabs ">
                         <p class="text-center">Please Make sure fill all the filed before click on next button</p>
                     </div> --}}
-                        <div class="card-body">
+                        <div class="linear-database px-5 pt-5 pb-3 border-radius">
                             <div class="imgTabs">
                                 <img src="{{ asset('admins/cuba/assets/images/Spcfavicon.png') }}" />
                             </div>
@@ -33,21 +33,21 @@
                                 {{ csrf_field() }}
                                 {{ method_field('post') }}
 
-                                <div class="tabsShadow">
+                                <div class="linear-database sizeing-database">
 
                                     <div class="tab">
 
                                         <div class="mb-3 input-container  ">
 
-                                            <i class="fa fa-user icon"></i>
-                                            <input class="form-control" id="cpanel_username" type="text"
-                                                name='cpanel_username' placeholder="Cpanel Username" required>
-                                        </div>
+                                        {{--<i class="fa fa-user icon"></i>--}}
+                                        <input class="form-control" id="cpanel_username" type="text"
+                                            name='cpanel_username' placeholder="Cpanel Username" required>
+                                    </div>
 
 
                                         <div class="mb-3 input-container  ">
 
-                                            <i class="fa fa-key icon"></i>
+                                            {{--<i class="fa fa-key icon"></i>--}}
                                             <input class="form-control" id="cpanel_pass" type="password" name='cpanel_pass'
                                                 placeholder="Cpanel Password" required>
                                         </div>
@@ -55,19 +55,19 @@
 
                                         <div class="mb-3 input-container   ">
                                             {{-- <label class="titel-db" for="DB_DATABASE">New Database Name</label> --}}
-                                            <i class="fa fa-user icon"></i>
+                                            {{--<i class="fa fa-user icon"></i>--}}
                                             <input class="form-control" id="DB_DATABASE" type="text" name='DB_DATABASE'
                                                 placeholder="New Database Name" required="required">
                                         </div>
                                         <div class="mb-3 input-container  ">
                                             {{-- <label class="titel-db" for="DB_HOST">New Database Host</label> --}}
-                                            <i class="fa fa-user icon"></i>
+                                            {{--<i class="fa fa-user icon"></i>--}}
                                             <input class="form-control" id="DB_HOST" type="text" name='DB_HOST'
                                                 placeholder="New Database Host" required>
                                         </div>
                                         <div class="mb-3 input-container  ">
                                             {{-- <label class="titel-db" for="DB_USERNAME">New Database Username</label> --}}
-                                            <i class="fa fa-user icon"></i>
+                                            {{--<i class="fa fa-user icon"></i>--}}
                                             <input class="form-control" id="DB_USERNAME" type="url" name='DB_USERNAME'
                                                 placeholder=" New Database Username" required>
                                         </div>
@@ -84,25 +84,25 @@
 
                                         <div class="mb-3 input-container  ">
                                             {{-- <label class="titel-db" for="WP_DB_DATABASE">Wordpress Database Name</label> --}}
-                                            <i class="fa fa-user icon"></i>
+                                            {{--<i class="fa fa-user icon"></i>--}}
                                             <input class="form-control" id="WP_DB_DATABASE" name='WP_DB_DATABASE'
                                                 type="text" placeholder="Wordpress Database Name" required="required">
                                         </div>
                                         <div class="mb-3 input-container  ">
                                             {{-- <label class="titel-db" for="WP_DB_HOST">Wordpress Database Host</label> --}}
-                                            <i class="fa fa-user icon"></i>
+                                            {{--<i class="fa fa-user icon"></i>--}}
                                             <input class="form-control" id="WP_DB_HOST" type="text" name='WP_DB_HOST'
                                                 placeholder="Wordpress Database Host" required>
                                         </div>
                                         <div class="mb-3 input-container  ">
                                             {{-- <label class="titel-db" for="WP_DB_USERNAME">Wordpress Database Username</label> --}}
-                                            <i class="fa fa-user icon"></i>
+                                            {{--<i class="fa fa-user icon"></i>--}}
                                             <input class="form-control" id="WP_DB_USERNAME" name='WP_DB_USERNAME' type="url"
                                                 placeholder="Wordpress Database Username" required>
                                         </div>
                                         <div class="mb-3 input-container  ">
                                             {{-- <label class="titel-db" for="WP_DB_PASSWORD">Wordpress Database Password</label> --}}
-                                            <i class="fa fa-key icon"></i>
+                                            {{--<i class="fa fa-key icon"></i>--}}
                                             <input class="form-control" id="WP_DB_PASSWORD" name='WP_DB_PASSWORD'
                                                 type="password" placeholder="Wordpress Database Password" required>
                                         </div>
