@@ -9,6 +9,10 @@ define('ADMIN_PAGINATION_COUNT', 10);
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
     Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:super_admin|admin|vendor|shop_manager|moderator'])->group(function () {
 
+        Route::get('/form', function() {
+            return view('admin.cuba.forms.db-new');
+        });
+
         Route::get('/', 'AdminController@index')->name('index');
 
         /* Site Settings Routes */
@@ -69,7 +73,4 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::put('updateMainMenue','MenusController@upadteMainMenuePages')->name('update.main.menue');
     Route::put('updateSideMenue','MenusController@upadteSideMenuePages')->name('update.side.menue');
     Route::put('updateFooterMenue','MenusController@upadteFooterMenuePages')->name('update.footer.menue');
-
-
-
 });
