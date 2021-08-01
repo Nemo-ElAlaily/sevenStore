@@ -54,7 +54,7 @@
 
         <div id="sidebar" class="sidebar" role="complementary">
             @include('themes.electro.includes.components.sidebar.product-categories-widget')
-            @include('themes.electro.includes.components.sidebar.product-filters-sidebar')
+{{--            @include('themes.electro.includes.components.sidebar.product-filters-sidebar')--}}
             @include('themes.electro.includes.components.sidebar.latest-products')
         </div>
 

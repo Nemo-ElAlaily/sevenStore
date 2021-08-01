@@ -6,12 +6,17 @@
             </ul>
             <ul>
                 @foreach ($categories as $category)
-                    <li class="cat-item current-cat">
-                        <a href="{{ route('front.product.category', $category->slug) }}">
-                            {{ $category->name }}
-                        </a>
-                        <span class="count">({{ $category->sub_categories->count() }})</span>
-                    </li>
+
+                    @if($category -> products -> count() != 0)
+                        <li class="cat-item current-cat">
+                            <a href="{{ route('front.product.category', $category->slug) }}">
+                                {{ $category->name }}
+                            </a>
+                            <span class="count">({{ $category->sub_categories->count() }})</span>
+                        </li>
+
+                    @endif
+
                 @endforeach
 
             </ul>

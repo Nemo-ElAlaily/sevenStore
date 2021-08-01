@@ -31,7 +31,7 @@
 
 </head>
 
-@if (Route::is('front.shop') || Route::is('front.product.details') || Route::is('front.product.category'))
+@if (Route::is('front.shop') || Route::is('front.product.details') || Route::is('front.product.category') || Route::is('front.page.details'))
 
     <body class="left-sidebar single-product">
 @elseif(Route::is('front.blog'))

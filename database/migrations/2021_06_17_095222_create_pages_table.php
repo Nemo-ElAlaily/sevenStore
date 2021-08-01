@@ -15,6 +15,8 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('image')->default('default.png');
+            $table->string('banner')->default('default.png');
             $table->boolean('is_active')->default(1);
             $table->boolean('show_in_navbar')->default(0);
             $table->boolean('show_in_sidebar')->default(0);
