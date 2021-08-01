@@ -15,7 +15,7 @@
             <div class="row bg-user p-4">
 
                 {{-- @include('partials._errors') --}}
-                <form class="col-10 box-shadow m-auto bg-user-child p-2" action="{{ route('admin.users.store') }}" method="post"
+                <form class="col-10 box-shadow m-auto bg-user-child py-4" action="{{ route('admin.users.store') }}" method="post"
                     enctype="multipart/form-data">
 
                     {{ csrf_field() }}
@@ -23,65 +23,66 @@
 
                     <div class="row">
 
-                        <div class="form-group col-sm-12 col-md-3">
-                            <label class="user-label">{{ trans('site.First Name') }}</label>
+                        <div class="form-group col-sm-12 col-md-3 mb-3">
+                            {{-- <label class="user-label">{{ trans('site.First Name') }}</label> --}}
                             @error('first_name')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="text" name="first_name" class="form-control form-control-sm input-sm"
+                            <input type="text" placeholder="First Name" name="first_name" class="form-control form-control-sm input-sm"
                                 value="{{ old('first_name') }}">
                         </div>
 
-                        <div class="form-group col-sm-12 col-md-3">
-                            <label class="user-label">{{ trans('site.Last Name') }}</label>
+                        <div class="form-group col-sm-12 col-md-3 mb-3">
+                            {{-- <label class="user-label">{{ trans('site.Last Name') }}</label> --}}
                             @error('last_name')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="text" name="last_name" class="form-control form-control-sm input-sm"
+                            <input type="text" placeholder="Last Name" name="last_name" class="form-control form-control-sm input-sm"
                                 value="{{ old('last_name') }}">
                         </div>
 
-                        <div class="form-group col-sm-12 col-md-3">
-                            <label class="user-label">{{ trans('site.E-Mail') }}</label>
+                        <div class="form-group col-sm-12 col-md-3 mb-3">
+                            {{-- <label class="user-label">{{ trans('site.E-Mail') }}</label> --}}
                             @error('email')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="email" name="email" class="form-control form-control-sm input-sm"
+                            <input type="email" name="email" placeholder="E-Mail" class="form-control form-control-sm input-sm"
                                 value="{{ old('email') }}">
                         </div>
 
-                        <div class="form-group col-sm-12 col-md-3">
-                            <label class="user-label">{{ trans('site.Password') }}</label>
+                        <div class="form-group col-sm-12 col-md-3 mb-3">
+                            {{-- <label class="user-label">{{ trans('site.Password') }}</label> --}}
                             @error('password')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="password" name="password" class="form-control form-control-sm input-sm">
+                            <input type="password" placeholder="Password" name="password" class="form-control form-control-sm input-sm">
                         </div>
 
-                        <div class="form-group forms col-sm-12 my-2 col-md-6">
-                            <label class="user-label">{{ trans('site.Password Confirmation') }}</label>
+                        <div class="form-group forms col-sm-12 my-2 col-md-6 mb-3">
+                            {{-- <label class="user-label">{{ trans('site.Password Confirmation') }}</label> --}}
                             @error('password.confirmed')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="password" name="password_confirmation"
+                            <input type="password" placeholder="Confirm Password" name="password_confirmation"
                                 class="form-control form-control-sm input-sm">
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="form-group col-sm-12  my-2 col-md-6">
-                            <label class="user-label">{{ trans('site.Avatar') }}</label>
+                            <label class="text-center setting-general-title">{{ trans('site.Avatar') }}</label>
                             @error('avatar')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
                             <input type="file" name="avatar" class="form-control input-sm avatar">
 
-                            <img src="{{ asset('admins/cuba/assets/images/user/user.png') }}" width="100px"
+                            <img src="" width="100px"
                                 class="img-thumbnail avatar-preview mt-1" alt="">
                         </div> {{-- end of form group avatar --}}
 
-                        <div class="form-group col-sm-12 col-lg-12">
+                        <div class="form-group col-sm-12 col-lg-6">
 
                             <div class="text-center m-b">
-                                <h3 class="m-b-0">{{ trans('site.User Role') }}</h3>
+                                <h3 class="text-center setting-general-title">{{ trans('site.User Role') }}</h3>
                             </div>
 
                             @php
