@@ -63,7 +63,10 @@
                                 <td>{{ $vendor->full_name }}</td>
                                 <td>
                                     <a href="{{ route('admin.products.index', ['vendor_id' => $vendor->id]) }}"
-                                        class="btn btn-dark btn-sm text-white"><i class="fa fa-eye"></i> {{ trans('site.View Products') }}</a>
+                                        class="btn view-proud">
+                                        <i class="fa fa-eye"></i>
+                                        <span>{{ trans('site.View Products') }}</span>
+                                        </a>
                                 </td>
                                 <td>
                                     @if (auth()->user()->hasPermission('users_update'))

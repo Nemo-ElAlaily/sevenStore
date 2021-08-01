@@ -2755,6 +2755,7 @@
     }
 }
 @media only screen and (max-width: 575.98px) {
+
     .page-wrapper.only-body .page-header .header-wrapper .nav-right {
         right: 30px;
     }
@@ -3977,7 +3978,7 @@
         margin-right: unset;
     }
     .btn{
-        padding: 10px;
+        padding: 2px;
         margin: 5px;
     }
  

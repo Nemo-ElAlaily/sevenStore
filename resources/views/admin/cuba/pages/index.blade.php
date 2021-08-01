@@ -60,7 +60,11 @@
                                 <td>{{ $page->getActive() }}</td>
                                 <td>
                                     @if ($page->is_active == 1)
-                                        <a href="{{ route('front.page.details', $page->slug) }}" target="_blank">{{ trans('site.Go To Page') }}</a>
+                                        <a class="view-proud" href="{{ route('front.page.details', $page->slug) }}" target="_blank">
+                                            <span>
+                                                {{ trans('site.Go To Page') }}
+                                            </span>
+                                        </a>
                                     @endif
                                 </td>
                                 <td>

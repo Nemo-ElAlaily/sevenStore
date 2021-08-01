@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-    <div class="box box-primary w-80 bg-white box-shadow border-radius mb-5 py-5">
+    <div class="box box-primary  bg-white box-shadow border-radius mb-5 py-5">
 
         <div class="box-header with-border">
 
@@ -26,7 +26,7 @@
 
                     <div class="col-md-2">
                         <label class="w-100">
-                            <select class="select-css" name="role" class="form-control">
+                            <select class="form-select form-control-secondary" name="role" class="form-control">
                                 <option value="">{{ trans('site.All Roles') }}</option>
                                 @foreach ($roles as $role)
                                     <option value="{{ $role->name }}"
@@ -74,8 +74,9 @@
 
                 <tbody>
                         @foreach ($users as $index => $user)
+         
                         <tr>
-                            <td>{{ $index + 1 }}</td>
+                            <td><img class="avatar-user-all" src="{{ $user->avatar }}" alt=""></td>
                             <td> {{ $user->full_name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>

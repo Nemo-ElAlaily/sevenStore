@@ -2048,6 +2048,7 @@ a[class*="badge-"]:hover {
 }
 .btn {
     font-size: 14px;
+    margin-b
 }
 *.btn:focus {
     -webkit-box-shadow: none !important;
@@ -9711,7 +9712,7 @@ table.dataTable.display tbody tr.odd > .sorting_1 {
     z-index: 1;
     width: 0.75rem;
     height: 0.75rem;
-    background: var(--theme-deafult);
+    background: #f73164;
     border-radius: 50%;
 }
 .radio_animated:after {
@@ -9722,7 +9723,7 @@ table.dataTable.display tbody tr.odd > .sorting_1 {
     width: 1.25rem;
     height: 1.25rem;
     background: #fff;
-    border: 2px solid #ecf3fa;
+    border: 2px solid #abadaf;
     border-radius: 50%;
 }
 .radio_animated:checked:before {
@@ -39908,7 +39909,7 @@ body[class*="dark-"] .for-light {
     stroke: #2c323f;
 }
 .page-wrapper .page-body-wrapper {
-    background-color: #f8f8f847;
+    background-color: #f8f8f8;
 }
 .page-wrapper .page-body-wrapper .page-body {
     min-height: calc(100vh - 136px);
@@ -49548,7 +49549,7 @@ input.bg-dark:focus {
 /* class applies to select element itself, not a wrapper element */
 .select-css {
     display: block;
-    font-size: 16px;
+    font-size: 11px;
     font-family: sans-serif;
     font-weight: 700;
     color: #444;
@@ -49703,6 +49704,11 @@ input.bg-dark:focus {
     }
     .table td{
         padding: 0;
+        font-size: 10px;
+        font-weight: bold;
+    }
+    .table thead th{
+        font-size: 10px;
     }
     .table th{
         padding: 2px;
@@ -49716,7 +49722,9 @@ input.bg-dark:focus {
     .box.box-primary{
 
         text-align: center;
+        width: 100%;
     }
+ 
 }
 
 @media only screen and (min-width: 410px) and (max-width:767px){
@@ -50571,7 +50579,7 @@ form.col-12.form-user-create{
     border-radius:10px
 }
 .box-shadow{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
 .textaarea-page{
     height: 250px;
@@ -50593,3 +50601,76 @@ form.col-12.form-user-create{
 font-size: 23px !important;
     margin-right: 10px;
 }
+.setting-general-title{
+    font-size: 20px;
+    color: #a5a2a2;
+}
+.ribbon-genset{
+    height: 96px !important;
+    margin-right: 10px;
+}
+.ribbon-genset  .card-body{
+    padding: 10px !important;
+}
+
+.form-control{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.avatar-user-all{
+    width: 60px;
+    height: 60px;
+    border-radius:5px;
+}
+.view-proud{
+    border: 1px solid #333;
+    padding: 5px;
+    position: relative;
+}
+.view-proud:before{
+    content:'';
+    position : absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #333;
+    transform: scale(0);
+    transition: .5s ease;
+}
+.view-proud:hover:before{
+    transform: scale(1);
+}
+.view-proud span,
+.view-proud i{
+    position: relative;
+    z-index: 1;
+    color: #333;
+    transition: .6s ease;
+}
+.view-proud:hover span,
+.view-proud:hover i{
+    color: #fff;
+}
+ /* .form-control-secondary{
+    border-color: #f73164;
+    color: #f73164;
+    
+} */
+

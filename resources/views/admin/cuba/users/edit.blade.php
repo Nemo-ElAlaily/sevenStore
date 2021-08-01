@@ -23,37 +23,42 @@
                             {{ method_field('put') }}
 
                             <div class="row">
-                                <div class="form-group col-sm-12 col-md-6">
-                                    <label class="labelProd">{{ trans('site.First Name') }}</label>
+                                <div class="col-md-12">
+                                    <h2 class="text-center setting-general-title">
+                                      User Data
+                                    </h2>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 my-4">
+                                    {{-- <label class="labelProd">{{ trans('site.First Name') }}</label> --}}
                                     @error('first_name')
                                         <span class="text-danger mx-1">{{ $message }}</span>
                                     @enderror
-                                    <input type="text" name="first_name"
-                                        class="form-control input-blog-create form-control-sm input-sm"
+                                    <input type="text" placeholder="First Name" name="first_name"
+                                        class="form-control  form-control-sm input-sm"
                                         value="{{ $user->first_name }}">
                                 </div>
 
-                                <div class="form-group col-sm-12 col-md-6">
-                                    <label class="labelProd">{{ trans('site.Last Name') }}</label>
+                                <div class="form-group col-sm-12 col-md-4 my-4">
+                                    {{-- <label class="labelProd">{{ trans('site.Last Name') }}</label> --}}
                                     @error('last_name')
                                         <span class="text-danger mx-1">{{ $message }}</span>
                                     @enderror
-                                    <input type="text" name="last_name"
-                                        class="form-control input-blog-create form-control-sm input-sm"
+                                    <input type="text" placeholder="Last Name" name="last_name"
+                                        class="form-control  form-control-sm input-sm"
                                         value="{{ $user->last_name }}">
                                 </div>
 
-                                <div class="form-group col-sm-12 col-md-6">
-                                    <label class="labelProd">{{ trans('site.E-Mail') }}</label>
+                                <div class="form-group col-sm-12 col-md-4  my-4">
+                                    {{-- <label class="labelProd">{{ trans('site.E-Mail') }}</label> --}}
                                     @error('email')
                                         <span class="text-danger mx-1">{{ $message }}</span>
                                     @enderror
-                                    <input type="email" name="email" class="input-blog-create form-control form-control-sm input-sm"
+                                    <input type="email" placeholder="E-Mail" name="email" class=" form-control form-control-sm input-sm"
                                         value="{{ $user->email }}">
                                 </div>
 
-                                <div class="form-group col-sm-12 col-md-6  text-center m-auto">
-                                    <label class="labelProd">{{ trans('site.Avatar') }}</label>
+                                <div class="form-group col-sm-12 col-md-5  text-center my-5">
+                                    <label class="text-center setting-general-title">{{ trans('site.Avatar') }}</label>
                                     @error('avatar')
                                         <span class="text-danger mx-1">{{ $message }}</span>
                                     @enderror
@@ -62,10 +67,10 @@
                                         alt="">
                                 </div>
 
-                                <div class="form-group col-sm-12 col-lg-12 mb-5">
+                                <div class="form-group col-sm-12 col-lg-7 my-5">
 
                                     <div class="text-center m-b">
-                                        <h3 class="m-b-0">{{ trans('site.User Role') }}</h3>
+                                        <h3 class="text-center setting-general-title">{{ trans('site.User Role') }}</h3>
                                     </div>
 
                                     @php
@@ -101,12 +106,12 @@
 
                                 </div> {{-- end of form group for roles --}}
 
-
-                            </div>
-
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-secondary toastrDefaultSuccess"><i class="fa fa-edit"></i>
-                                    {{ trans('site.update') }}</button>
+                                <div class="col-md-12 text-center">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-secondary toastrDefaultSuccess"><i class="fa fa-edit"></i>
+                                            {{ trans('site.update') }}</button>
+                                    </div>
+                                </div>
                             </div>
 
                         </form><!-- end of form -->
