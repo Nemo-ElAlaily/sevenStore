@@ -1,25 +1,28 @@
+<?php
+    $sliders = \App\Models\Sliders\Slider::all();
+?>
+
 <div class="home-v1-slider">
     <!-- ========================================== SECTION – HERO : END========================================= -->
 
     <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
 
-        <div class="item" style="background-image: {{ asset('front/electro/images/slider/banner-2.jpg') }}">
+        @foreach($sliders as $index => $slider)
+        <div class="item" style="background-image: url({{ $slider -> image_path }})">
             <div class="container">
                 <div class="row">
                     <div class="col-md-offset-3 col-md-5">
                         <div class="caption vertical-center text-left">
                             <div class="hero-1 fadeInDown-1">
-                                The New <br> Standard
+                                {{ $slider -> title }}
                             </div>
 
                             <div class="hero-subtitle fadeInDown-2">
-                                under favorable smartwatches
+                                {{ $slider -> sub_title }}
                             </div>
-                            <div class="hero-v2-price fadeInDown-3">
-                                from <br><span>$749</span>
-                            </div>
+
                             <div class="hero-action-btn fadeInDown-4">
-                                <a href="#" class="big le-button ">Start Buying</a>
+                                <a href="{{ $slider -> link == null ? route('front.shop') : $slider -> link }}" class="big le-button ">Go To Page</a>
                             </div>
                         </div><!-- /.caption -->
                     </div>
@@ -27,50 +30,7 @@
             </div><!-- /.container -->
         </div><!-- /.item -->
 
-
-        <div class="item" style="background-image: {{ asset('front/electro/images/slider/banner-1.jpg') }}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-offset-3 col-md-5">
-                        <div class="caption vertical-center text-left">
-                            <div class="hero-subtitle-v2 fadeInDown-1">
-                                shop to get what you loves
-                            </div>
-
-                            <div class="hero-2 fadeInDown-2">
-                                Timepieces that make a statement up to <strong>40% Off</strong>
-                            </div>
-
-                            <div class="hero-action-btn fadeInDown-3">
-                                <a href="#" class="big le-button ">Start Buying</a>
-                            </div>
-                        </div><!-- /.caption -->
-                    </div>
-                </div>
-            </div><!-- /.container -->
-        </div><!-- /.item -->
-
-        <div class="item" style="background-image:  {{ asset('front/electro/images/slider/banner-1.jpg') }}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-offset-3 col-md-5">
-                        <div class="caption vertical-center text-left">
-                            <div class="hero-subtitle-v2 fadeInLeft-1">
-                                shop to get what you loves
-                            </div>
-
-                            <div class="hero-2 fadeInRight-1">
-                                Timepieces that make a statement up to <strong>40% Off</strong>
-                            </div>
-
-                            <div class="hero-action-btn fadeInLeft-2">
-                                <a href="#" class="big le-button ">Start Buying</a>
-                            </div>
-                        </div><!-- /.caption -->
-                    </div>
-                </div>
-            </div><!-- /.container -->
-        </div><!-- /.item -->
+        @endforeach
 
 
     </div><!-- /.owl-carousel -->

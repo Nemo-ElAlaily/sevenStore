@@ -1,80 +1,25 @@
-<div class="home-v1-slider">
-    <!-- ========================================== SECTION – HERO : END========================================= -->
+<?php
+    $sliders = \App\Models\Sliders\Slider::all();
+?>
 
-    <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+<!-- BEGIN SLIDER -->
+<div class="page-slider margin-bottom-35">
+    <!--LayerSlider begin-->
+    <div id="layerslider" style="width: 100%; height: 494px; margin: 0 auto;">
 
-        <div class="item" style="background-image: {{ asset('front/electro/images/slider/banner-2.jpg') }}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-offset-3 col-md-5">
-                        <div class="caption vertical-center text-left">
-                            <div class="hero-1 fadeInDown-1">
-                                The New <br> Standard
-                            </div>
-
-                            <div class="hero-subtitle fadeInDown-2">
-                                under favorable smartwatches
-                            </div>
-                            <div class="hero-v2-price fadeInDown-3">
-                                from <br><span>$749</span>
-                            </div>
-                            <div class="hero-action-btn fadeInDown-4">
-                                <a href="#" class="big le-button ">Start Buying</a>
-                            </div>
-                        </div><!-- /.caption -->
+        @foreach($sliders as $index => $slider)
+            <!--LayerSlider layer-->
+                <div class="ls-layer ls-layer1" style="slidedirection: right; transition2d: 24,25,27,28; ">
+                    <img src="{{ $slider -> image_path  }}" class="ls-bg" alt="Slide background">
+                    <div class="ls-s-1 title" style=" top: 96px; left: 35%; slidedirection : fade; slideoutdirection : fade; durationin : 750; durationout : 750; easingin : easeOutQuint; rotatein : 90; rotateout : -90; scalein : .5; scaleout : .5; showuntil : 4000; white-space: nowrap;">
+                        <strong>{{ $slider -> title }}</strong>
+                    </div>
+                    <div class="ls-s-1 mini-text" style=" top: 338px; left: 35%; slidedirection : fade; slideoutdirection : fade; durationout : 750; easingin : easeOutQuint; delayin : 300; showuntil : 4000; white-space: nowrap;">
+                        {{ $slider -> sub_title }}
                     </div>
                 </div>
-            </div><!-- /.container -->
-        </div><!-- /.item -->
-
-
-        <div class="item" style="background-image: {{ asset('front/electro/images/slider/banner-1.jpg') }}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-offset-3 col-md-5">
-                        <div class="caption vertical-center text-left">
-                            <div class="hero-subtitle-v2 fadeInDown-1">
-                                shop to get what you loves
-                            </div>
-
-                            <div class="hero-2 fadeInDown-2">
-                                Timepieces that make a statement up to <strong>40% Off</strong>
-                            </div>
-
-                            <div class="hero-action-btn fadeInDown-3">
-                                <a href="#" class="big le-button ">Start Buying</a>
-                            </div>
-                        </div><!-- /.caption -->
-                    </div>
-                </div>
-            </div><!-- /.container -->
-        </div><!-- /.item -->
-
-        <div class="item" style="background-image:  {{ asset('front/electro/images/slider/banner-1.jpg') }}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-offset-3 col-md-5">
-                        <div class="caption vertical-center text-left">
-                            <div class="hero-subtitle-v2 fadeInLeft-1">
-                                shop to get what you loves
-                            </div>
-
-                            <div class="hero-2 fadeInRight-1">
-                                Timepieces that make a statement up to <strong>40% Off</strong>
-                            </div>
-
-                            <div class="hero-action-btn fadeInLeft-2">
-                                <a href="#" class="big le-button ">Start Buying</a>
-                            </div>
-                        </div><!-- /.caption -->
-                    </div>
-                </div>
-            </div><!-- /.container -->
-        </div><!-- /.item -->
-
-
-    </div><!-- /.owl-carousel -->
-
-    <!-- ========================================= SECTION – HERO : END ========================================= -->
-
-</div><!-- /.home-v1-slider -->
+        @endforeach
+    </div>
+    <!--LayerSlider end-->
+</div>
+<!-- END SLIDER -->

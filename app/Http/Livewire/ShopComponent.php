@@ -87,8 +87,6 @@ class ShopComponent extends Component
         } // end of foreach
     } // end of remove from Compare list
 
-
-
     use WithPagination;
 
     public function render(Request $request)

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\MainCategories\MainCategory;
 use App\Models\Products\Product;
+use App\Models\Sliders\Slider;
 use Livewire\Component;
 use App\Models\Settings\SiteSetting;
 use Cart;
@@ -45,10 +46,6 @@ class HomeComponent extends Component
 
     public function render()
     {
-        // dd(DatabaseSetting::all());
-        // if((DatabaseSetting::first() == null)){
-        //     return view('admin.cuba.forms.db-new');
-        // }
         $products_featured = Product::orderBy('created_at')->take(5)->get();
         $products_on_sale = Product::where('sale_price', '>' , 'regular_price')->inRandomOrder()->take(5)->get();
         $products_top_rated = Product::inRandomOrder()->take(5)->get();
@@ -60,7 +57,10 @@ class HomeComponent extends Component
                 ->where('name', 'NOT LIKE', 'بدون تصنيف');
         })->where('parent_id', 0)->inRandomOrder()->take(20)->get();
 
-        return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.home-component', compact('products_featured', 'products_on_sale', 'products_top_rated', 'latest_products', 'categories'))->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
+        return  view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.home-component',
+                compact('products_featured', 'products_on_sale', 'products_top_rated', 'latest_products', 'categories'))
+                ->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
+
     } // end of render
 
 } // end of component
