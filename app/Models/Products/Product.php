@@ -3,6 +3,7 @@
 namespace App\Models\Products;
 
 use App\Models\MainCategories\MainCategory;
+use App\Models\Tags\Tag;
 use App\Models\User;
 use App\Models\Wishlist;
 use Astrotomic\Translatable\Translatable;
@@ -46,6 +47,11 @@ class Product extends Model
         return $this -> hasMany(ProductGallery::class, 'product_id', 'id');
 
     } // end of gallery
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'product_tag');
+    }
 
     /* ***********************************
     End of Relationships
