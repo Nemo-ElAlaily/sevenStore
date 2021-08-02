@@ -1,13 +1,13 @@
 @extends('admin.cuba.layouts.cuba')
 
-@section('title', trans('site.Pages') )
+@section('title', trans('site.sliders') )
 
 @section('breadcrumb-title')
-    <h5>{{ trans('site.Pages') }} <span class="small text-muted">{{ $pages->total() }}</span></h5>
+    <h5>{{ trans('site.sliders') }} <span class="small text-muted">{{ $sliders->total() }}</span></h5>
 @stop
 
 @section('breadcrumb-items')
-    <li class="breadcrumb-item">{{ trans('site.Pages') }}</li>
+    <li class="breadcrumb-item">{{ trans('site.sliders') }}</li>
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
 
         <div class="box-header with-border">
 
-            <form action="{{ route('admin.pages.index') }}" method="get">
+            <form action="{{ route('admin.sliders.index') }}" method="get">
 
                 <div class="row mx-5">
 
@@ -26,8 +26,8 @@
 
                     <div class="col-md-4 p-0">
                         <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
-                        <a href="{{ route('admin.pages.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> {{ trans('site.add') }}
-                            {{ trans('site.Page') }}</a>
+                        <a href="{{ route('admin.sliders.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> {{ trans('site.add') }}
+                            {{ trans('site.slider') }}</a>
                     </div>
 
                 </div>
@@ -41,38 +41,36 @@
         <div class="box-body bg-white mx-5 mt-3">
 
             <table class="text-center pt-2 card-body table table-hover table-bordered">
-                @if ($pages->count() > 0)
+                @if ($sliders->count() > 0)
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{ trans('site.Page Title') }}</th>
+                            <th>{{ trans('site.title') }}</th>
                             <th>{{ trans('site.status') }}</th>
-                            <th>{{ trans('site.Page URL') }}</th>
+                            <th>{{ trans('site.URL') }}</th>
                             <th>{{ trans('site.Action') }}</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @foreach ($pages as $index => $page)
+                        @foreach ($sliders as $index => $slider)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td>{{ $page->title }}</td>
-                                <td>{{ $page->getActive() }}</td>
+                                <td>{{ $slider->title }}</td>
+                                <td>{{ $slider->getActive() }}</td>
                                 <td>
-                                    @if ($page->is_active == 1)
-                                        <a class="view-proud" href="{{ route('front.page.details', $page->slug) }}" target="_blank">
+                                    @if ($slider->is_active == 1)
+                                        <a class="view-proud" href="#" target="_blank">
                                             <span>
-                                                {{ trans('site.Go To Page') }}
+                                                {{ $slider -> link }}
                                             </span>
                                         </a>
                                     @endif
                                 </td>
                                 <td>
-{{--                                    <a href="{{ route('admin.pages.show', $page->id) }}" class="btn btnShow  btn-sm"><i--}}
-{{--                                            class="fa fa-eye fa-lg text-lg"></i></a>--}}
-                                    <a href="{{ route('admin.pages.edit', $page->id) }}" class="btn btnEdit btn-sm"><i
+                                    <a href="{{ route('admin.sliders.edit', $slider->id) }}" class="btn btnEdit btn-sm"><i
                                             class="fa fa-edit fa-lg text-lg"></i></a>
-                                    <form action="{{ route('admin.pages.destroy', $page->id) }}" method="post"
+                                    <form action="{{ route('admin.sliders.destroy', $slider->id) }}" method="post"
                                         style="display: inline-block">
                                         {{ csrf_field() }}
                                         {{ method_field('delete') }}
@@ -94,7 +92,7 @@
         </div><!-- end of box body -->
 
         <div class="container">
-            {{ $pages->appends(request()->query())->links() }}
+            {{ $sliders->appends(request()->query())->links() }}
         </div>
     </div><!-- end of box -->
 @stop

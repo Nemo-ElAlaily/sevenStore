@@ -27,6 +27,7 @@ return [
     'Show in Footer' => 'Show in Footer',
     'Is Popular' => 'Is Popular',
     'Image' => 'Image',
+    'URL' => 'URL',
 
     'No Data Found' => 'No Data Found',
     'Loading' => 'Loading',
@@ -229,5 +230,6 @@ return [
     'sidebar'=>'Sidebar',
     'save'=>'Save',
 
-
+    'sliders' => 'Sliders',
+    'slider' => 'Slider',
 ];

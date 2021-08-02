@@ -66,6 +66,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         /* regions routes */
         Route::resource('regions', 'Shipping\RegionController');
 
+        /* sliders routes */
+        Route::resource('sliders', 'SliderController')->except(['show']);
+
         /**menus */
         Route::get('/main-menue','MenusController@mainMenuePages')->name('menus');
 

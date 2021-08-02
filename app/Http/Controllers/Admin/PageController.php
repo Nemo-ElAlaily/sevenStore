@@ -78,7 +78,7 @@ class PageController extends Controller
             return redirect()->back();
         } else {
             Page::create($request_data);
-            session()->flash('success', 'Page Created Successfully');
+            session()->flash('success', trans('validation.Added Successfully'));
             return redirect()->route('admin.pages.index');
         }
 
