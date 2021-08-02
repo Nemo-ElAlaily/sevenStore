@@ -10,7 +10,7 @@
 @section('content')
 
     <!-- Default box -->
-    <div class="card card-solid">
+    <div class="card card-solid w-50 mb-5">
         <div class="card-body">
             <div class="row">
 
@@ -25,11 +25,11 @@
                         @foreach (config('translatable.locales') as $locale)
                             <div class="col-sm-12 col-lg-12">
                                 <div class="form-group">
-                                    <label class="countriesLable" for="{{ $locale }}[name]">{{ trans('site.Country name') }}                                         @lang('site.' . $locale . '.name')</label>
+                                    <label class="label-page after" for="{{ $locale }}[name]">{{ trans('site.Country name') }}                                         @lang('site.' . $locale . '.name')</label>
                                     @error($locale . '.in name')
                                         <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-thick" type="text" name="{{ $locale }}[name]"
+                                    <input class="form-control form-control-solid" type="text" name="{{ $locale }}[name]"
                                         value="{{ $country->translate($locale)->name }}">
                                 </div>
 
@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="form-group col-sm-12 col-lg-12 mb-5 ">
-                        <label class="countriesLable" for="flag">{{ trans('site.Flag') }}</label>
+                        <label class="label-page after" for="flag">{{ trans('site.Flag') }}</label>
                         @error('flag')
                             <span class="text-danger mx-1">{{ $message }}</span>
                         @enderror
@@ -49,8 +49,8 @@
                     </div> {{-- end of form group image --}}
 
 
-                    <div class="form-group">
-                        <button type="submit" class="btn btnEdit"><i class="fa fa-plus"></i>
+                    <div class="form-group m-auto text-center col-md-12">
+                        <button type="submit" class="btn btn-square btn-secondary"><i class="fa fa-plus"></i>
                             {{ trans('site.update') }}</button>
                     </div>
 

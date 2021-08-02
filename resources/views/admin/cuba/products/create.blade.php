@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="label-page " for="main_category_id">{{ trans('site.subcategory') }}</label>
+                            <label class="label-page after" for="main_category_id">{{ trans('site.subcategory') }}</label>
                             @error('main_category_id')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                             @enderror
@@ -70,10 +70,10 @@
                             @foreach (config('translatable.locales') as $locale)
                             <div class=" tab-pane fade show {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}" role="tabpanel" aria-labelledby="{{ $locale }}-tab">
                                 <div class="row">
-                                    <div class="d-flex flex-wrap justify-content-around">
+                                    <div class="col-md-6">
 
                                         <div class="form-group">
-                                            <label class="label-page" for="{{ $locale }}[name]">{{ trans('site.product name') }} @lang('site.' .
+                                            <label class="label-page after" for="{{ $locale }}[name]">{{ trans('site.product name') }} @lang('site.' .
                                                 $locale . '.in name')</label>
                                             @error($locale . '.name')
                                                 <br />
@@ -84,7 +84,7 @@
                                         </div>
         
                                         <div class="form-group">
-                                            <label class="label-page" for="{{ $locale }}[description]">{{ trans('site.description') }} @lang('site.' . $locale . '.in name')</label>
+                                            <label class="label-page after" for="{{ $locale }}[description]">{{ trans('site.description') }} @lang('site.' . $locale . '.in name')</label>
                                             @error($locale . '.description')
                                                 <br />
                                                 <span class="text-danger mx-5">{{ $message }}</span>
@@ -96,7 +96,7 @@
                                         </div>
         
                                         <div class="form-group">
-                                            <label class="label-page" for="{{ $locale }}[features]">{{ trans('site.Product Features') }} @lang('site.' . $locale . '.in name')</label>
+                                            <label class="label-page after" for="{{ $locale }}[features]">{{ trans('site.Product Features') }} @lang('site.' . $locale . '.in name')</label>
                                             @error($locale . '.features')
                                                 <br />
                                                 <span class="text-danger mx-5">{{ $message }}</span>
@@ -121,61 +121,68 @@
                                 <hr>
                             </div>
     
-                            <div class="col-sm-12 row">
+                            <div class=" row">
     
-                                <div class="form-group col-md-3">
-                                    <label class="label-page " for="stock">{{ trans('site.Stock') }} </label>
-                                    @error('stock')
-                                        <span class="text-danger mx-5">{{ $message }}</span>
-                                    @enderror
-                                    <input class="form-control " type="number" name="stock"
-                                        value="{{ old('stock') }}">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label class="label-page after" for="stock">{{ trans('site.Stock') }} </label>
+                                            @error('stock')
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                            @enderror
+                                            <input class="form-control" placeholder="Stock" type="number" name="stock"
+                                                value="{{ old('stock') }}">
+                                        </div>
+            
+                                        <div class="form-group col-md-12">
+                                            <label class="label-page after" for="regular_price">{{ trans('site.Regular Price') }}</label>
+                                            @error('regular_price')
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                            @enderror
+                                            <input class="form-control" placeholder="Regular Price" type="text" name="regular_price"
+                                                value="{{ old('regular_price') }}">
+                                        </div>
+            
+                                        <div class="form-group col-md-12">
+                                            <label class="label-page after" for="sku">{{ trans('site.sku') }}</label>
+                                            @error('sku')
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                            @enderror
+                                            <input class="form-control input-thick" placeholder="SKU" type="text" name="sku" value="{{ old('sku') }}">
+                                        </div>
+            
+            
+                                        <div class="form-group col-md-12">
+                                            <label class="label-page after" for="sale_price">{{ trans('site.Sale Price') }}</label>
+                                            @error('sale_price')
+                                                <span class="text-danger mx-5">{{ $message }}</span>
+                                            @enderror
+                                            <input class="form-control" placeholder="Sale Price" type="text" name="sale_price"
+                                                value="{{ old('sale_price') }}">
+                                        </div>  
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="form-group col-sm-12 col-md-12">
+                                            <label class="label-page after" label for="image">{{ trans('site.Image') }}</label>
+                                            @error('image')
+                                                <span class="text-danger mx-1">{{ $message }}</span>
+                                            @enderror
+                                            <input type="file" name="image" class="form-control input-sm  image">
+            
+                                            <img src="{{ asset('uploads/products/default.png') }}" width="400px"
+                                                class="img-thumbnail image-preview mt-1" alt="Upload Image">
+                                        </div> {{-- end of form group image --}}
+                                        
+                                    </div>
                                 </div>
     
-                                <div class="form-group col-md-3">
-                                    <label class="label-page " for="regular_price">{{ trans('site.Regular Price') }}</label>
-                                    @error('regular_price')
-                                        <span class="text-danger mx-5">{{ $message }}</span>
-                                    @enderror
-                                    <input class="form-control " type="text" name="regular_price"
-                                        value="{{ old('regular_price') }}">
-                                </div>
-    
-                                <div class="form-group col-md-3">
-                                    <label class="label-page " for="sku">{{ trans('site.sku') }}</label>
-                                    @error('sku')
-                                        <span class="text-danger mx-5">{{ $message }}</span>
-                                    @enderror
-                                    <input class="form-control input-thick" type="text" name="sku" value="{{ old('sku') }}">
-                                </div>
-    
-    
-                                <div class="form-group col-md-3">
-                                    <label class="label-page " for="sale_price">{{ trans('site.Sale Price') }}</label>
-                                    @error('sale_price')
-                                        <span class="text-danger mx-5">{{ $message }}</span>
-                                    @enderror
-                                    <input class="form-control " type="text" name="sale_price"
-                                        value="{{ old('sale_price') }}">
-                                </div>
-    
-                                <div class="form-group col-sm-12 col-md-6 my-5">
-                                    <label class="label-page " label for="image">{{ trans('site.Image') }}</label>
-                                    @error('image')
-                                        <span class="text-danger mx-1">{{ $message }}</span>
-                                    @enderror
-                                    <input type="file" name="image" class="form-control input-sm  image">
-    
-                                    <img src="{{ asset('uploads/products/default.png') }}" width="400px"
-                                        class="img-thumbnail image-preview mt-1" alt="Upload Image">
-                                </div> {{-- end of form group image --}}
-                                
-    
-                                <div class="form-group col-sm-12 col-md-6 my-5 card card-primary card-outline">
+                                <div class="form-group col-sm-12 col-md-12 my-2 card card-primary card-outline">
                                     <div class="text-center col-sm-12">
                                         <h3 class="text-left setting-general-title ">{{ trans('site.Gallery') }}</h3>
                                         <hr>
-                                    </div>
+                                </div>
             
                                     <div class="input-field">
                                         <div class="gallery p-2">
@@ -187,16 +194,17 @@
                                         </div>
                                     </div>
                         </div> {{-- end of product gallery --}}
-                            </div>
+                        <div class="form-group cpl-md-8 text-center  my-4">
+                            <button type="submit" class="btn btn-pill btn-outline-secondary btn-sm"><i class="fa fa-plus"></i>
+                                {{ trans('site.add') . ' ' . trans('site.product') }}</button>
+                        </div>
+            
+                    </div>
     
     
                         </div>
     
-                <div class="form-group">
-                    <button type="submit" class="btn btnAdd"><i class="fa fa-plus"></i>
-                        {{ trans('site.add') . ' ' . trans('site.product') }}</button>
-                </div>
-    
+
                 </form><!-- end of form -->
     
             </div>

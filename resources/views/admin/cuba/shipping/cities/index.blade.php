@@ -18,15 +18,15 @@
             <form action="{{ route('admin.cities.index') }}" method="get">
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <input type="text" name="search" class="form-control" placeholder="{{ trans('site.Search Here') }}..."
                             value="{{ request()->search }}">
                     </div>
 
-                    <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
+                    <div class="col-md-5 d-flex justify-content-around">
+                        <button type="submit" class="btn btn-square btn-outline-primary"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
                         @if (auth()->user()->hasPermission('cities_create'))
-                            <a href="{{ route('admin.cities.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> {{ trans('site.add') . ' ' . trans('site.City') }}</a>
+                            <a href="{{ route('admin.cities.create') }}" class="btn btn-square btn-outline-secondary"><i class="fa fa-plus"></i> {{ trans('site.add') . ' ' . trans('site.City') }}</a>
                         @else
                             <a href="#" class="btn btn-p`rimary disabled"><i class="fa fa-plus"></i> {{ trans('site.add') . ' ' . trans('site.City') }}</a>
                         @endif
@@ -63,7 +63,7 @@
                                 <td>{{ $city->country->name }}</td>
                                 <td>
                                     @if (auth()->user()->hasPermission('cities_update'))
-                                        <a href="{{ route('admin.cities.edit', $city->id) }}" class="btn btnEdit "><i
+                                        <a href="{{ route('admin.cities.edit', $city->id) }}" class="btn btn-pill btn-outline-light-2x txt-dark "><i
                                                 class="fa fa-edit"></i> {{ trans('site.edit') }}</a>
                                         {{-- @else
                                     <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
@@ -73,7 +73,7 @@
                                             style="display: inline-block">
                                             {{ csrf_field() }}
                                             {{ method_field('delete') }}
-                                            <button type="button" class="btn btnDelete show_confirm "><i
+                                            <button type="button" class="btn btn-pill btn-outline-light-2x txt-dark show_confirm "><i
                                                     class="fa fa-trash"></i> {{ trans('site.delete') }}</button>
                                         </form><!-- end of form -->
                                         {{-- @else

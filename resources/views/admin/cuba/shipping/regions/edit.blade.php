@@ -10,7 +10,7 @@
 @section('content')
 
     <!-- Default box -->
-    <div class="card card-solid">
+    <div class="card card-solid w-50 mb-5">
         <div class="card-body">
             <div class="row">
 
@@ -25,12 +25,12 @@
                         @foreach (config('translatable.locales') as $locale)
                             <div class="col-sm-12 col-lg-12">
                                 <div class="form-group">
-                                    <label class="regionLabel" for="{{ $locale }}[name]">{{ trans('site.Region Name') }} @lang('site.'
+                                    <label class="label-page after" for="{{ $locale }}[name]">{{ trans('site.Region Name') }} @lang('site.'
                                         . $locale . '.in name')</label>
                                     @error($locale . '.name')
                                         <span class="text-danger mx-5">{{ $message }}</span>
                                     @enderror
-                                    <input class="form-control input-thick" type="text" name="{{ $locale }}[name]"
+                                    <input class="form-control form-control-solid" type="text" name="{{ $locale }}[name]"
                                         value="{{ $region->translate($locale)->name }}">
                                 </div>
 
@@ -39,7 +39,7 @@
 
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <label class="regionLabel" for="city_id">{{ trans('site.Cities') }}</label>
+                                <label class="label-page after" for="city_id">{{ trans('site.Cities') }}</label>
                                 @error('city_id')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
@@ -56,7 +56,7 @@
 
                         <div class="col-sm-12 col-lg-6 mb-3">
                             <div class="form-group">
-                                <label class="regionLabel" for="shipping_cost">{{ trans('site.Shipping Cost') }}</label>
+                                <label class="label-page after" for="shipping_cost">{{ trans('site.Shipping Cost') }}</label>
                                 @error('shipping_cost')
                                     <span class="text-danger mx-5">{{ $message }}</span>
                                 @enderror
@@ -67,8 +67,8 @@
 
                     </div>
 
-                    <div class="form-group">
-                        <button type="submit" class="btn btnEdit"><i class="fa fa-edit"></i>
+                    <div class="form-group col-md-12 m-auto text-center">
+                        <button type="submit" class="btn btn-square btn-outline-secondary"><i class="fa fa-edit"></i>
                             {{ trans('site.update') }}</button>
                     </div>
 

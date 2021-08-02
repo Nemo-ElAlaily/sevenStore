@@ -24,10 +24,10 @@
                     </div>
 
                     <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i>
+                        <button type="submit" class="btn btn-pill btn-outline-primary btn-sm"><i class="fa fa-search"></i>
                             {{ trans('site.Search') }}</button>
                         @if (auth()->user()->hasPermission('currencies_create'))
-                            <a href="{{ route('admin.currencies.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i>
+                            <a href="{{ route('admin.currencies.create') }}" class="btn btn-pill btn-outline-secondary btn-sm"><i class="fa fa-plus"></i>
                                 {{ trans('site.add') }} {{ trans('site.Currency') }}</a>
                         @else
                             <a href="#" class="btn btn-primary disabled"><i class="fa fa-plus"></i>
@@ -68,8 +68,9 @@
                                 <td>
                                     @if (auth()->user()->hasPermission('currencies_update'))
                                         <a href="{{ route('admin.currencies.edit', $currency->id) }}"
-                                            class="btn btnEdit btn-sm"><i class="fa fa-edit"></i>
-                                            {{ trans('site.edit') }}</a>
+                                            class="btn btn-pill btn-outline-light btn-sm txt-dark"><i class="fa fa-edit"></i>
+                                            {{-- {{ trans('site.edit') }} --}}
+                                        </a>
                                         {{-- @else
                                     <a href="#" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a> --}}
                                     @endif
@@ -78,8 +79,10 @@
                                             method="post" style="display: inline-block">
                                             {{ csrf_field() }}
                                             {{ method_field('delete') }}
-                                            <button type="submit" class="btn btnDelete show_confirm btn-sm"><i
-                                                    class="fa fa-trash"></i> {{ trans('site.delete') }}</button>
+                                            <button type="submit" class="btn btn-pill btn-outline-light btn-sm txt-dark"><i
+                                                    class="fa fa-trash"></i>
+                                                     {{-- {{ trans('site.delete') }} --}}
+                                                </button>
                                         </form><!-- end of form -->
                                         {{-- @else
                                     <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> {{ trans('site.delete') }}</button> --}}

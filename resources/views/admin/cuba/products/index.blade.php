@@ -19,14 +19,14 @@
 
                 <div class="row mx-5">
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <input type="text" name="search" class="form-control" placeholder="{{ trans('site.Search Here') }}..."
                             value="{{ request()->search }}">
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label class="w-100">
-                            <select name="category" class="form-control selectCat">
+                            <select name="category" class="dropbtn  form-select form-control-danger">
                                 <option class="bg-ligh" value="">{{ trans('site.all') . ' ' . trans('site.Categories') }}</option>
                                 @foreach ($categories as $category)
                                     <option class="optionCat" value="{{ $category->id }}"
@@ -37,9 +37,9 @@
                         </label>
                     </div>
 
-                    <div class="col-md-4 p-0 buttonsProd">
-                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
-                        <a href="{{ route('admin.products.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> {{ trans('site.add') . ' ' . trans('site.product') }}</a>
+                    <div class="col-md-6 p-0 buttonsProd">
+                        <button type="submit" class="btn btn-pill btn-outline-primary"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
+                        <a href="{{ route('admin.products.create') }}" class="btn btn-pill btn-outline-secondary"><i class="fa fa-plus"></i> {{ trans('site.add') . ' ' . trans('site.product') }}</a>
                     </div>
 
                 </div>
@@ -149,10 +149,10 @@
                                             </div>
                                         </div>
                                         <div class="product-details">
-                                            <span class="btn btn-warning"># {{ $index + 1 }}</span>
-                                            <p>{{ trans('site.product name') }} </p><span class="bg-danger">{{ $product->name }}</span>
-                                            <p>{{ trans('site.Product Vendor') }} </p><span
-                                                class="badge badge-primary">{{ $product->vendor->full_name }}</span>
+                                            <span class="badge rounded-pill badge-dark"># {{ $index + 1 }}</span>
+                                            <p> </p><span class=" badge-secondary">{{ $product->name }}</span>
+                                            <p></p><span
+                                                class="badge badge-light text-dark">{{ $product->vendor->full_name }}</span>
                                         </div>
                                     </div>
                                 </div>

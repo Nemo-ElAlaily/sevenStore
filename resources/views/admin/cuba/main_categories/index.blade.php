@@ -23,8 +23,8 @@
                     </div>
 
                     <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
-                        <a href="{{ route('admin.main_categories.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i>
+                        <button type="submit" class="btn btn-pill btn-outline-primary btn-sm"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
+                        <a href="{{ route('admin.main_categories.create') }}" class="btn btn-pill btn-outline-secondary btn-sm"><i class="fa fa-plus"></i>
                             {{ trans('site.add') }} {{ trans('site.Category') }}</a>
                     </div>
 
@@ -41,53 +41,48 @@
            <div class="container">
                <div class="row">
 
-
+                <table class="text-center pt-2 card-body table table-hover table-bordered">
                 @if ($main_categories->count() > 0)
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{{ trans('site.name') }}</th>
+                        <th>{{ trans('site.slug') }}</th>
+                        <th>{{ trans('site.Action') }}</th>
+                    </tr>
+                </thead>
 
+                <tbody>
                     @foreach ($main_categories as $index=>$main_catogory)
-                        <div class="col-md-4">
-
-                            <div class=" card-shadow">
-                                <div class="card-group card-category">
-                                    <div class="card">
-                                      <img class="card-img-top img-category" src="{{ $main_catogory -> image_path }}" alt="{{ $main_catogory -> name }}">
-                                      <div class="card-body p-2">
-                                        <span class="badge name-category">{{ trans('site.name') }}:</span>
-                                        <h5 class="card-title text-center">{{ $main_catogory -> name }}</h5>
-                                        <p class="card-text"><span class="badge products-category">{{ trans('site.products') }}</span> <span class="badge badge-secondary"># {{ $index + 1 }}</span></p>
-                                      </div>
-
-                                      <div class="card-footer  p-2">
-
-                                        <span class="actions badge">{{ trans('site.Action') }}</span>
-                                        <div class="all-buttons-functions">
-                                            <a href="{{ route('admin.main_categories.show', $main_catogory->id) }}" class="btn btnShow"><i class="fa fa-eye "></i></a>
-                                            <a href="{{ route('admin.main_categories.edit', $main_catogory->id) }}" class="btn btnEdit"><i class="fa fa-edit"></i></a>
+                    <tr>
+                        <td><img class="avatar-user-all" src="{{ $main_catogory -> image_path }}" alt="{{ $main_catogory -> name }}"></td>
+                        <td>{{ $main_catogory->name }}</td>
+                        <td>{{ $main_catogory->slug }}</td>
+                        <td>
+                                        <div class="d-flex justify-content-around">
+                                            <a href="{{ route('admin.main_categories.show', $main_catogory->id) }}" class="btn btn-pill btn-outline-light-2x txt-dark"><i class="fa fa-eye "></i></a>
+                                            <a href="{{ route('admin.main_categories.edit', $main_catogory->id) }}" class="btn btn-pill btn-outline-light-2x txt-dark"><i class="fa fa-edit"></i></a>
                                             <form action="{{ route('admin.main_categories.destroy', $main_catogory->id) }}" method="post">
                                                 {{ csrf_field() }}
                                                 {{ method_field('delete') }}
-                                                <button type="button" class="btn btnDelete show_confirm btn-sm"><i class="fa fa-trash"></i></button>
+                                                <button type="button" class="btn btn-pill btn-outline-light-2x txt-dark show_confirm btn-sm"><i class="fa fa-trash"></i></button>
                                             </form><!-- end of form -->
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                                        </div>    
+                    </td>
+                </tr>
                     @endforeach
-
+                </tbody>
                 @else
                     <h2 class="mt-5 text-center pt-2">{{ trans('site.No Data Found') }}</h2>
                 @endif
-
+            </table>
             </div>
         </div>
 
         </div><!-- end of box body -->
 
-        <div class="container">
+        {{-- <div class="container"> --}}
             {{ $main_categories->appends(request()->query())->links() }}
-        </div>
+        {{-- </div> --}}
     </div><!-- end of box -->
 @stop

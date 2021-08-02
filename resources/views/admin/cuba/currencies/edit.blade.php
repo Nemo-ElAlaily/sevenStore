@@ -11,7 +11,7 @@
 @section('content')
 
     <!-- Default box -->
-    <div class="card card-solid">
+    <div class="card card-solid w-80 mb-4">
         <div class="card-body">
             <div class="row">
                 @include('admin.cuba.partials._errors')
@@ -24,7 +24,7 @@
                     @foreach (config('translatable.locales') as $locale)
                         <div class="row">
                             <div class="form-group col-sm-12 col-lg-6">
-                                <label class="currencyLabel">{{ trans('site.name') }} @lang('site.' . $locale .
+                                <label class="label-page after">{{ trans('site.name') }} @lang('site.' . $locale .
                                     '.name')</label>
                                 @error($locale . '.in name')
                                     <span class="text-danger mx-5">{{ $message }}</span>
@@ -39,7 +39,7 @@
 
                     <div class="row">
                         <div class="form-group col-sm-12 col-lg-6">
-                            <label class="currencyLabel">{{ trans('site.currency Symbol') }}</label>
+                            <label class="label-page after">{{ trans('site.currency Symbol') }}</label>
                             @error('symbol')
                                 <span class="text-danger mx-5">{{ $message }}</span>
                             @enderror
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btnEdit"><i class="fa fa-plus"></i>
+                        <button type="submit" class="btn btn-pill btn-outline-dark btn-sm"><i class="fa fa-plus"></i>
                             {{ trans('site.edit') }} {{ trans('site.currency') }}</button>
                     </div>
 

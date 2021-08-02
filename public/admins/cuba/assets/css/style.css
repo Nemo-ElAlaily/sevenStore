@@ -1127,8 +1127,8 @@
 .btn-outline-dark-2x:active,
 .btn-outline-dark-2x.active {
     color: white;
-    background-color: #171a21 !important;
-    border-color: #171a21 !important;
+    /* background-color: #171a21 !important;
+    border-color: #171a21 !important; */
     -webkit-box-shadow: none;
     box-shadow: none;
 }
@@ -1237,14 +1237,14 @@
 .btn-outline-light.disabled {
     color: #f4f4f4;
 }
-.btn-outline-light:hover,
+/* .btn-outline-light:hover,
 .btn-outline-light:focus,
 .btn-outline-light:active,
 .btn-outline-light.active {
     color: white;
     background-color: #dbdbdb !important;
     border-color: #dbdbdb !important;
-}
+} */
 .btn-outline-dark {
     border-color: #2c323f;
     color: #2c323f;
@@ -2048,7 +2048,6 @@ a[class*="badge-"]:hover {
 }
 .btn {
     font-size: 14px;
-    margin-b
 }
 *.btn:focus {
     -webkit-box-shadow: none !important;
@@ -37735,6 +37734,7 @@ body[class*="dark-"] .for-light {
     background-color: rgba(220, 53, 69, 0.15) !important;
 }
 .customizer-links {
+    display: none;
     position: fixed;
     right: 00px;
     top: 50%;
@@ -38388,6 +38388,7 @@ body[class*="dark-"] .for-light {
 .toggle-sidebar svg {
     width: 20px;
     height: 20px;
+    color: #d7d1d1a6;
 }
 .toggle-sidebar:before {
     content: "";
@@ -40724,7 +40725,7 @@ body[class*="dark-"] .for-light {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 .page-wrapper .sidebar-main-title h6 {
     color: var(--theme-deafult);
@@ -40761,7 +40762,7 @@ body[class*="dark-"] .for-light {
     z-index: 9;
     height: auto;
     line-height: inherit;
-    background: #fff;
+    background-color: #1e1e2d;
     width: 280px;
     text-align: left;
     -webkit-transition: 0.3s;
@@ -41086,7 +41087,7 @@ body[class*="dark-"] .for-light {
     letter-spacing: 0.7px;
     font-family: Roboto;
     text-transform: capitalize;
-    color: #2c323f;
+    color: #8e9094;
 }
 .page-wrapper.compact-wrapper
     .page-body-wrapper
@@ -41269,7 +41270,7 @@ body[class*="dark-"] .for-light {
     a {
     padding: 12px 15px;
     position: relative;
-    color: #222222;
+    color: #d7d1d1;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
@@ -41290,7 +41291,7 @@ body[class*="dark-"] .for-light {
     vertical-align: bottom;
     float: none;
     stroke-width: 2.3px;
-    color: #2c323f;
+    color: #d7d1d1;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
@@ -41528,7 +41529,7 @@ body[class*="dark-"] .for-light {
     a {
     padding: 7px 25px;
     font-size: 14px;
-    color: rgba(43, 43, 43, 0.6);
+    color: rgb(152 152 152 / 60%);
     display: block;
     position: relative;
     letter-spacing: 0.06em;
@@ -41947,7 +41948,7 @@ body[class*="dark-"] .for-light {
 }
 .page-wrapper.compact-wrapper .page-body-wrapper .according-menu i {
     vertical-align: middle;
-    color: rgba(0, 0, 0, 0.8);
+    color: rgb(199 196 196 / 80%);
     font-weight: 600;
 }
 .page-wrapper.compact-wrapper .page-body-wrapper .main-menu.border-section {
@@ -49681,7 +49682,16 @@ input.bg-dark:focus {
     .user-label{
     font-weight: 500;
     color: #5d5d5d;
-    font-size: 16px;
+    font-size: 12px;
+    position: relative;
+    }
+    .user-label:after{
+        content: '*';
+        position: absolute;
+        color: red;
+        right: -15px;
+        top: -5px;
+        font-size: 24px;
     }
     .btnAdduser{
     background-color: #f73164;
@@ -50065,7 +50075,7 @@ height: 65px;
 }
 .img-all-products{
 
-height: 250px;
+height: 200px;
 width: 298px;
 }
 
@@ -50565,9 +50575,17 @@ form.col-12.form-user-create{
 }
 .label-page{
     font-size: 13px;
-    color: #9a9999;
+    color: #454545;
     font-family: 'Roboto';
     margin-top: 6px;
+    position: relative;
+}
+.label-page:after{
+    position: absolute;
+    content: '*';
+    right: -11px;
+    top: 2px;
+    color: red;
 }
 .bg-white{
     background-color: #fff;
@@ -50617,7 +50635,6 @@ font-size: 23px !important;
     display: block;
     width: 100%;
     padding: 0.375rem 0.75rem;
-    font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
@@ -50673,4 +50690,18 @@ font-size: 23px !important;
     color: #f73164;
     
 } */
+.textarea-prod-show{
+height: 190px;
+transition: 1s ease;
+}
+.btn-outline-light i {
+    font-size: 18px;
+}
 
+.form-control.form-control-solid{
+    background-color: #F5F8FA;
+    border-color: #F5F8FA;
+    color: #5E6278;
+    transition: color 0.2s ease, background-color 0.2s ease;
+
+}
