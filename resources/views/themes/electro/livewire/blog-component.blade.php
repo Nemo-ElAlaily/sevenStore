@@ -29,7 +29,7 @@
                                     <div class="entry-meta">
                                         <span class="cat-links">
                                             <a href="{{ route('front.blog.details', $blog->slug) }}"
-                                                rel="category tag">{{ $blog -> category -> name) }}</a>, <a href="#" rel="category tag">{{ $blog -> tags -> first() -> name }}</a>
+                                                rel="category tag">{{ $blog -> category -> name }}</a>, <a href="#" rel="category tag">{{ $blog -> tags -> first() -> name ?? ''}}</a>
                                         </span>
 
                                         <span class="posted-on">

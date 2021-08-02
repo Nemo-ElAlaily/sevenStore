@@ -31,12 +31,18 @@
 
 </head>
 
-@if (Route::is('front.shop') || Route::is('front.product.details') || Route::is('front.product.category') || Route::is('front.page.details'))
+@if (Route::is('front.shop') || Route::is('front.product.details') || Route::is('front.product.category'))
 
     <body class="left-sidebar single-product">
+
 @elseif(Route::is('front.blog'))
 
     <body class="blog blog-list right-sidebar">
+
+@elseif(Route::is('front.page.details'))
+
+    <body class="blog blog-list left-sidebar">
+
 @elseif(Route::is('front.blog.details'))
 
     <body class="single-post right-sidebar">

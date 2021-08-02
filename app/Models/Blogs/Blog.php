@@ -52,7 +52,7 @@ class Blog extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'blog_tag');
-    } // end of tags
+    }
 
     public function user()
     {

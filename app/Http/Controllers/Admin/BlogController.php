@@ -25,9 +25,10 @@ class BlogController extends Controller
 
     public function index(Request $request)
     {
-        $blogs = Blog::when($request -> search , function ($query) use ($request) {
+        $blogs = Blog::with('tags')->when($request -> search , function ($query) use ($request) {
             return $query -> whereTranslationLike('title', '%' . $request -> search . '%');
         })->latest()->paginate(ADMIN_PAGINATION_COUNT);
+
         return view('admin.cuba.blogs.index', compact('blogs'));
     } // end of index
 

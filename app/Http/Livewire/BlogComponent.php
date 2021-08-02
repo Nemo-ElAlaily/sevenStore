@@ -10,7 +10,7 @@ class BlogComponent extends Component
 {
     public function render()
     {
-        $blogs = Blog::paginate(FRONT_PAGINATION_COUNT);
+        $blogs = Blog::with('tags')->paginate(FRONT_PAGINATION_COUNT);
         return view('themes.' . SiteSetting::find(1) -> theme -> name. '.livewire.blog-component', compact('blogs'))->layout('themes.' . SiteSetting::find(1) -> theme -> name. '.layouts.app');
     }
 }

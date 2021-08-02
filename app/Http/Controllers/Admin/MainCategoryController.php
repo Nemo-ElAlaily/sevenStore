@@ -224,6 +224,7 @@ class MainCategoryController extends Controller
                 Storage::disk('public_uploads')->delete('/main_categories/' . $main_category -> image);
             } // end of inner if
 
+            $main_category -> deleteTranslations();
             $main_category -> delete();
 
             session()->flash('success', trans('validation.Deleted Successfully'));

@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Pages\PageCreateRequest;
 use App\Http\Requests\Pages\PageUpdateRequest;
 use App\Models\Pages\Page;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
 {
@@ -55,6 +57,21 @@ class PageController extends Controller
 
         $request_data = $request->except(['_token', '_method']);
 
+        $image_path = "";
+        if($request -> image){
+            $image_path = uploadImage('uploads/pages/images/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
+            $request_data['image'] = Carbon::now() -> year . '/' . Carbon::now() -> month . '/' . $image_path;
+        } else {
+            $request_data['image'] = 'default.png';
+        }
+
+        $banner = "";
+        if($request -> banner){
+            $banner = uploadImage('uploads/pages/banners/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> banner);
+            $request_data['banner'] = Carbon::now() -> year . '/' . Carbon::now() -> month . '/' . $banner;
+        } else {
+            $request_data['banner'] = 'default.png';
+        }
 
         if($request_data['en']['title'] == 'admin' || $request_data['en']['slug'] == 'admin'){
             session()->flash('error', 'Page Title or Slug Can\'t be "admin"');
@@ -102,6 +119,31 @@ class PageController extends Controller
         }
 
         $request_data = $request->except(['_token', '_method']);
+
+        $imagePath = "";
+        if($request -> image){
+            if ($page -> image != 'default.png') {
+                Storage::disk('public_uploads')->delete('/pages/images/' . $page -> image);
+                $image_path = uploadImage('uploads/pages/images/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
+                $request_data['image'] = Carbon::now() -> year . '/' . Carbon::now() -> month . '/' . $image_path;
+            } // end of inner if
+
+        } else {
+            $request_data['image'] = $page -> image;
+        }// end of outer if
+
+        $banner = "";
+        if($request -> banner){
+            if ($page -> banner != 'default.png') {
+                Storage::disk('public_uploads')->delete('/pages/banners/' . $page -> banner);
+                $banner = uploadImage('uploads/pages/images/' . Carbon::now() -> year . '/' . Carbon::now() -> month . '/' ,  $request -> image);
+                $request_data['banner'] = Carbon::now() -> year . '/' . Carbon::now() -> month . '/' . $banner;
+            } // end of inner if
+
+        } else {
+            $request_data['banner'] = $page -> banner;
+        }// end of outer if
+
         $page -> update($request_data);
 
         session()->flash('success', trans('validation.Updated Successfully'));
@@ -112,6 +154,15 @@ class PageController extends Controller
     public function destroy($id)
     {
         $page = Page::find($id);
+
+        if ($page -> image != 'default.png') {
+            Storage::disk('public_uploads')->delete('pages/images/' . $page -> image);
+        }
+
+        if ($page -> banner != 'default.png') {
+            Storage::disk('public_uploads')->delete('pages/banners/' . $page -> banner);
+        }
+
         $page->deleteTranslations();
         $page->delete();
 

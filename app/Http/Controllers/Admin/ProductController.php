@@ -229,6 +229,7 @@ class ProductController extends Controller
                 Storage::disk('public_uploads')->delete('products/' . $product -> image);
             } // end of inner if
 
+            $product -> deleteTranslations();
             $product -> delete();
 
             session()->flash('success', trans('validation.Deleted Successfully'));

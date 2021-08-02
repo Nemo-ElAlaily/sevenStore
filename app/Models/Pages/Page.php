@@ -15,6 +15,12 @@ class Page extends Model
     public $translatedAttributes = ['title', 'content', 'slug', 'meta_title', 'meta_keywords', 'meta_description', 'meta_slug'];
     protected $guarded = [];
 
+
+    protected $appends = [
+        'image_path', 'banner_path',
+    ];
+
+
     public function getTitleAttribute($value)
     {
         return ucfirst($value);
@@ -30,4 +36,13 @@ class Page extends Model
         return $this -> is_active == 1 ? 'Active' : 'Not Active';
     } // end fo get Active
 
+    public function getImagePathAttribute()
+    {
+        return asset('uploads/pages/images/' . $this -> image );
+    } // end of image path
+
+    public function getBannerPathAttribute()
+    {
+        return asset('uploads/pages/banners/' . $this -> banner );
+    } // end of image path
 } // end of model
