@@ -66,7 +66,7 @@
                                             <br />
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control input-thick" type="text" name="{{ $locale }}[name]"
+                                        <input class="form-control form-control-solid" type="text" name="{{ $locale }}[name]"
                                             value="{{ $product->translate($locale)->name }}">
                                     </div>
     
@@ -112,7 +112,7 @@
                                         @error('stock')
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control input-thick" type="number" name="stock"
+                                        <input class="form-control form-control-solid" type="number" name="stock"
                                             value="{{ $product->stock }}">
                                     </div>
         
@@ -121,7 +121,7 @@
                                         @error('regular_price')
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control input-thick" type="text" name="regular_price"
+                                        <input class="form-control form-control-solid" type="text" name="regular_price"
                                             value="{{ $product->regular_price }}">
                                     </div>
         
@@ -130,7 +130,7 @@
                                         @error('sku')
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control input-thick" type="text" name="sku"
+                                        <input class="form-control form-control-solid" type="text" name="sku"
                                             value="{{ $product->sku }}">
                                     </div>
         
@@ -139,7 +139,7 @@
                                         @error('sale_price')
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <input class="form-control input-thick" type="text" name="sale_price"
+                                        <input class="form-control form-control-solid" type="text" name="sale_price"
                                             value="{{ $product->sale_price }}">
                                     </div>
                                     <div class="form-group col-sm-12 col-md-12">

@@ -15,14 +15,14 @@
 
                 <div class="row">
 
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <input type="text" name="search" class="form-control" placeholder="{{ trans('site.Search Here') }}..."
                             value="{{ request()->search }}">
                     </div>
 
-                    <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
-                        <a href="{{ route('admin.tags.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> {{ trans('site.add') . ' ' . trans('site.Tag') }}</a>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-square btn-outline-primary btn-sm"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
+                        <a href="{{ route('admin.tags.create') }}" class="btn btn-square btn-outline-secondary btn-sm"><i class="fa fa-plus"></i> {{ trans('site.add') . ' ' . trans('site.Tag') }}</a>
 
                     </div>
 
@@ -33,7 +33,7 @@
 
         @include('admin.cuba.partials._session')
 
-        <div class="box-body bg-white mx-5 mt-3">
+        <div class="box-body bg-white mx-5 my-4">
 
             <table class="text-center pt-2 card-body table table-hover table-bordered">
                 @if ($tags->count() > 0)
@@ -54,7 +54,7 @@
                                 <td>{{ $tag->slug }}</td>
                                 <td>
                                     @if (auth()->user()->hasPermission('tags_update'))
-                                        <a href="{{ route('admin.tags.edit', $tag->id) }}" class="btn btnEdit btn-sm"><i
+                                        <a href="{{ route('admin.tags.edit', $tag->id) }}" class="btn btn-square btn-outline-light btn-sm txt-dark"><i
                                                 class="fa fa-edit fa-lg text-lg"></i></a>
                                     @endif
                                     @if (auth()->user()->hasPermission('tags_delete'))
@@ -62,7 +62,7 @@
                                             style="display: inline-block">
                                             {{ csrf_field() }}
                                             {{ method_field('delete') }}
-                                            <button type="button" class="btn btnDelete show_confirm btn-sm"><i
+                                            <button type="button" class="btn btn-square btn-outline-light btn-sm txt-dark"><i
                                                     class="fa fa-trash fa-lg text-lg"></i></button>
                                         </form><!-- end of form -->
                                         {{-- @else

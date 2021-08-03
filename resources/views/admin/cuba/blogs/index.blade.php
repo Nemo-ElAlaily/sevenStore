@@ -19,15 +19,15 @@
 
                 <div class="row mx-5">
 
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <input type="text" name="search" class="form-control"
                             placeholder="{{ trans('site.Search Here') }}..." value="{{ request()->search }}">
                     </div>
 
-                    <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i>
+                    <div class="col-md-6 p-0">
+                        <button type="submit" class="btn btn-square btn-outline-primary btn-sm"><i class="fa fa-search"></i>
                             {{ trans('site.Search') }}</button>
-                        <a href="{{ route('admin.blogs.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i>
+                        <a href="{{ route('admin.blogs.create') }}" class="btn btn-square btn-outline-secondary btn-sm"><i class="fa fa-plus"></i>
                             {{ trans('site.create') }} {{ trans('site.Blog') }}</a>
                     </div>
 

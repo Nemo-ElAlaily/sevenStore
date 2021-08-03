@@ -30,7 +30,7 @@
                             @error('first_name')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="text" placeholder="First Name" name="first_name" class="form-control form-control-sm input-sm"
+                            <input type="text" placeholder="First Name" name="first_name" class="form-control form-control-solid"
                                 value="{{ old('first_name') }}">
                         </div>
 
@@ -39,7 +39,7 @@
                             @error('last_name')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="text" placeholder="Last Name" name="last_name" class="form-control form-control-sm input-sm"
+                            <input type="text" placeholder="Last Name" name="last_name" class="form-control form-control-solid"
                                 value="{{ old('last_name') }}">
                         </div>
 
@@ -48,7 +48,7 @@
                             @error('email')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="email" name="email" placeholder="E-Mail" class="form-control form-control-sm input-sm"
+                            <input type="email" name="email" placeholder="E-Mail" class="form-control form-control-solid"
                                 value="{{ old('email') }}">
                         </div>
 
@@ -57,7 +57,7 @@
                             @error('password')
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
-                            <input type="password" placeholder="Password" name="password" class="form-control form-control-sm input-sm">
+                            <input type="password" placeholder="Password" name="password" class="form-control form-control-solid">
                         </div>
 
                         <div class="form-group forms col-sm-12 my-2 col-md-12 mb-3">
@@ -66,7 +66,7 @@
                                 <span class="text-danger mx-1">{{ $message }}</span>
                             @enderror
                             <input type="password" placeholder="Confirm Password" name="password_confirmation"
-                                class="form-control form-control-sm input-sm">
+                                class="form-control form-control-solid">
                         </div>
                         
                         </div>

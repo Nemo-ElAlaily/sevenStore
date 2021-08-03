@@ -41,22 +41,16 @@
                                     $color = array(
                                         'facebook' => '#3b5998',
                                         'twitter'=> '#1da1f2',
-                                        'whatsApp ' => '#25d366',
-                                        'linkedIn' => '#3b5998',
+                                        'linkedin' => '#3b5998',
                                         'pinterest'=> '#bd081c',
                                         'instagram'=> '#0a66c2',
                                         'youtube'=> '#c32aa3',
+                                        'whatsapp'=> '#128c7e'
                                          );
-                            // dd($color)
-                                ?>
-                                {{-- color{
-                                    facebook: '#3b5998',
-                                    twitter: '#1da1f2',
-                                    youtube: '#ff0000',
-                                    pinterest: '#bd081c',
-                                    linkedin: '#0a66c2',
-                                    instagram: '#c32aa3',
-                                } --}}
+                                         ?>
+                            
+                                
+                             
                                 @foreach ($socials as $index => $social)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
@@ -79,11 +73,6 @@
 
                                 @endforeach
 
-                                <div class="form-group mb-4">
-                                    <button type="submit" class="btn btnAdd"><i class="fa fa-edit"></i>
-                                        Update Social Links</button>
-                                </div>
-
                             </tbody>
 
                         @else
@@ -91,7 +80,10 @@
                         @endif
 
                     </table><!-- end of table -->
-
+                    <div class="form-group col-md-12 text-center my-4">
+                        <button type="submit" class="btn btn-square btn-outline-secondary btn-sm"><i class="fa fa-edit"></i>
+                            Update Social Links</button>
+                    </div>
                 </div>
             </div>
 

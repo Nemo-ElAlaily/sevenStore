@@ -10,19 +10,20 @@
     <div class="row">
         
     <div class="col-md-4">
-        <div class="">
-            <div class="bg-white border-radius p-4 mb-4 card-solid text-center">
-                <div class="form-group col-sm-12 col  text-md">
+        <div class="bg-white border-radius p-4 mb-4 card-solid text-center">
+                <div class="row">
+
+                <div class="form-group col-md-4">
                     <div class="form-check checkbox checkbox-solid-secondary">
                         <input class="" type="checkbox" class="custom-control-input" id="is_active"
                             name="is_active" checked>
-                        <label class="label-page" class="custom-control-label" for="is_active">{{ trans('site.Active ?') }}</label>
+                        <label class="" class="custom-control-label" for="is_active">{{ trans('site.Active ?') }}</label>
                     </div>
                     @error('is_active')
                         <span class="text-danger mx-1">{{ $message }}</span>
                     @enderror
                 </div>
-              <div class="col-md-6 m-auto text-center">
+              <div class="col-md-8 mt-2">
                 <ul class="nav nav-pills nav-info mt-3 " id="pills-infotab" role="tablist">
                     @foreach (config('translatable.locales') as $index => $locale)
                         <li class="nav-item">
@@ -75,7 +76,7 @@
                                                     <br />
                                                     <span class="text-danger mx-5">{{ $message }}</span>
                                                 @enderror
-                                                <input class="form-control input-thick" type="text" name="{{ $locale }}[title]"
+                                                <input class="form-control form-control-solid" type="text" name="{{ $locale }}[title]"
                                                     value="">
                                             </div>
                                         </div>
@@ -87,7 +88,7 @@
                                                 <br />
                                                 <span class="text-danger mx-5">{{ $message }}</span>
                                             @enderror
-                                            <input class="form-control input-thick" type="text" name="{{ $locale }}[slug]"
+                                            <input class="form-control form-control-solid" type="text" name="{{ $locale }}[slug]"
                                                 value="">
                                         </div>
                                         </div>
@@ -99,7 +100,7 @@
                                                     <br />
                                                     <span class="text-danger mx-5">{{ $message }}</span>
                                                 @enderror
-                                                <input class="form-control  p-2px input-thick  text-center" type="text"
+                                                <input class="form-control form-control-solid" type="text"
                                                     name="{{ $locale }}[meta_title]" value="">
                                             </div>
                                         </div>
@@ -113,7 +114,7 @@
                                                     <br />
                                                     <span class="text-danger mx-5">{{ $message }}</span>
                                                 @enderror
-                                                <input class="form-control  p-2px input-thick  text-center" type="text"
+                                                <input class="form-control  form-control-solid" type="text"
                                                     name="{{ $locale }}[meta_description]" value="">
                                             </div>
                                         </div>
@@ -126,7 +127,7 @@
                                                     <br />
                                                     <span class="text-danger mx-5">{{ $message }}</span>
                                                 @enderror
-                                                <input class="form-control  p-2px input-thick  text-center" type="text"
+                                                <input class="form-control form-control-solid" type="text"
                                                     name="{{ $locale }}[meta_keyword]" value="">
                                             </div>
                                         </div>
@@ -140,7 +141,7 @@
                                                     <br />
                                                     <span class="text-danger mx-5">{{ $message }}</span>
                                                 @enderror
-                                                <textarea class="form-control input-thick" cols="1" type="text"
+                                                <textarea class="form-control form-control-solid" cols="1" type="text"
                                                     name="{{ $locale }}[content]">
                                                     </textarea>
                                             </div>

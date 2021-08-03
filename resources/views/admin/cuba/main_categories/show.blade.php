@@ -17,19 +17,23 @@
 
 @section('content')
     <!-- Default box -->
-    <div class="card card-solid">
+    <div class="card-solid">
         <div class="card-body">
             <div class="row">
 
                 @include('admin.cuba.partials._errors')
                 <form class="col-12">
-                    <a href="{{ route('admin.main_categories.edit', $main_category->id) }}"
-                        class="btn btn-received  mb-4">
-                        <i class="fa fa-edit fa-lg"></i> Edit This Categories
-                    </a>
 
-                    <div class="show-category">
+                    <div class="show-category w-80">
+
+    
                         <div class="row">
+                            <div class="col-md-12 text-center m-auto">
+                                <a href="{{ route('admin.main_categories.edit', $main_category->id) }}"
+                                    class="btn btn-square btn-outline-primary btn-sm">
+                                    <i class="fa fa-edit fa-lg"></i> Edit This Categories
+                                </a>
+                            </div>
                             <div class="col-md-8">
 
                                 <div class="form-group col-sm-12 col-lg-12">

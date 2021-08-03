@@ -10,13 +10,14 @@
 
 @section('content')
 
-<div class="row">
+<div class="row mb-4">
     <div class="col-md-4">
         <div class="card">
-            <div class="card-body"> 
+            <div class="card-body p-2px"> 
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group col-sm-12 col-md-6 text-md">
+                    
+                    <div class="col-md-4">
+                        <div class="form-group text-md">
                             <div class="form-check checkbox checkbox-solid-primary">
                                 <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" @if ($main_category->is_active == 1) checked @endif>
                                 <label class="custom-control-label" for="is_active">{{ trans('site.Active ?') }}</label>
@@ -26,8 +27,8 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <ul class="nav nav-pills nav-primary mb-3" id="pills-infotab" role="tablist">
+                    <div class="col-md-8 mt-4">
+                        <ul class="nav nav-pills nav-primary" id="pills-infotab" role="tablist">
 
                             @foreach (config('translatable.locales') as $index => $locale)
                                 <li class="nav-item">
@@ -45,7 +46,7 @@
         </div>     
     </div>
     <div class="col-md-8">
-        <div class=" card-solid">
+        <div class=" card-solid w-80">
             <div class="card-body p-0">
                 <div class="row">
                     <div class="bg-white border-radius py-4">
@@ -62,22 +63,22 @@
                                         <div class="row tab-pane fade show {{ $index == 0 ? 'active' : '' }}" id="{{ $locale }}" role="tabpanel" aria-labelledby="{{ $locale }}-tab">
                                             <div class="row d-flex">
                                                 <div class="form-group col-md-6">
-                                                    <label class="create-category-label" for="{{ $locale }}[name]">{{ trans('site.Category name') }} @lang('site.' .
+                                                    <label class="label-page after" for="{{ $locale }}[name]">{{ trans('site.Category name') }} @lang('site.' .
                                                     $locale . '.in name')</label>
                                                     @error($locale . '.name')
                                                     <span class="text-danger mx-5">{{ $message }}</span>
                                                     @enderror
-                                                    <input class="form-control input-thick create-category-input" type="text"
+                                                    <input class="form-control form-control-solid" type="text"
                                                            name="{{ $locale }}[name]" value="{{ $main_category->translate($locale)->name }}">
                                                 </div>
         
                                                 <div class="form-group col-md-6">
-                                                    <label class="create-category-label" for="{{ $locale }}[slug]">{{ trans('site.slug') }} @lang('site.' .
+                                                    <label class="label-page after" for="{{ $locale }}[slug]">{{ trans('site.slug') }} @lang('site.' .
                                                     $locale . '.in name')</label>
                                                     @error($locale . '.slug')
                                                     <span class="text-danger mx-5">{{ $message }}</span>
                                                     @enderror
-                                                    <input class="form-control input-thick create-category-input " type="text"
+                                                    <input class="form-control form-control-solid" type="text"
                                                            name="{{ $locale }}[slug]" value="{{ $main_category->translate($locale)->slug }}">
                                                 </div>
                                             </div>
@@ -92,7 +93,7 @@
                                         @error('parent_id')
                                             <span class="text-danger mx-5">{{ $message }}</span>
                                         @enderror
-                                        <select name="parent_id" class="form-control select-css ">
+                                        <select name="parent_id" class="form-control form-select form-control-inverse">
                                             <option value="0">{{ trans('site.Is Parent') }}</option>
                                             @foreach ($all_categories as $item)
                                                 <option value="{{ $item->id }}" @if ($main_category->parent_id == $item->id) selected @endif>{{ $item->name }}</option>
@@ -114,7 +115,7 @@
                                         alt="{{ $main_category->slug }}">
                                 </div> {{-- end of form group image --}}
     
-                                <div class="form-group col-md-12 text-center mt-5">
+                                <div class="form-group col-md-6 text-center mb-2">
                                     <button type="submit" class="btn btn-pill btn-outline-secondary btn-sm"><i class="fa fa-edit"></i>
                                         {{ trans('site.update') }} {{ trans('site.Category') }}</button>
                                 </div>

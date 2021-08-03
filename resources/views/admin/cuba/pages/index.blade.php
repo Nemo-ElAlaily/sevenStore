@@ -19,14 +19,14 @@
 
                 <div class="row mx-5">
 
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <input type="text" name="search" class="form-control" placeholder="{{ trans('site.Search Here') }}..."
                             value="{{ request()->search }}">
                     </div>
 
-                    <div class="col-md-4 p-0">
-                        <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
-                        <a href="{{ route('admin.pages.create') }}" class="btn btnAdd"><i class="fa fa-plus"></i> {{ trans('site.add') }}
+                    <div class="col-md-6 p-0">
+                        <button type="submit" class="btn btn-square btn-outline-primary btn-sm"><i class="fa fa-search"></i> {{ trans('site.Search') }}</button>
+                        <a href="{{ route('admin.pages.create') }}" class="btn btn-square btn-outline-secondary btn-sm"><i class="fa fa-plus"></i> {{ trans('site.add') }}
                             {{ trans('site.Page') }}</a>
                     </div>
 
@@ -70,14 +70,14 @@
                                 <td>
 {{--                                    <a href="{{ route('admin.pages.show', $page->id) }}" class="btn btnShow  btn-sm"><i--}}
 {{--                                            class="fa fa-eye fa-lg text-lg"></i></a>--}}
-                                    <a href="{{ route('admin.pages.edit', $page->id) }}" class="btn btnEdit btn-sm"><i
-                                            class="fa fa-edit fa-lg text-lg"></i></a>
+                                    <a href="{{ route('admin.pages.edit', $page->id) }}" class="btn btn-square btn-outline-light btn-sm txt-dark"><i
+                                            class="fa fa-edit"></i></a>
                                     <form action="{{ route('admin.pages.destroy', $page->id) }}" method="post"
                                         style="display: inline-block">
                                         {{ csrf_field() }}
                                         {{ method_field('delete') }}
-                                        <button type="button" class="btn btnDelete show_confirm btn-sm"><i
-                                                class="fa fa-trash fa-lg text-lg"></i></button>
+                                        <button type="button" class="btn btn-square btn-outline-light btn-sm txt-dark"><i
+                                                class="fa fa-trash"></i></button>
                                     </form><!-- end of form -->
                                 </td>
                             </tr>
