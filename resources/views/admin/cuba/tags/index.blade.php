@@ -62,7 +62,7 @@
                                             style="display: inline-block">
                                             {{ csrf_field() }}
                                             {{ method_field('delete') }}
-                                            <button type="button" class="btn btn-square btn-outline-light btn-sm txt-dark"><i
+                                            <button type="button" class="show_confirm btn btn-square btn-outline-light btn-sm txt-dark"><i
                                                     class="fa fa-trash fa-lg text-lg"></i></button>
                                         </form><!-- end of form -->
                                         {{-- @else

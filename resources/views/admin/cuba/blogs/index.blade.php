@@ -41,58 +41,51 @@
 
         <div class="box-body bg-white mx-5 mt-3">
 
-            <!-- Start Blog -->
+            <table class="text-center pt-2 card-body table table-hover table-bordered">
+                @if ($blogs->count() > 0)
 
-            @if ($blogs->count() > 0)
-                <section class="blog section" id="blog">
-                    <div class="container">
-                        <div class="row">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>{{ trans('site.FullName') }}</th>
+                    <th>{{ trans('site.description') }}</th>
+                    <th>{{ trans('site.Blog Status') }}</th>
+                    <th>{{ trans('site.Action') }}</th>
+                </tr>
+            </thead>
+
+            <tbody>
                             @foreach ($blogs as $index => $blog)
-                                <div class="col-xs-12 col-md-6 col-lg-4">
-                                    <div class="blog-item padd-15">
-                                        <div class="blog-item-inner shadow-dark">
-                                            <div class="blog-img">
-                                                <img src="{{ $blog->image_path }}" alt="Blog">
-                                                <div class="blog-date">
-                                                    {{ $index + 1 }}
-                                                </div>
-                                            </div>
-                                            <div class="blog-info">
-                                                <h4 class="blog-title">{{ $blog->user->full_name }}</h4>
-                                                <p class="blog-description">{{ $blog->title }}</p>
-                                                <p class="blog-tags">{{ trans('site.Blog Status') }} : <a href="#">
-                                                        {{ trans('site.' . $blog->getActive()) }}</a></p>
+                            <tr>
+                                
+                                <td><img class="avatar-user-all" src="{{ $blog->image_path }}" alt="Blog"></td>
+                                <td class="user-td-name"> {{ $blog->user->full_name }}</td>
+                            <td class="user-td-title">{{ $blog->title }}</td>
+                                <td class="user-td-links" ><a href="#">{{ trans('site.' . $blog->getActive()) }}</a>
+                                </td>
 
-                                                <div class="blog-btns-actions">
-                                                    <a href="{{ route('admin.blogs.show', $blog->id) }}"
-                                                        class="btn btnShow  btn-sm"><i
-                                                            class="fa fa-eye fa-lg text-lg"></i></a>
-                                                    <a href="{{ route('admin.blogs.edit', $blog->id) }}"
-                                                        class="btn btnEdit btn-sm"><i
-                                                            class="fa fa-edit fa-lg text-lg"></i></a>
-                                                    <form action="{{ route('admin.blogs.destroy', $blog->id) }}"
-                                                        method="post" style="display: inline-block">
-                                                        {{ csrf_field() }}
-                                                        {{ method_field('delete') }}
-                                                        <button type="button" class="btn btnDelete show_confirm btn-sm"><i
-                                                                class="fa fa-trash fa-lg text-lg"></i></button>
-                                                    </form><!-- end of form -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
+                                <td class="user-td-btns">
+                                    <a href="{{ route('admin.blogs.show', $blog->id) }}"
+                                        class="btn btn-pill btn-outline-light-2x txt-dark  btn-sm"><i
+                                            class="fa fa-eye fa-lg text-lg"></i></a>
+                                    <a href="{{ route('admin.blogs.edit', $blog->id) }}"
+                                        class="btn btn-pill btn-outline-light-2x txt-dark btn-sm"><i
+                                            class="fa fa-edit fa-lg text-lg"></i></a>
+                                    <form action="{{ route('admin.blogs.destroy', $blog->id) }}"
+                                        method="post" style="display: inline-block">
+                                        {{ csrf_field() }}
+                                        {{ method_field('delete') }}
+                                        <button type="button" class="btn btn-pill btn-outline-light-2x txt-dark show_confirm btn-sm"><i
+                                                class="fa fa-trash fa-lg text-lg"></i></button>
+                                    </form><!-- end of form -->
+                                </td>
+                            </tr>
                             @endforeach
-                        </div>
-                    </div>
-                </section>
+                        </tbody>
             @else
                 <h2 class="mt-5 text-center pt-2">{{ trans('site.No Data Found') }}</h2>
             @endif
-
+        </table>
         </div><!-- end of box body -->
 
         <div class="container">

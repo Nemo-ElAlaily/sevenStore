@@ -45,7 +45,7 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">                                          
-                                           <label class="label-page" for="{{ $locale }}> Title in @lang('site.' . $locale .'.site_settings')</label>
+                                           <label class="" for="{{ $locale }}> Title in @lang('site.' . $locale .'.site_settings')</label>
                                               
                                                 <input class="form-control text-center" placeholder="Title in @lang('site.' .
                                                 $locale .
@@ -58,7 +58,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                        <label  class="label-page" for="{{ $locale }}>
+                                        <label  class="" for="{{ $locale }}>
                                         
                                             Welcome Phrase in
                                                 @lang('site.' . $locale .

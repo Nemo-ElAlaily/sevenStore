@@ -29,11 +29,11 @@
 
                                             <div class="dokan-w6 dokan-dash-right">
                                                 <div class="dashboard-widget sells-graph">
-                                                    <div class="widget-title"><i class="fa fa-credit-card"></i> Sales
+                                                    <div class="widget-title text-center"><i class="fa fa-credit-card"></i> Sales
                                                         this Month</div>
                                                     <div class="chart-container">
                                                         <div class="chart-placeholder main"
-                                                            style="width: 100%; height: 350px; padding: 0px; position: relative;">
+                                                            style="width: 100%; height: 200px; padding: 0px; position: relative;">
                                                             <div class="flot-text"
                                                                 style="position: absolute; inset: 0px; font-size: smaller; color: rgb(84, 84, 84);">
                                                                 <div class="flot-x-axis flot-x1-axis xAxis x1Axis"
@@ -46,7 +46,7 @@
                                                                     style="position: absolute; width: 251.844px; height: 84px; top: 17px; left: 25px; background-color: rgb(255, 255, 255); opacity: 0.85;">
                                                                 </div>
                                                                 <table
-                                                                    style="position:absolute;top:17px;left:25px;;font-size:smaller;color:#aaa">
+                                                                    style="position:absolute;top:17px;font-size:smaller;color:#aaa">
                                                                     <tbody>
                                                                         <tr>
                                                                             <td class="legendColorBox">
@@ -75,12 +75,51 @@
                                                                 </table>
                                                             </div>
                                                         </div>
+                                                        
                                                     </div>
 
                                                 </div>
                                             </div>
+                                            <div class="dashboard-widget products">
+                                                <div class="widget-title text-center">
+                                                    <i class="fa fa-briefcase" aria-hidden="true"></i> Products
+                                                    <span class="pull-right">
+                                                        <a href="#">+ Add new product</a>
+                                                    </span>
+                                                </div>
+                                                <ul class="list-unstyled list-count">
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="title">Total</span> <span
+                                                                class="count">10</span>
+                                                            <div class="clearfix"></div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="title">Live</span> <span class="count">7</span>
+                                                            <div class="clearfix"></div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="title">Offline</span> <span
+                                                                class="count">3</span>
+                                                            <div class="clearfix"></div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="title">Pending Review</span> <span
+                                                                class="count">0</span>
+                                                            <div class="clearfix"></div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
 
                                         </div>
+
                                         <div class="col-md-7">
                                             <ul class="list-inline">
                                                 <li>
@@ -107,7 +146,7 @@
                                                 </li>
                                             </ul>
                                             <div class="dashboard-widget orders">
-                                                <div class="widget-title"><i class="fa fa-shopping-cart"></i> Orders
+                                                <div class="widget-title text-center text-center"><i class="fa fa-shopping-cart"></i> Orders
                                                 </div>
                                                 <div class="content-half-part">
                                                     <ul class="list-unstyled list-count">
@@ -179,43 +218,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="dashboard-widget products">
-                                                <div class="widget-title">
-                                                    <i class="fa fa-briefcase" aria-hidden="true"></i> Products
-                                                    <span class="pull-right">
-                                                        <a href="#">+ Add new product</a>
-                                                    </span>
-                                                </div>
-                                                <ul class="list-unstyled list-count">
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="title">Total</span> <span
-                                                                class="count">10</span>
-                                                            <div class="clearfix"></div>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="title">Live</span> <span class="count">7</span>
-                                                            <div class="clearfix"></div>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="title">Offline</span> <span
-                                                                class="count">3</span>
-                                                            <div class="clearfix"></div>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="title">Pending Review</span> <span
-                                                                class="count">0</span>
-                                                            <div class="clearfix"></div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </div>
 
                                         </div>

@@ -232,7 +232,8 @@ table {
     padding: 0.75rem;
     line-height: 1.5;
     vertical-align: top;
-    border-top: 1px solid #eceeef; }
+    border-top: 1px solid #eceeef;
+    }
   table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #eceeef; }
@@ -1910,8 +1911,8 @@ ul.products > li.product.list-view, .section-onsale-product ul.products > .list-
   ul.products > li.product.list-view .product-rating, .section-onsale-product ul.products > .list-view.onsale-product .product-rating, .section-onsale-product-carousel .onsale-product-carousel .onsale-product ul.products > .list-view.onsale-product-content .product-rating, .products-carousel .owl-item ul.products > .list-view.product .product-rating {
     margin-bottom: 1em; }
   ul.products > li.product.list-view .product-short-description, .section-onsale-product ul.products > .list-view.onsale-product .product-short-description, .section-onsale-product-carousel .onsale-product-carousel .onsale-product ul.products > .list-view.onsale-product-content .product-short-description, .products-carousel .owl-item ul.products > .list-view.product .product-short-description {
-    height: 5.25em;
-    font-size: 0.929em; }
+    font-size: 0.929em;
+    }
   ul.products > li.product.list-view .price, .section-onsale-product ul.products > .list-view.onsale-product .price, .section-onsale-product-carousel .onsale-product-carousel .onsale-product ul.products > .list-view.onsale-product-content .price, .products-carousel .owl-item ul.products > .list-view.product .price {
     margin-bottom: 0.714em;
     display: block; }
@@ -1979,8 +1980,8 @@ ul.products > li.product.list-view-small h3, .section-onsale-product ul.products
   margin-bottom: 0; }
 
 ul.products > li.product.list-view-small .product-short-description, .section-onsale-product ul.products > .list-view-small.onsale-product .product-short-description, .section-onsale-product-carousel .onsale-product-carousel .onsale-product ul.products > .list-view-small.onsale-product-content .product-short-description, .products-carousel .owl-item ul.products > .list-view-small.product .product-short-description {
-  height: 1.75em;
-  margin-bottom: 0.714em; }
+  margin-bottom: 0.714em;
+  }
 
 ul.products > li.product.list-view-small .product-rating, .section-onsale-product ul.products > .list-view-small.onsale-product .product-rating, .section-onsale-product-carousel .onsale-product-carousel .onsale-product ul.products > .list-view-small.onsale-product-content .product-rating, .products-carousel .owl-item ul.products > .list-view-small.product .product-rating {
   line-height: 1;
@@ -10133,7 +10134,7 @@ h3.faq-title {
     padding-bottom: .4rem;
 }
 .u-header-collapse__nav{
-    padding-top: 130px;
+    padding-top: 136px;
 }
 .btnClose{
     position: fixed;
@@ -10173,30 +10174,32 @@ h3.faq-title {
 
 
 .dokan-dash-sidebar{
-        background-color: #333;
-        color: #fff;
-        padding: 10px 0;
-        width: 200px;
+        background-color: #ffffff;
+        border: 1px solid #cfcfcf;
+        /* padding: 10px 0; */
+        width: 100%;
 }
 .dokan-dashboard-menu  li{
         list-style: none;
         padding: 20px;
         border-bottom: 1px solid #eee;
         text-align: left;
+        position: relative;
 }
 .dokan-dashboard-menu {
         padding: 0;
 }
 .dokan-dashboard-menu  li a{
-        color: #fff;
+        color: #b9b5b5;
         font-size: 16px;
         font-weight: 600;
         font-family: monospace;
-        position: relative;
+        /* position: relative; */
 }
 .dokan-dashboard-menu  li a i{
-        position: relative;
-        right: -122px;
+        position: absolute;
+        right: 15px;
+        top: 50%;
     }
 .dokan-dashboard-menu  li a:hover{
         text-decoration: none;
@@ -10208,9 +10211,8 @@ h3.faq-title {
 }
 
 .dokan-dashboard-menu  li:hover{
-        background-color: #ea1b25;
+        background-color: #f8f8f8;
         cursor: pointer;
-
 }
 
 .linksUsers{
@@ -10269,7 +10271,7 @@ h3.faq-title {
 .dashboard-widget .widget-title{
         padding: 5px;
         border: 1px solid #d8d8d8;
-        text-align: right;
+        /* text-align: right; */
 }
 
 .content-half-part .title,.dashboard-widget ul li .title{
